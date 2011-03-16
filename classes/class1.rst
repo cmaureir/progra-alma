@@ -11,29 +11,29 @@ Data types
 .. _Python standard data types official documentation: http://docs.python.org/library/stdtypes.html
 
 A **data type** is the property of a value
-that determine their domain (possible values),
-what operations can be applied
-and how is represented inside the computer.
+that determine its domain (possible values),
+what operations can be applied to it
+and how it is represented inside the computer.
 
 All the values inside a program have a type.
 
 Following we will review the Python elemental data types.
-Also, there are several another types,
-and later we will learn to create out own data types.
+Also, we will learn several other types available in Python
+and, later, we will learn to create our own data types.
 
 Integers
 --------
 .. index:: integer number, int
 
 The **int** type (from the word «integer»)
-allow the representation of the integer numbers.
+allows the representation of integer numbers.
 
-The values that can take an ``int`` are
+The values that an ``int`` can take are
 all the integer numbers:
 ... ``-3``, ``-2``, ``-1``, ``0``, ``1``, ``2``, ``3``, ...
 
-The literal integer numbers writes with an optional sign
-following by a digits sequence::
+The literal integer numbers are written with an optional sign
+following by a sequence of digits::
 
    1570
    +4591
@@ -47,13 +47,13 @@ Reals
 The **float** type allow to represent real numbers.
 
 The name ``float`` comes from the term `floating point`_,
-that is the way of the computer to represent internally
-the real numbers.
+which is an internal representation of real numbers in a
+computer.
 
 .. _floating point: http://en.wikipedia.org/wiki/Floating_point
 
-We need to be carefully,
-because the real numbers cannot be represented
+We need to be careful,
+because real numbers cannot be represented
 exactly by a computer.
 For example,
 the decimal number 0.7
@@ -66,11 +66,10 @@ This can produce surprising results::
     >>> 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7
     0.9999999999999998
 
-The literal real numbers
-writes splitting the decimal and integer part
-with a point.
-The integer and decimal parts can be omitted
-if some of them is zero::
+Literal real numbers are written splitting the decimal
+and integer part with a point.
+Either the integer or decimal part can be omitted
+if one of them is zero::
 
     >>> 881.9843000
     881.9843
@@ -84,9 +83,9 @@ if some of them is zero::
 
 .. index:: scientific notation
 
-Others representations is the scientific notation,
-in which is written a factor and a power of ten
-separated by a letter  ``e``.  For example:
+Other representation is the scientific notation,
+in which the number is written with a factor and a power 
+of ten separated by the letter  ``e``.  For example:
 
     >>> -2.45E4
     -24500.0
@@ -115,17 +114,17 @@ represent text and have the **str** type.
 
 The literal strings
 can be represented
-with text between simple and doubles quotes::
+with text between simple or double quotes::
 
    "example 1"
    'example 2'
 
 The advantage of having two kinds of quotes
 is that we can use one of them when the other
-appear like a text part::
+appears in the text::
 
     "Let's go!"
-    'She says "hello"'
+    'She said "hello"'
 
 .. Los operadores aritméticos no pueden ser aplicadas sobre strings,
 .. salvo dos excepciones:
@@ -172,17 +171,17 @@ appear like a text part::
 ..     cuadrado = n * n
 ..     print('El cuadrado de n es', cuadrado)
 
-Is important to understand that the strings
-are not the same that the values inside
-the self representation::
+It is important to understand that strings
+are not the same as the values that can be represented 
+inside them::
 
    >>> 5 == '5'
    False
    >>> True == 'True'
    False
 
-The strings with lower and upper case differences,
-or with blank spaces are not the same::
+The strings with lower and upper case differences 
+(case sensitive), or with blank spaces are not the same::
 
    >>> 'table' == 'Table'
    False
@@ -196,16 +195,15 @@ Boolean
 .. index:: bool, logic value, boolean value
 
 The logic values ``True`` and ``False``
-are of **bool** type, that represent logic values.
+are of **bool** type, which represents logic values.
 
 The name ``bool`` comes from the mathematician `George Boole`_,
-who create an algebraic system to the binary logic.
+who created an algebraic system for binary logic.
 For this reason,
-the ``True`` and ``False`` values also are called
+the ``True`` and ``False`` values are also called
 **boolean values**.
-The name is not very clear,
-but is very used in different sciences,
-so we need to know.
+The name is not very intuitive, but we need to know it because
+it is widely used in different areas of science.
 
 .. _George Boole: http://en.wikipedia.org/wiki/George_Boole
 
@@ -235,13 +233,13 @@ None
 
 There is a value called  **None**
 which is used to represent cases
-where no value is valid,
-or to indicate that a variable has not a values
-that makes sense.
+where no value is valid
+or to indicate that the current value of a
+variable does not make sense.
 
 The ``None`` value has its own type,
 called ``NoneType``,
-that is different to all others.
+which is different to all other values.
 
 .. Conversión de tipos
 .. -------------------
@@ -314,41 +312,40 @@ Input
 .. index:: input (program)
 
 The **input** is the program part
-in which the user enter data.
+in which the user enters data.
 
 .. index:: raw_input
 
-The most simplest way to enter data
-is doing it throught the keyboard.
+The simplest way to enter data
+is doing it through the keyboard.
 The ``raw_input(message)`` function
-ask to the user to enter a value
+asks the user to enter a value
 that can be assigned to a variable
 to be used by the program.
 The ``message`` is to be displayed to the user
-before that he enter the value.
+before that he enters a value.
 
-The entered value by the user
-always is interpreted as text,
-so is of ``str`` type.
-If is necessary use like other type,
-we need to explicit converting.
+The input value provided by the user
+is always interpreted as text
+as a value of type ``str``.
+If a different type is required,
+we need to convert it explicitly.
 
 For example,
-in the temperatures conversion program,
-the input is do it by the sentence::
+in the temperature conversion program,
+the input is converted with the sentence::
 
     f = float(raw_input('Enter temperature in Fahrenheit degrees: '))
 
-When the program comes to this line,
+When the program gets to this line,
 the message ``Enter temperature in Fahrenheit degrees:``
-is showed to the user,
-that must enter a value,
-being converted into a real number
-and associated to the ``f`` name.
+is shown to the user that must enter a value,
+which is converted into a real number
+and associated to the name ``f``.
 
 From that line onward,
 the ``f`` variable can be used by the program
-to refer to the enter value.
+to refer to the entered value.
 
 Output
 ------
@@ -360,33 +357,29 @@ in which the results are delivered to the user.
 
 .. index:: print
 
-The simplest way to delivered the output
+The simplest way to deliver the output
 is showing text on the screen.
 In Python, the program output is performed by the
 **print** sentence.
 
-If is desired print a simple text,
+If printing simple text is desired,
 the syntax is as follows::
 
     print value_to_print
 
-If the values to print are many,
-must be put separating it with commas.
-For example,
-the temperature conversion program
+If there are several values to print,
+they should be separated with commas.
+For example the temperature conversion program
 has the following output sentence::
 
     print 'The Celsius degrees equivalent is:', c
 
-In this case,
-is being printing the message ``The Celsius degrees equivalent is:``
-and next, in the same line,
-the value of the ``c`` variable. 
+In this case, the message ``The Celsius degrees equivalent is:``
+is being printed and, after that, in the same line,
+the value of the variable ``c``.
 
-The quotes just allow to represent in the code a string,
-and are not of string.
-When printing the string using ``print``
-the quotes do not appear::
+The quotation marks allow to represent a string but are not part of it.
+When printing the string using ``print`` the quotation marks do not appear::
 
     >>> 'Hello'
     'Hello'
@@ -397,11 +390,11 @@ Comments
 --------
 .. index:: comments, #
 
-A **comment** is a code section
+A **comment** is a section of code
 that is ignored by the interpreter.
 A comment can be used by the programmer
-to place some messages inside the code
-that can be useful to someone that need to read it
+to place messages in the code that can be useful
+to someone that needs to read the code
 in the future.
 
 In Python,
@@ -413,7 +406,7 @@ is a comment::
     >>> # This is ignored
     >>>
 
-The exception are the ``#`` signs that appear in a string::
+The only exception are the ``#`` signs that appear in a string::
 
     >>> "123 # 456" # 789
     '123 # 456'
