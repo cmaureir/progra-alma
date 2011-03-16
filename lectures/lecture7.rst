@@ -1,5 +1,5 @@
-Class 7
-=======
+Lecture 7
+=========
 
    * NumPy arrays
    * interactive matplotlib plots

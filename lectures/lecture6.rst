@@ -1,5 +1,5 @@
-Class 6
-=======
+Lecture 6
+=========
 
    * class creation
    * more on class creation
