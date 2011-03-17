@@ -1,5 +1,5 @@
-Class 5
-=======
+Lecture 5
+=========
 
    * advanced topics on functions
    * higher-order functions

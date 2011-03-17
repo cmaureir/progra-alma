@@ -1,5 +1,5 @@
-Class 4
-=======
+Lecture 4
+=========
 
    * use of modules
    * creation of modules

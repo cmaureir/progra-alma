@@ -1,5 +1,5 @@
-Class 3
-=======
+Lecture 3
+=========
 
    * lists
    * tuples
