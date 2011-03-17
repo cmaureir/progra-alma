@@ -1,18 +1,18 @@
-Class 2
-=======
+Lecture 2
+=========
 
 Script creation
 ---------------
 
 PENDING
 
-Control sentences
------------------
+Control statements
+------------------
 
-A program is a **sentence** succession
+A program is a **statement** succession
 being executed sequentially.
 
-For example, the following program has four sentences::
+For example, the following program has four statements::
 
     n = int(raw_input('Enter n: '))
     m = int(raw_input('Enter m: '))
@@ -22,38 +22,38 @@ For example, the following program has four sentences::
 The first three lines are assignments,
 and the last one is a function call.
 Running the program,
-each of these sentences is executed,
+each of these statements is executed,
 one after the other, once.
 
-.. index:: control sentence
+.. index:: control statement
 
-Besides the simple sentences,
+Besides the simple statements,
 which are sequentially executed,
-there are the **control sentences**
+there are the **control statements**
 allowing modify the program flow
-introducing cycles and conditionals.
+introducing loops and conditionals.
 
 .. index:: conditional
 
-A **conditional** is a sentence set
+A **conditional** is a statement set
 which can or can not execute,
 depending of a condition result.
 
-.. index:: cycle
+.. index:: loop
 
-A **cycle** is a sentence set
+A **loop** is a statement set
 which are executed several times,
 until one of the end condition was satisfied.
 
 .. index:: indentation
 
-The conditionals and the cycles
-contains other sentences.
+The conditionals and the loops
+contains other statements.
 To indicate this relation
 python use the **identation**:
-the contained sentences
+the contained statements
 are not writed in the same column
-that the control sentence,
+that the control statement,
 but more to the right::
 
     n = int(raw_input())
@@ -65,13 +65,13 @@ but more to the right::
     print m, n
 
 In this example, the three asignations are
-contained inside the ``if`` control sentence.
+contained inside the ``if`` control statement.
 The ``print m, n`` is not indented,
-so is not a part of the ``if`` sentence.
+so is not a part of the ``if`` statement.
 
-This program has four sentences,
-of which the third one is a control sentence,
-that contain the other three sentences.
+This program has four statements,
+of which the third one is a control statement,
+that contain the other three statements.
 
 To indent,
 we will use four spaces always.
@@ -80,7 +80,7 @@ if conditional
 ~~~~~~~~~~~~~~
 .. index:: if
 
-The **if** sentence
+The **if** statement
 execute the instrutions
 only if a condition is satisfied.
 Si la condición es falsa,
@@ -92,7 +92,7 @@ no se hace nada:
 The syntax is as follows::
 
     if condition:
-        sentences
+        statements
 
 For example,
 the following program congratulates someone
@@ -109,7 +109,7 @@ if-else conditional
 ~~~~~~~~~~~~~~~~~~~
 .. index:: if-else
 
-The **if-else** sentence
+The **if-else** statement
 decide what instructions execute
 depending if a condition is true or false:
 
@@ -144,7 +144,7 @@ depending if the input number is even or odd::
         print 'The next number is', n + 1
     print 'Ready'
 
-The last sentence is not indented,
+The last statement is not indented,
 so it is not a part of the conditional,
 and will be always executed.
 
@@ -152,7 +152,7 @@ if-else-elif conditional
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. index:: if-elif-else
 
-The **if-elif-else** sentence
+The **if-elif-else** statement
 depends on two or more conditions,
 which are evaluated in order.
 The first which is true
@@ -223,40 +223,39 @@ This way is less clear,
 because is not obvious at first look that
 only one of the conditions will be true.
 
-Cyclic flow
------------
+Loops
+-----
 
-while cycle
+while loop
 ~~~~~~~~~~~
 
 .. index:: while
 
-El ciclo **while**
-(«mientras»)
-ejecuta una secuencia de instrucciones
-mientras una condición sea verdadera:
+The **while** loop
+execute a intruction sequence
+while a condition is true:
 
 .. image:: ../diagrams/while.png
    :alt: (while flow diagram)
 
-.. index:: iteración
+.. index:: iteration
 
-Cada una de las veces que el cuerpo del ciclo es ejecutado
-se llama **iteración**.
+An **iteration**,
+is each time which the content of the loop is executed.
 
-La condición es evaluada antes de cada iteración.
-Si la condición es inicialmente falsa,
-el ciclo no se ejecutará ninguna vez.
+The condition is evaluated before each iteration.
+If the condition is initially false,
+the loop will not run ever.
 
-La sintaxis es la siguiente::
+the syntax is as follows::
 
-    while condición:
-        sentencias
+    while condition:
+        statements
 
-Por ejemplo,
-el siguiente programa
-multiplica dos números enteros
-sin usar el operador ``*``::
+For example,
+the next program
+multiply two integer numbers
+without using the ``*`` operator::
 
     m = int(raw_input())
     n = int(raw_input())
@@ -264,11 +263,11 @@ sin usar el operador ``*``::
     while m > 0:
         m = m - 1
         p = p + n
-    print 'El producto de m y n es', p
+    print 'The product between m and n is', p
 
-Para ver cómo funciona este programa,
-hagamos un ruteo con la entrada ``m`` = 4
-y ``n`` = 7:
+To see the functionallity of this program,
+les do a routing with the ``m`` = 4 and ``n`` = 7
+as input values:
 
    +-------+-------+-------+
    | ``p`` | ``m`` | ``n`` |
@@ -296,17 +295,17 @@ y ``n`` = 7:
    |    28 |       |       |
    +-------+-------+-------+
 
-En cada iteración,
-el valor de ``m`` decrece en 1.
-Cuando llega a 0,
-la condición del ``while`` deja de ser verdadera
-por lo que el ciclo termina.
-De este modo,
-se consigue que el resultado sea
-sumar ``m`` veces el valor de ``n``.
+In each iteration,
+the ``m`` value decrease once.
+When the value reaches the zero value,
+the ``while`` condition ceases being true
+so the loop ends.
+Thus,
+is achieved a result composed by
+the sum of ``m`` times the ``n`` value.
 
-Note que el ciclo no termina apenas el valor de ``m`` pasa a ser cero.
-La condición es evaluada una vez que la iteración completa ha terminado.
+Note that the loop do not finish exactly when ``m`` reaches zero value.
+The condition is evaluated once the entire iteration is finish.
 
 En general,
 el ciclo ``while`` se utiliza cuando no es posible saber de antemano
@@ -316,7 +315,7 @@ para que se termine.
 
 
 
-for cycle with counter
+for loop with counter
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. index:: for, variable de control
@@ -384,130 +383,126 @@ es posible hacer ciclos que van hacia atrás::
         print i
     print 'Feliz anno nuevo!'
 
-En general,
-el ciclo ``for`` con rango
-se usa cuando el número de iteraciones
-es conocido antes de entrar al ciclo.
-
+In gneral,
+the ``for`` loop with range
+is used when the iteration number is know
+before entering the loop.
 
 Functions
 ---------
 .. index:: function
 
-Supongamos que necesitamos escribir un programa
-que calcule el `número combinatorio`_ `C(m, n)`,
-definido como:
+Suppose we need write a program which caculate the
+`combinatorial number`_ `C(m, n)`,
+defined by:
 
 .. math::
 
     C(m, n) = \frac{m!}{(m - n)! n!},
 
-donde `n!` (el factorial_ de `n`)
-es el producto de los números enteros desde 1 hasta `n`:
+where `n!` (the `n` factorial_)
+is the product of the integer numbers from 1 to `n`:
 
 .. math::
 
     n! = 1\cdot 2\cdot\cdots\cdot(n - 1)\cdot n = \prod_{i=1}^n i
 
-.. _número combinatorio: http://es.wikipedia.org/wiki/Número_combinatorio
-.. _factorial: http://es.wikipedia.org/wiki/Factorial
+.. _combinatorial number: http://en.wikipedia.org/wiki/Binomial_coefficient
+.. _factorial: http://en.wikipedia.org/wiki/Factorial
 
-El código para calcular el factorial de un número entero `n`
-es sencillo::
+The code to compute the factorial of a integer number `n`.
+is simple::
 
     f = 1
     for i in range(1, n + 1):
         f *= i
 
-Sin embargo,
-para calcular el número combinatorio,
-hay que hacer lo mismo tres veces::
+However,
+to compute the combinatorial number,
+we need to do the same, three times::
 
     comb = 1
 
-    # multiplicar por m!
+    # multiply by m!
     f = 1
     for i in range(1, m + 1):
         f = f * i
     comb = comb * f
 
-    # dividir por (m - n)!
+    # divide by (m - n)!
     f = 1
     for i in range(1, m - n + 1):
         f = f * i
     comb = comb / f
 
-    # dividir por n!
+    # divide by n!
     f = 1
     for i in range(1, n + 1):
         f = f * i
     comb = comb / f
 
-La única diferencia entre los tres cálculos de factoriales
-es el valor de término de cada ciclo ``for``
-(``m``, ``m - n`` y ``n``, respectivamente).
+The only difference between the three factorial computations
+is the finish value of each ``for`` loop
+(``m``, ``m - n`` and ``n``, respectively).
 
-Escribir el mismo código varias veces es tedioso y propenso a errores.
-Además, el código resultante es mucho más dificil de entender,
-pues no es evidente a simple vista qué es lo que hace.
+Write the same code several times is a tedious process and error-prone.
+Also, the resulting code is much more harder to understand,
+it is no obvious at a glance what makes.
 
-Lo ideal sería que existiera una función llamada ``factorial``
-que hiciera el trabajo sucio, y que podamos usar de la siguiente manera::
+Ideally would be that there is a function called ``factorial``
+to make the dirty job, and we can use it as follows::
 
 
     factorial(m) / (factorial(m - n) * factorial(n))
 
-Ya vimos anteriormente que Python ofrece «de fábrica»
-algunas funciones, como ``int``, ``min`` y ``abs``.
-Ahora veremos cómo crear nuestras propias funciones.
+Previously, we saw that Python provides some functions,
+like ``int``, ``min`` and ``abs``.
+No we will see how to create our owns functions.
 
 Function details
 ~~~~~~~~~~~~~~~~
 .. index:: function details
 
-En programación,
-una **función** es una sección de un programa
-que calcula un valor
-de manera independiente al resto del programa.
+In programming,
+a **function** is a program section thar
+compute a value indepently to the rest of the program.
 
-.. index:: parámetro (de una función), resultado (de una función), valor de retorno
+.. index:: parameter (of a function), result (of a function), return value
 
-Una función tiene tres componentes importantes:
+A function has three important components:
 
-* los **parámetros**,
-  que son los valores que recibe la función como entrada;
-* el **código de la función**,
-  que son las operaciones que hace la función; y
-* el **resultado** (o **valor de retorno**),
-  que es el valor final que entrega la función.
+* **parameters**,
+  are the input values which receives a function;
+* **function code**,
+  are the operations which a function do; and
+* **result** (or **return value**),
+  are the final value given by a function.
 
-En escencia, una función es un mini programa.
-Sus tres componentes son análogos a
-la entrada, el proceso y la salida de un programa.
+In essence, una function is a little program.
+Their three component are analogs to the input,
+the process and the program output.
 
-En el ejemplo del factorial,
-el parámetro es el entero al que queremos calcularle el factorial,
-el código es el ciclo que hace las multiplicaciones,
-y el resultado es el valor calculado.
+In the factorial example,
+the parameter is the integer number which we want to compute the factorial,
+the code is the loop that makes the multiplications,
+and the result is the calculated value.
 
 Function definition
 ~~~~~~~~~~~~~~~~~~~
-Las funciones en Python son creadas mediante la sentencia ``def``::
+The Python functions are created through the ``def`` statement::
 
-    def nombre(parámetros):
-        # código de la función
+    def name(parameter):
+        # function code
 
-Los parámetros son variables
-en las que quedan almacenados los valores de entrada.
+The parameters are variables in which are stored the input values.
 
-La función contiene código igual al de cualquier programa.
-La diferencia es que, al terminar,
-debe entregar su resultado
-usando la sentencia ``return``.
+The function contains code equals to any program.
+The difference is that, when finished, must submit
+their results using a ``return`` statement.
 
-Por ejemplo,
-la función para calcular el factorial
-puede ser definida de la siguiente manera::
+For example,
+the function to compute the factorial
+could be defined as follows::
 
     def factorial(n):
         f = 1
@@ -515,14 +510,14 @@ puede ser definida de la siguiente manera::
             f *= i
         return f
 
-En este ejemplo,
-el resultado que entrega una llamada a la función
-es el valor que tiene la variable ``f``
-al llegar a la última línea de la función.
+In this example,
+the given result by the function call
+is the ``f`` variable value
+when reach the last line of the function.
 
-Una vez creada,
-la función puede ser usada como cualquier otra,
-todas las veces que sea necesario::
+Once created,
+the function can be used as any other,
+all the required times::
 
     >>> factorial(0)
     1
@@ -534,27 +529,27 @@ todas las veces que sea necesario::
     >>> factorial(n ** 2)
     362880
 
-.. index:: variable local
+.. index:: local variable
 
-Las variables que son creadas dentro de la función
-(incluyendo los parámetros y el resultado)
-se llaman **variables locales**,
-y sólo son visibles dentro de la función,
-no desde el resto del programa.
+Variables that are created inside the function
+(including result and parameter)
+are called **local variables**,
+and are visibles inside the function,
+not outside.
 
-.. index:: variable global
+.. index:: global variable
 
-Por otra parte,
-las variables creadas fuera de alguna función
-se llaman **variables globales**,
-y son visibles desde cualquier parte del programa.
-Sin embargo, su valor no puede ser modificado,
-ya que una asignación crearía una variable local
-del mismo nombre.
+Moreover,
+the created variables outside some function
+are called **global variables**,
+and are visibles in the entire program.
+However, their value can not be modified,
+because an assignation can produce a local variable
+with the same name.
 
-En el ejemplo, las variables locales son ``n``, ``f`` e ``i``.
-Una vez que la llamada a la función termina,
-estas variables dejan de existir::
+In the example, the local variables are ``n``, ``f`` e ``i``.
+Once the function call ends,
+these variables ceases to exist::
 
     >>> factorial(5)
     120
@@ -563,9 +558,9 @@ estas variables dejan de existir::
       File "<console>", line 1, in <module>
     NameError: name 'f' is not defined
 
-Después de definir la función ``factorial``,
-podemos crear otra función llamada ``comb``
-para calcular números combinatorios::
+After define the ``factorial`` function,
+we can create other function called ``comb``
+to compute the combinatorial numbers::
 
     def comb(m, n):
         fact_m = factorial(m)
@@ -574,45 +569,45 @@ para calcular números combinatorios::
         c = fact_m / (fact_n * fact_m_n)
         return c
 
-Esta función llama a ``factorial`` tres veces,
-y luego usa los resultados para calcular su resultado.
+The function calls ``factorial`` three times,
+and later use the results to compute its result.
 La misma función puede ser escrita también de forma más sucinta::
 
     def comb(m, n):
         return factorial(m) / (factorial(n) * factorial(m - n))
 
-El programa completo es el siguiente:
+The entire program is the follow:
 
 .. literalinclude:: ../_static/programs/combinatorios.py
 
-(Puede descargarlo aquí_).
+(You can download it here_).
 
-.. _aquí: ../_static/programs/combinatorios.py
+.. _here: ../_static/programs/combinatorios.py
 
-Note que, gracias al uso de las funciones,
-la parte principal del programa ahora tiene sólo cuatro líneas,
-y es mucho más fácil de entender.
+Note that, thnks to the functions use
+the main section of the programi has four lines,
+and the example is much easier to understand.
 
 Multiple return values
 ~~~~~~~~~~~~~~~~~~~~~~
-En Python, una función puede retornar más de un valor.
+In Python, a function can return more than one value.
 
-Por ejemplo,
-la siguiente función
-recibe una cantidad de segundos,
-y retorna el equivalente
+For example,
+the next function
+obtains an amount in seconds transformed into hours,
+minutes or the same seconds.
 en horas, minutos y segundos::
 
-    def convertir_segundos(segundos):
-        horas = segundos / (60 * 60)
-        minutos = (segundos / 60) % 60
-        segundos = segundos % 60
-        return horas, minutos, segundos
+    def convert_secs(secs):
+        hoour = secs / (60 * 60)
+        minutos = (secs / 60) % 60
+        secs = secs % 60
+        return hours, minutes and seconds.
 
-Al llamar la función,
-se puede asignar un nombre a cada uno de los valores retornados::
+Calling the function,
+we can assign a name to each one of the returned values::
 
-    >>> h, m, s = convertir_segundos(9814)
+    >>> h, m, s = convert_secs(9814)
     >>> h
     2
     >>> m
@@ -620,43 +615,43 @@ se puede asignar un nombre a cada uno de los valores retornados::
     >>> s
     34
 
-Técnicamente, la función está retornando una **tupla** de valores,
-un tipo de datos que veremos más adelante::
+Technicaly, the functon is returning a values **tuple**:
 
-    >>> convertir_segundos(9814)
+    >>> convert_secs(9814)
     (2, 43, 34)
 
 Functions returning anything
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Una función puede realizar acciones
-sin entregar necesariamente un resultado.
+A function can do several actions
+without delivering the result.
 
-Por ejemplo,
-si un programa necesita imprimir cierta información muchas veces,
-conviene encapsular esta acción en una función que haga los ``print`` ::
+For example,
+if a program needs to print several times some information,
+should encapsukate this action in a function that perform the ``print`` ::
 
-    def imprimir_datos(nombre, apellido, rol, dia, mes, anno):
-        print 'Nombre completo:', nombre, apellido
+    def data_print(name, lastname, rol, day, month, year):
+        print 'Name:', nombre, apellido
         print 'Rol:', rol
-        print 'Fecha de nacimiento:', dia, '/', mes, '/', anno
+        print 'Birth date:', day, '/', month, '/', year
 
-    imprimir_datos('Perico', 'Los Palotes', '201101001-1',  3, 1, 1993)
-    imprimir_datos('Yayita', 'Vinagre',     '201101002-2', 10, 9, 1992)
-    imprimir_datos('Fulano', 'De Tal',      '201101003-3', 14, 5, 1990)
+    data_print('Perico', 'Los Palotes', '201101001-1',  3, 1, 1993)
+    data_print('Yayita', 'Vinagre',     '201101002-2', 10, 9, 1992)
+    data_print('Fulano', 'De Tal',      '201101003-3', 14, 5, 1990)
 
-En este caso,
-cada llamada a la función ``imprimir_datos``
-muestra los datos en la pantalla, pero no entrega un resultado.
-Este tipo de funciones es conocido en programación
-como **procedimientos** o **subrutinas**,
-pero en Python son funciones como cualquier otra.
+In this case,
+each call to the ``imprimir_dato`` function
+shows the data through screen, but does not give some result.
+This function type is knowed in programming like
 
-Técnicamente, todas las funciones retornan valores.
-En el caso de las funciones que no tienen una sentencia ``return``,
-el valor de retorno siempre es ``None``.
-Pero como la llamada a la función no aparece en una asignación,
-el valor se pierde, y no tiene ningún efecto en el programa.
+**procedures** or **subroutines**,
+but in Python are simple functions.
+
+Technically, all the returning value are functions.
+In the case of do not have a ``return`` statement,
+the return value always is ``None``.
+But as the function call is not on an assignment,
+we lose the value, and there is no program effect.
 
 Assignment 2
 ------------
