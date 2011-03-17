@@ -1,8 +1,8 @@
-Expressions and variables
-=========================
+Class 1 
+=======
 
 Data types
-==========
+----------
 
 .. index:: Data types
 
@@ -22,7 +22,8 @@ Also, there are several another types,
 and later we will learn to create out own data types.
 
 Integers
---------
+~~~~~~~~
+
 .. index:: integer number, int
 
 The **int** type (from the word «integer»)
@@ -40,7 +41,7 @@ following by a digits sequence::
    -12
 
 Reals
-------
+~~~~~
 
 .. index:: real number, floating point number, float
 
@@ -106,7 +107,7 @@ are the same, respectively, to
 .. _Electron mass: http://en.wikipedia.org/wiki/Electron
 
 Strings
--------
+~~~~~~~
 
 .. index:: string, text data types, str
 
@@ -191,7 +192,7 @@ or with blank spaces are not the same::
 
 
 Boolean
---------
+~~~~~~~
 
 .. index:: bool, logic value, boolean value
 
@@ -229,7 +230,7 @@ so we need to know.
 
 
 None
-----
+~~~~
 
 .. index:: null type, None
 
@@ -302,14 +303,14 @@ that is different to all others.
 ..       6
 
 Input and output
-================
+----------------
 
 (`Python input and output official documentation`_)
 
 .. _Python input and output official documentation: http://docs.python.org/tutorial/inputoutput.html
 
 Input
------
+~~~~~
 
 .. index:: input (program)
 
@@ -351,7 +352,7 @@ the ``f`` variable can be used by the program
 to refer to the enter value.
 
 Output
-------
+~~~~~~
 
 .. index:: output (program)
 
@@ -394,7 +395,8 @@ the quotes do not appear::
     Hello
 
 Comments
---------
+~~~~~~~~
+
 .. index:: comments, #
 
 A **comment** is a code section
@@ -419,6 +421,6 @@ The exception are the ``#`` signs that appear in a string::
     '123 # 456'
 
 Assignment 1
-============
+------------
 
 PENDING

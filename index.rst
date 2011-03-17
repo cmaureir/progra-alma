@@ -7,7 +7,7 @@ Course description.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    classes/class1
    classes/class2
