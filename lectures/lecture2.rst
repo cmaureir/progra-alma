@@ -76,8 +76,8 @@ that contain the other three statements.
 To indent,
 we will use four spaces always.
 
-if conditional
-~~~~~~~~~~~~~~
+``if`` conditional
+~~~~~~~~~~~~~~~~~~~
 .. index:: if
 
 The **if** statement
@@ -105,8 +105,8 @@ thats approved the course::
 Execute this program,
 testing it several times with different values.
 
-if-else conditional
-~~~~~~~~~~~~~~~~~~~
+``if-else`` conditional
+~~~~~~~~~~~+~~~~~~~~~~~
 .. index:: if-else
 
 The **if-else** statement
@@ -148,8 +148,8 @@ The last statement is not indented,
 so it is not a part of the conditional,
 and will be always executed.
 
-if-else-elif conditional
-~~~~~~~~~~~~~~~~~~~~~~~~
+``if-else-elif`` conditional
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. index:: if-elif-else
 
 The **if-elif-else** statement
@@ -226,8 +226,8 @@ only one of the conditions will be true.
 Loops
 -----
 
-while loop
-~~~~~~~~~~~
+``while`` loop
+~~~~~~~~~~~~~~
 
 .. index:: while
 
@@ -315,8 +315,8 @@ para que se termine.
 
 
 
-for loop with counter
-~~~~~~~~~~~~~~~~~~~~~~
+``for`` loop with counter
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. index:: for, variable de control
 
@@ -588,8 +588,8 @@ Note that, thnks to the functions use
 the main section of the programi has four lines,
 and the example is much easier to understand.
 
-Multiple return values
-~~~~~~~~~~~~~~~~~~~~~~
+Multiple ``return`` values
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 In Python, a function can return more than one value.
 
 For example,
