@@ -18,7 +18,7 @@ In Windows, the program can be executed doing a double
 click above the file icon.
 
 To test this,
-download the quadratic.py_ file
+download the quadratic.py_ file,
 which allows to solve quadratic equations.
 
 .. _quadratic.py: ../_static/programs/quadratic.py
@@ -32,14 +32,14 @@ Therefore, it can be created or edited
 using any `text editor`_,
 like Notepad.
 
-What can not be used
+What cannot be used
 is a text processor,
 like Microsoft Word.
 
-Do the test:
+Try it:
 open the ``quadratic.py`` program
-with Notepad (or another editor)
-and you will see the content.
+with Notepad (or any other editor)
+and you will see its contents.
 
 .. _text file: http://en.wikipedia.org/wiki/Text_file
 .. _text editor: http://en.wikipedia.org/wiki/Text_editor
@@ -65,8 +65,8 @@ Python interpreter installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. index:: interpreter (installation)
 
-One thing is to edit the program and, another one, is to execute it.
-The **interpreter** must be installed to
+One thing is to edit the program and another one is to execute it.
+The **interpreter** must be installed in order to
 be able to execute the program using Python.
 
 You can find the installer list
@@ -77,12 +77,12 @@ and operating system.
 .. _Python download web: http://www.python.org/download/
 ..
 
-You must install the version **2.7.1**
-and not 3.1.3.
+You must install the version **2.7.1**,
+not 3.1.3.
 
 Do not use the ``x86-64`` installers
 unless you are sure that your computer
-has a 64 bits architecture.
+has a 64-bit architecture.
 
 Program execution
 ~~~~~~~~~~~~~~~~~
@@ -356,7 +356,7 @@ If one of the conditions, evaluated in order, is true,
 the below conditions are not evaluated.
 
 Another way to write the same program
-using only the ``if`` sentence is as follow::
+by using only the ``if`` statement is as follows::
 
 
     salary = int(raw_input('Enter salary: '))
@@ -371,7 +371,7 @@ using only the ``if`` sentence is as follow::
     print 'You must pay', rate * salary, 'of taxes'
 
 This way is less clear,
-because it is not obvious at first look that
+because it is not obvious at a first glance that
 only one of the conditions will be true and all 
 the conditions are evaluated.
 
@@ -392,12 +392,12 @@ while a condition is true:
 
 .. index:: iteration
 
-An **iteration** is defined as each time the content
-of a loop is executed.
+An **iteration** is defined as each of the times
+the body of a loop is executed.
 
-The condition is evaluated before each iteration.
+The condition is evaluated at the beginning of each iteration.
 If the condition is initially false,
-the loop will not run even once.
+the loop will not be executed even once.
 
 The syntax is as follows::
 
@@ -405,7 +405,7 @@ The syntax is as follows::
         statements
 
 For example,
-the next program
+the following program
 multiplies two integer numbers
 without using the ``*`` operator::
 
@@ -418,8 +418,8 @@ without using the ``*`` operator::
     print 'The product between m and n is', p
 
 To see the functionality of this program,
-lets do a routing with ``m`` = 4 and ``n`` = 7
-as input values:
+let's see what values do all its variables take
+when the input is ``m`` = 4 and ``n`` = 7:
 
    +-------+-------+-------+
    | ``p`` | ``m`` | ``n`` |
@@ -448,20 +448,20 @@ as input values:
    +-------+-------+-------+
 
 On each iteration
-the ``m`` value decrease once.
-When the value reaches zero,
-the ``while`` condition ceases being true
+the ``m`` value decreases by one.
+When it reaches zero,
+the condition ceases being true
 so the loop ends.
 Thus, a result composed by the sum of 
 ``m`` times the ``n`` value is achieved.
 
 Note that the loop does not finish exactly when ``m`` reaches zero.
-The condition is evaluated once the entire iteration is finish.
+The condition is evaluated once the entire iteration has finished.
 
 In general,
 the ``while`` loop is used when it is not possible to know in advance
 how many times the loop will executed,
-but the condition for the loop to finish.
+but the termination condition is known.
 
 
 ``for`` loop with counter
@@ -470,24 +470,24 @@ but the condition for the loop to finish.
 .. index:: for, control variable
 
 The **for loop with range**
-executes a sequence of sentences
+executes a sequence of statements
 a fixed number of times.
 
 To keep the count,
-use a **loop variable**
+it uses a **control variable**
 that takes a different value on each iteration.
 
-One of the syntaxes to use a ``for``
+One of the syntaxes for using a ``for``
 loop with range is the following::
 
-    for variable in range(fin):
-        what to do to each value of the control variable
+    for variable in range(end):
+        what to do for each value of the control variable
 
 In the first iteration,
-the control variable takes the 0 value.
+the control variable takes value 0.
 At the end of each iteration,
 the variable value increases automatically.
-The loop ends just before the variable takes the
+The loop ends just before the control variable takes the
 ``end`` value.
 
 For example,
@@ -500,8 +500,7 @@ from 0 to 20::
 .. index:: range
 
 A **range** is a equispaced integer number sequence.
-Including the presented previously,
-there are three ways to define a range::
+There are three ways to define a range::
 
     range(final)
     range(initial, final)
@@ -514,7 +513,7 @@ The increase shows the difference between two consecutive values in the range.
 If the initial value is omitted, it supposed to be 0.
 If the increment is omitted, it supposed to be 1.
 
-This will be clearer With some examples:
+This will be clearer with some examples:
 
 ==================== ===================================
 ``range(9)``         0, 1, 2, 3, 4, 5, 6, 7, 8
@@ -524,7 +523,7 @@ This will be clearer With some examples:
 ``range(11, 4, -1)`` 11, 10, 9, 8, 7, 6, 5
 ==================== ===================================
 
-It is possible to do backwards looping using a negative increment::
+It is possible to go backwards by using a negative increment::
 
     for i in range(10, 0, -1):
         print i

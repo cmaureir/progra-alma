@@ -11,30 +11,30 @@ Data types
 .. _Python standard data types official documentation: http://docs.python.org/library/stdtypes.html
 
 A **data type** is the property of a value
-that determine its domain (possible values),
+that define its domain (possible values),
 what operations can be applied to it
-and how it is represented inside the computer.
+and how it is represented by the computer.
 
-All the values inside a program have a type.
+All the values in a program have a type.
 
-Following we will review the Python elemental data types.
-Also, we will learn several other types available in Python
-and, later, we will learn to create our own data types.
+Below we will review the Python elemental data types.
+Later in this course, we will learn several other types available in Python
+and, finally, we will learn how to create our own data types.
 
 Integers
 ~~~~~~~~
 
-.. index:: integer number, int
+.. index:: integer, int
 
 The **int** type (from the word «integer»)
 allows the representation of integer numbers.
 
-The values that an ``int`` can take are
+The values an ``int`` can take are
 all the integer numbers:
 ... ``-3``, ``-2``, ``-1``, ``0``, ``1``, ``2``, ``3``, ...
 
-The literal integer numbers are written with an optional sign
-following by a sequence of digits::
+Literal integer numbers are written with an optional sign
+followed by a sequence of digits::
 
    1570
    +4591
@@ -45,10 +45,10 @@ Reals
 
 .. index:: real number, floating point number, float
 
-The **float** type allow to represent real numbers.
+The **float** type allows the representation of real numbers.
 
 The name ``float`` comes from the term `floating point`_,
-which is an internal representation of real numbers in a
+which is the internal representation of real numbers in a
 computer.
 
 .. _floating point: http://en.wikipedia.org/wiki/Floating_point
@@ -61,16 +61,16 @@ the decimal number 0.7
 is represented internally by the computer
 through the approximation 0.69999999999999996.
 All the operations between  ``float`` values
-are approaches.
+are approximations.
 This can produce surprising results::
 
     >>> 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7
     0.9999999999999998
 
-Literal real numbers are written splitting the decimal
+Literal real numbers are written by separating the decimal
 and integer part with a point.
-Either the integer or decimal part can be omitted
-if one of them is zero::
+Both the integer and the decimal part can be omitted
+when one of them is zero::
 
     >>> 881.9843000
     881.9843
@@ -84,9 +84,9 @@ if one of them is zero::
 
 .. index:: scientific notation
 
-Other representation is the scientific notation,
-in which the number is written with a factor and a power 
-of ten separated by the letter  ``e``.  For example:
+Another representation for real numbers is scientific notation,
+in which the number is written as a factor and the exponent of a power 
+of ten separated by the letter  ``e``.  For example::
 
     >>> -2.45E4
     -24500.0
@@ -98,24 +98,24 @@ of ten separated by the letter  ``e``.  For example:
     9.1094e-31
 
 The last two values of the previous example
-are the same, respectively, to
-:math:`6.02\times 10^{23}` (la `Avogadro constant`_) y
-:math:`9.1094\times 10^{-31}` (la `Electron mass`_).
+are equal, respectively, to
+:math:`6.02\times 10^{23}` (the `Avogadro constant`_) y
+:math:`9.1094\times 10^{-31}` (the `electron mass`_).
 
 .. _Avogadro constant: http://en.wikipedia.org/wiki/Avogadro_constant
-.. _Electron mass: http://en.wikipedia.org/wiki/Electron
+.. _electron mass: http://en.wikipedia.org/wiki/Electron
 
 Strings
 ~~~~~~~
 
 .. index:: string, text data types, str
 
-**Strings** is the name of the values that
-represent text and have the **str** type.
+A **strings** is a value that
+represents text, and whose type is **str**.
 
 The literal strings
-can be represented
-with text between simple or double quotes::
+are represented in a program
+by enclosing it in single or double quotes::
 
    "example 1"
    'example 2'
@@ -334,18 +334,19 @@ we need to convert it explicitly.
 
 For example,
 in the temperature conversion program,
-the input is converted with the sentence::
+the input is converted to a real value
+by the following statement::
 
     f = float(raw_input('Enter temperature in Fahrenheit degrees: '))
 
 When the program gets to this line,
 the message ``Enter temperature in Fahrenheit degrees:``
-is shown to the user that must enter a value,
+is shown to the user, who then must enter a value,
 which is converted into a real number
-and associated to the name ``f``.
+and bound to the name ``f``.
 
 From that line onward,
-the ``f`` variable can be used by the program
+variable ``f`` can be used by the program
 to refer to the entered value.
 
 Output
@@ -359,28 +360,28 @@ in which the results are delivered to the user.
 .. index:: print
 
 The simplest way to deliver the output
-is showing text on the screen.
+is to display text on the screen.
 In Python, the program output is performed by the
 **print** sentence.
 
-If printing simple text is desired,
+If one wants to display a single value,
 the syntax is as follows::
 
     print value_to_print
 
-If there are several values to print,
-they should be separated with commas.
-For example the temperature conversion program
-has the following output sentence::
+If there are several values to be printed,
+they should be separated by commas.
+For example, the temperature conversion program
+has the following output statement::
 
     print 'The Celsius degrees equivalent is:', c
 
 In this case, the message ``The Celsius degrees equivalent is:``
-is being printed and, after that, in the same line,
+is being printed and, after it, in the same line,
 the value of the variable ``c``.
 
 The quotation marks allow to represent a string but are not part of it.
-When printing the string using ``print`` the quotation marks do not appear::
+When printing the string by using ``print``, the quotation marks do not appear::
 
     >>> 'Hello'
     'Hello'
