@@ -6,135 +6,132 @@ Expressions
 
 .. index:: expression
 
-Una **expresión** es una combinación de valores y operaciones
-que son evaluados durante la ejecución del algoritmo
-para obtener un valor.
-Por ejemplo, :math:`2 + 3` es una expresión
-que, al ser evaluada, siempre entrega el valor :math:`5`.
+An **expression** is a value and operation combination
+which are evaluated during the algorithm execution
+to obtain a certain value.
+For example, :math:`2 + 3` is an expression
+which, evaluating it, always return the :math:`5` value.
 
-En el ejemplo, :math:`b^2 - 4ac` es una expresión,
-cuyo valor depende de qué valores tienen
-:math:`a`, :math:`b` y :math:`c`
-al momento de la evaluación.
+In the example, :math:`b^2 - 4ac` is an expression,
+whose value depends on what values have
+:math:`a`, :math:`b` and :math:`c`
+at the evaluation moment.
 
 Asignations
 ~~~~~~~~~~~
 
 .. index:: assignation, variable, identificator
 
-Cuando un algoritmo calcula valores,
-se necesita ponerles un nombre para poder referirse a ellos
-en pasos posteriores.
-Es lo que hacemos en el paso 2 de nuestro algoritmo,
-cuando calculamos el discriminante y lo llamamos :math:`Δ`.
-Esto se llama una **asignación**,
-y se representa así::
+When an algorithm calculates some values,
+you need to put a name to able to refer them
+in the next steps. 
+Is what we do in the step 2 of our algorithm,
+when we calculate the discriminating and we call it :math:`A`.
+This is called **assignation**,
+and is represented as::
 
-    nombre = expresión
+    name = expression
 
-Al nombre usado en una expresión se le denomina
-**variable** o **identificador**.
+To the used name in an expression is called
+**variable** or **identificator**.
 
-La asignación del ejemplo sería::
+The assignation in the previous example, will be::
 
     Δ = b² − 4 * a * c
 
-Una asignación debe interpretarse así:
+An assignation must be interpreted as follows:
 
-1. primero la expresión a la derecha del ``=`` es evaluada,
-   utilizando los valores que tienen las variables en ese momento;
-2. una vez obtenido el resultado,
-   el valor de la variable a la izquierda del ``=``
-   es reemplazado por ese resultado.
+1. first, ``=`` right expression is evaluated,
+   using the values of the variables, in that moment.
+2. once the result is obtained,
+   the ``=`` left variable value is replaced by this result.
 
-Bajo esta interpretación,
-es perfectamente posible una asignación como ésta::
+Under this interpretation,
+is perfectly posible an assignation like this::
 
     i = i + 1
 
-Primero la expresión es evaluada,
-y su resultado es el sucesor del valor actual de ``i``.
-Por ejemplo, si ``i`` tiene el valor 15,
-después de la asignación tendrá el valor 16.
-Esto *no* significa que 15 = 16.
+First, the expression is evaluated,
+and their result is the successor of the actual ``i`` value.
+For example, if ``i`` has the value 15,
+after the assignation will be have the value 16.
+This *not* mean that 15 = 16.
 
-Condicionales
-~~~~~~~~~~~~~
+Conditionals
+~~~~~~~~~~~~
 
-.. index:: condicional
+.. index:: conditional
 
-A veces un algoritmo debe realizar pasos diferentes
-bajo condiciones distintas.
-Es lo que hacemos en el paso 3 del ejemplo:
-decidimos que la ecuación no tiene soluciones
-solamente cuando se cumple que :math:`Δ < 0`.
-Esto se llama un **condicional**.
+Sometimes an algorithm must do different steps
+under different conditions.
+Is what we do in the step 3 of the example:
+we say that the equation does not have solutions
+only when the `Δ < 0` condition is satisfied..
+This is called **conditional**.
 
-La condición que determina qué ejecutar
-es una expresión, cuyo valor debe ser
-verdadero o falso.
+The condition that determine what execute
+is an expression, whose value must be
+true or false.
 
-Ciclos
-~~~~~~
+Loops
+~~~~~
 
-.. index:: ciclo, condición de término
+.. index:: loop, finish condition
 
-Un **ciclo** ocurre cuando
-un algoritmo ejecuta una serie de instrucciones
-varias veces.
+A **loop** ocurr when
+an algorithm execute a set of instructions
+several times.
 
-Como un algoritmo no puede quedarse pegado,
-un ciclo debe tener además una condición de término,
-cuyo valor indica si el ciclo debe continuar o terminar.
+As an algorithm can not get stuck,
+a loop must have also a finish condition,
+which value indicates if the loop must continue or finish.
 
-El ejemplo no tiene ciclos.
+The example do not have loops.
 
-Entrada
-~~~~~~~
+Input
+~~~~~
 
-.. index:: entrada, lectura
+.. index:: input, read
 
-Cuando un algoritmo necesita recibir un dato,
-se representa así::
+When an algorithm need to receive data,
+is represented as::
 
     variable = input()
 
-(``input`` significa «ingresar» en inglés).
-Durante la ejecución,
-esto significa que el dato
-queda guardado en la variable.
+During the execution,
+thi means that the data
+must stay saved in the variable.
 
-En el ejemplo, la entrada ocurre en el paso 1,
-y puede ser representada así::
+In the example, the input ocurrs in the first step,
+and can be represented as::
 
     a = input()
     b = input()
     c = input()
 
-Salida
+Output
 ~~~~~~
 
-.. index:: salida, escritura
+.. index:: output, write
 
-Una vez que el algoritmo ha resuelto el problema
-para el que fue diseñado,
-debe entregar sus resultados como un mensaje.
-La salida se representa así::
+Once the algorithm solve the problem
+for which it was designed,
+must return his results like a message.
+The output is represented as::
 
-    print(mensaje)
+    print(menssage)
 
-(``print`` significa «imprimir» en inglés).
-Si el mensaje es un texto literal,
-va entre comillas.
-Si es una variable,
-va sólo el nombre de la variable.
+If the message is text,
+goes between quotation.
+If is a variable,
+is just the name of the variable.
 
-En el ejemplo, cuando no existen soluciones,
-la salida puede ser representada así::
+In the example, when there ir no solutions,
+the output can be represented as::
 
-    print('No hay soluciones')
+    print('No solutions')
 
-Cuando existe una única solución,
-se puede incluirla en el mensaje::
+When there is an only solution,
+is possible to include it in the message::
 
-    print 'La solución única es', x
+    print 'The only solution is', x
