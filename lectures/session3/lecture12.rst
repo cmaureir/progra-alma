@@ -3,13 +3,13 @@ Lecture 12 - Dictionaries
 
 .. index:: dictionary
 
-A **dictionary** is a data type that allow to associate value pairs.
+A **dictionary** is a data type that allows to associate value pairs.
 
 .. index:: key (dictionary), value (dictionary)
 
-A dictionary can be see
-like a **key** collection,
-each one has a **value** associated.
+A dictionary can be seen
+as a **key** collection,
+each one having an associated **value**.
 The keys are disordered
 and there are no repeated keys.
 The only way to access a value
@@ -25,7 +25,7 @@ The key is associated to a value using two points (colon)::
 
 In this example,
 the keys are ``'John'``, ``'Andy'`` and ``'Shane'``,
-and the associated values to their are,
+and the associated values to them are,
 ``5552437``, ``5551428`` and ``5550012`` respectively.
 
 An empty dictionary can be created using ``{}`` or with a function called ``dict()``::
@@ -45,24 +45,24 @@ can be obtained through ``d[k]``. ::
     5551428
 
 If the key is not present in the dictionary,
-occurs a **key error** (``KeyError``)::
+a **key error** (``KeyError``) occurs::
 
     >>> telephones['Nancy']
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     KeyError: 'Nancy'
 
-It is possible to add new keys simply assigning to a value::
+It is possible to add new keys simply assigning them to a value::
 
     >>> telephones['Peter'] = 4448139
     >>> telephones
     {'John': 5552437, 'Peter': 4448139, 'Andy': 5551428, 'Shane': 5550012}
 
-Note that the order in which the keys are in the dictionary
-is not necessarily the same order in they were added.
+Note that the order in which the keys are stored in the dictionary
+is not necessarily the same order they were added.
 
-If you assign a value to a key already in the dictionary,
-the previous value  is overwritten.
+If you assign a value to a key that is already present in the dictionary,
+the previous value is overwritten.
 Remember that a dictionary can not have repeated keys::
 
     >>> telephones
@@ -74,7 +74,7 @@ Remember that a dictionary can not have repeated keys::
 The values can be repeated.
 In the previous example, Andy and Peter have the same number.
 
-To remove a key, you can use the ``del`` statement::
+To remove a key, you can use the statement ``del``::
 
     >>> del telephones['Share']
     >>> telephones
@@ -90,7 +90,7 @@ in each iteration a key is obtained::
     Peter
     Andy
 
-To iterate over the keys, used ``d.values()``::
+To iterate over the keys, use ``d.values()``::
 
     >>> for v in telephones.values():
     ...     print(v)
@@ -99,7 +99,7 @@ To iterate over the keys, used ``d.values()``::
     4448139
     4448139
 
-Also is possible create key lists or values::
+It is also possible to create a list of keys or values::
 
     >>> list(telephones)
     ['John', 'Peter', 'Andy']
@@ -114,7 +114,7 @@ Also is possible create key lists or values::
     >>> len({})
     0
 
-``k in d`` allow to know if the ``k`` key is in the ``d`` dictionary::
+``k in d`` allows to know if the key ``k`` is in the dictionary ``d``::
 
     >>> legs = {'cat': 4, 'human': 2, 'octopus': 8, 'dog': 4, 'centipede': 100}
     >>> 'dog' in legs
@@ -122,7 +122,7 @@ Also is possible create key lists or values::
     >>> 'worm' in legs
     False
 
-To know if a key *is not* in the dictionary,
+To know if a key *is not* in the dictionary, it
 is possible to use the ``not in`` statement::
 
     >>> 'worm' not in legs

@@ -3,9 +3,9 @@ Lecture 9 - Lists
 
 .. index:: list
 
-A **list** is a ordered collection of values.
+A **list** is an ordered collection of values.
 
-In Python, the data type which represent lists is called
+In Python, the data type which represents lists is called
 ``list``.
 
 How to create a ``list``
@@ -13,7 +13,7 @@ How to create a ``list``
 
 The two main ways to create a list, are:
 
-* use a literal list, with the values in brackets::
+* use a literal list, with the values in brackets, separated by commas::
 
     >>> ['hello ' + 'world', 24 * 7, True or False]
     ['hello world', 168, True]
@@ -36,7 +36,7 @@ The two main ways to create a list, are:
 ~~~~~~~~~~~~~~~~~~~
 
 * ``len(l)`` return the length of the list;
-  i.e. how many element have::
+  i.e. how many elements it has::
 
     >>> colors = ['blue', 'red', 'green', 'yellow']
     >>> len(colors)
@@ -48,7 +48,7 @@ The two main ways to create a list, are:
 
 * ``l[i]`` return the ``i``-th value of the list.
   The ``i`` value is called **index** of the value.
-  Be careful because it start counting from 0,
+  Be careful, because it starts counting from 0
   and not from 1::
 
     >>> colors = ['blue', 'red', 'green', 'yellow']
@@ -58,7 +58,7 @@ The two main ways to create a list, are:
     'yellow'
 
   If the ``i`` index indicates an item which is not in the list,
-  occurs an **index error**::
+  then an **index error** occurs::
 
     >>> colors[4]
     Traceback (most recent call last):
@@ -66,14 +66,14 @@ The two main ways to create a list, are:
     IndexError: list index out of range
 
   If the index is negative,
-  the item counts from the end backward::
+  the item counts from the end backwards::
 
     >>> colors[-1]
     'yellow'
     >>> colors[-4]
     'blue'
 
-* ``l.append(x)`` add the ``x`` item to the end of the list::
+* ``l.append(x)`` adds the ``x`` item to the end of the list::
 
     >>> primes = [2, 3, 5, 7, 11]
     >>> primes.append(13)
@@ -81,14 +81,14 @@ The two main ways to create a list, are:
     >>> primes
     [2, 3, 5, 7, 11, 13, 17]
 
-* ``sum(x)`` return the sum of the list values::
+* ``sum(x)`` returns the sum of the list values::
 
     >>> sum([1, 2, 1, -1, -2])
     1
     >>> sum([])
     0
 
-* ``l1 + l2`` concatenates the  ``l1`` and ``l2`` lists::
+* ``l1 + l2`` concatenates the lists  ``l1`` and ``l2``::
 
     >>> list('dog') + [2, 3, 4]
     ['d', 'o', 'g', 2, 3, 4]
@@ -100,7 +100,7 @@ The two main ways to create a list, are:
     >>> [3.14, 6.28, 9.42] * 0
     []
 
-* ``x in l`` allows to know if the  ``x`` item is or not in the list::
+* ``x in l`` allows to know if the ``x`` item is in the list or not::
 
     >>> r = list(range(0, 20, 2))
     >>> r
@@ -110,7 +110,7 @@ The two main ways to create a list, are:
     >>> 15 in r
     False
 
-* ``l[i:j]`` allows to obtain a list slice,
+* ``l[i:j]`` allows to obtain a sub-list,
   from the ``i``-th to the ``j``-th items::
 
     >>> x = [1.5, 3.3, 8.4, 3.1, 2.9]
@@ -123,7 +123,7 @@ The two main ways to create a list, are:
     >>> list('millimeter').count('i')
     3
 
-* ``l.index(x)`` return the index of the ``x`` item::
+* ``l.index(x)`` returns the index of the ``x`` item::
 
     >>> colors = ['blue', 'red', 'green', 'yellow']
     >>> colors.index('green')
@@ -144,7 +144,7 @@ The two main ways to create a list, are:
       File "<stdin>", line 1, in <module>
     ValueError: list.remove(x): x not in list
 
-* ``l.reverse()`` reverse a list::
+* ``l.reverse()`` reverses a list::
 
     >>> palindrome = = list("No lemon, no melon")
     >>> palindrome
@@ -157,7 +157,7 @@ The two main ways to create a list, are:
     >>> numbers
     [4, 3, 2, 1]
 
-* ``l.sort()`` sort the list::
+* ``l.sort()`` sorts the list::
 
     >>> numbers = [1,6,3,7,4,2,3,9,6,0]
     >>> numbers
