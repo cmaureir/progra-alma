@@ -7,13 +7,13 @@ Course description.
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
-   lectures/lecture1
-   lectures/lecture2
-   lectures/lecture3
-   lectures/lecture4
-   lectures/lecture5
-   lectures/lecture6
-   lectures/lecture7
-   lectures/lecture8
+   lectures/session1/index
+   lectures/session2/index
+   lectures/session3/index
+   lectures/session4/index
+   lectures/session5/index
+   lectures/session6/index
+   lectures/session7/index
+   lectures/session8/index
