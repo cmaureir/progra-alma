@@ -3,7 +3,7 @@ Lecture 15 - Use of objects
 
 In Python, the **objects** are abstraction for data.
 All the data inside a Python program is represented by objects,
-or in some cases, by relations betweens two or more objects.
+or in some cases, by relations between two or more objects.
 We are saying that all the basic elements like `integers`, `functions`,
 `strings`, `dictionaries`, and so on, they are all objects,
 notoriously they have certain things in common.
@@ -45,7 +45,7 @@ If you change the value of a variable, the identity will change is almost all th
     >>> id(number)
     163098656
 
-Some objects don't allow to change their content, because are inmutables like the tuples
+Some objects don't allow to change their content, because are immutable like the tuples
 (See lecture10_ for more details)
 
 .. _lecture10:  ../session3/lecture10.html
@@ -80,7 +80,7 @@ making it refer to a integer object with the value 42,
 and in the next line, we making it point to a string
 with the value ``hello``.
 
-This is very differente,
+This is very different,
 when we work with **containers**,
 which are *objects* that contain references to other *objects*.
 For example, tuples, dictionaries, list, and so.

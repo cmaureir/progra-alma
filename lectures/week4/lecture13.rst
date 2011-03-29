@@ -1,43 +1,45 @@
 Lecture13 - Modules
 -------------------
 
-.. index:: módulo, biblioteca
+.. index:: module, library
 
-Un **módulo** (o **biblioteca**) es una colección de definiciones
-de variables, funciones y tipos (entre otras cosas)
-que pueden ser importadas para ser usadas desde cualquier programa.
+A **module** (or **library**) is a collection of variable definition, 
+functions and types (among other things) that can be imported 
+to be used from any program. 
 
-Ya hemos visto algunos ejemplos de cómo usar módulos,
-particularmente el módulo matemático,
-del que podemos importar funciones
-como la exponencial y el coseno,
-y las constantes π y *e*::
+We have seen some examples of how to use modules,
+particularly the mathematics module,
+from which we can import functions
+as the exponential, cosine,
+and the constants π and *e*::
 
  >>> from math import exp, cos
  >>> from math import pi, e
  >>> print cos(pi / 3)
  0.5
 
-Las ventajas de usar módulos son:
+The advantages of using modules are:
 
-* las funciones y variables deben ser definidas sólo una vez,
-  y luego pueden ser utilizadas en muchos programas
-  sin necesidad de reescribir el código;
-* permiten que un programa pueda ser organizado en varias secciones lógicas,
-  puestas cada una en un archivo separado;
-* hacen más fácil compartir componentes con otros programadores.
+* The functions and variables must be defined only once,
+  and then can be used in many programs, 
+  without the need to rewrite the code;
+* allows a program can be organized in several logic sections,
+  each placed in separate file,
+* make it easier to share components with other developers.
 
-Python viene «de fábrica» con muchos módulos listos para ser usados.
-Además, es posible descargar de internet e instalar módulos
-prácticamente para hacer cualquier cosa.
-Por último, aprenderemos a crear nuestros propios módulos.
+Python comes with many modules ready to be used.
+Besides, it is possible download from Internet and install modules
+practically to do anything.
+Finally, we will learn to create ours own modules.
 
-Módulos presentes en Python
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Éstos son algunos de los módulos estándares de Python,
-que pueden ser usado desde cualquier programa.
 
-El módulo math_ contiene funciones y constantes matemáticas::
+Modules from Python
+~~~~~~~~~~~~~~~~~~~
+
+These are some of the standard modules of Python,
+can be used from any program.
+
+The math_ module contains mathematical functions and constants::
 
  >>> from math import floor, radians
  >>> floor(-5.9)
@@ -45,16 +47,15 @@ El módulo math_ contiene funciones y constantes matemáticas::
  >>> radians(180)
  3.1415926535897931
 
-El módulo random_ contiene funciones para producir números aleatorios
-(es decir, al azar)::
+The random_ module contains functions to produce random numbers::
 
  >>> from random import choice, randrange,
- >>> choice(['cara', 'sello'])
- 'cara'
- >>> choice(['cara', 'sello'])
- 'sello'
- >>> choice(['cara', 'sello'])
- 'sello'
+ >>> choice(['heads', 'tails'])
+ 'heads'
+ >>> choice(['heads', 'tails'])
+ 'tails'
+ >>> choice(['heads', 'tails'])
+ 'tails'
  >>> randrange(10)
  7
  >>> randrange(10)
@@ -68,17 +69,17 @@ El módulo random_ contiene funciones para producir números aleatorios
  >>> r
  [4, 2, 0, 3, 1]
 
-El módulo datetime_ provee tipos de datos
-para manipular fechas y horas::
+The datetime_ module provides data types to
+manipulate dates and times::
 
  >>> from datetime import date
- >>> hoy = date(2011, 5, 31)
- >>> fin_del_mundo = date(2012, 12, 21)
- >>> (fin_del_mundo - hoy).days
+ >>> today = date(2011, 5, 31)
+ >>> end_of_the_world = date(2012, 12, 21)
+ >>> (end_of_the_world - today).days
  570
 
-El módulo fractions_ provee un tipo de datos
-para representar números racionales::
+The fractions_ module provides one data type to 
+represent rationals numbers::
 
  >>> from fractions import Fraction
  >>> a = Fraction(5, 12)
@@ -86,8 +87,8 @@ para representar números racionales::
  >>> a + b
  Fraction(143, 84)
 
-El módulo turtle_ permite manejar una tortuga
-(¡haga la prueba!)::
+The turtle_ module allows to handle a turtle
+(¡Try it!)::
 
  >>> from turtle import Turtle
  >>> t = Turtle()
@@ -108,36 +109,35 @@ El módulo turtle_ permite manejar una tortuga
 .. _fractions: http://docs.python.org/library/fractions.html
 .. _turtle: http://docs.python.org/library/turtle.html
 
-La lista completa de módulos de Python
-puede ser encontrada en la `documentación de la biblioteca estándar`_.
+The complete list of Python modules can be found in the `standard library documentation`_.
 
-.. _documentación de la biblioteca estándar: http://docs.python.org/library/index.html
+.. _standard library documentation: http://docs.python.org/library/index.html
 
-Importación de nombres
-~~~~~~~~~~~~~~~~~~~~~~
-.. index:: import, módulo (uso)
+Name import
+~~~~~~~~~~~
+.. index:: import, module (use)
 
-La sentencia ``import`` importa objetos desde un módulo
-para poder ser usados en el programa actual.
+The ``import`` sentence import objects from a module
+to be used in the current program.
 
-Una manera de usar ``import`` es importar sólo los nombres específicos
-que uno desea utilizar en el programa::
+One way to use ``import`` is importing only specific names
+that you want to use in the program.::
 
- from math import sin, cos
- print sin(10)
- print cos(20)
+ >>> from math import sin, cos
+ >>> print sin(10)
+ >>> print cos(20)
 
-En este caso, las funciones ``sin`` y ``cos`` no fueron creadas por nosotros,
-sino importadas del módulo de matemáticas, donde están definidas.
 
-La otra manera de usar ``import`` es importando el módulo completo,
-y accediendo a sus objetos mediante un punto::
+In these case, the ``sin`` and ``cos`` functions were not created by us,
+but imported from math modules, which are defined.
 
- import math
- print math.sin(10)
- print math.cos(10)
+The other way to use ``import`` is importing the entire module,
+and accessing their objects by a point::
 
-Las dos formas son equivalentes.
-Como siempre, hay que optar por la que hace que el programa
-sea más fácil de entender.
+ >>> import math
+ >>> print math.sin(10)
+ >>> print math.cos(10)
 
+The two cases are equivalent.
+As always, we must choose the one that makes the program 
+easier to understand.

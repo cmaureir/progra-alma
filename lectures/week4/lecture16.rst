@@ -3,75 +3,74 @@ Lecture 16 - Errors and exceptions
 
 .. index:: error
 
-No siempre los programas que escribiremos están correctos.
-Existen muchos tipos de errores que pueden estar presentes en un programa.
+Not always the programs that we write are correct.
+There are many types of errors that may be present in a program.
 
-No todos los errores pueden ser detectados por el computador.
-Por ejemplo,
-el siguiente programa tiene un error lógico bastante evidente::
+Not all the errors can be detected by the computer.
+For example,
+the following program have one logic error quite evident::
 
-    n = int(raw_input('Escriba un numero: '))
-    doble = 3 * n
-    print 'El doble de n es', doble
+    n = int(raw_input('Enter a number: '))
+    double = 3 * n
+    print 'The n double is', double
 
-El computador no se dará cuenta del error,
-pues todas las instrucciones del programa son correctas.
-El programa simplemente entregará siempre la respuesta equivocada.
+The computer will not notice the error,
+because all the program's instructions are correct.
+The program simply will give always the wrong answer.
 
-Existen otros errores que sí pueden ser detectados.
-Cuando un error es detectado *durante* la ejecución del programa
-ocurre una **excepción**.
+There are other errors that can be detected.
+When an error is detected *during* the program execution
+an **exception** occurs. 
 
-El intérprete anuncia una excepción
-deteniendo el programa
-y mostrando un mensaje con la descripción del error.
-Por ejemplo,
-podemos crear el siguiente programa
-y llamarlo ``division.py``::
+The interpreter announced an exception
+stopping the program and displaying a message describing the error.
+For example,
+we can create the following program
+and calling it ``division.py``::
 
     n = 8
     m = 0
     print n / m
-    print 'Listo'
+    print 'Ok'
 
-Al ejecutarlo,
-el intérprete lanzará una excepción,
-pues la división por cero
-es una operación inválida::
+When executed,
+the interpreter throws an exception,
+because the division by zero is an
+invalid operation::
 
     Traceback (most recent call last):
       File "division.py", line 3, in <module>
         print n / m
     ZeroDivisionError: division by zero
 
-La segunda línea del mensaje
-indica cómo se llama el archivo donde está el error
-y en qué línea del archivo está.
-En este ejemplo,
-el error esta en la línea 3 de ``division.py``.
-La última línea muestra el nombre de la excepción
-(en este caso es ``ZeroDivisionError``)
-y un mensaje explicando cuál es el error.
+The second line of the message
+indicates the file name where is located the error
+and the number of the line.
+In this example,
+the error is in the line 3 of ``division.py``.
+The last line shows the name of the exception
+(in this case ``ZeroDivisionError``)
+and a message explaining what is wrong.
 
-Los errores y excepciones presentados aquí
-son los más básicos y comunes.
+Errors and exceptions presented here 
+are the most basics and common.
 
-Error de sintaxis
-~~~~~~~~~~~~~~~~~
-.. index:: error de sintaxis
+Syntax Error
+~~~~~~~~~~~
+.. index:: syntax error
 
-Un **error de sintaxis** ocurre cuando el programa
-no cumple las reglas del lenguaje.
-Cuando ocurre este error,
-significa que el programa está mal escrito.
-El nombre del error es ``SyntaxError``.
+A **syntax error** occurs when the program does not follows
+the rules of language.
+When this error occur,
+it means that the program isn't written correctly.
+The name of the error is ``SyntaxError``.
 
-Los errores de sintaxis siempre ocurren *antes*
-de que el programa sea ejecutado.
-Es decir, un programa mal escrito no logra ejecutar ninguna instrucción.
-Por lo mismo, el error de sintaxis no es una excepción.
+The syntax errors always happen *before*
+the program run.
+It means, a badly written program can not execute any instruction.
+Therefore, the syntax error is not an exception.
 
-A continuación veremos algunos ejemplos de errores de sintaxis ::
+Here are a few examples of syntax errors.::
 
     >>> 2 * (3 + 4))               
       File "<stdin>", line 1
@@ -91,15 +90,16 @@ A continuación veremos algunos ejemplos de errores de sintaxis ::
       File "<stdin>", line 1
     SyntaxError: assignment to keyword
 
-Error de nombre
-~~~~~~~~~~~~~~~
-.. index:: error de nombre
+Name Error
+~~~~~~~~~~
+.. index:: name error
 
-Un **error de nombre**
-ocurre al usar una variable que no ha sido creada con anterioridad.
 
-El nombre de la excepción es ``NameError``::
+A **name error**
+occurs when using a variable that has not been created before.
 
+The name of the exception is ``NameError``::
+    
     >>> x = 20
     >>> 5 * x
     100
@@ -108,112 +108,170 @@ El nombre de la excepción es ``NameError``::
       File "<stdin>", line 1, in <module>
     NameError: name 'y' is not defined
 
-Para solucionar este error,
-es necesario asignar un valor a la variable
-antes de usarla.
+To resolve this error,
+you must assign a value to the variable 
+before using it.
 
-Error de tipo
-~~~~~~~~~~~~~
-.. index:: error de tipo
+Type Error
+~~~~~~~~~~
+.. index:: type error
 
-En general,
-todas las operaciones en un programa
-pueden ser aplicadas sobre valores
-de tipos bien específicos.
-Un **error de tipo** ocurre
-al aplicar una operación
-sobre operandos de tipo incorrecto.
+In general,
+all the operations in a program
+can be applied on very specific type values.
+A **type error** occurs when applying an operation
+on operands of the wrong type.
 
-El nombre de la excepción es ``TypeError``.
+The name of the exception is ``TypeError``.
 
-Por ejemplo,
-no se puede multiplicar dos strings::
+For example,
+can not multiply two strings::
 
-    >>> 'seis' * 'ocho'
+    >>> 'six' * 'eight'
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: can't multiply sequence by non-int of type 'str'
 
-Tampoco se puede obtener el largo de un número::
+Neither can obtained the length of a number::
 
     >>> len(68)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: object of type 'int' has no len()
 
-Cuando ocurre un error de tipo,
-generalmente el programa está mal diseñado.
-Hay que revisarlo, idealmente hacer un ruteo
-para entender el error,
-y finalmente corregirlo.
+When occurs in type error,
+usually the program is not properly designed.
+Must be checked, ideally making routing 
+to understand the error,
+and finally fix it.
+
+Value Error
+~~~~~~~~~~~
+.. index:: value error
 
 
-Error de valor
-~~~~~~~~~~~~~~
-.. index:: error de valor
+The **value error**
+occurs when the operands are of correct type,
+but the operation does not make sense for that value.
 
-El **error de valor**
-ocurre cuando los operandos son del tipo correcto,
-pero la operación no tiene sentido para ese valor.
+The name of the exception is ``ValueError``.
 
-El nombre de la excepción es ``ValueError``.
-
-Por ejemplo,
-la función ``int`` puede convertir un string a un entero,
-pero el string debe ser la representación de un número entero.
-Cualquier otro valor lanza un error de valor::
+For example,
+the ``int`` function can convert a string to an integer,
+but the string should be the representation of a integer number.
+Any other value throws a Value Error::
 
     >>> int('41')
     41
-    >>> int('perro')
+    >>> int('dog')
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    ValueError: invalid literal for int() with base 10: 'perro'
-    >>> int('cuarenta y uno')
+    ValueError: invalid literal for int() with base 10: 'dog'
+    >>> int('forty one')
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    ValueError: invalid literal for int() with base 10: 'cuarenta y uno'
+    ValueError: invalid literal for int() with base 10: 'forty one'
 
-Para corregir el error,
-hay que preocuparse de siempre usar valores adecuados.
-
+To fix this error,
+you have to worry about always using appropriate values.
     
-Error de división por cero
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Zero Division Error
+~~~~~~~~~~~~~~~~~~~
 .. index:: error de división por cero
 
-El **error de division por cero** ocurre al intentar dividir por cero.
+The **zero division error** occurs when try to divide by zero.
 
-El nombre de la excepción es ``ZeroDivisionError``::
+The name of the exception is ``ZeroDivsionError``::
 
     >>> 1/0
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     ZeroDivisionError: division by zero
 
-
-Error de desborde
-~~~~~~~~~~~~~~~~~
+Overflow Error
+~~~~~~~~~~~~~~
 .. index:: error de desborde
 
-El **error de desborde**
-ocurre cuando el resultado de una operación es tan grande
-que el computador no puede representarlo internamente.
+The **overflow error**
+occurs when the operation result is so big 
+that the computer can not represent internally.
 
-El nombre de la excepción es ``OverflowError``::
+The name of the exception is ``OverflowError``::
 
     >>> 20.0 ** 20.0 ** 20.0
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     OverflowError: (34, 'Numerical result out of range')
 
-Para los interesados en saber más sobre excepciones,
-pueden revisar `la sección sobre excepciones`_
-en la documentación oficial de Python.
+For those interested in learning  more about exceptions,
+can review the `section about exceptions`_
+in the official documentation Python.
 
-.. _la sección sobre excepciones: http://docs.python.org/library/exceptions.html
+.. _section about exceptions: http://docs.python.org/library/exceptions.html
 
 Exception handling
 ~~~~~~~~~~~~~~~~~~
 
-PENDING
+When you are creating a program,
+maybe you need to take some option when
+an exceptions occurs, to avoid restart the program,
+or lost some changes, etc.
+
+Python provides a easy way to handle
+the exceptions, using the statements ``try`` and ``except``.
+
+For example, one of the previous examples::
+
+    >>> int('dog')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ValueError: invalid literal for int() with base 10: 'dog'
+
+Can be written in this way::
+
+
+    >>> try:
+    ...    var = int("dog")
+    ... except ValueError as error:
+    ...    print "ValueError has occurred: ", error 
+    ... 
+    ValueError has occurred: invalid literal for int() with base 10: 'dog'
+
+
+You can mix the ``try`` and ``except`` with the ``else`` statement, for example::
+
+    >>> def invert(x):
+    ...    try:
+    ...       i = 1.0 / x
+    ...    except:
+    ...       print 'caught exception for' , x
+    ...    else:
+    ...       print 'reciprocal of' , x, 'is' , i
+    ...
+    >>> invert(1)
+    reciprocal of 1 is 1.0
+    >>> invert(0)
+    caught exception for 0
+
+
+So, the ``else`` block is executed
+only if in the content of the ``try`` block,
+everything is correct, error free.
+
+You can use multiple instances of the ``except``
+because maybe inside the ``try`` block can occurs
+more than one Error::
+
+    >>> values = [-1, 0, 1]
+    >>> for i in range(4):
+    ...  try:
+    ...     r = 1.0 / values[i]
+    ...     print 'reciprocal of' , values[i], 'at' , i, 'is' , r
+    ...  except IndexError:
+    ...     print 'index' , i, 'out of range'
+    ...  except ArithmeticError:
+    ...    print 'unable to calculate reciprocal of' , values[i]
+    reciprocal of -1 at 0 is -1.0
+    unable to calculate reciprocal of 0
+    reciprocal of 1 at 2 is 1.0
+    index 3 out of range

@@ -1,108 +1,105 @@
-Lecture 14 - Creación de módulos
---------------------------------
-.. index:: módulo (creación)
+Lecture 14 - Modules creation
+-----------------------------
+.. index:: module (creation)
 
-Un módulo sencillo es simplemente un archivo con código en Python.
-El nombre del archivo indica cuál es el nombre del módulo.
+A simple module is simply a file with Python code.
+The name of the file indicates which is the module name.
 
-Por ejemplo, podemos crear un archivo llamado ``pares.py``
-que tenga funciones relacionadas con los números pares::
+For example, we can create a file named ``parity.py``
+which have functions related to the parity numbers.::
 
- def es_par(n):
- return n % 2 == 0
+ def is_even(n):
+    return n % 2 == 0
 
- def es_impar(n):
- return not es_par(n)
+ def is_odd(n):
+    return not es_par(n)
 
- def pares_hasta(n):
- return range(0, n, 2)
+ def to_even(n):
+    return range(0, n, 2)
 
-En este caso, el nombre del módulo es ``pares``.
-Para poder usar estas funciones desde otro programa,
-el archivo ``pares.py`` debe estar en la misma carpeta
-que el programa.
+In this case, the name of the module is ``parity``.
+To use the functions in another program, the file ``parity.py`` must be
+in the same folder that the program.
 
-Por ejemplo,
-el programa ``mostrar_pares.py``
-puede ser escrito así::
+For example,
+the ``show_even.py`` program can be 
+written as follows::
 
- from pares import pares_hasta
+ from parity import to_even
 
- n = int(raw_input('Ingrese un entero: '))
- print 'Los numeros pares hasta', n, 'son:'
- for i in pares_hasta(n):
- print i
+ n = int(raw_input('Enter an integer: '))
+ print 'The even number to', n, 'are:'
+ for i in to_even(n):
+    print i
 
-Y el programa ``ver_si_es_par.py``
-puede ser escrito así::
+And the ``check_even.py`` program
+can be written as follows::
 
- import pares
+ import parity
 
- n = int(raw_input('Ingrese un entero: '))
- if pares.es_par(n):
- print n, 'es par'
+ n = int(raw_input('Enter an integer: '))
+ if parity.is_even(n):
+    print n, 'is even'
  else:
- print n, 'no es par'
+    print n, 'is odd'
 
-Como se puede ver,
-ambos programas pueden usar los objetos definidos en el módulo
-simplemente importándolos.
+As seen, both programs can use defined objects in the module 
+simply importing it.
 
-Usar módulos como programas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Un archivo con extensión ``.py`` puede ser un módulo o un programa.
-Si es un módulo,
-contiene definiciones que pueden ser importadas desde un programa o desde otro módulo.
-Si es un programa,
-contiene código para ser ejecutado.
+Use modules as programs
+~~~~~~~~~~~~~~~~~~~~~~~
 
-A veces, un programa también contiene definiciones
-(por ejemplo, funciones y variables)
-que también pueden ser útiles desde otro programa.
-Sin embargo, no pueden ser importadas,
-ya que al usar la sentencia ``import``
-el programa completo sería ejecutado.
-Lo que ocurriría en este caso es que,
-al ejecutar el segundo programa,
-también se ejecutaría el primero.
+A file with ``.py`` extension can be a module or a program.
+If is a module, contains definitions that can be imported from a program or other module.
+If is a program, contains code to be executed.
 
-Existe un truco para evitar este problema:
-siempre que hay código siendo ejecutado,
-existe una variable llamada ``__name__``.
-Cuando se trata de un programa,
-el valor de esta variable es ``'__main__'``,
-mientras que en un módulo,
-es el nombre del módulo.
+Sometimes, a program also contains definitions
+(for example, functions and variables)
+which also may be useful from another program.
+However, can not be imported,
+because by using the ``import`` sentence
+the full program will be executed.
+What would happen in this case,
+to run the second program,
+also will run the first.
 
-Por lo tanto,
-se puede usar el valor de esta variable
-para marcar la parte del programa
-que debe ser ejecutada al ejecutar el archivo,
-pero no al importarlo.
+There is a trick to avoid this problem:
+whenever there is code  being executed,
+exist a variable called ``__name__``.
+When is a program,
+the value of this variable is ``__main__``,
+while in the module,
+is the module name.
 
-Por ejemplo,
-el siguiente programa convierte
-unidades de medidas de longitud:
+Therefore, 
+you can use the value of this variable to mark
+the program part to be executed to run the file, 
+but not to import it.
+
+For example,
+the following program converts 
+measurement units of length:
 
 .. literalinclude:: ../../_static/programs/unit_conversion.py
 
-Este programa es útil por sí solo,
-pero además sus cuatro funciones
-y las constantes ``km_por_milla`` y ``cm_por_pulgada``
-podrían ser útiles para ser usadas en otro programa.
+This program is useful by itself,
+but also their four functions and 
+constants ``km_per_mile`` and ``cm_per_inch``
+might be useful for use in another program.
 
-Al poner el cuerpo del programa
-dentro del ``if __name__ == '__main__'``,
-el archivo puede ser usado como un módulo.
-Si no hiciéramos esto,
-cada vez que otro programa importe una función
-se ejecutaría el programa completo.
+To put the body of the program inside 
+of the ``if __name__ == '__main__'``,
+the file can be use like a module.
+If we did not do this,
+whenever the other program import a function
+will be executed the whole program.
 
-Haga la prueba: `descargue el programa`_ y ejecútelo.
-Luego, escriba otro programa que importe alguna de las funciones.
-A continuación, haga lo mismo,
-pero eliminando el ``if``.
+Try it: `download the program`_ and run it.
+Then, write another program to import some of the functions.
+Next, do the same,
+but removing the ``if`` statement.
 
-.. _descargue el programa: ../_static/programas/conversion_unidades.py
+
+.. _download the program: ../_static/programs/unit_conversion.py
 
 
