@@ -1,5 +1,5 @@
-Third session
--------------
+Third week
+----------
 
 Lectures:
 

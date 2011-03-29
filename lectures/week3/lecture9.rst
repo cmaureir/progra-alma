@@ -172,3 +172,12 @@ The two main ways to create a list, are:
     >>> friends
     ['Aron', 'John', 'Joseph', 'Maria']
 
+Exercises
+~~~~~~~~~
+
+`1`_ `2`_  `3`_ `4`_
+i
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-listas.html
+.. _`2`: http://progra.usm.cl/apunte/ejercicios/2/estadisticos-localizacion.html
+.. _`3`: http://progra.usm.cl/apunte/ejercicios/2/polinomios.html
+.. _`4`: http://progra.usm.cl/apunte/ejercicios/2/problema-josefo.html

@@ -1,5 +1,5 @@
-Sixth session
--------------
+Sixth week
+----------
 
 Lectures:
 

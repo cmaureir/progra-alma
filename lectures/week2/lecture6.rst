@@ -216,3 +216,29 @@ because it is not obvious at a first glance that
 only one of the conditions will be true and all 
 the conditions are evaluated.
 
+Exercises
+~~~~~~~~~
+
+`1`_ 
+`2`_ 
+`3`_ 
+`4`_ 
+`5`_ 
+`6`_ 
+`7`_ 
+`8`_ 
+`9`_ 
+`10`_ 
+`11`_ 
+
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/1/par-o-impar.html
+.. _`2`: http://progra.usm.cl/apunte/ejercicios/1/bisiestos.html
+.. _`3`: http://progra.usm.cl/apunte/ejercicios/1/division.html
+.. _`4`: http://progra.usm.cl/apunte/ejercicios/1/palabra-mas-larga.html
+.. _`5`: http://progra.usm.cl/apunte/ejercicios/1/ordenamiento-basico.html
+.. _`6`: http://progra.usm.cl/apunte/ejercicios/1/letra-o-numero.html
+.. _`7`: http://progra.usm.cl/apunte/ejercicios/1/calculadora.html
+.. _`8`: http://progra.usm.cl/apunte/ejercicios/1/edad.html
+.. _`9`: http://progra.usm.cl/apunte/ejercicios/1/set-de-tenis.html 
+.. _`10`: http://progra.usm.cl/apunte/ejercicios/1/triangulos.html
+.. _`11`: http://progra.usm.cl/apunte/ejercicios/1/indice-masa-corporal.html

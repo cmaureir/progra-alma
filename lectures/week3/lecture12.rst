@@ -127,3 +127,10 @@ is possible to use the ``not in`` statement::
 
     >>> 'worm' not in legs
     True
+
+Exercises
+~~~~~~~~~~
+
+`1`_
+
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-diccionarios.html

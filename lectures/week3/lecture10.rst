@@ -114,3 +114,8 @@ This comparison method is the same used to sort words in alphabetic order.
     >>> 'mon' < 'month' < 'monthly''
     True
 
+Exercises
+~~~~~~~~~
+
+PENDING
+

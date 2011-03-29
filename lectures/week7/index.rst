@@ -1,5 +1,5 @@
-Seventh session
----------------
+Seventh week
+------------
 
 Lectures:
 

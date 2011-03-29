@@ -263,3 +263,16 @@ In the case of a function lacking the ``return`` statement,
 the return value is always ``None``.
 But as the function call is not an assignment,
 we loose the value and there is no program effect.
+
+Exercises
+~~~~~~~~~
+
+`1`_
+`2`_
+`3`_
+`4`_
+
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/numero-par.html
+.. _`2`: http://progra.usm.cl/apunte/ejercicios/2/numeros-palindromos.html
+.. _`3`: http://progra.usm.cl/apunte/ejercicios/2/funciones-numeros-primos.html
+.. _`4`: http://progra.usm.cl/apunte/ejercicios/2/tabla-verdad.html

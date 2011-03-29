@@ -143,3 +143,10 @@ makes no sense trying to obtain an item using the index::
     False
     >>> {1, 2, 3} <= {1, 2, 3}
     True
+
+Exercises
+~~~~~~~~~
+
+`1`_
+
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-conjuntos.html

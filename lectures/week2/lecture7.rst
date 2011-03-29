@@ -157,3 +157,29 @@ the ``for`` loop with range
 is used when the iteration number is known
 before entering the loop.
 
+Exercises
+~~~~~~~~~
+
+`1`_
+`2`_
+`3`_
+`4`_
+`5`_
+`6`_
+`7`_
+`8`_
+`9`_
+`10`_
+`11`_
+
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/1/multiplos.html 
+.. _`2`: http://progra.usm.cl/apunte/ejercicios/1/potencias-dos.html
+.. _`3`: http://progra.usm.cl/apunte/ejercicios/1/suma-entre-numeros.html
+.. _`4`: http://progra.usm.cl/apunte/ejercicios/1/tablas-de-multiplicar.html
+.. _`5`: http://progra.usm.cl/apunte/ejercicios/1/divisores.html
+.. _`6`: http://progra.usm.cl/apunte/ejercicios/1/tiempo-de-viaje.html
+.. _`7`: http://progra.usm.cl/apunte/ejercicios/1/dibujos-asteriscos.html
+.. _`8`: http://progra.usm.cl/apunte/ejercicios/1/pi.html
+.. _`9`: http://progra.usm.cl/apunte/ejercicios/1/suma-fracciones.html
+.. _`10`: http://progra.usm.cl/apunte/ejercicios/1/e.html
+.. _`11`: http://progra.usm.cl/apunte/ejercicios/1/collatz.html

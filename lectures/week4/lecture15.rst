@@ -8,6 +8,9 @@ We are saying that all the basic elements like `integers`, `functions`,
 `strings`, `dictionaries`, and so on, they are all objects,
 notoriously they have certain things in common.
 
+Objects characteristics
+~~~~~~~~~~~~~~~~~~~~~~~
+
 Every object have three main characteristics:
 * An identity (unique and unmodifiable), that is an integer returned by ``id(<object>)`` method.::
 
@@ -48,7 +51,7 @@ If you change the value of a variable, the identity will change is almost all th
 Some objects don't allow to change their content, because are immutable like the tuples
 (See lecture10_ for more details)
 
-.. _lecture10:  ../session3/lecture10.html
+.. _lecture10:  ../week3/lecture10.html
 
 The idea of the **type** of an object is know some details from it,
 the methods they have, the bytes of memory that use, etc.
@@ -79,6 +82,9 @@ First, we add the name ``variable`` to the local namespace,
 making it refer to a integer object with the value 42,
 and in the next line, we making it point to a string
 with the value ``hello``.
+
+Object containers
+~~~~~~~~~~~~~~~~~
 
 This is very different,
 when we work with **containers**,
@@ -129,11 +135,11 @@ Means that we are using the methods ``sort()``, ``remove()``,
 own by all the **list** objects,
 the method ``replace()``, own by all the **str** objects.
 
-.. _Data Type: ../session1/lecture2.html
+.. _Data Type: ../week1/lecture2.html
 
 
 We will look more deeply the *objects*,
-in the `Sixth session`_
+in the `Sixth week`_
 
-.. _Sixth session: ../session6/index.html
+.. _Sixth week: ../week6/index.html
 

@@ -56,7 +56,7 @@ Errors and exceptions presented here
 are the most basics and common.
 
 Syntax Error
-~~~~~~~~~~~
+~~~~~~~~~~~~
 .. index:: syntax error
 
 A **syntax error** occurs when the program does not follows

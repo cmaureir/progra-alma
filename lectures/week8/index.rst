@@ -1,5 +1,5 @@
-Eighth session
----------------
+Eighth week
+-----------
 
 Lectures:
 

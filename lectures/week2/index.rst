@@ -1,5 +1,5 @@
-Second session
---------------
+Second week
+-----------
 
 Lectures:
 

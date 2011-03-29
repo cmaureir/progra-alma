@@ -9,11 +9,11 @@ Course description.
 .. toctree::
    :maxdepth: 2
 
-   lectures/session1/index
-   lectures/session2/index
-   lectures/session3/index
-   lectures/session4/index
-   lectures/session5/index
-   lectures/session6/index
-   lectures/session7/index
-   lectures/session8/index
+   lectures/week1/index
+   lectures/week2/index
+   lectures/week3/index
+   lectures/week4/index
+   lectures/week5/index
+   lectures/week6/index
+   lectures/week7/index
+   lectures/week8/index
