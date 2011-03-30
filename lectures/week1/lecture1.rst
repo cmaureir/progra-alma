@@ -98,6 +98,10 @@ is represented as::
 
     variable = input()
 
+or::
+
+    variable = inpurt("example message:")
+
 During the execution,
 thi means that the data
 must stay saved in the variable.
@@ -135,3 +139,16 @@ When there is an only solution,
 is possible to include it in the message::
 
     print 'The only solution is', x
+
+Exercises
+~~~~~~~~~
+
+Open a Python terminal executing ``python`` in a linux terminal,
+or double clicking the ``Python`` icon in windows,
+and write lines to *enter your name* and display a *hello* message,
+in this way::
+
+    Enter your name: `John`
+    Hello John!
+
+Remember the **input()** and the **print** functions. 

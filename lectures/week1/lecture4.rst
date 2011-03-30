@@ -111,3 +111,8 @@ The only exception are the ``#`` signs that appear in a string::
 
     >>> "123 # 456" # 789
     '123 # 456'
+
+Exercises
+~~~~~~~~~
+
+PENDING

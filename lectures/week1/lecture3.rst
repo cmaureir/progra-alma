@@ -213,3 +213,8 @@ which is different to all other values.
 ..       >>> 0 or 6 or 7
 ..       6
 
+
+Exercises
+~~~~~~~~~
+
+PENDING
