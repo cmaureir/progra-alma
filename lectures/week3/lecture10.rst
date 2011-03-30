@@ -117,5 +117,16 @@ This comparison method is the same used to sort words in alphabetic order.
 Exercises
 ~~~~~~~~~
 
-PENDING
+1. PENDING::
+
+    pending
+
+2. PENDING::
+
+    pending
+
+3. PENDING::
+
+    pending
+
 

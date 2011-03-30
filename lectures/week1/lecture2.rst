@@ -156,21 +156,21 @@ Exercises
 
    The average of the course is calculated as follows.
 
-.. math::
+   .. math::
 
-    G_C = \frac{(T1+T2+T3)}{3}
+       G_C = \frac{(T1+T2+T3)}{3}
 
-    G_F = G_C\cdot 0.7 + G_L\cdot 0.3
+       G_F = G_C\cdot 0.7 + G_L\cdot 0.3
 
 
-    Where `G_C` is the average of the test,
-    `G_L` is the laboratory average
-    and `G_F` is the final grade.
+   Where `G_C` is the average of the test,
+   `G_L` is the laboratory average
+   and `G_F` is the final grade.
 
-    Write a program that ask to the user the grades of the first two tests,
-    and the laboratory grade,
-    and show the needed grade for the last test
-    to approve the course with a final grade of 60.
+   Write a program that ask to the user the grades of the first two tests,
+   and the laboratory grade,
+   and show the needed grade for the last test
+   to approve the course with a final grade of 60.
 
 .. testcase::
 
