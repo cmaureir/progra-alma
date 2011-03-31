@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import sys, os
+from os.path import abspath
+
+sys.path.insert(0, abspath('.'))
+sys.path.insert(0, abspath('_modules'))
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -14,7 +18,11 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.jsmath']
+extensions = [
+    'sphinx.ext.jsmath',
+    'testcase',
+    'testcase_directive',
+]
 
 jsmath_path = 'jsMath/easy/load.js'
 
