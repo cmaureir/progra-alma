@@ -56,7 +56,7 @@ If is a program, it contains code to be executed.
 Sometimes, a program also contains definitions
 (for example, functions and variables)
 which also may be useful from another program.
-However, can not be imported,
+However, cannot be imported,
 because by using the ``import`` statement
 the full program will be executed.
 What would happen in this case,

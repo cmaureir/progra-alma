@@ -82,7 +82,7 @@ A **loop** ocurr when
 an algorithm execute a set of instructions
 several times.
 
-As an algorithm can not get stuck,
+As an algorithm cannot get stuck,
 a loop must have also a finish condition,
 which value indicates if the loop must continue or finish.
 

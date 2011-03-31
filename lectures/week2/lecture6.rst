@@ -28,7 +28,7 @@ introducing loops and conditionals.
 .. index:: conditional
 
 A **conditional** is a statement set
-which can or can not be executed,
+which can or cannot be executed,
 depending on the result of a condition.
 
 .. index:: loop

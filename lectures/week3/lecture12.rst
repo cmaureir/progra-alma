@@ -63,7 +63,7 @@ is not necessarily the same order they were added.
 
 If you assign a value to a key that is already present in the dictionary,
 the previous value is overwritten.
-Remember that a dictionary can not have repeated keys::
+Remember that a dictionary cannot have repeated keys::
 
     >>> telephones
     {'John': 5552437, 'Peter': 4448139, 'Andy': 5551428, 'Share': 5550012}
