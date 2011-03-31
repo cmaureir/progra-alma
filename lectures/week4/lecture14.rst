@@ -43,21 +43,21 @@ can be written as follows::
  else:
     print n, 'is odd'
 
-As seen, both programs can use defined objects in the module 
-simply importing it.
+As seen, both programs can use objects defined in the module 
+simply by importing it.
 
 Use modules as programs
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-A file with ``.py`` extension can be a module or a program.
-If is a module, contains definitions that can be imported from a program or other module.
-If is a program, contains code to be executed.
+A file with ``.py`` extension can be either a module or a program.
+If is a module, it contains definitions that can be imported from a program or other module.
+If is a program, it contains code to be executed.
 
 Sometimes, a program also contains definitions
 (for example, functions and variables)
 which also may be useful from another program.
 However, can not be imported,
-because by using the ``import`` sentence
+because by using the ``import`` statement
 the full program will be executed.
 What would happen in this case,
 to run the second program,

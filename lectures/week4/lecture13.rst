@@ -117,18 +117,18 @@ Name import
 ~~~~~~~~~~~
 .. index:: import, module (use)
 
-The ``import`` sentence import objects from a module
+The ``import`` statement imports objects from a module
 to be used in the current program.
 
-One way to use ``import`` is importing only specific names
-that you want to use in the program.::
+One way to use ``import`` is to import only specific names
+that you want to use in the program::
 
  >>> from math import sin, cos
  >>> print sin(10)
  >>> print cos(20)
 
 
-In these case, the ``sin`` and ``cos`` functions were not created by us,
+In this case, the ``sin`` and ``cos`` functions were not created by us,
 but imported from math modules, which are defined.
 
 The other way to use ``import`` is importing the entire module,
@@ -139,5 +139,5 @@ and accessing their objects by a point::
  >>> print math.cos(10)
 
 The two cases are equivalent.
-As always, we must choose the one that makes the program 
+As always, we must choose the one that makes the program
 easier to understand.
