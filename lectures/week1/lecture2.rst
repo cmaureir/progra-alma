@@ -1,181 +1,156 @@
-Lecture 2 - Data types
-----------------------
+Lecture 2 - Program development
+-------------------------------
 
-.. index:: Data types
+A **program** is a text file that contains
+code to be executed by the computer.
 
-(`Python standard data types official documentation`_)
+In the case of the Python programming language, 
+the program is executed by an **interpreter**.
+The interpreter is a program which execute programs.
 
-.. _Python standard data types official documentation: http://docs.python.org/library/stdtypes.html
+The programs written in Python
+must be contained in a file
+with the ``.py`` extension.
+In Windows, the program can be executed doing a double
+click above the file icon.
 
-A **data type** is the property of a value
-that define its domain (possible values),
-what operations can be applied to it
-and how it is represented by the computer.
+To test this,
+download the quadratic.py_ file,
+which allows to solve quadratic equations.
 
-All the values in a program have a type.
+.. _quadratic.py: ../_static/programs/quadratic.py
 
-Below we will review the Python elemental data types.
-Later in this course, we will learn several other types available in Python
-and, finally, we will learn how to create our own data types.
+Editing programs
+~~~~~~~~~~~~~~~~
+.. index:: text editor
 
-Integers
-~~~~~~~~
+A program is a `text file`_.
+Therefore, it can be created or edited
+using any `text editor`_,
+like Notepad.
 
-.. index:: integer, int
+What cannot be used
+is a text processor,
+like Microsoft Word.
 
-The **int** type (from the word «integer»)
-allows the representation of integer numbers.
+Try it:
+open the ``quadratic.py`` program
+with Notepad (or any other editor)
+and you will see its contents.
 
-The values an ``int`` can take are
-all the integer numbers:
-... ``-3``, ``-2``, ``-1``, ``0``, ``1``, ``2``, ``3``, ...
+.. _text file: http://en.wikipedia.org/wiki/Text_file
+.. _text editor: http://en.wikipedia.org/wiki/Text_editor
 
-Literal integer numbers are written with an optional sign
-followed by a sequence of digits::
+.. index:: text editor (list)
 
-   1570
-   +4591
-   -12
+Other text editors
+(much better than Notepad)
+that you can install are:
 
-Reals
-~~~~~
-
-.. index:: real number, floating point number, float
-
-The **float** type allows the representation of real numbers.
-
-The name ``float`` comes from the term `floating point`_,
-which is the internal representation of real numbers in a
-computer.
-
-.. _floating point: http://en.wikipedia.org/wiki/Floating_point
-
-We need to be careful,
-because real numbers cannot be represented
-exactly by a computer.
-For example,
-the decimal number 0.7
-is represented internally by the computer
-through the approximation 0.69999999999999996.
-All the operations between  ``float`` values
-are approximations.
-This can produce surprising results::
-
-    >>> 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7
-    0.9999999999999998
-
-Literal real numbers are written by separating the decimal
-and integer part with a point.
-Both the integer and the decimal part can be omitted
-when one of them is zero::
-
-    >>> 881.9843000
-    881.9843
-    >>> -3.14159
-    -3.14159
-    >>> 1024.
-    1024.0
-    >>> .22
-    0.22
+* in Windows:
+  `Notepad++ <http://notepad-plus-plus.org/>`_,
+  `Textpad <http://www.textpad.com/>`_;
+* in Mac:
+  `TextWrangler <http://www.barebones.com/products/textwrangler/>`_,
+  `TextMate <http://macromates.com/>`_;
+* in Linux:
+  `Gedit <http://projects.gnome.org/gedit/>`_,
+  `Kate <http://kate-editor.org/>`_.
 
 
-.. index:: scientific notation
+Python interpreter installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. index:: interpreter (installation)
 
-Another representation for real numbers is scientific notation,
-in which the number is written as a factor and the exponent of a power 
-of ten separated by the letter  ``e``.  For example::
+One thing is to edit the program and another one is to execute it.
+The **interpreter** must be installed in order to
+be able to execute the program using Python.
 
-    >>> -2.45E4
-    -24500.0
-    >>> 7e-2
-    0.07
-    >>> 6.02e23
-    6.02e+23
-    >>> 9.1094E-31
-    9.1094e-31
+You can find the installer list
+in the `Python download web`_
+You must download the one indicated for your computer
+and operating system.
 
-The last two values of the previous example
-are equal, respectively, to
-:math:`6.02\times 10^{23}` (the `Avogadro constant`_) y
-:math:`9.1094\times 10^{-31}` (the `electron mass`_).
+.. _Python download web: http://www.python.org/download/
+..
 
-.. _Avogadro constant: http://en.wikipedia.org/wiki/Avogadro_constant
-.. _electron mass: http://en.wikipedia.org/wiki/Electron
+You must install the version **2.7.1**,
+not 3.1.3.
 
-Exercises
-~~~~~~~~~
+Do not use the ``x86-64`` installers
+unless you are sure that your computer
+has a 64-bit architecture.
 
-1. Write a program that receives as input the *circle radious*
-   and returns the ``perimeter`` and the ``area``::
+Program execution
+~~~~~~~~~~~~~~~~~
 
-    Enter radious: `5`
-    Perimeter: 31.4
-    Area: 78.5
+Once the program is written and the interpreter has been installed,
+it is possible to execute the programs.
+The next video shows the process:
 
-2. Write a program that calculates the ``average`` of four grades
-   entered by the user::
+    [Video]
 
-    First grade: `55`
-    Second grade: `71`
-    Third grade: `46`
-    Fourth grade: `87`
-    Average: 64.75
+Console use
+~~~~~~~~~~~
+.. index:: interpreter (interactive), console
 
-3. Write a program that convert centimeters to inches.
-   An inch is equal to 2.54 centimeters.::
+Executing the programs
+is not the only way to use the interpreter.
+If we execute Python without passing any program,
+the **console** (or **interactive interpreter**) will open.
 
-    Enter length: `45`
-    45 cm = 17.7165 in
-    Enter length: `13`
-    13 cm = 5.1181 in
+The console allows to enter a program through the command line.
+It also allows to evaluate expressions and see the results immediately.
+This allows, for example, using it like a calculator.
 
-4. Write a program that receives as input the legs length ``a`` and ``b``
-   of a right triangle and return the ``c`` hypotenuse length,
-   give by the `Pythagorean theorem`_. `c^2=a^2+b^2.`::
+The next video shows how to use the interactive interpreter:
 
-    Enter a leg: `7`
-    Enter b leg: `5`
-    Hypotenuse: 8.6023252670426267
+    [Video]
 
-.. _`Pythagorean theorem`: http://en.wikipedia.org/wiki/Pythagorean_theorem
+The interactive console
+always shows the ``>>>`` symbol,
+to indicate the possibility to enter code.
+In all the books about Python
+and in all these lectures,
+each time an example appears using this symbol
+means that it must be executed in a console
+and not in a program. For example::
 
-5. Write a program that ask to the user the actual `t` hour of the clock
-   and an integer number of hours `h`,
-   that shows the future time of the clock in `h` hours more::
+    >>> a = 5
+    >>> a > 10
+    False
+    >>> a ** 2
+    25
 
-    Actual hour: `3`
-    Hour quantity: `5`
-    In 5 hours, the clock will have the 8 oclock
+In this example, at the time the expressions are entered ``a > 10`` and ``a ** 2``,
+the interactive interpreter give the results ``False`` and ``25``.
 
-    Actual hour: `11`
-    Hour quantity: `43`
-    In 43 hours, the clock will have the 6 oclock
-
-6. A student want to know the grade of a final test in a course
-   to approve it.
-
-   The average of the course is calculated as follows.
-
-   .. math::
-
-       G_C = \frac{(T1+T2+T3)}{3}
-
-       G_F = G_C\cdot 0.7 + G_L\cdot 0.3
+There is no reason to write the ``>>>`` symbol
+in a program, because it is not part of the language syntax.
 
 
-   Where `G_C` is the average of the test,
-   `G_L` is the laboratory average
-   and `G_F` is the final grade.
+Development environment
+~~~~~~~~~~~~~~~~~~~~~~~
+.. index:: development environment, IDE
 
-   Write a program that ask to the user the grades of the first two tests,
-   and the laboratory grade,
-   and show the needed grade for the last test
-   to approve the course with a final grade of 60.
+In general,
+using a simple text editor to write programs is not
+the most efficient way to work.
 
-.. testcase::
+The  **development environments**
+(also called *IDE*)
+are applications that facilitate the task of writing programs.
 
-    Test 1 grade: `45`
-    Test 2 grade: `55`
-    Laboratory grade: `65`
-    You need a 72 in the final test.
+Python comes with its own development environment, called **IDLE**.
+The following video shows how to use IDLE to develop a program
+and to use the interactive console:
+
+    [Video]
+
+Other good advanced Python development environments are:
+
+* `PyScripter <http://code.google.com/p/pyscripter/downloads/list>`_,
+* `WingIDE 101 <http://www.wingware.com/downloads/wingide-101/3.2.12-1/binaries>`_
+
+You can test them and use the most comfortable for you.
 

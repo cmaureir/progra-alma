@@ -1,116 +1,218 @@
-Lecture 4 - Input and output
------------------------------
+Lecture 4 - Data types
+----------------------
 
-(`Python input and output official documentation`_)
+.. index:: Data types
 
-.. _Python input and output official documentation: http://docs.python.org/tutorial/inputoutput.html
+(`Python standard data types official documentation`_)
 
-Input
-~~~~~
+.. _Python standard data types official documentation: http://docs.python.org/library/stdtypes.html
 
-.. index:: input (program)
+A **data type** is the property of a value
+that define its domain (possible values),
+what operations can be applied to it
+and how it is represented by the computer.
 
-The **input** is the program part
-in which the user enters data.
+All the values in a program have a type.
 
-.. index:: raw_input
+Below we will review the Python elemental data types.
+Later in this course, we will learn several other types available in Python
+and, finally, we will learn how to create our own data types.
 
-The simplest way to enter data
-is doing it through the keyboard.
-The ``raw_input(message)`` function
-asks the user to enter a value
-that can be assigned to a variable
-to be used by the program.
-The ``message`` is to be displayed to the user
-before that he enters a value.
+Strings
+~~~~~~~
 
-The input value provided by the user
-is always interpreted as text
-as a value of type ``str``.
-If a different type is required,
-we need to convert it explicitly.
+.. index:: string, text data types, str
 
-For example,
-in the temperature conversion program,
-the input is converted to a real value
-by the following statement::
+A **strings** is a value that
+represents text, and whose type is **str**.
 
-    f = float(raw_input('Enter temperature in Fahrenheit degrees: '))
+The literal strings
+are represented in a program
+by enclosing it in single or double quotes::
 
-When the program gets to this line,
-the message ``Enter temperature in Fahrenheit degrees:``
-is shown to the user, who then must enter a value,
-which is converted into a real number
-and bound to the name ``f``.
+   "example 1"
+   'example 2'
 
-From that line onward,
-variable ``f`` can be used by the program
-to refer to the entered value.
+The advantage of having two kinds of quotes
+is that we can use one of them when the other
+appears in the text::
 
-Output
-~~~~~~
+    "Let's go!"
+    'She said "hello"'
 
-.. index:: output (program)
+.. Los operadores aritméticos no pueden ser aplicadas sobre strings,
+.. salvo dos excepciones:
+.. 
+.. 1. El operador ``+`` aplicado a dos strings
+..    no representa la suma,
+..    sino la **concatenación**,
+..    que significa pegar los strings
+..    uno después del otro::
+.. 
+..        >>> "hola " + 'mundo'
+..        'hola mundo'
+.. 
+.. 2. El operador ``*`` aplicado a un string y a un número entero
+..    no representa la multiplicación,
+..    sino la **repetición**,
+..    es decir, el string es repetido tantas veces como indica el número::
+.. 
+..        >>> "lo" * 5
+..        'lololololo'
+.. 
+.. Las operaciones relacionales permiten comparar strings alfabéticamente::
+.. 
+..     >>> "ala" < "alamo" < "bote" < "botero" < "boteros" < "zapato"
+..     True
+.. 
+.. Para conocer el largo de un string,
+.. se utiliza la función ``len()``::
+.. 
+..     >>> len('universidad')
+..     11
+.. 
+.. La función ``input()``,
+.. que usamos para leer la entrada del usuario,
+.. siempre entrega como resultado un string.
+.. Hay que tener la precaución
+.. de convertir los valores que entrega
+.. al tipo adecuado.
+.. Por ejemplo,
+.. el siguiente programa tiene
+.. un error de incompatibilidad de tipos::
+.. 
+..     n = input('Escriba un número:')
+..     cuadrado = n * n
+..     print('El cuadrado de n es', cuadrado)
 
-The **output** is the program part
-in which the results are delivered to the user.
+It is important to understand that strings
+are not the same as the values that can be represented 
+inside them::
 
-.. index:: print
+   >>> 5 == '5'
+   False
+   >>> True == 'True'
+   False
 
-The simplest way to deliver the output
-is to display text on the screen.
-In Python, the program output is performed by the
-**print** sentence.
+The strings with lower and upper case differences 
+(case sensitive), or with blank spaces are not the same::
 
-If one wants to display a single value,
-the syntax is as follows::
+   >>> 'table' == 'Table'
+   False
+   >>> ' table' == 'table '
+   False
 
-    print value_to_print
 
-If there are several values to be printed,
-they should be separated by commas.
-For example, the temperature conversion program
-has the following output statement::
+Boolean
+~~~~~~~
 
-    print 'The Celsius degrees equivalent is:', c
+.. index:: bool, logic value, boolean value
 
-In this case, the message ``The Celsius degrees equivalent is:``
-is being printed and, after it, in the same line,
-the value of the variable ``c``.
+The logic values ``True`` and ``False``
+are of **bool** type, which represents logic values.
 
-The quotation marks allow to represent a string but are not part of it.
-When printing the string by using ``print``, the quotation marks do not appear::
+The name ``bool`` comes from the mathematician `George Boole`_,
+who created an algebraic system for binary logic.
+For this reason,
+the ``True`` and ``False`` values are also called
+**boolean values**.
+The name is not very intuitive, but we need to know it because
+it is widely used in different areas of science.
 
-    >>> 'Hello'
-    'Hello'
-    >>> print 'Hello'
-    Hello
+.. _George Boole: http://en.wikipedia.org/wiki/George_Boole
 
-Comments
-~~~~~~~~
+.. Las operaciones lógicas ``and``, ``or`` y ``not``
+.. pueden ser aplicadas sobre valores booleanos,
+.. y entregan como resultado un valor booleano::
+.. 
+..     >>> not True or (True and False)
+..     False
+.. 
+.. Las operaciones relacionales
+.. ``<``, ``>``, ``==``, etc.,
+.. pueden ser aplicadas sobre valores de tipos comparables,
+.. pero siempre entregan como resultado un valor booleano::
+.. 
+..     >>> 2 + 2 == 5
+..     False
+..     >>> x = 95.4
+..     >>> 50 < x < 100
+..     True
 
-.. index:: comments, #
 
-A **comment** is a section of code
-that is ignored by the interpreter.
-A comment can be used by the programmer
-to place messages in the code that can be useful
-to someone that needs to read the code
-in the future.
+None
+~~~~
 
-In Python,
-any text that appears to the right of a ``#`` sign
-is a comment::
+.. index:: null type, None
 
-    >>> 2 + 3  # This is a sum
-    5
-    >>> # This is ignored
-    >>>
+There is a value called  **None**
+which is used to represent cases
+where no value is valid
+or to indicate that the current value of a
+variable does not make sense.
 
-The only exception are the ``#`` signs that appear in a string::
+The ``None`` value has its own type,
+called ``NoneType``,
+which is different to all other values.
 
-    >>> "123 # 456" # 789
-    '123 # 456'
+.. Conversión de tipos
+.. -------------------
+.. .. index:: conversión de tipos
+.. 
+.. Los tipos de los valores
+.. indican qué operaciones pueden ser aplicadas sobre ellos.
+.. 
+.. A veces es necesario convertir valores de un tipo a otro
+.. para poder operar sobre ellos.
+.. Existen dos tipos de conversiones:
+.. implícitas y explícitas.
+.. 
+.. Las conversiones implícitas
+.. son las que se hacen automáticamente
+.. según el contexto.
+.. Las más importantes son las siguientes:
+.. 
+.. * cuando se utiliza un entero
+..   en un contexto real,
+..   el entero es convertido al real correspondiente::
+.. 
+..       >>> 56 * 8.0
+..       448.0
+.. 
+.. * cuando se utiliza cualquier valor
+..   en un contexto booleano,
+..   es convertido al valor ``True``,
+..   excepto por los siguientes casos,
+..   en que es convertido al valor ``False``:
+.. 
+..   * el valor ``0``,
+..   * el string vacío ``''``,
+..   * ``None``.
+.. 
+..   Por ejemplo::
+.. 
+..       >>> not 0
+..       True
+..       >>> not 10
+..       False
+
+..       >>> not 'hola'
+..       False
+..       >>> bool(3.14)
+..       True
+.. 
+..   Con los operadores ``and`` y ``or``
+..   ocurre algo más extraño::
+.. 
+..       >>> 4 and 7
+..       7
+..       >>> 0 and 7
+..       0
+..       >>> 5 or 6
+..       5
+..       >>> 0 or 6 or 7
+..       6
+
 
 Exercises
 ~~~~~~~~~
