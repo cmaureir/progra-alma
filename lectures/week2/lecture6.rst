@@ -56,7 +56,7 @@ but more to the right::
         n = t
     print m, n
 
-In this example, the three assignations are
+In this example, the three assignments are
 contained inside the ``if`` control statement.
 The ``print m, n`` is not indented,
 so it is not part of the ``if`` statement.

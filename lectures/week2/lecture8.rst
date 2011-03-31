@@ -3,16 +3,15 @@ Lecture 8 - Functions
 
 .. index:: function
 
-Suppose we need to write a program which calculates the
-`combinatorial number`_ `C(m, n)`,
-defined by:
+Suppose we need to write a program to compute the
+`combinatorial number`_ `C(m, n)`, defined by:
 
 .. math::
 
     C(m, n) = \frac{m!}{(m - n)! n!},
 
-where `n!` (the `n` factorial_)
-is the product of the integer numbers from 1 to `n`:
+where `n!` (the factorial_ of `n`)
+is the product of the integers from 1 to `n`:
 
 .. math::
 
@@ -53,16 +52,15 @@ we need to do the same, three times::
     comb = comb / f
 
 The only difference between the three factorial computations
-is the finish value of each ``for`` loop
+is the end value of each ``for`` loop
 (``m``, ``m - n`` and ``n``, respectively).
 
-Writing the same code several times can be a tedious process and error-prone.
-The resulting code can be much harder to understand as well, since
-it is not obvious at first glance.
+Writing the same code several times is a tedious and error-prone process.
+The resulting code is harder to understand as well, since
+it is not obvious what is does at first glance.
 
 The ideal case would be to have a function called ``factorial``
-to make the dirty job and we could use it as follows::
-
+to do the dirty work that we could use it as follows::
 
     factorial(m) / (factorial(m - n) * factorial(n))
 
@@ -75,7 +73,7 @@ Function details
 .. index:: function details
 
 In programming,
-a **function** is a program section that
+a **function** is a section of the program that
 computes a value independently to the rest of the program.
 
 .. index:: parameter (of a function), result (of a function), return value
@@ -90,11 +88,11 @@ A function has three important components:
   is the final value returned by a function.
 
 In essence, a function is a little program.
-Their three components are analogs to the input,
+Their three components are analog to the input,
 the process and the program output.
 
 In the factorial example,
-the parameter is the integer number which we want to compute the factorial for,
+the parameter is the integer number whose factorial we want to compute,
 the code is the loop that makes the multiplications
 and the result is the calculated value.
 
@@ -112,7 +110,7 @@ The difference is that, when finished, they submit
 their results using a ``return`` statement.
 
 For example,
-the function to compute the factorial numbers
+the function to compute the factorial
 could be defined as follows::
 
     def factorial(n):
@@ -123,12 +121,12 @@ could be defined as follows::
 
 In this example,
 the result given by the function call
-is the ``f`` variable value
+is the value that variable ``f`` has
 when the last line of the function is reached.
 
 Once created,
 the function can be used as any other,
-all the times it is required::
+as many times it is required::
 
     >>> factorial(0)
     1
@@ -145,22 +143,22 @@ all the times it is required::
 Variables that are created inside the function
 (including result and parameter)
 are called **local variables**
-and are visible inside the function,
+and are only visible inside the function,
 not outside.
 
 .. index:: global variable
 
 Moreover,
-the created variables outside some function
+the variables created outside some function
 are called **global variables**,
-and are visible in the entire program.
-However, their values can not be modified,
-because an assignation can produce a local variable
+and are visible from the entire program.
+However, their values cannot be modified,
+because an assignment would create a local variable
 with the same name.
 
 In the example, the local variables are ``n``, ``f`` e ``i``.
 Once the function call ends,
-these variables ceases to exist::
+these variables cease to exist::
 
     >>> factorial(5)
     120
@@ -170,7 +168,7 @@ these variables ceases to exist::
     NameError: name 'f' is not defined
 
 After defining the ``factorial`` function,
-we can create other function called ``comb``
+we can create another function called ``comb``
 to compute the combinatorial numbers::
 
     def comb(m, n):
@@ -180,7 +178,7 @@ to compute the combinatorial numbers::
         c = fact_m / (fact_n * fact_m_n)
         return c
 
-The function calls ``factorial`` three times
+This function calls ``factorial`` three times
 and later uses the results to compute its own result.
 The same function can be written also in a brief way::
 
@@ -196,7 +194,7 @@ The entire program is the follow:
 .. _here: ../../_static/programs/combinatorial.py
 
 Note that, thanks to the use of functions,
-the main section of the program has four lines
+the main section of the program has only four lines
 and the example is much easier to understand.
 
 Multiple ``return`` values
@@ -205,17 +203,16 @@ In Python, a function can return more than one value.
 
 For example,
 the next function
-obtains an amount in seconds transformed into hours,
-minutes and seconds.
-in hours, minutes and seconds::
+converts an amount of seconds
+into hours, minutes and seconds::
 
     def convert_secs(secs):
         hour = secs / (60 * 60)
         minutes = (secs / 60) % 60
         secs = secs % 60
-        return hours, minutes and seconds.
+        return hours, minutes, seconds.
 
-Calling the function,
+When calling the function,
 we can assign a name to each of the returned values::
 
     >>> h, m, s = convert_secs(9814)
@@ -226,7 +223,7 @@ we can assign a name to each of the returned values::
     >>> s
     34
 
-Technically, the function is returning a **tuple** of values:
+Technically, the function is returning a **tuple** of values::
 
     >>> convert_secs(9814)
     (2, 43, 34)
@@ -235,34 +232,33 @@ Functions returning anything
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A function can do several actions
-without delivering the result.
+without yielding a result.
 
 For example,
-if a program needs to print several times some information,
+when a program needs to print several times some information,
 it should encapsulate this action in a function that performs the ``print`` ::
 
     def data_print(name, lastname, rol, day, month, year):
         print 'Name:', name, lastname
-        print 'Rol:', rol
+        print 'ID:', rol
         print 'Birth date:', day, '/', month, '/', year
 
     data_print('Perico', 'Los Palotes', '201101001-1',  3, 1, 1993)
     data_print('Yayita', 'Vinagre',     '201101002-2', 10, 9, 1992)
-    data_print('Fulano', 'De Tal',      '201101003-3', 14, 5, 1990)
+    data_print('John',   'Doe',         '201101003-3', 14, 5, 1990)
 
 In this case,
 each call to the ``data_print`` function
-shows the data through screen, but does not give any result.
-This function type is known in programming like
-
+shows the data in the screen, but it does not give any result.
+In programming, this kind of functions are known as
 **procedures** or **subroutines**,
-but in Python are simple functions.
+but in Python they are plain functions.
 
-Technically, all the returning values are functions.
+Technically, all functions return a value.
 In the case of a function lacking the ``return`` statement,
 the return value is always ``None``.
-But as the function call is not an assignment,
-we loose the value and there is no program effect.
+But as the function call is not put on the right-hand side of an assignment,
+the value is lost and there is no effect on the program.
 
 Exercises
 ~~~~~~~~~
