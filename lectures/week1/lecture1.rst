@@ -6,28 +6,28 @@ Expressions
 
 .. index:: expression
 
-An **expression** is a value and operation combination
-which are evaluated during the algorithm execution
-to obtain a certain value.
+An **expression** is combination of values and operations
+which are evaluated during execution,
+and yield a result.
 For example, :math:`2 + 3` is an expression
-which, evaluating it, always return the :math:`5` value.
+which, when evaluated, always returns the value 5.
 
 In the example, :math:`b^2 - 4ac` is an expression,
-whose value depends on what values have
-:math:`a`, :math:`b` and :math:`c`
+whose result depends on what values
+:math:`a`, :math:`b` and :math:`c` have
 at the evaluation moment.
 
-Asignations
+Assignment
 ~~~~~~~~~~~
 
-.. index:: assignation, variable, identificator
+.. index:: assignment, variable, identificator
 
 When an algorithm calculates some values,
-you need to put a name to able to refer them
-in the next steps. 
-Is what we do in the step 2 of our algorithm,
-when we calculate the discriminating and we call it :math:`A`.
-This is called **assignation**,
+you need to put a name to it to be able to refer them
+in the following steps.
+This is what we do in the step 2 of our algorithm,
+when we calculate the discriminant and we call it :math:`A`.
+This is called an **assignment**,
 and is represented as::
 
     name = expression
@@ -35,26 +35,26 @@ and is represented as::
 To the used name in an expression is called
 **variable** or **identificator**.
 
-The assignation in the previous example, will be::
+The assignment in the previous example, will be::
 
     Δ = b² − 4 * a * c
 
-An assignation must be interpreted as follows:
+An assignment must be interpreted as follows:
 
-1. first, ``=`` right expression is evaluated,
-   using the values of the variables, in that moment.
+1. first, the expression at the right of the``=`` is evaluated,
+   using the values that the variables have at that moment;
 2. once the result is obtained,
-   the ``=`` left variable value is replaced by this result.
+   the variable at the left of the ``=`` takes the result as its value.
 
 Under this interpretation,
-is perfectly posible an assignation like this::
+an assignment like this is perfectly posible::
 
     i = i + 1
 
 First, the expression is evaluated,
 and their result is the successor of the actual ``i`` value.
 For example, if ``i`` has the value 15,
-after the assignation will be have the value 16.
+after the assignment will be have the value 16.
 This *not* mean that 15 = 16.
 
 Conditionals

@@ -6,13 +6,12 @@ code to be executed by the computer.
 
 In the case of the Python programming language, 
 the program is executed by an **interpreter**.
-The interpreter is a program which execute programs.
+The interpreter is a program that executes programs.
 
 The programs written in Python
 must be contained in a file
 with the ``.py`` extension.
-In Windows, the program can be executed doing a double
-click above the file icon.
+In Windows, the program can be executed by double-clicking the file icon.
 
 To test this,
 download the quadratic.py_ file,
