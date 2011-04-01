@@ -39,7 +39,7 @@ by the following statement::
 
 When the program gets to this line,
 the message ``Enter temperature in Fahrenheit degrees:``
-is shown to the user, who then must enter a value,
+is shown to the user, who must enter a value,
 which is converted into a real number
 and bound to the name ``f``.
 
@@ -47,21 +47,19 @@ From that line onward,
 variable ``f`` can be used by the program
 to refer to the entered value.
 
-.. La función ``input()``,
-.. que usamos para leer la entrada del usuario,
-.. siempre entrega como resultado un string.
-.. Hay que tener la precaución
-.. de convertir los valores que entrega
-.. al tipo adecuado.
-.. Por ejemplo,
-.. el siguiente programa tiene
-.. un error de incompatibilidad de tipos::
-.. 
-..     n = input('Escriba un número:')
-..     cuadrado = n * n
-..     print('El cuadrado de n es', cuadrado)
+The ``input()`` function, that we use 
+to read the input of the user,
+always return as result a string.
+Be careful with the type of the return
+values, because you need to convert them,
+to the properly type.
 
+For example,
+the next program has an type incompatibility error::
 
+    n = input('Write a number:')
+    square = n * n
+    print('The square of n is ', square)
 
 Output
 ~~~~~~
@@ -128,7 +126,272 @@ The only exception are the ``#`` signs that appear in a string::
     >>> "123 # 456" # 789
     '123 # 456'
 
+
+Precedence
+----------
+.. index:: operator precedence, brackets
+
+The **operator precedences**
+is a set of rules that specified
+the order to evaluate some
+operations in an expression.
+
+The precedence is given by the next list,
+in which the operators was listed in order
+from less to greater precedence:
+
+* ``or``
+* ``and``
+* ``not``
+* ``<``, ``<=``, ``>``, ``>=``, ``!=``, ``==``
+* ``+``, ``-`` (sum and subtraction)
+* ``*``, ``/``, ``%``
+* ``+``, ``-`` (positive and negative)
+* ``**``
+
+This means, for example,
+que las multiplicaciones se evalúan antes que las sumas,
+y que las comparaciones se evalúan antes que las operaciones lógicas::
+
+    >>> 2 + 3 * 4
+    14
+    >>> 1 < 2 and 3 < 4
+    True
+
+Operations inside the same level
+are evaluated in the order from left to right::
+
+    >>> 15 * 12 % 7    # is the same to (15 * 12) % 7
+    5
+
+The only exception to the previous rule are the powers,
+which are evaluated from right to left::
+
+    >>> 2 ** 3 ** 2    # is the same to 2 ** (3 ** 2)
+    512
+
+To force a different evaluation order in comparison to the previous rules,
+you must use brackets::
+
+    >>> (2 + 3) * 4
+    20
+    >>> 15 * (12 % 7)
+    75
+    >>> (2 ** 3) ** 2
+    64
+
+Another way to force the order
+is saving the intermediate results in variables::
+
+    >>> n = 12 % 7
+    >>> 15 * n
+    75
+
+As an example, let consider the next expression::
+
+    15 + 59 * 75 / 9 < 2 ** 3 ** 2 and (15 + 59) * 75 % n == 1
+
+and we will suppose that the ``n`` variable have the value 2.
+Here we can see how the expression is evaluated until
+arrive in the final result, that is ``False``::
+
+    15 + 59 * 75 / 9 < 2 ** 3 ** 2 and (15 + 59) * 75 % n == 1
+    #                         ↓
+    15 + 59 * 75 / 9 < 2 **   9    and (15 + 59) * 75 % n == 1
+    #                    ↓
+    15 + 59 * 75 / 9 < 512         and (15 + 59) * 75 % n == 1
+    #       ↓
+    15 +  4425   / 9 < 512         and (15 + 59) * 75 % n == 1
+    #            ↓
+    15 +        491  < 512         and (15 + 59) * 75 % n == 1
+    #                                      ↓
+    15 +        491  < 512         and    74     * 75 % n == 1
+    #                                            ↓
+    15 +        491  < 512         and          5550  % n == 1
+    #                                                   ↓
+    15 +        491  < 512         and          5550  % 2 == 1
+    #                                                 ↓
+    15 +        491  < 512         and                0   == 1
+    #  ↓
+      506            < 512         and                0   == 1
+    #                ↓
+                    True           and                0   == 1
+    #                                                     ↓
+                    True           and                  False
+    #                               ↓
+                                  False
+
+The operations between brackets ``(15 + 59)``
+must be evaluated before the multiplication by 75,
+because is necessary to know their result to be able to calculate the product.
+The precise momento in which that occur is not important.
+
+The same thing occur withe ``n`` variable evaluation:
+the only important thing is it evaluated before being used by the module
+operator.
+
+In the example,
+both cases was evaluated inmediatly before their value will is necesary.
+
+The entire precedence rules,
+including another operator that we have not seen,
+can be asked in the `expresions section`_
+of the official Python documentation.
+
+.. _expresions section: http://docs.python.org/reference/expressions.html#summary
+
+How to learn the precedence rules ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The answer is: better not to learn them.
+The rules of precedence are many and not always intuitive.
+
+A program is easier to understand if you explicitly
+indicates the evaluation order using brackets, or saving in variables
+the intermediate results of the calculation.
+
+A good programmer always worry that their code will be easy to understand
+by others, and ¡even for himself in a few weeks later!
+
+Function calls
+--------------
+.. index:: function
+
+Complementary the previous lectures, we will take a look
+to some useful functions.
+
+The operators form a very reduced set of operations.
+More commonly, the more general operations are represented
+as **functions**.
+
+.. index:: parameter, argument, function call
+
+As in math, the function have a name,
+and receive **parameters** (or **arguments**)
+which are between brackets after the name.
+The operation of use the function to obtain a result
+is called **function call**.
+
+We already know the ``raw_input()`` function,
+that return as result
+the user entered text through the keyboard.
+
+.. index:: abs
+
+The ``abs`` function return the absolute value of their argument::
+
+    >>> abs(4 - 5)
+    1
+    >>> abs(5 - 4)
+    1
+
+.. index:: len (of a string)
+
+The ``len`` function receive an string and return thei length.
+(you might remember from the past week lecture)::
+
+    >>> len('hola mundo')
+    10
+    >>> len('hola' * 10)
+    40
+
+.. index:: int (function), float (function), str (funcion)
+
+The names of the types are also functions,
+which return the equivalent of its parameter in the corresponding type::
+
+    >>> int(3.8)
+    3
+    >>> float('1.5')
+    1.5
+    >>> str(5 + 6)
+    '11'
+    >>> int('5' + '6')
+    56
+
+.. index:: min, max
+
+The ``min`` and ``max`` functions
+return the minimum and the maximum of its arguments::
+
+    >>> min(6, 1, 8)
+    1
+    >>> min(6.0, 1.0, 8.0)
+    1.0
+    >>> max(6, 1, 4, 8)
+    8
+
+.. index:: round
+
+The ``round`` function rounds a real number to the closest integer::
+
+    >>> round(4.4)
+    4.0
+    >>> round(4.6)
+    5.0
+
+.. index:: exp, sin, log, 
+
+Some mathematical functions,
+like the exponential, the logarithm
+and the trigonometrics can be used,
+but first must be imported
+using the ``import`` statement,
+which we will look deeply in the next lectures::
+
+    >>> from math import exp
+    >>> exp(2)
+    7.3890560989306504
+    >>> from math import sin, cos
+    >>> cos(3.14)
+    -0.9999987317275395
+    >>> sin(3.14)
+    0.0015926529164868282
+
+The entire mathematical function list
+that can be imported is in the `math module description`_
+in the official Python documentation.
+
+.. _math module description: http://docs.python.org/library/math.html
+
+Later, also we will learn to create
+our own funciont.
+But now, we only need to know how to call its.
+
+Of course,
+always is necessary that the call arguments have the apropiated type::
+
+    >>> round('dog')
+    Traceback (most recent call last):
+      File "<console>", line 1, in <module>
+    TypeError: a float is required
+    >>> len(8)
+    Traceback (most recent call last):
+      File "<console>", line 1, in <module>
+    TypeError: object of type 'int' has no len()
+
 Exercises
 ~~~~~~~~~
 
-PENDING
+1. Escriba un programa que pida al usuario dos palabras,
+   y que indique cuál de ellas es la más larga
+   y por cuántas letras lo es.
+
+   .. testcase::
+
+       Palabra 1: `edificio`
+       Palabra 2: `tren`
+       La palabra edificio tiene 4 letras mas que tren.
+
+   .. testcase::
+   
+       Palabra 1: `sol`
+       Palabra 2: `paralelepipedo`
+       La palabra paralelepipedo tiene 11 letras mas que sol
+
+   .. testcase::
+   
+       Palabra 1: `plancha`
+       Palabra 2: `lapices`
+       Las dos palabras tienen el mismo largo
+2. ...

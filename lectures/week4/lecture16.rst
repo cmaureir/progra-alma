@@ -62,7 +62,7 @@ Syntax Error
 A **syntax error** occurs when the program does not follows
 the rules of language.
 When this error occur,
-it means that the program isn't written correctly.
+it means that the program is not written correctly.
 The name of the error is ``SyntaxError``.
 
 The syntax errors always happen *before*

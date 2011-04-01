@@ -5,7 +5,7 @@ Lecture 14 - Modules creation
 A simple module is simply a file with Python code.
 The name of the file indicates which is the module name.
 
-For example, we can create a file named ``parity.py``
+For example, we can create a file called ``parity.py``
 which have functions related to the parity numbers.::
 
  def is_even(n):

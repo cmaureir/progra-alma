@@ -270,7 +270,7 @@ Exercises
 
 4. Write a program that receives as input
    the legs `a` and `b` of a right triangle,
-   and outputs the length `c` of the hypotenuse,,
+   and outputs the length `c` of the hypotenuse,
    given by the `Pythagorean theorem`_ `c^2=a^2+b^2`::
 
     Enter leg a: `7`

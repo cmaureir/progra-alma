@@ -41,7 +41,7 @@ The assignment in the previous example, will be::
 
 An assignment must be interpreted as follows:
 
-1. first, the expression at the right of the``=`` is evaluated,
+1. The expression at the right of the``=`` is evaluated,
    using the values that the variables have at that moment;
 2. once the result is obtained,
    the variable at the left of the ``=`` takes the result as its value.
@@ -66,7 +66,7 @@ Sometimes an algorithm must do different steps
 under different conditions.
 Is what we do in the step 3 of the example:
 we say that the equation does not have solutions
-only when the `Δ < 0` condition is satisfied..
+only when the `Δ < 0` condition is satisfied.
 This is called **conditional**.
 
 The condition that determine what execute
@@ -78,7 +78,7 @@ Loops
 
 .. index:: loop, finish condition
 
-A **loop** ocurr when
+A **loop** occur when
 an algorithm execute a set of instructions
 several times.
 
@@ -103,10 +103,10 @@ or::
     variable = inpurt("example message:")
 
 During the execution,
-thi means that the data
+this means that the data
 must stay saved in the variable.
 
-In the example, the input ocurrs in the first step,
+In the example, the input occurs in the first step,
 and can be represented as::
 
     a = input()
@@ -120,7 +120,7 @@ Output
 
 Once the algorithm solve the problem
 for which it was designed,
-must return his results like a message.
+must return its results like a message.
 The output is represented as::
 
     print(menssage)
@@ -130,7 +130,7 @@ goes between quotation.
 If is a variable,
 is just the name of the variable.
 
-In the example, when there ir no solutions,
+In the example, when there is no solutions,
 the output can be represented as::
 
     print('No solutions')

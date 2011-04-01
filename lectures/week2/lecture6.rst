@@ -219,26 +219,237 @@ the conditions are evaluated.
 Exercises
 ~~~~~~~~~
 
-`1`_ 
-`2`_ 
-`3`_ 
-`4`_ 
-`5`_ 
-`6`_ 
-`7`_ 
-`8`_ 
-`9`_ 
-`10`_ 
-`11`_ 
+1. When the earth complete an orbit arround the Sun,
+   have not passed 365 rations on itself correctly,
+   but a little more.
+ 
+   More precisely, the difference is about a quarter of a day.
+   
+   To avoid that the seasons be offset with the calendar,
+   the julian calendar introduced a rule
+   of add an additional day in the years divisible by 4
+   (called `leap year`_),
+   to take into consideration the fourt quarter of a day.
+   
+   However, under this rule still a leap,
+   that is within about 3/400 of a day.
+   
+   To fix this leap, in the year 1582
+   the Pope Gregory XIII introduced a new calendar,
+   in which the last year of each century was no longer a leap year,
+   unless it was divisible by 400.
+   
+   Write a program that return if a year is or no a leap year,
+   remembering the current calendar in that year:
+   
+   .. _`leap year`: http://en.wikipedia.org/wiki/Leap_year 
+   
+   .. testcase::
+   
+   	Enter a year: `1988`
+   	1988 is a leap year
+   
+   .. testcase::
+   
+   	Enter a year: `2011`
+    2011 is not a leap year
+   
+   .. testcase::
+   
+   	Enter a year: `1700`
+    1700 is not a leap year
+   
+   .. testcase::
+   
+   	Enter a year: `1500`
+    1500 is a leap year
+   
+   .. testcase::
+   
+   	Enter a year: `2400`
+    2400 is a leap year
 
-.. _`1`: http://progra.usm.cl/apunte/ejercicios/1/par-o-impar.html
-.. _`2`: http://progra.usm.cl/apunte/ejercicios/1/bisiestos.html
-.. _`3`: http://progra.usm.cl/apunte/ejercicios/1/division.html
-.. _`4`: http://progra.usm.cl/apunte/ejercicios/1/palabra-mas-larga.html
-.. _`5`: http://progra.usm.cl/apunte/ejercicios/1/ordenamiento-basico.html
-.. _`6`: http://progra.usm.cl/apunte/ejercicios/1/letra-o-numero.html
-.. _`7`: http://progra.usm.cl/apunte/ejercicios/1/calculadora.html
-.. _`8`: http://progra.usm.cl/apunte/ejercicios/1/edad.html
-.. _`9`: http://progra.usm.cl/apunte/ejercicios/1/set-de-tenis.html 
-.. _`10`: http://progra.usm.cl/apunte/ejercicios/1/triangulos.html
-.. _`11`: http://progra.usm.cl/apunte/ejercicios/1/indice-masa-corporal.html
+2. Write a program that require two integer numbers and
+   calculate the division, indicating if the division is exact or not.
+   
+   .. testcase::
+   
+       Dividend: `14`
+       Divisor: `5`
+   
+       not exact division.
+       Quotient: 2
+       Remainder: 4
+   
+   .. testcase::
+   
+       Dividend: `100`
+       Divisor: `10`
+       
+       La división es exacta.
+       Quotient: 10
+       Remainder: 0
+
+3. Write a program that require two numbers,
+   then show its ordered lowest to highest:
+   
+   .. testcase::
+   
+   	Ingrese numero: `51`
+   	Ingrese numero: `24`
+    24 51
+   
+   Next,
+   do the same with three numbers:
+   
+   .. testcase::
+   
+   	Ingrese numero: `8`
+   	Ingrese numero: `1`
+   	Ingrese numero: `4`
+    1 4 8
+   
+   Finally,
+   do te same with four numbers:
+   
+   .. testcase::
+   
+   	Ingrese numero: `7`
+   	Ingrese numero: `0`
+   	Ingrese numero: `6`
+   	Ingrese numero: `1`
+    0 1 6 7
+   
+   Remember that your program must return the correct answer
+   to know the number combination,
+   not only to the examples showed previously.
+
+4. Write a program that determine if an input character is a character,
+   a number or neither.
+   In the case that is a character, determine if is upper or lower case.
+   
+   .. testcase::
+   
+       Enter character: `9`
+       Is number.
+   
+   .. testcase::
+   
+       Enter character: `A`
+       upper-case character.
+   
+   .. testcase::
+   
+       Enter character: `f`
+       lower-case character.
+   
+   .. testcase::
+   
+       Enter character: `#`
+       Is not a character or number.
+
+
+5. Write a program that simulate a basic calculator,
+   this can be done using the sum, substraction, multiplication and vision operators.
+  
+   The program must receive as input, two real numbers and one operator,
+   that can be ``+``, ``-``, ``*`` or ``/``.
+   
+   The output of the program must be the operation result:
+   
+   .. testcase::
+   
+       Operating: `3`
+       Operator: `+`
+       Operating: `2`
+       3 + 2 = 5
+   
+   .. testcase::
+   
+       Operating: `6`
+       Operator: `-`
+       Operating: `7`
+       6 - 7 = -1
+   
+   .. testcase::
+   
+       Operating: `4`
+       Operator: `*`
+       Operating: `5`
+       4 * 5 = 20
+   
+   .. testcase::
+   
+       Operating: `10`
+       Operator: `/`
+       Operating: `4`
+       10 / 4 = 2.5
+   
+   .. testcase::
+   
+       Operating: `-1`
+       Operator: `**`
+       Operating: `4`
+       -1 ** 4 = 1
+
+
+6. Write a program that return the user age,
+   starting from the date of birth:
+   
+   .. testcase::
+   
+       Enter you birth date.
+       Day: `14`
+       Month: `6`
+       Year: `1948`
+       You are 62 years old
+   
+   Of course, the return result depends on the day
+   of your program is executed.
+   
+   To obtain the actual date,
+   can be done using the ``localtime`` function
+   that is provided by the time_ module.
+   The values are obtained as the follow way
+   (suppose today is April 1st, 2011)::
+   
+       >>> from time import localtime
+       >>> t = localtime()
+       >>> t.tm_mday
+       1
+       >>> t.tm_mon
+       4
+       >>> t.tm_year
+       2011
+   
+   The program must note if the birthday
+   occurred or does not happend in this year.
+   
+   .. _time: http://docs.python.org/library/time.html
+
+
+
+   
+7. The risk of a people to suffer coronary diseases
+   depends on his age and his body mass index (BMI):
+   
+     +----------------+---------------+---------------+
+     |                | age < 45      | age ≥ 45      |
+     +================+===============+===============+
+     | **BMI < 22.0** | lower         | middle        |
+     +----------------+---------------+---------------+
+     | **BMI ≥ 22.0** | middle        | high          |
+     +----------------+---------------+---------------+
+   
+   The BMI is the quotient between the weight (kg) and the
+   square of his height (m).
+   
+   Write a program that receive as input
+   the height, the weight and the age of a person,
+   and show the risk condition.
+   
+   .. [Camp09] Jennifer Campbell et al.
+               *Practical Programming:
+               An Introduction to Computer Science Using Python*.
+               Pragmatic Bookshelf, 2009.
+

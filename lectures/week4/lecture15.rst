@@ -48,7 +48,7 @@ If you change the value of a variable, the identity will change is almost all th
     >>> id(number)
     163098656
 
-Some objects don't allow to change their content, because are immutable like the tuples
+Some objects do not allow to change their content, because are immutable like the tuples
 (See lecture10_ for more details)
 
 .. _lecture10:  ../week3/lecture10.html
