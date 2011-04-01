@@ -14,11 +14,55 @@ with the ``.py`` extension.
 In Windows, the program can be executed doing a double
 click above the file icon.
 
-To test this,
-download the quadratic.py_ file,
-which allows to solve quadratic equations.
 
-.. _quadratic.py: ../_static/programs/quadratic.py
+Python interpreter installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. index:: interpreter (installation)
+
+One thing is to edit the program and another one is to execute it.
+The **interpreter** must be installed in order to
+be able to execute the program using Python.
+
+You can find the installer list
+in the `Python download web`_
+You must download the one indicated for your computer
+and operating system.
+
+.. _Python download web: http://www.python.org/download/
+..
+
+You must install the version **2.7.1**,
+not 3.1.3.
+
+If you are using a `Linux`_ distribution
+install it with you software installer system.
+
+* In `Ubuntu/Debian`::
+
+    apt-get install python
+
+* In `Fedora/RedHat/ScientificLinux`::
+
+    yum install python
+
+If you have a local `ACS`_ installation,
+you can use the Python provided by the `ACS`_ in::
+
+    /alma/ACS-X.X/Python/bin/python
+
+.. _ACS: http://www.eso.org/~almamgr/AlmaAcs/
+.. _Linux: http://en.wikipedia.org/wiki/Linux
+
+Do not use the ``x86-64`` installers
+unless you are sure that your computer
+has a 64-bit architecture.
+
+To test this,
+download the primes.py_ file,
+which allows to determine if a natural number is or not prime.
+
+.. _primes.py: ../../_static/programs/primes.py
+
 
 Editing programs
 ~~~~~~~~~~~~~~~~
@@ -57,38 +101,18 @@ that you can install are:
   `Gedit <http://projects.gnome.org/gedit/>`_,
   `Kate <http://kate-editor.org/>`_.
 
-
-Python interpreter installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. index:: interpreter (installation)
-
-One thing is to edit the program and another one is to execute it.
-The **interpreter** must be installed in order to
-be able to execute the program using Python.
-
-You can find the installer list
-in the `Python download web`_
-You must download the one indicated for your computer
-and operating system.
-
-.. _Python download web: http://www.python.org/download/
-..
-
-You must install the version **2.7.1**,
-not 3.1.3.
-
-Do not use the ``x86-64`` installers
-unless you are sure that your computer
-has a 64-bit architecture.
-
 Program execution
 ~~~~~~~~~~~~~~~~~
 
 Once the program is written and the interpreter has been installed,
 it is possible to execute the programs.
-The next video shows the process:
 
-    [Video]
+In **Windows** you only need to double clic the program icon.
+
+In **Linux** you need to open a linux terminal and execute it::
+
+    localhost > python my_program.py
+
 
 Console use
 ~~~~~~~~~~~
@@ -102,10 +126,6 @@ the **console** (or **interactive interpreter**) will open.
 The console allows to enter a program through the command line.
 It also allows to evaluate expressions and see the results immediately.
 This allows, for example, using it like a calculator.
-
-The next video shows how to use the interactive interpreter:
-
-    [Video]
 
 The interactive console
 always shows the ``>>>`` symbol,
@@ -142,10 +162,6 @@ The  **development environments**
 are applications that facilitate the task of writing programs.
 
 Python comes with its own development environment, called **IDLE**.
-The following video shows how to use IDLE to develop a program
-and to use the interactive console:
-
-    [Video]
 
 Other good advanced Python development environments are:
 
@@ -153,4 +169,3 @@ Other good advanced Python development environments are:
 * `WingIDE 101 <http://www.wingware.com/downloads/wingide-101/3.2.12-1/binaries>`_
 
 You can test them and use the most comfortable for you.
-

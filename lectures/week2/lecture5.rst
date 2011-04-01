@@ -47,6 +47,22 @@ From that line onward,
 variable ``f`` can be used by the program
 to refer to the entered value.
 
+.. La función ``input()``,
+.. que usamos para leer la entrada del usuario,
+.. siempre entrega como resultado un string.
+.. Hay que tener la precaución
+.. de convertir los valores que entrega
+.. al tipo adecuado.
+.. Por ejemplo,
+.. el siguiente programa tiene
+.. un error de incompatibilidad de tipos::
+.. 
+..     n = input('Escriba un número:')
+..     cuadrado = n * n
+..     print('El cuadrado de n es', cuadrado)
+
+
+
 Output
 ~~~~~~
 
