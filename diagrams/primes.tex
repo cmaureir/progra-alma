@@ -1,0 +1,58 @@
+\documentclass{minimal}
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{mathpazo}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes,arrows}
+
+\newcommand{\str}[1]{\emph{``#1''}}
+
+\begin{document}
+\input{include/flujo}
+
+\begin{preview}
+    \begin{tikzpicture}[node distance=8ex, auto]
+      \node [node]  (start) { start };
+      \node [io, below of=start]      (read)  { Read \(n\) };
+      \node [stmt, below of=read]     (init)  { \shortstack{is\_prime = yes \\ \(d = 2\)} };
+      \node [decision, below of=init,
+             node distance=10ex]       (less)  { ¿\(d < n\)? };
+      \node [decision, right of=less,
+             node distance=9em]       (div)   { ¿\(d\mid n\)? };
+      \node [stmt, below of=div]       (isnt)  { is\_prime = no };
+      \node [stmt, right of=div, node distance=8em]      (incr)  { \(d = d + 1\) };
+      \node [decision, below of=less,
+             node distance=16ex]      (ispr)  { ¿is\_prime? };
+      \node [io, right of=ispr,
+             minimum width=0,
+             minimum height=0,
+             node distance=12em] (pr) { Write \(n\), ``is prime'' };
+      \node [io, below of=ispr,
+             minimum width=0,
+             minimum height=0,
+             node distance=9ex] (cp) { Write \(n\), ``is not prime'' };
+      \node [node, below of=cp]  (end) { end };
+
+      \path [conn] (start) -- (read);
+      \path [conn] (read)  -- (init);
+      \path [conn] (init)  -- (less);
+      \path [conn] (less)  -- node [very near start] {yes} (div);
+      \path [conn] (div)   -- node [very near start] {yes} (isnt);
+      \path [conn] (div)   -- node [near start] {no} (incr);
+      \path [conn] (less)  -- node [very near start] {no} (ispr);
+      \path [conn] (isnt) -- ++(-9em, 0);
+      \path [conn] (ispr) -- node [near start] {no} (cp);
+      \path [conn] (ispr) -- node [near start] {yes} (pr);
+      \path [conn] (cp) -- (end);
+
+      \node [inner sep=1pt] (m1) at ($ (init.south)!.4!(less.north) $) {};
+      \path [conn] (incr.north) |- (m1);
+      \node [inner sep=1pt] (m2) at ($ (cp.south)!.4!(end.north) $) {};
+      \path [conn] (pr) |- (m2);
+
+    \end{tikzpicture}
+\end{preview}
+
+\end{document}
+
