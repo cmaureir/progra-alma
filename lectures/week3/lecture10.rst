@@ -8,7 +8,7 @@ A **tuple** is a sequence of grouped values.
 A tuple is used to group several related values as a single value.
 
 The data type that represents the tuple is called ``tuple``.
-The ``tuple`` type is immutable: a tuple can not be modified once created.
+The ``tuple`` type is immutable: a tuple cannot be modified once created.
 
 .. index:: tuple literal
 

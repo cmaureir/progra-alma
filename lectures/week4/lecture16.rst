@@ -67,7 +67,7 @@ The name of the error is ``SyntaxError``.
 
 The syntax errors always happen *before*
 the program run.
-It means, a badly written program can not execute any instruction.
+It means, a badly written program cannot execute any instruction.
 Therefore, the syntax error is not an exception.
 
 Here are a few examples of syntax errors.::
@@ -125,7 +125,7 @@ on operands of the wrong type.
 The name of the exception is ``TypeError``.
 
 For example,
-can not multiply two strings::
+cannot multiply two strings::
 
     >>> 'six' * 'eight'
     Traceback (most recent call last):
@@ -194,7 +194,7 @@ Overflow Error
 
 The **overflow error**
 occurs when the operation result is so big 
-that the computer can not represent internally.
+that the computer cannot represent internally.
 
 The name of the exception is ``OverflowError``::
 

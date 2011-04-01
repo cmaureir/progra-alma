@@ -28,7 +28,7 @@ introducing loops and conditionals.
 .. index:: conditional
 
 A **conditional** is a statement set
-which can or can not be executed,
+which can or cannot be executed,
 depending on the result of a condition.
 
 .. index:: loop
@@ -56,7 +56,7 @@ but more to the right::
         n = t
     print m, n
 
-In this example, the three assignations are
+In this example, the three assignments are
 contained inside the ``if`` control statement.
 The ``print m, n`` is not indented,
 so it is not part of the ``if`` statement.

@@ -169,15 +169,15 @@ Boolean
 .. index:: bool, logic value, boolean value
 
 The logic values ``True`` and ``False``
-are of **bool** type, which represents logic values.
+have type **bool**, which represents logic values.
 
-The name ``bool`` comes from the mathematician `George Boole`_,
+The type ``bool`` is named after the mathematician `George Boole`_,
 who created an algebraic system for binary logic.
 For this reason,
 the ``True`` and ``False`` values are also called
 **boolean values**.
 The name is not very intuitive, but we need to know it because
-it is widely used in different areas of science.
+it is very used in computer programming.
 
 .. _George Boole: http://en.wikipedia.org/wiki/George_Boole
 

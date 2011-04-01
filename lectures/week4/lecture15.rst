@@ -21,7 +21,7 @@ Every object have three main characteristics:
     >>> id(name)
     3075656576L
 
-* A type (unmodifiable), that is returned by ``type(<object>)`` method.::
+* A type (unmodifiable), that is returned by ``type(<object>)`` method::
 
     >>> number = 13
     >>> type(number)
@@ -30,7 +30,7 @@ Every object have three main characteristics:
     >>> type(name)
     <type 'str'>
 
-* A value, saved in the assignation process.::
+* A value, saved in the assignment process::
 
     >>> number = 13
     >>> number

@@ -22,11 +22,11 @@ asks the user to enter a value
 that can be assigned to a variable
 to be used by the program.
 The ``message`` is to be displayed to the user
-before that he enters a value.
+before he enters a value.
 
 The input value provided by the user
-is always interpreted as text
-as a value of type ``str``.
+is always interpreted as text,
+so its type is ``str``.
 If a different type is required,
 we need to convert it explicitly.
 
@@ -76,7 +76,7 @@ in which the results are delivered to the user.
 The simplest way to deliver the output
 is to display text on the screen.
 In Python, the program output is performed by the
-**print** sentence.
+**print** statement.
 
 If one wants to display a single value,
 the syntax is as follows::

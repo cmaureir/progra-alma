@@ -8,7 +8,7 @@ Lecture 3 - Data types
 .. _Python standard data types official documentation: http://docs.python.org/library/stdtypes.html
 
 A **data type** is the property of a value
-that define its domain (possible values),
+that defines its domain (possible values),
 what operations can be applied to it
 and how it is represented by the computer.
 
@@ -244,15 +244,15 @@ Also, a value can be assigned to several variables at the same time::
 Exercises
 ~~~~~~~~~
 
-1. Write a program that receives as input the *circle radious*
-   and returns the ``perimeter`` and the ``area``::
+1. Write a program that takes as input the radius of a circle
+   and outputs its perimeter and its area::
 
-    Enter radious: `5`
+    Enter radius: `5`
     Perimeter: 31.4
     Area: 78.5
 
-2. Write a program that calculates the ``average`` of four grades
-   entered by the user::
+2. Write a program that calculates the average of four grades
+   input by the user::
 
     First grade: `55`
     Second grade: `71`
@@ -260,38 +260,40 @@ Exercises
     Fourth grade: `87`
     Average: 64.75
 
-3. Write a program that convert centimeters to inches.
-   An inch is equal to 2.54 centimeters.::
+3. Write a program that converts centimeters to inches.
+   An inch is equal to 2.54 centimeters::
 
     Enter length: `45`
     45 cm = 17.7165 in
     Enter length: `13`
     13 cm = 5.1181 in
 
-4. Write a program that receives as input the legs length ``a`` and ``b``
-   of a right triangle and return the ``c`` hypotenuse length,
-   give by the `Pythagorean theorem`_. `c^2=a^2+b^2.`::
+4. Write a program that receives as input
+   the legs `a` and `b` of a right triangle,
+   and outputs the length `c` of the hypotenuse,,
+   given by the `Pythagorean theorem`_ `c^2=a^2+b^2`::
 
-    Enter a leg: `7`
-    Enter b leg: `5`
+    Enter leg a: `7`
+    Enter leg b: `5`
     Hypotenuse: 8.6023252670426267
 
 .. _`Pythagorean theorem`: http://en.wikipedia.org/wiki/Pythagorean_theorem
 
-5. Write a program that ask to the user the actual `t` hour of the clock
+5. Write a program that asks the user the current time `t` on the clock
    and an integer number of hours `h`,
-   that shows the future time of the clock in `h` hours more::
+   and outputs which time will the clock show
+   in `h` hours from now::
 
-    Actual hour: `3`
+    Current time: `3`
     Hour quantity: `5`
-    In 5 hours, the clock will have the 8 oclock
+    In 5 hours, the clock will show 8 o'clock
 
-    Actual hour: `11`
+    Current time: `11`
     Hour quantity: `43`
-    In 43 hours, the clock will have the 6 oclock
+    In 43 hours, the clock will show 6 o'clock
 
-6. A student want to know the grade of a final test in a course
-   to approve it.
+6. A student wants to know the grade of a final test in a course
+   to pass it.
 
    The average of the course is calculated as follows.
 
@@ -302,19 +304,19 @@ Exercises
        G_F = G_C\cdot 0.7 + G_L\cdot 0.3
 
 
-   Where `G_C` is the average of the test,
+   Where `G_C` is the average of all tests,
    `G_L` is the laboratory average
    and `G_F` is the final grade.
 
-   Write a program that ask to the user the grades of the first two tests,
+   Write a program that asks the user the grades of the first two tests,
    and the laboratory grade,
-   and show the needed grade for the last test
-   to approve the course with a final grade of 60.
+   and shows the grade he needs in the final test
+   to pass the course with a final grade of 60.
 
    .. testcase::
 
-      Test 1 grade: `45`
-      Test 2 grade: `55`
-      Laboratory grade: `65`
-      You need a 72 in the final test.
+       Grade in test 1: `45`
+       Grade in test 2: `55`
+       Laboratory grade: `65`
+       You need a 72 in the final test.
 
