@@ -1,6 +1,12 @@
 Lecture 8 - Functions
 ---------------------
 
+(`Python function official documentation`_)
+(`Python more function official documentation`_)
+
+.. _Python function official documentation: http://docs.python.org/tutorial/controlflow.html#defining-functions
+.. _Python more function official documentation: http://docs.python.org/tutorial/controlflow.html#more-on-defining-functions
+
 .. index:: function
 
 Suppose we need to write a program to compute the

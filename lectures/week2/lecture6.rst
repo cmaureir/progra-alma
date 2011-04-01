@@ -1,6 +1,11 @@
 Lecture 6 - Control statements
 -------------------------------
 
+(`Python control flow official documentation`_)
+
+.. _Python control flow official documentation: http://docs.python.org/tutorial/controlflow.html#if-statements
+
+
 A program is a sequence of **statements**
 being executed in order.
 

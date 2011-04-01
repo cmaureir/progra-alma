@@ -1,6 +1,11 @@
 Lecture 7 - Loops
 -----------------
 
+(`Python while official documentation`_)
+
+.. _Python while official documentation: http://docs.python.org/reference/compound_stmts.html#while
+
+
 ``while`` loop
 ~~~~~~~~~~~~~~
 
@@ -89,6 +94,10 @@ but the termination condition is known.
 
 ``for`` loop with counter
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(`Python for official documentation`_)
+
+.. _Python for official documentation: http://docs.python.org/tutorial/controlflow.html#for-statements
 
 .. index:: for, control variable
 
