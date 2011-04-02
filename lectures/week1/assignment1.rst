@@ -32,6 +32,7 @@ the center of the yolk to reach the temperature `T_y` (in Celsius degrees):
 
 
 Here, `M` , `\rho`, `c`, and `K` are properties of the egg:
+
 * `M` is the mass,
 * `\rho` is the density,
 * `c` is the speciﬁc heat capacity,
@@ -55,12 +56,18 @@ and return as output the time in seconds
 that it takes to reach the maximum temperature to
 cook properly.
 
-**Hint:** to use the ``ln()`` function do this::
+**Hint:**
+
+* to use the ``ln()`` function do this::
 
    from math import log
    n = 10 # example number
    log(n) # calculate the ln(n)
 
+* to use the ``pi`` constant, do this::
+
+   from math import pi
+   pi # return 3.141592653589793
 
 
 

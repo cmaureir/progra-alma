@@ -257,22 +257,22 @@ Exercises
    .. testcase::
    
    	Enter a year: `2011`
-    2011 is not a leap year
+        2011 is not a leap year
    
    .. testcase::
    
    	Enter a year: `1700`
-    1700 is not a leap year
+        1700 is not a leap year
    
    .. testcase::
    
    	Enter a year: `1500`
-    1500 is a leap year
+        1500 is a leap year
    
    .. testcase::
    
    	Enter a year: `2400`
-    2400 is a leap year
+        2400 is a leap year
 
 2. Write a program that require two integer numbers and
    calculate the division, indicating if the division is exact or not.
@@ -302,7 +302,7 @@ Exercises
    
    	Ingrese numero: `51`
    	Ingrese numero: `24`
-    24 51
+        24 51
    
    Next,
    do the same with three numbers:
@@ -312,7 +312,7 @@ Exercises
    	Ingrese numero: `8`
    	Ingrese numero: `1`
    	Ingrese numero: `4`
-    1 4 8
+        1 4 8
    
    Finally,
    do te same with four numbers:
@@ -323,7 +323,7 @@ Exercises
    	Ingrese numero: `0`
    	Ingrese numero: `6`
    	Ingrese numero: `1`
-    0 1 6 7
+        0 1 6 7
    
    Remember that your program must return the correct answer
    to know the number combination,

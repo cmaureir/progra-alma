@@ -2,6 +2,7 @@ Lecture 8 - Functions
 ---------------------
 
 (`Python function official documentation`_)
+
 (`Python more function official documentation`_)
 
 .. _Python function official documentation: http://docs.python.org/tutorial/controlflow.html#defining-functions

@@ -128,7 +128,7 @@ The only exception are the ``#`` signs that appear in a string::
 
 
 Precedence
-----------
+~~~~~~~~~~
 .. index:: operator precedence, brackets
 
 The **operator precedences**
@@ -254,8 +254,13 @@ A good programmer always worry that their code will be easy to understand
 by others, and ¡even for himself in a few weeks later!
 
 Function calls
---------------
+~~~~~~~~~~~~~~
 .. index:: function
+
+(`Python built-in function official documentation`_)
+
+.. _Python built-in function official documentation: http://docs.python.org/library/functions.html
+
 
 Complementary the previous lectures, we will take a look
 to some useful functions.
@@ -373,25 +378,74 @@ always is necessary that the call arguments have the apropiated type::
 Exercises
 ~~~~~~~~~
 
-1. Escriba un programa que pida al usuario dos palabras,
-   y que indique cuál de ellas es la más larga
-   y por cuántas letras lo es.
+1. Write a program that receive two words, and indicates which of them
+   is the longest and by how much. (the words cannot be of the same size)
 
    .. testcase::
 
-       Palabra 1: `edificio`
-       Palabra 2: `tren`
-       La palabra edificio tiene 4 letras mas que tren.
-
-   .. testcase::
-   
-       Palabra 1: `sol`
-       Palabra 2: `paralelepipedo`
-       La palabra paralelepipedo tiene 11 letras mas que sol
+       Word 1: `building`
+       Word 2: `train`
+       The building word has 3 more characters than train.
 
    .. testcase::
    
-       Palabra 1: `plancha`
-       Palabra 2: `lapices`
-       Las dos palabras tienen el mismo largo
-2. ...
+       Word 1: `sun`
+       Word 2: `parallelepiped`
+       The parallelepiped word has 11 more characters than sun.
+
+2. Write a program that receive a real number and calculates the ``sine`` and
+   the ``cosine``.
+
+   .. testcase::
+       Number: `30`
+       sin(30) = -0.9880316240928618
+       cos(30) = 0.15425144988758405
+
+   .. testcase::
+       Number: `1.5`
+       sin(1.5) = 0.9974949866040544
+       cos(1.5) = 0.0707372016677029
+
+3. Write a program that receive two numbers,
+   with the greatest number, you must determinate the `e^{max_number}`
+   and with the lowest, you must determinate the `\sqrt{min_number}`.
+
+   .. testcase::
+       Number 1: 5
+       Number 2: 7
+       e^7 : 1096.6331584284585
+       sqrt(5) : 2.23606797749979
+
+   .. testcase::
+       Number 1: 11
+       Number 2: 22
+       e^11 : 59874.14171519782
+       sqrt(22) : 4.69041575982343
+
+4. Given n-bodies with a initial position `x_i` and a velocity `v_i`, `1<=i<=N`,
+   the force vector `f_{ij}` over the i-body by the gravitational attraction
+   to the j-body, will be:
+
+   .. math::
+       f_{ij} = G\cdot \frac{m_i \cdot m_j}{\parallel r_{ij}\parallel^{2}} \cdot \frac{r_{ij}}{||r_{ij}||}
+
+   with:
+
+   * `m_i`: mass of the i-body
+   * `m_j`: mass of the j-body
+   * `r_{ij} = (xj−xi)`, vector between the `i` and `j` bodies.
+   * `G`: gravitational constant (`6.67428*10−11 m^{3}\cdot kg^{−1}\cdot s^{−2}`)
+
+   Write a program that receive the previous values (`x_i`, `v_i`, `m_i`) of two bodies,
+   consider only an 1-dimension and only two bodies.
+
+   .. testcase::
+      x_1 : 3
+      v_1 : 2
+      x_2 : -5
+      v_2 : -2
+      m_1 : 10
+      m_2 : 8
+      f_12 : -8.342850000000001e-10
+      
+      

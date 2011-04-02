@@ -329,3 +329,16 @@ Exercises
        >>> 3 in '33'
        >>> not None
        >>> "pro" in "Proceedings" 
+
+3. Write a program that receive two words,
+   and verify if the first one is in the second one::
+
+       Enter word 1 : `hi`
+       Enter word 2 : `imaginarium`
+       False
+
+   ::
+       
+       Enter word 1: `an`
+       Enter word 2: `elephant`
+       True
