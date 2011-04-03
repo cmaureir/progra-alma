@@ -118,8 +118,8 @@ The imaginary part is denoted adding a ``j`` after its value.::
     >>> 3.1j - 100
     (-100+3.1j)
 
-Arithmetic operatior
-~~~~~~~~~~~~~~~~~~~~
+Arithmetic operations
+~~~~~~~~~~~~~~~~~~~~~
 
 The arithmetic operations are that operates on numerical values
 and return another numerical value as result.

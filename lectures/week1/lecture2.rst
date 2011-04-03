@@ -106,9 +106,9 @@ Program execution
 Once the program is written and the interpreter has been installed,
 it is possible to execute the programs.
 
-In **Windows** you only need to double clic the program icon.
+In **Windows** you only need to double click the program icon.
 
-In **Linux** you need to open a linux terminal and execute it::
+In **Linux** you need to open a Linux terminal and execute it::
 
     localhost > python my_program.py
 

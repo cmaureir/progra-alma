@@ -207,13 +207,13 @@ value::
     >>> 50 < x < 100
     True
 
-The relational operations allow to compare string alphabeticaly::
+The relational operations allow to compare string alphabetically::
 
     >>> "a" < "b" < "c"
     True
     >>> "a" < "d" < "c"
     False
-    >>> "ala" < "alamo" < "bote" < "botero" < "boteros" < "zapato"
+    >>> "air" < "aircraft" < "bull" < "bullet" < "zombie"
     True
 
 None
@@ -231,73 +231,13 @@ The ``None`` value has its own type,
 called ``NoneType``,
 which is different to all other values.
 
-.. Conversión de tipos
-.. -------------------
-.. .. index:: conversión de tipos
-.. 
-.. Los tipos de los valores
-.. indican qué operaciones pueden ser aplicadas sobre ellos.
-.. 
-.. A veces es necesario convertir valores de un tipo a otro
-.. para poder operar sobre ellos.
-.. Existen dos tipos de conversiones:
-.. implícitas y explícitas.
-.. 
-.. Las conversiones implícitas
-.. son las que se hacen automáticamente
-.. según el contexto.
-.. Las más importantes son las siguientes:
-.. 
-.. * cuando se utiliza un entero
-..   en un contexto real,
-..   el entero es convertido al real correspondiente::
-.. 
-..       >>> 56 * 8.0
-..       448.0
-.. 
-.. * cuando se utiliza cualquier valor
-..   en un contexto booleano,
-..   es convertido al valor ``True``,
-..   excepto por los siguientes casos,
-..   en que es convertido al valor ``False``:
-.. 
-..   * el valor ``0``,
-..   * el string vacío ``''``,
-..   * ``None``.
-.. 
-..   Por ejemplo::
-.. 
-..       >>> not 0
-..       True
-..       >>> not 10
-..       False
-
-..       >>> not 'hola'
-..       False
-..       >>> bool(3.14)
-..       True
-.. 
-..   Con los operadores ``and`` y ``or``
-..   ocurre algo más extraño::
-.. 
-..       >>> 4 and 7
-..       7
-..       >>> 0 and 7
-..       0
-..       >>> 5 or 6
-..       5
-..       >>> 0 or 6 or 7
-..       6
-
-
-
 Exercises
 ~~~~~~~~~
 
 1. Create a program that make a fusion between two words.
    The idea is obtain the first-half of the first word,
    and the last-half of the second word.
-   Consider only words with a pair lenght. For example.::
+   Consider only words with a pair length. For example.::
 
        Enter word1 = `hi`
        Enter word2 = `planet`
@@ -313,14 +253,14 @@ Exercises
 
 2. Without use the computer, evaluate the next expressions
    and for each of them indicate the result and the type (if the expression is valid)
-   or what error ocur (if is not valid)::
+   or what error occur (if is not valid)::
 
        >>> 2 + 3      # Answer: integer type, value is 5
        >>> 4 / 0      # Answer: zero division error
        >>> 5 + 3 * 2
        >>> '5' + '3' * 2
        >>> 2 ** 10 == 1000 or 2 ** 7 == 100
-       >>> len('uno') == len('dos')
+       >>> len('one') == len('two')
        >>> 'hello' * 1.2
        >>> 3 < (1024 % 10) < 6
        >>> 'six' + 'eight'
@@ -328,13 +268,15 @@ Exercises
        >>> "yes" * 2**2
        >>> 3 in '33'
        >>> not None
-       >>> "pro" in "Proceedings" 
+       >>> "pro" in "Proceedings"
+   
+   Once you finish, verify your results with the computer. 
 
 3. Write a program that receive two words,
    and verify if the first one is in the second one::
 
        Enter word 1 : `hi`
-       Enter word 2 : `imaginarium`
+       Enter word 2 : `imaginary`
        False
 
    ::

@@ -20,7 +20,7 @@ at the evaluation moment.
 Assignment
 ~~~~~~~~~~~
 
-.. index:: assignment, variable, identificator
+.. index:: assignment, variable, ID
 
 When an algorithm calculates some values,
 you need to put a name to it to be able to refer them
@@ -33,7 +33,7 @@ and is represented as::
     name = expression
 
 To the used name in an expression is called
-**variable** or **identificator**.
+**variable** or **ID**.
 
 The assignment in the previous example, will be::
 
@@ -47,7 +47,7 @@ An assignment must be interpreted as follows:
    the variable at the left of the ``=`` takes the result as its value.
 
 Under this interpretation,
-an assignment like this is perfectly posible::
+an assignment like this is perfectly possible::
 
     i = i + 1
 
@@ -100,7 +100,7 @@ is represented as::
 
 or::
 
-    variable = inpurt("example message:")
+    variable = input("example message:")
 
 During the execution,
 this means that the data
@@ -123,7 +123,7 @@ for which it was designed,
 must return its results like a message.
 The output is represented as::
 
-    print(menssage)
+    print(message)
 
 If the message is text,
 goes between quotation.
@@ -143,7 +143,7 @@ is possible to include it in the message::
 Exercises
 ~~~~~~~~~
 
-1. Open a Python terminal executing ``python`` in a linux terminal,
+1. Open a Python terminal executing ``python`` in a Linux terminal,
    or double clicking the ``Python`` icon in windows,
    and write lines to *enter your name* and display a *hello* message,
    in this way::
@@ -204,6 +204,6 @@ Exercises
            else:
                print n, 'is not prime'
 
-   Do not worry if you don understant some statement,
+   Do not worry if you don understand some statement,
    the idea is to give you an approach to a Python program.
    In the next lecture, you will run this code in your computer.
