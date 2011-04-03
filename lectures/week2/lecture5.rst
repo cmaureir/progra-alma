@@ -150,8 +150,8 @@ from less to greater precedence:
 * ``**``
 
 This means, for example,
-que las multiplicaciones se evalúan antes que las sumas,
-y que las comparaciones se evalúan antes que las operaciones lógicas::
+that the multiplications are evaluated before the sums,
+and that the comparison are evaluated before the logic operations::
 
     >>> 2 + 3 * 4
     14
@@ -224,21 +224,21 @@ arrive in the final result, that is ``False``::
 The operations between brackets ``(15 + 59)``
 must be evaluated before the multiplication by 75,
 because is necessary to know their result to be able to calculate the product.
-The precise momento in which that occur is not important.
+The precise moment in which that occur is not important.
 
 The same thing occur withe ``n`` variable evaluation:
 the only important thing is it evaluated before being used by the module
 operator.
 
 In the example,
-both cases was evaluated inmediatly before their value will is necesary.
+both cases was evaluated immediately before their value will is necessary.
 
 The entire precedence rules,
 including another operator that we have not seen,
-can be asked in the `expresions section`_
+can be asked in the `expressions section`_
 of the official Python documentation.
 
-.. _expresions section: http://docs.python.org/reference/expressions.html#summary
+.. _expressions section: http://docs.python.org/reference/expressions.html#summary
 
 How to learn the precedence rules ?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -292,15 +292,15 @@ The ``abs`` function return the absolute value of their argument::
 
 .. index:: len (of a string)
 
-The ``len`` function receive an string and return thei length.
+The ``len`` function receive an string and return their length.
 (you might remember from the past week lecture)::
 
-    >>> len('hola mundo')
-    10
-    >>> len('hola' * 10)
-    40
+    >>> len('hello world')
+    11
+    >>> len('hello' * 10)
+    50
 
-.. index:: int (function), float (function), str (funcion)
+.. index:: int (function), float (function), str (function)
 
 The names of the types are also functions,
 which return the equivalent of its parameter in the corresponding type::
@@ -339,7 +339,7 @@ The ``round`` function rounds a real number to the closest integer::
 
 Some mathematical functions,
 like the exponential, the logarithm
-and the trigonometrics can be used,
+and the trigonometric can be used,
 but first must be imported
 using the ``import`` statement,
 which we will look deeply in the next lectures::
@@ -360,11 +360,11 @@ in the official Python documentation.
 .. _math module description: http://docs.python.org/library/math.html
 
 Later, also we will learn to create
-our own funciont.
+our own function.
 But now, we only need to know how to call its.
 
 Of course,
-always is necessary that the call arguments have the apropiated type::
+always is necessary that the call arguments have the appropriated type::
 
     >>> round('dog')
     Traceback (most recent call last):
@@ -407,8 +407,8 @@ Exercises
        cos(1.5) = 0.0707372016677029
 
 3. Write a program that receive two numbers,
-   with the greatest number, you must determinate the `e^{max_number}`
-   and with the lowest, you must determinate the `\sqrt{min_number}`.
+   with the greatest number, you must determinate the `e^{max\_number}`
+   and with the lowest, you must determinate the `\sqrt{min\_number}`.
 
    .. testcase::
        Number 1: 5

@@ -103,7 +103,7 @@ Execute this program,
 testing it several times with different values.
 
 ``if-else`` conditional
-~~~~~~~~~~~+~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 .. index:: if-else
 
 The **if-else** statement
@@ -135,7 +135,7 @@ depending if the input number is even or odd::
     n = int(raw_input('Enter a number: '))
     if n % 2 == 0:
         print 'The number is even'
-        print 'The halfnumber is', n / 2
+        print 'The half-number is', n / 2
     else:
         print 'The number is odd'
         print 'The next number is', n + 1
@@ -224,17 +224,17 @@ the conditions are evaluated.
 Exercises
 ~~~~~~~~~
 
-1. When the earth complete an orbit arround the Sun,
+1. When the earth complete an orbit around the Sun,
    have not passed 365 rations on itself correctly,
    but a little more.
  
    More precisely, the difference is about a quarter of a day.
    
    To avoid that the seasons be offset with the calendar,
-   the julian calendar introduced a rule
+   the Julian calendar introduced a rule
    of add an additional day in the years divisible by 4
    (called `leap year`_),
-   to take into consideration the fourt quarter of a day.
+   to take into consideration the four quarter of a day.
    
    However, under this rule still a leap,
    that is within about 3/400 of a day.
@@ -291,7 +291,7 @@ Exercises
        Dividend: `100`
        Divisor: `10`
        
-       La división es exacta.
+       The exact division.
        Quotient: 10
        Remainder: 0
 
@@ -300,8 +300,8 @@ Exercises
    
    .. testcase::
    
-   	Ingrese numero: `51`
-   	Ingrese numero: `24`
+   	Enter a number: `51`
+   	Enter a number: `24`
         24 51
    
    Next,
@@ -309,20 +309,20 @@ Exercises
    
    .. testcase::
    
-   	Ingrese numero: `8`
-   	Ingrese numero: `1`
-   	Ingrese numero: `4`
+   	Enter a number: `8`
+   	Enter a number: `1`
+   	Enter a number: `4`
         1 4 8
    
    Finally,
-   do te same with four numbers:
+   do the same with four numbers:
    
    .. testcase::
    
-   	Ingrese numero: `7`
-   	Ingrese numero: `0`
-   	Ingrese numero: `6`
-   	Ingrese numero: `1`
+   	Enter a number: `7`
+   	Enter a number: `0`
+   	Enter a number: `6`
+   	Enter a number: `1`
         0 1 6 7
    
    Remember that your program must return the correct answer
@@ -428,7 +428,7 @@ Exercises
        2011
    
    The program must note if the birthday
-   occurred or does not happend in this year.
+   occurred or does not happened in this year.
    
    .. _time: http://docs.python.org/library/time.html
 

@@ -245,13 +245,13 @@ For example,
 when a program needs to print several times some information,
 it should encapsulate this action in a function that performs the ``print`` ::
 
-    def data_print(name, lastname, rol, day, month, year):
+    def data_print(name, lastname, id, day, month, year):
         print 'Name:', name, lastname
-        print 'ID:', rol
+        print 'ID:', id
         print 'Birth date:', day, '/', month, '/', year
 
-    data_print('Perico', 'Los Palotes', '201101001-1',  3, 1, 1993)
-    data_print('Yayita', 'Vinagre',     '201101002-2', 10, 9, 1992)
+    data_print('John', 'Smith', '201101001-1',  3, 1, 1993)
+    data_print('Rose', 'Dawson',     '201101002-2', 10, 9, 1992)
     data_print('John',   'Doe',         '201101003-3', 14, 5, 1990)
 
 In this case,
@@ -270,12 +270,126 @@ the value is lost and there is no effect on the program.
 Exercises
 ~~~~~~~~~
 
-`1`_
-`2`_
-`3`_
-`4`_
+#. Write a function ``even(x)``
+   which return ``True`` if ``x`` is even,
+   or ``False`` if is odd::
+   
+       >>> even(16)
+       True
+       >>> even(29)
+       False
+       >>> even('hello')
+       Traceback (most recent call last):
+         File "<console>", line 1, in <module>
+         File "<console>", line 2, in par
+       TypeError: not all arguments converted during string formatting
+   
+#. Write a function called ``invert_digits(n)``
+   that receive an integer number ``n``
+   and return as result the ``n`` number with the inverted digits::
+   
+       >>> invert_digits(142)
+       241
+   
+   Next,
+   write a program that indicate if the entered number is a palindrome or not,
+   using the function ``reverse``:
+   
+   .. testcase::
+   
+       Enter n: `81418`
+       Is palindrome
 
-.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/numero-par.html
-.. _`2`: http://progra.usm.cl/apunte/ejercicios/2/numeros-palindromos.html
-.. _`3`: http://progra.usm.cl/apunte/ejercicios/2/funciones-numeros-primos.html
-.. _`4`: http://progra.usm.cl/apunte/ejercicios/2/tabla-verdad.html
+#. In the past week lectures you try the
+   `primer program`_.
+
+   .. _primer program: ../week1/lecture2.html
+   
+   In this exercise,
+   you must implement some programs as functions,
+   reusing components to avoid write extra code:
+
+   #. Write a function called ``ss_divisible(n, d)``
+      which indicates if ``n`` is divisible by  ``d``::
+   
+          >>> is_divisible(15, 5)
+          True
+          >>> is_divisible(15, 6)
+          False
+   
+   #. Using the function ``is_divisible``,
+      write a function ``is_prime(n)``
+      which determine if a number is or not a prime::
+   
+          >>> is_prime(17)
+          True
+          >>> is_prime(221)
+          False
+   
+   #. Using the function ``is_prime``,
+      write the function ``ith_prime(i)``
+      which return the `i`-th prime number.
+   
+          >>> ith_prime(1)
+          2
+          >>> ith_prime(20)
+          71
+   
+   #. Using the previous functions,
+      write a function called ``first_primes(m)``
+      which return a list of the first `m` primes numbers::
+   
+          >>> first_primes(10)
+          [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+   
+   #. Using the previous functions,
+      write a function called ``primes_to(m)``
+      which return a list of the primes lower or equal to `m`::
+   
+          >>> primes_to(19)
+          [2, 3, 5, 7, 11, 13, 17, 19]
+   
+   #. A `Mersenne prime`_ is a prime number formed by `2^p - 1`.
+      A knowed property of the Mersenne primes is that
+      `p` must be also a prime number.
+   
+      .. _Mersenne prime: http://en.wikipedia.org/wiki/Mersenne_prime 
+   
+      Write a program called ``mersenne.py``
+      which ask to the user a `n` number,
+      and show as result
+      the first `n` Mersenne prime numbers:
+   
+      .. testcase::
+   
+          How many Mersenne primes?: `5`
+          3
+          7
+          31
+          127
+          8191
+   
+
+#. A **logic predicate** is a function whose parameters are Boolean and its result is also a Boolean.
+   
+   Write a function called ``truth_table(predicate)``
+   which receive as parameter a logic predicate of three parameters
+   and show a truth table of the predicate.::
+   
+       >>> def predicate(p, q, r):
+       ...    return (not p) and (q or r)
+       ...
+       >>> truth_table(predicate)
+       p     q     r     predicate
+       ===== ===== ===== =========
+       True  True  True  False
+       True  True  False False
+       True  False True  False
+       True  False False False
+       False True  True  True
+       False True  False True
+       False False True  True
+       False False False False
+   
+   Note that the ``truth_table`` does not return anything, only
+   show the table.
