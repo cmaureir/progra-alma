@@ -184,7 +184,7 @@ Exercises
     >>> e = ['a', a, 2 * a]   
 
    Without using the computer,   
-   indify which is the result of the next expressions. 
+   identify which is the result of the next expressions. 
    Next,   
    verify if your answers are correct (use the computer).
    
@@ -200,7 +200,7 @@ Exercises
    * ``c[2:] + d[2:]``     
    * ``a[3:10]``     
    * ``a[3:10:2]``   
-   * ``d.index('jirafa')`` 
+   * ``d.index('giraffe')`` 
    * ``e[c[0][1]].count(5)``     
    * ``sorted(a)[2]``
    * ``complex(b[0], b[1])``   
@@ -216,7 +216,7 @@ Exercises
     4.75    
  
 #. The **harmonic mean** of a data set is the reciprocal of the data reciprocal sum,
-   multiplied by the amoun of data:    
+   multiplied by the amount of data:    
 
    .. math::   
   
@@ -234,7 +234,7 @@ Exercises
         2.5945945945945943
 
 #. The **median** of a real data set
-   is the set value that privide the same amount of lower and greater
+   is the set value that provide the same amount of lower and greater
    values to it.
    
    More rigorously,
@@ -245,10 +245,10 @@ Exercises
      when we order the data from lowest to highest.
    * if the data mount is even,
      the median is the average of the two central values,
-     when we order he data from lowest to higheest.
+     when we order he data from lowest to highest.
    
    Write a function called ``median(data)``,   
-   which reurn the median of the data::
+   which return the median of the data::
    
         >>> median([5.0, 1.4, 3.2])    
         3.2     
@@ -311,7 +311,7 @@ Exercises
    A polynomial can be represented 
    as a list with the values `a_0, a_1, \dots, a_n`.
    For example,
-   the preivous polynomials
+   the previous polynomials
    can be represented in a program as follows::
    
        >>> p = [1, 2, 1]   
@@ -356,7 +356,7 @@ Exercises
    #. Write a function called ``polynomial_multiplication(p1, p2)``    
       which return the product of two polynomial::
          
-           >>> polynomial_mutiplication(p, q)     
+           >>> polynomial_multiplication(p, q)     
            [4, -9, -30, -17]     
 
 #. The `Josephus problem`_ is the follow:

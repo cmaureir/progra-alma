@@ -161,8 +161,8 @@ Exercises
    * ``max(map(len, d.values()))``   
 
 
-#. Write a program that allow to save the age of several differente people,
-   saving algo their names.
+#. Write a program that allow to save the age of several different people,
+   saving also their names.
    It is recommended the use of a *dictionary*.     
    
    Once you have several ages, obtain a list with only the age of the people,
@@ -188,8 +188,8 @@ Exercises
 #. A telephone directory is structured using only two parameters, the
    *name* and the *telephone*.
    
-   Write a program that allow the same functionallity,
-   i.e., add entries, search some number, remove somo entry and
+   Write a program that allow the same functionality,
+   i.e., add entries, search some number, remove some entry and
    show all the content.
    
    To do an easiest implementation, is recommendable to use
@@ -210,7 +210,7 @@ Exercises
        "Mary Poppins" 912354
        >>> search("John Smith")
        "Fulano Perez" 123456     
-       >>> buscar("John Rambo")  
+       >>> search("John Rambo")  
        Contact not found. 
 
 #. Write a function called  *count_initials(phrase)* 
@@ -232,7 +232,7 @@ Exercises
      countries = {    
      Peter': {'Chile', 'Argentina'},  
      Jenny': {'France', 'Switzerland', 'Chile'}, 
-     John': {'Chile', 'Italy', 'Francia', 'Peru'},
+     John': {'Chile', 'Italy', 'France', 'Peru'},
      ... 
        } 
    
@@ -242,7 +242,7 @@ Exercises
    
        >>> how_many_in_common('Peter', 'John')
        1 
-       >>> how_many_in_common('John', 'Jeny')
+       >>> how_many_in_common('John', 'Jenny')
        2 
  
 #. Write a function ``even_keys(d)``     
@@ -294,14 +294,15 @@ Exercises
    some characters of a certain word by numbers, for example: 
    
    ::    
-       I like football 
+       I like football
+ 
    ::    
        1 l1k3 f00tb4ll
    
    Therefore, to do more easy this task, write a function that using:
    
-   * una phrase.
-   * un dictionary with the characters to replace.
+   * a phrase.
+   * a dictionary with the characters to replace.
    
    can return the password with the new characters.
    

@@ -178,7 +178,7 @@ Exercises
    
    For example,   
    the word «Bookkeeper» is shorter than «dinosaur», 
-   because only has 6 differente characters (*b*, *o*, *k*, *e*, *p* y *r*), 
+   because only has 6 different characters (*b*, *o*, *k*, *e*, *p* y *r*), 
    while «dinosaur» has 8.  
 
    .. testcase::  
@@ -188,17 +188,17 @@ Exercises
       word 2: dinosaur
       word 3: bed  
       word 4: devil 
-      La word mas larga es: dinosaur
-      La word mas corta es: bed   
+      The longest word is: dinosaur
+      The longest word is: bed   
 
    .. testcase::  
 
-      Entere n: 3    
+      Enter n: 3    
       word 1: apple
       word 2: windows
       word 3: linux 
-      La word mas larga es: windows    
-      La word mas corta es: apple
+      The longest word is: windows    
+      The longest word is: apple
 
 #. Write a function called ``subset(s)`` 
    which return a list of all the possible subset of a set ``s``::

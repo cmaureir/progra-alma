@@ -132,16 +132,16 @@ Exercises
      
        hand = {(5, 'C'), (2, 'H'), (1, 'S'), (12, 'H'), (13, 'C')}  
      
-   In the `Carioca`_ a straight is a hand with four cards which have the same suit and have consecutives values.
+   In the `Carioca`_ a straight is a hand with four cards which have the same suit and have consecutive values.
      
    .. _Carioca: http://en.wikipedia.org/wiki/Carioca_(card_game)
 
    For example:     
      
-   * 3♥ 6♥ 5♥ 4♥ is a straight, because all the card have the suit ♥ and their consecutives values
+   * 3♥ 6♥ 5♥ 4♥ is a straight, because all the card have the suit ♥ and their consecutive values
      are from 3 to 6.
    * 3♣ 6♦ 5♦ 4♥ is not a straight, because the cards have different suits.  
-   * 3♣ A♣ J♣ 5♣ is not a straight, because the values are not consecutives.
+   * 3♣ A♣ J♣ 5♣ is not a straight, because the values are not consecutive.
    * 3♠ 4♠ 5♠ is not a straight, because the hand does not have four cards.
      
      
@@ -177,7 +177,7 @@ Exercises
    To simplify, the ace can be represented as the number 1, 
    and the J, Q and K cards as  11, 12 and 13:: 
    
-      # as de picas y reina de corazones    
+      # ace of spades and heart queen    
       card3 = (1, 'S')   
       card4 = (12, 'H')  
    
@@ -188,7 +188,7 @@ Exercises
        hand = {(1, 'S'), (1, 'H'), (1, 'C'), (13, 'D'), (12, 'S')}   
    
    #. A *full* is a hand in which three cards must have a common value,
-      and the other two cards has another coomon value.
+      and the other two cards has another common value.
       Write a function which indicates if the hand is or not a full::
          
           >>> hand_1 = {(1, 'S'), (1, 'H'), (6, 'C'), (1, 'D'), (6, 'D')}     
@@ -208,7 +208,7 @@ Exercises
        >>> is_color(hand_2)
        False   
    
-   #. A *straight* is a hand in which the cards have consecutives values
+   #. A *straight* is a hand in which the cards have consecutive values
       (for example: 5, 6, 7, 8 y 9).   
       Write a function which indicates if the hand is or not a straight::   
          
@@ -219,91 +219,17 @@ Exercises
        >>> is_straight(hand_2)   
        False   
    
-#. A football game between two teams
-   can be represented as a tuple of two teams::
-   
-       >>> game = ('Chile', 'Spain')     
-   
-   The game result
-   can be represented as a tuple with the goals   
-   performed by each team::
-       
-       >>> result = (4, 1)    
-   
-   All the tournament games
-   cab be represented as a dictionary
-   associated to each result game::
-   
-       >>> tournament = {  
-       ...     ('Honduras',    'Chile'):       (1, 4),   
-       ...     ('Spain',       'Switzerland'): (1, 1),   
-       ...     ('Chile',       'Switzerlanda'):(2, 0),   
-       ...     ('Spain',       'Honduras'):    (1, 0),   
-       ...     ('Chile',       'Spain'):       (5, 5),   
-       ...     ('Switzerland', 'Honduras'):    (1, 2);   
-       ... }   
-   
-   #. Write a function called ``teams(tournament)``  
-      that return the set of teams which participated in the tournament::
-         
-          >>> teams(tournament)   
-          {'Chile', 'Honduras', 'Switzerland', 'Spain'}    
-   
-   #. Write a function called ``draws(tournament)``    
-      which count how many games of the tournament finish in a draw::   
-         
-       >>> draws(tournament)     
-
-   #. When a team win a game, receives 3 points; 
-      when draws, receive 1 point, and when lose, does not receive any point.
-      Write a function called ``points(team, tournament)`` 
-      which return how many points obtained a team in a tournament::
-
-          >>> points('Chile', tournament) 
-          7 
-          >>> points('Honduras', tournament)    
-          3 
-   
-   #. The difference of the goals of a team    
-      is the sum of all the goals maded 
-      minus the sum of the goals against.  
-      Write a function ``gf(team, tournament)``     
-      which returns the goal differences    
-      of a team in a tournament::    
-         
-          >>> gd('Chile', tournament)     
-          5 
-          >>> gd('Honduras', tournament)  
-          -3
-         
-   #. Write a function called ``best_game(tournament)``  
-      which return the game with more goals::
-         
-          >>> best_game(tournament)   
-          ('Chile', 'España')   
-   
-   #. Write a function called ``position_table(tournament)``  
-      which return a tuple lists
-      ``(team, points, goal differences)``   
-      order by the points from highest to lowest.
-      The teams with the same points, must be ordered by goal differeneces
-      from highest to lowest::
-         
-          >>> position_table(tournament)   
-          [('Spain', 6, 2), ('Chile', 6, 1), ('Switzerland', 4, 0), ('Honduras', 1, -3)] 
-
-    
 #. The dates can be represented as tuples ``(year, month, day)``.    
    
    To associate each person with his birth day,   
    you can use a dictionary::
    
         >>> n = {     
-        ...     'Pepito': (1990, 10, 20),     
-        ...     'Yayita': (1992, 3, 3), 
-        ...     'Panchito': (1989, 10, 20),   
-        ...     'Perica': (1989, 12, 8),
-        ...     'Fulanita': (1991, 2, 14),    
+        ...     'Peter': (1990, 10, 20),     
+        ...     'Anna': (1992, 3, 3), 
+        ...     'Fran': (1989, 10, 20),   
+        ...     'Alice': (1989, 12, 8),
+        ...     'Joan': (1991, 2, 14),    
         ... }   
    
    #. Write a function called ``same_day(date1, date2)``     
@@ -320,14 +246,14 @@ Exercises
       verifying the birth day in the ``n`` dictionary::
    
           >>> older(n)    
-          'Panchito'    
+          'Fran'    
    
    #. Write a function called ``first_birthday(n)``  
       which indicates how is the person that have the first birthday
       of the year::
    
           >>> first_birthday(n)
-          'Fulanita'    
+          'Joan'    
 
 #. A line (or straight line) in the Euclidean plane is described by the equation:
    
@@ -361,17 +287,17 @@ Exercises
       which determine if two lines ``r1`` and ``r2`` are parallel,
       i.e., do not intersect at any point. 
    
-   #. Write a function called ``line_throught(p1, p2)`` 
-      which return the line that throught the ``p1`` and ``p2`` points::
+   #. Write a function called ``line_through(p1, p2)`` 
+      which return the line that through the ``p1`` and ``p2`` points::
    
-          >>> line_throught((-2, 4), (4, 1))     
+          >>> line_through((-2, 4), (4, 1))     
           (-0.5, 3.0)   
    
       You can verify if the function is correct with the previous function ``point_in_line(p,r)``::
    
            >>> p1 = (-2, 4)    
            >>> p2 = (4, 1)     
-           >>> r = line_throught(p1, p2)    
+           >>> r = line_through(p1, p2)    
            >>> point_in_line(p1, r) 
            True    
            >>> point_in_line(p2, r) 
@@ -395,12 +321,12 @@ Exercises
    * Sex (male or female),
    * Age,
    * Favorite music, and
-   * zodical sign.                                                                                                                  
+   * zodiacal sign.                                                                                                                  
    
    In the program to do, a person will be represented as a tuple::
    
-       person_1 =    ('Pepito', 'M', 27, 'rock', 'leo') 
-       person_2 =    ('Yayita', 'F', 23, 'cumbia', 'virgo')                                                                                                                   
+       person_1 =    ('Peter', 'M', 27, 'rock', 'leo') 
+       person_2 =    ('Anna', 'F', 23, 'cumbia', 'virgo')                                                                                                                   
    
    Two  people are compatible if:
    
@@ -410,18 +336,18 @@ Exercises
    * their zodiac sign are compatible.
       
    To find out which signs are compatible,
-   there is a set "signos_compatibles"
-   tuplas having "(signo_mujer,signo_hombre)",
+   there is a set ``compatible_signs``
+   tuples having ``(woman_sign,men_sign)``,
    that `you can download here`_.
-   If a tupla is in the set, means that the signs are compatible.
+   If a tuple is in the set, means that the signs are compatible.
    
-       >>> ('aries', 'tauro') in signos_compatibles
+       >>> ('aries', 'taurus') in compatible_signs
        True
    
    # means that Aries women
    # is compatible with Taurus man.                                                                                                                                          
    
-       >>> ('capricornio', 'libra') in signos_compatibles
+       >>> ('capricorn', 'libra') in compatible_signs
        False
    
    # It means that women Capricorn
