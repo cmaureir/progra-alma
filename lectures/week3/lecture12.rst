@@ -39,7 +39,7 @@ a value error occurs::
 
     >>> a, b, c = person
     Traceback (most recent call last):
-File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
     ValueError: need more than 2 values to unpack
 
 Also, it is possible to extract the values using their index::
@@ -158,306 +158,276 @@ Exercises
         >>> is_straight({(3,'C'), (4, 'C'), (5, 'C')})
         False    
 
-#. En los juegos de naipes,
-   una carta tiene dos atributos:
-   un valor (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K)     
-   y una pinta (♥, ♦, ♣, ♠).     
+#. In the card games, a card have two attributes:
+   a value (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K)     
+   and a suit (♥, ♦, ♣, ♠).     
    
-   En un programa,   
-   el valor puede ser representado como un número  
-   del 1 al 13,
-   y la pinta como un string:    
+   In a program, the value can be represented by a number between 1 and 13,
+   and the suit like a string:    
    ♥ → ``'H'``,
    ♦ → ``'D'``,
    ♣ → ``'C'`` and     
    ♠ → ``'S'``.
    
-   Una carta puede ser representada    
-   como una tupla de dos elementos:    
-   el valor y la pinta::   
+   A card can be represented as a tuple of two elements, the value and the suit::
+ 
+      card1 = (5, 'C')   
+      card2 = (10, 'D')  
    
- carta1 = (5, 'T')   
- carta2 = (10, 'D')  
+   To simplify, the ace can be represented as the number 1, 
+   and the J, Q and K cards as  11, 12 and 13:: 
    
-   Para simplificar, 
-   se puede representar el as como un 1,     
-   y los «monos» J, Q y K como 11, 12 y 13:: 
+      # as de picas y reina de corazones    
+      card3 = (1, 'S')   
+      card4 = (12, 'H')  
    
- # as de picas y reina de corazones    
- carta3 = (1, 'P')   
- carta4 = (12, 'C')  
+   In the poker game,
+   a hand have five cards,
+   which in a program could be a set of five tuples::
    
-   En el juego de póker,   
-   una mano tiene cinco cartas,  
-   lo que en un programa vendría a ser 
-   un conjunto de cinco tuplas:: 
+       hand = {(1, 'S'), (1, 'H'), (1, 'C'), (13, 'D'), (12, 'S')}   
    
- mano = {(1, 'P'), (1, 'C'), (1, 'T'), (13, 'D'), (12, 'P')}   
+   #. A *full* is a hand in which three cards must have a common value,
+      and the other two cards has another coomon value.
+      Write a function which indicates if the hand is or not a full::
+         
+          >>> hand_1 = {(1, 'S'), (1, 'H'), (6, 'C'), (1, 'D'), (6, 'D')}     
+          >>> hand_2 = {(2, 'C'), (1, 'H'), (12, 'H'), (1, 'D'), (6, 'D')}    
+          >>> is_full(hand_1) 
+          True     
+          >>> is_full(hand_2) 
+          False   
    
-   #. Un *full* es una mano en que tres cartas tienen un valor común,
-y las otras dos tienen otro valor común.     
-Escriba una función que indique si la mano es un full::  
+   #. A *color* is a hand in which all the cards have the same suit.
+      Write a function which indicates if the hand is a color or not::
+         
+       >>> hand_1 = {(8, 'S'), (13, 'S'), (4, 'S'), (9, 'S'), (2, 'S')}
+       >>> hand_2 = {(12, 'C'), (1, 'H'), (5, 'H'), (2, 'H'), (2, 'D')}
+       >>> is_color(hand_1)
+       True    
+       >>> is_color(hand_2)
+       False   
    
- >>> mano_1 = {(1, 'P'), (1, 'C'), (6, 'T'), (1, 'D'), (6, 'D')}     
- >>> mano_2 = {(2, 'T'), (1, 'C'), (12, 'C'), (1, 'D'), (6, 'D')}    
- >>> es_full(mano_1) 
- True     
- >>> es_full(mano_2) 
- False   
+   #. A *straight* is a hand in which the cards have consecutives values
+      (for example: 5, 6, 7, 8 y 9).   
+      Write a function which indicates if the hand is or not a straight::   
+         
+       >>> hand_1 = {(4, 'S'), (7, 'H'), (3, 'H'), (6, 'C'), (5, 'C')}     
+       >>> hand_2 = {(12, 'C'), (7, 'H'), (3, 'H'), (12, 'H'), (5, 'C')}   
+       >>> is_straight(hand_1)   
+       True    
+       >>> is_straight(hand_2)   
+       False   
    
-   #. Un *color* es una mano en que todas las cartas tienen la misma pinta.
-Escriba una función que indique si la mano es un color:: 
+#. A football game between two teams
+   can be represented as a tuple of two teams::
    
- >>> mano_1 = {(8, 'P'), (13, 'P'), (4, 'P'), (9, 'P'), (2, 'P')}    
- >>> mano_2 = {(12, 'T'), (1, 'C'), (5, 'C'), (2, 'C'), (2, 'D')}    
- >>> es_color(mano_1)
- True    
- >>> es_color(mano_2)
- False   
+       >>> game = ('Chile', 'Spain')     
    
-   #. Una *escalera* es una mano en que las cartas tienen valores consecutivos   
-(por ejemplo: 5, 6, 7, 8 y 9).   
-Escriba una función que indique si la mano es una escalera::   
+   The game result
+   can be represented as a tuple with the goals   
+   performed by each team::
+       
+       >>> result = (4, 1)    
    
- >>> mano_1 = {(4, 'P'), (7, 'C'), (3, 'C'), (6, 'T'), (5, 'T')}     
- >>> mano_2 = {(12, 'T'), (7, 'C'), (3, 'C'), (12, 'C'), (5, 'T')}   
- >>> es_escalera(mano_1)   
- True    
- >>> es_escalera(mano_2)   
- False   
+   All the tournament games
+   cab be represented as a dictionary
+   associated to each result game::
    
-   #. Escriba el resto de las funciones
-para identificar `el resto de las manos`_ del póker.     
+       >>> tournament = {  
+       ...     ('Honduras',    'Chile'):       (1, 4),   
+       ...     ('Spain',       'Switzerland'): (1, 1),   
+       ...     ('Chile',       'Switzerlanda'):(2, 0),   
+       ...     ('Spain',       'Honduras'):    (1, 0),   
+       ...     ('Chile',       'Spain'):       (5, 5),   
+       ...     ('Switzerland', 'Honduras'):    (1, 2);   
+       ... }   
    
-.. _el resto de las manos: http://www.poquer.com.es/ranking.html 
+   #. Write a function called ``teams(tournament)``  
+      that return the set of teams which participated in the tournament::
+         
+          >>> teams(tournament)   
+          {'Chile', 'Honduras', 'Switzerland', 'Spain'}    
+   
+   #. Write a function called ``draws(tournament)``    
+      which count how many games of the tournament finish in a draw::   
+         
+       >>> draws(tournament)     
 
-#. Un partido de fútbol entre dos equipos    
-   puede ser representado como una tupla de dos equipos::
+   #. When a team win a game, receives 3 points; 
+      when draws, receive 1 point, and when lose, does not receive any point.
+      Write a function called ``points(team, tournament)`` 
+      which return how many points obtained a team in a tournament::
+
+          >>> points('Chile', tournament) 
+          7 
+          >>> points('Honduras', tournament)    
+          3 
    
- >>> partido = ('Chile', 'España')     
+   #. The difference of the goals of a team    
+      is the sum of all the goals maded 
+      minus the sum of the goals against.  
+      Write a function ``gf(team, tournament)``     
+      which returns the goal differences    
+      of a team in a tournament::    
+         
+          >>> gd('Chile', tournament)     
+          5 
+          >>> gd('Honduras', tournament)  
+          -3
+         
+   #. Write a function called ``best_game(tournament)``  
+      which return the game with more goals::
+         
+          >>> best_game(tournament)   
+          ('Chile', 'España')   
    
-   El resultado del partido
-   puede ser representado como una tupla con los goles   
-   marcados por cada equipo::    
-   
- >>> resultado = (4, 1)    
-   
-   Todos los partidos de un campeonato 
-   pueden ser representados como un diccionario    
-   que asocia a cada partido un resultado::  
-   
- >>> campeonato = {  
- ...     ('Honduras', 'Chile'):    (1, 4),   
- ...     ('España',   'Suiza'):    (1, 1),   
- ...     ('Chile',    'Suiza'):    (2, 0),   
- ...     ('España',   'Honduras'): (1, 0),   
- ...     ('Chile',    'España'):   (5, 5),   
- ...     ('Suiza',    'Honduras'): (1, 2);   
- ... }   
-   
-   #. Escriba una función ``equipos(campeonato)``  
-que entregue el conjunto de los equipos
-que participaron del campeonato::
-   
- >>> equipos(campeonato)   
- {'Chile', 'Honduras', 'Suiza', 'España'}    
-   
-   #. Escriba una función ``nro_empates(campeonato)``    
-que cuente cuántos partidos del campeonato   
-terminaron en empate::     
-   
- >>> nro_empates(campeonato)     
- 2   
-   #. Cuando un equipo gana un partido, recibe 3 puntos; 
-cuando empata, recibe 1 punto, y cuando pierde, no recibe ninguno.   
-Escriba una función ``puntos(equipo, campeonato)`` 
-que entregue cuántos puntos obtuvo el equipo 
-en el campeonato::   
-   
- >>> puntos('Chile', campeonato) 
- 7 
- >>> puntos('Honduras', campeonato)    
- 3 
-   
-   #. La diferencia de goles de un equipo    
-es la suma de los goles que hizo 
-menos la suma de los goles que le hicieron.  
-Escriba una función ``dg(equipo, campeonato)``     
-que entregue la diferencia de goles    
-del equipo en el campeonato::    
-   
- >>> dg('Chile', campeonato)     
- 5 
- >>> dg('Honduras', campeonato)  
- -3
-   
-   #. Escriba una función ``mejor_partido(campeonato)``  
-que entregue cuál fue el partido con más goles::   
-   
- >>> mejor_partido(campeonato)   
- ('Chile', 'España')   
-   
-   #. Escriba una función ``tabla_de_posiciones(campeonato)``  
-que retorne una lista de tuplas  
-``(equipo, puntaje, diferencia_de_goles)``   
-ordenada por puntaje de mayor a menor. 
-Los equipos con el mismo puntaje 
-deben estar ordenados por diferencia de goles
-de mayor a menor::   
-   
- >>> tabla_de_posiciones(campeonato)   
- [('España', 6, 2), ('Chile', 6, 1), ('Suiza', 4, 0), ('Honduras', 1, -3)] 
+   #. Write a function called ``position_table(tournament)``  
+      which return a tuple lists
+      ``(team, points, goal differences)``   
+      order by the points from highest to lowest.
+      The teams with the same points, must be ordered by goal differeneces
+      from highest to lowest::
+         
+          >>> position_table(tournament)   
+          [('Spain', 6, 2), ('Chile', 6, 1), ('Switzerland', 4, 0), ('Honduras', 1, -3)] 
 
     
-#. Las fechas pueden ser representadas 
-   como tuplas ``(año, mes, dia)``.    
+#. The dates can be represented as tuples ``(year, month, day)``.    
    
-   Para asociar a cada persona su fecha de nacimiento,   
-   se puede usar un diccionario::
+   To associate each person with his birth day,   
+   you can use a dictionary::
    
- >>> n = {     
- ...     'Pepito': (1990, 10, 20),     
- ...     'Yayita': (1992, 3, 3), 
- ...     'Panchito': (1989, 10, 20),   
- ...     'Perica': (1989, 12, 8),
- ...     'Fulanita': (1991, 2, 14),    
- ... }   
+        >>> n = {     
+        ...     'Pepito': (1990, 10, 20),     
+        ...     'Yayita': (1992, 3, 3), 
+        ...     'Panchito': (1989, 10, 20),   
+        ...     'Perica': (1989, 12, 8),
+        ...     'Fulanita': (1991, 2, 14),    
+        ... }   
    
-   **Ejercicio 1:**  
-   escriba una función ``mismo_dia(fecha1, fecha2)``     
-   que indique si las dos fechas ocurren el mismo día del año  
-   (aunque sea en años diferentes)::   
+   #. Write a function called ``same_day(date1, date2)``     
+      that indicates if both dates occur the same day of the year
+      (consider different years)::   
+      
+          >>> same_day((2010, 6, 11), (1990, 6, 11)) 
+          True    
+          >>> same_day((1981, 8, 12), (1981, 5, 12)) 
+          False   
    
- >>> mismo_dia((2010, 6, 11), (1990, 6, 11)) 
- True    
- >>> mismo_dia((1981, 8, 12), (1981, 5, 12)) 
- False   
+   #. Write a function called ``older(n)``
+      that indicates how is the older person,
+      verifying the birth day in the ``n`` dictionary::
    
-   **Ejercicio 2:**  
-   escriba una función ``mas_viejo(n)``
-   que indique quién es la persona más vieja 
-   según las fechas de nacimiento del diccionario ``n``::
+          >>> older(n)    
+          'Panchito'    
    
- >>> mas_viejo(n)    
- 'Panchito'    
+   #. Write a function called ``first_birthday(n)``  
+      which indicates how is the person that have the first birthday
+      of the year::
    
-   **Ejercicio 3:**  
-   escriba una función ``primer_cumple(n)``  
-   que indique quién es la persona     
-   que tiene el primer cumpleaños del año::  
-   
- >>> primer_cumple(n)
- 'Fulanita'    
+          >>> first_birthday(n)
+          'Fulanita'    
 
-#. Una recta en el plano está descrita por la ecuación:  
+#. A line (or straight line) in the Euclidean plane is described by the equation:
    
    .. math::   
    
- y = mx + b,   
+       y = mx + b,   
    
-   donde `m` es la *pendiente*   
-   y `b` es el *intercepto*.     
-   Todos los puntos de la recta  
-   satisfacen esta ecuación.     
+   where `m` is the *slope* (or gradient)  
+   and `b` is the *y-intercept*.     
+   All the line points satisfied the equation.
    
-   En un programa,   
-   una recta puede ser representada    
-   como una tupla ``(m, b)``.    
+   In a program,   
+   a line can be represented as a tuple ``(m, b)``.    
    
-   Los algoritmos para resolver los siguientes ejercicios
-   seguramente usted los aprendió en el colegio.   
-   Si no los recuerda,     
-   puede buscarlos en su libro de matemáticas favorito   
-   o en internet.    
+   The algorithms to solve the next equation are very simple,
+   if you do not remember,,     
+   you can search it in your favorite math book or in internet.
    
-   #. Escriba una función ``punto_en_recta(p, r)`` 
-que indique si el punto ``p`` está en la recta ``r``::   
+   #. Write a function called ``point_in_line(p, r)`` 
+      which indicates if the ``p`` point is in the ``r`` line::   
+         
+          >>> line = (2, -1) 
+          >>> point_in_line((2, 3), line)     
+          True    
+          >>> point_in_line((0, -1), line)    
+          True    
+          >>> point_in_line((1, 2), line)     
+          False   
    
- >>> recta = (2, -1) 
- >>> punto_en_recta((2, 3), recta)     
- True    
- >>> punto_en_recta((0, -1), recta)    
- True    
- >>> punto_en_recta((1, 2), recta)     
- False   
+   #. Write a function called ``are_parallel(r1, r2)``
+      which determine if two lines ``r1`` and ``r2`` are parallel,
+      i.e., do not intersect at any point. 
    
-   #. Escriba una función ``son_paralelas(r1, r2)``
-que indique si las rectas ``r1`` y ``r2`` son paralelas, 
-es decir, no se intersectan en ningún punto. 
+   #. Write a function called ``line_throught(p1, p2)`` 
+      which return the line that throught the ``p1`` and ``p2`` points::
    
-   #. Escriba una función ``recta_que_pasa_por(p1, p2)`` 
-que entregue la recta que pasa por los puntos ``p1`` y ``p2``::
+          >>> line_throught((-2, 4), (4, 1))     
+          (-0.5, 3.0)   
    
- >>> recta_que_pasa_por((-2, 4), (4, 1))     
- (-0.5, 3.0)   
+      You can verify if the function is correct with the previous function ``point_in_line(p,r)``::
    
-Puede comprobar que la función está correcta 
-verificando que ambos puntos están en la recta obtenida:: 
+           >>> p1 = (-2, 4)    
+           >>> p2 = (4, 1)     
+           >>> r = line_throught(p1, p2)    
+           >>> point_in_line(p1, r) 
+           True    
+           >>> point_in_line(p2, r) 
+           True    
    
- >>> p1 = (-2, 4)    
- >>> p2 = (4, 1)     
- >>> r = recta_que_pasa_por(p1, p2)    
- >>> punto_en_recta(p1, r) 
- True    
- >>> punto_en_recta(p2, r) 
- True    
-   
-   #. Escriba una función ``punto_de_interseccion(r1, r2)``    
-que entregue el punto donde las dos rectas se `intersectan`_:: 
-   
- >>> r1 = (2, 1)     
- >>> r2 = (-1, 4)    
- >>> punto_de_interseccion(r1, r2)     
- (1.0, 3.0)    
-   
-Si las rectas son paralelas,     
-la función debe retornar ``None``.     
-   
-   .. _intersectan: http://www.mieres.uniovi.es/egi/dao/apuntes/planos_y_coordenadas.html
+   #. Write a function called ``point_of_intersection(r1, r2)``    
+      which return the point where the two lines intersect:: 
+         
+          >>> r1 = (2, 1)     
+          >>> r2 = (-1, 4)    
+          >>> point_of_intersection(r1, r2)     
+          (1.0, 3.0)    
+         
+      If the lines are parallel,
+      the function must return ``None``.
 
-#. Para este problema,
-   consideraremos las siguientes características de una persona:     
+  
+#. For this problem, consider the following characteristics of a person:
+
+   * Name,
+   * Sex (male or female),
+   * Age,
+   * Favorite music, and
+   * zodical sign.                                                                                                                  
    
-   * nombre,   
-   * género (masculino o femenino),    
-   * edad,     
-   * música favorita, y    
-   * signo zodiacal. 
+   In the program to do, a person will be represented as a tuple::
    
-   En el programa a realizar,    
-   una persona será representada como una tupla::  
+       person_1 =    ('Pepito', 'M', 27, 'rock', 'leo') 
+       person_2 =    ('Yayita', 'F', 23, 'cumbia', 'virgo')                                                                                                                   
    
-     persona_1 = ('Pepito', 'M', 27, 'rock', 'leo')
-     persona_2 = ('Yayita', 'F', 23, 'cumbia', 'virgo')  
+   Two  people are compatible if:
    
-   Dos personas son compatibles  
-   si:   
-   
-   * son de géneros opuestos (un hombre y una mujer),    
-   * tienen menos de diez años de diferencia,
-   * les gusta la misma música, y
-   * sus signos zodiacales son compatibles.  
-   
-   Para saber los signos compatibles,  
-   existe un conjunto ``signos_compatibles`` 
-   que tiene tuplas ``(signo_mujer, signo_hombre)``,     
-   que `usted puede descargar aquí`_.  
-   Si una tupla está en el conjunto,   
-   significa que los signos son compatibles::
+   * Are of opposite sex (man and women),
+   * under 10 years of age difference,
+   * like the same music, and
+   * their zodiac sign are compatible.
+      
+   To find out which signs are compatible,
+   there is a set "signos_compatibles"
+   tuplas having "(signo_mujer,signo_hombre)",
+   that `you can download here`_.
+   If a tupla is in the set, means that the signs are compatible.
    
        >>> ('aries', 'tauro') in signos_compatibles
-       True    
+       True
    
-       # Significa que mujer aries     
-       # es compatible con hombre tauro.     
+   # means that Aries women
+   # is compatible with Taurus man.                                                                                                                                          
    
        >>> ('capricornio', 'libra') in signos_compatibles
-       False   
+       False
    
-       # Significa que mujer capricornio     
-       # no es compatible con hombre libra.
+   # It means that women Capricorn
+   # is not compatible with free men. 
    
-   Escriba una función ``compatibles(p1, p2)``     
-   que indique si dos personas son compatibles o no.     
-   
-   .. _usted puede descargar aquí: ../../_static/signos.py 
+   Write a function "compatibles(p1, p2)", to indicate
+   if two people are compatible or not.
+    
+      .. _you can download here: ../../_static/programs/signs.py

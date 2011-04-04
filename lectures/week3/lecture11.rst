@@ -131,6 +131,202 @@ is possible to use the ``not in`` statement::
 Exercises
 ~~~~~~~~~~
 
-`1`_
 
-.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-diccionarios.html
+#. Consider the following assignations::   
+
+       >>> a = {'a': 14, 'b': 23, 'c': 88}   
+       >>> b = {12: True, 55: False, -2: False}    
+       >>> c = dict()
+       >>> d = {1: [2, 3, 4], 5: [6, 7, 8, 9], 10: [11]} 
+       >>> e = {2 + 3: 4, 5: 6 + 7, 8: 9, 10: 11 + 12}   
+
+   Without using the computer, determine the result of the following
+   expressions.
+   Once you finish, verify your answers with the computer.
+   
+   * ``a['c']``
+   * ``a[23]`` 
+   * ``23 in a``     
+   * ``'a' in a``    
+   * ``5 in d[5]``   
+   * ``sum(b)``
+   * ``len(c)``
+   * ``len(d)``
+   * ``len(d[1])``   
+   * ``len(b.values())``   
+   * ``len(e)``
+   * ``sum(a.values())``   
+   * ``max(list(e))``
+   * ``d[1] + d[5] + d[10]``     
+   * ``max(map(len, d.values()))``   
+
+
+#. Write a program that allow to save the age of several differente people,
+   saving algo their names.
+   It is recommended the use of a *dictionary*.     
+   
+   Once you have several ages, obtain a list with only the age of the people,
+   and look for the more repeated one,
+   when you obtain that age, show the name of the people
+   with that age.
+   
+   ::    
+   
+       >>> add("John Smith",25)    
+       >>> add("Carl Hoffmann",18)   
+       >>> add("Joseph Sandler",21)     
+       >>> ... 
+       >>> add("Michael Jackson",18)     
+       >>> repeated_age() 
+       18
+       >>> show(18)     
+       Carl Hoffmann   
+       ...     
+       Michael Jackson 
+
+
+#. A telephone directory is structured using only two parameters, the
+   *name* and the *telephone*.
+   
+   Write a program that allow the same functionallity,
+   i.e., add entries, search some number, remove somo entry and
+   show all the content.
+   
+   To do an easiest implementation, is recommendable to use
+   *dictionaries* and *functions*.
+   
+   The behavior of the functions must be:
+   
+   ::    
+   
+       >>> add_telephone("John Smith",123456) 
+       Contact added.  
+       >>> view_directory()
+       "John Smith" 123456     
+       >>> add_telephone("Mary Poppins",912354) 
+       Contact added.  
+       >>> view_directory()
+       "John Smith" 123456     
+       "Mary Poppins" 912354
+       >>> search("John Smith")
+       "Fulano Perez" 123456     
+       >>> buscar("John Rambo")  
+       Contact not found. 
+
+#. Write a function called  *count_initials(phrase)* 
+   which return a dictionary with characters as *key* 
+   and the associated value to the *key* must be the initial of each
+   word:
+   
+   ::    
+   
+       >>> count_initials('The elephant is moving to Asia')   
+       {'t': 2, 'e': 1, 'i':1, 'm':1, 'a': 2}  
+       >>> count_initials('Several seeds see the sea')   
+       {'s': 4', 't': 1}   
+      
+   
+#. The ``countries`` dictionary associated each person
+   with the set of the visited countries::
+   
+     countries = {    
+     Peter': {'Chile', 'Argentina'},  
+     Jenny': {'France', 'Switzerland', 'Chile'}, 
+     John': {'Chile', 'Italy', 'Francia', 'Peru'},
+     ... 
+       } 
+   
+   Write a function called ``how_many_in_common(a, b)``, 
+   which indicates how many countries in common are visited
+   by the person ``a`` and ``b``::
+   
+       >>> how_many_in_common('Peter', 'John')
+       1 
+       >>> how_many_in_common('John', 'Jeny')
+       2 
+ 
+#. Write a function ``even_keys(d)``     
+   which indicates if the ``d`` dictionary has some even number as key.
+   
+   Next, write a function called ``even_values(d)``
+   which indicates if the ``d`` dictionary has some even number as value.
+   
+   To try your functions, use dictionaries whose keys and values are only
+   integer numbers::
+   
+       >>> d1 = {1: 2, 3: 5}     
+       >>> d2 = {2: 1, 6: 7}     
+       >>> even_values(d1) 
+       True    
+       >>> even_values(d2) 
+       False   
+       >>> even_keys(d1)  
+       False   
+       >>> even_keys(d2)  
+       True    
+
+#. Write a function called ``max_pair(d)``     
+   which return the maximum value of the sum
+   between the key and the value of
+   the ``d`` dictionary::
+   
+       >>> d = {5: 1, 4: 7, 9: 0, 2: 2}
+       >>> max_pair(d)   
+       11   
+
+#. Write a function called ``invert(d)`` 
+   which return a dictionary whose keys are the values of ``d``    
+   and whose values are the keys::
+   
+       >>> invert({1: 2, 3: 4, 5: 6})
+       {2: 1, 4: 3, 6: 5}  
+       >>> nicknames = {
+       ...   'Suazo': 'Chupete', 
+       ...   'Sanchez': 'Maravilla',   
+       ...   'Medel': 'Pitbull', 
+       ...   'Valdivia': 'Mago', 
+       ... }   
+       >>> invert(nicknames)
+       {'Maravilla': 'Sanchez', 'Mago': 'Valdivia', 'Chupete': 'Suazo', 'Pitbull': 'Medel'}  
+
+ 
+#. Actually a widely used method to choose a password is change
+   some characters of a certain word by numbers, for example: 
+   
+   ::    
+       I like football 
+   ::    
+       1 l1k3 f00tb4ll
+   
+   Therefore, to do more easy this task, write a function that using:
+   
+   * una phrase.
+   * un dictionary with the characters to replace.
+   
+   can return the password with the new characters.
+   
+   Remember the *replace()* function.    
+   
+   ::    
+       phrase = "I want my password, now!"  
+       d = {'a':4,'o':0,'!':'?'}   
+       change(phrase,d)  
+       "I w4nt my p4ssw0rd, n0w?"
+   
+   ::    
+       phrase = "cute kitty"   
+       d = {'e':3,'i':1}  
+       change(phrase,d)  
+       "cut3 k1tty"   
+   
+   Also, because we need a more secure password, change the previous functions to change the
+   characters of the phrase only a certain number of times.
+   
+   For example::     
+   
+       phrase = "my house is orange"    
+       d = {'a':4,'o':0,'i':1,'e':3}     
+       change(phrase,d,1)     
+       "my h0us3 1s or4nge"    
+       change(phrase,d,2)     
+       "my h0us3 1s 0r4ng3"    

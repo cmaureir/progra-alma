@@ -147,6 +147,64 @@ makes no sense trying to obtain an item using the index::
 Exercises
 ~~~~~~~~~
 
-`1`_
+#. Consider the next assignations::
+       >>> a = {5, 2, 3, 9, 4}
+       >>> b = {3, 1}
+       >>> c = {7, 5, 5, 1, 8, 6}
+       >>> d = [6, 2, 4, 5, 5, 3, 1, 3, 7, 8]
+       >>> e = {(2, 3), (3, 4), (4, 5)}
+       >>> f = [{2, 3}, {3, 4}, {4, 5}]
 
-.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-conjuntos.html
+   Without using the computer, 
+   identify the result of the following expressions. 
+   Once you finish, verify your answers using the computer.
+   
+   * ``len(c)``
+   * ``len(set(d))`` 
+   * ``a & (b | c)`` 
+   * ``(a & b) | c`` 
+   * ``c - a`` 
+   * ``max(e)``
+   * ``f[0] < a``    
+   * ``set(range(4)) & a`` 
+   * ``(set(range(4)) & a) in f``
+   * ``len(set('dog'))`` 
+   * ``len({'dog'})``   
+
+#. Develop a program that read ``n`` words and
+   calculate the length of each of one, but
+   without considering the repeated characters,
+   determining the most longest and more shorter.
+   
+   For example,   
+   the word «Bookkeeper» is shorter than «dinosaur», 
+   because only has 6 differente characters (*b*, *o*, *k*, *e*, *p* y *r*), 
+   while «dinosaur» has 8.  
+
+   .. testcase::  
+
+      Enter n: 4    
+      word 1: mascot  
+      word 2: dinosaur
+      word 3: bed  
+      word 4: devil 
+      La word mas larga es: dinosaur
+      La word mas corta es: bed   
+
+   .. testcase::  
+
+      Entere n: 3    
+      word 1: apple
+      word 2: windows
+      word 3: linux 
+      La word mas larga es: windows    
+      La word mas corta es: apple
+
+#. Write a function called ``subset(s)`` 
+   which return a list of all the possible subset of a set ``s``::
+
+       >>> s = {4, 7, 8}    
+       >>> subset(s)  
+       [{}, {4}, {7}, {8}, {4, 7}, {8, 4}, {8, 7}, {8, 4, 7}] 
+
+
