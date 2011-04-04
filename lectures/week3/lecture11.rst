@@ -1,152 +1,136 @@
-Lecture 11 - Sets
------------------
+Lecture 11 - Dictionaries
+-------------------------
 
-.. index:: sets
+.. index:: dictionary
 
-A **set** is a disordered collection of non repeated values.
+A **dictionary** is a data type that allows to associate value pairs.
 
-The Python sets are analogues to mathematical sets.
-The data type that represent the sets is called ``set``.
+.. index:: key (dictionary), value (dictionary)
 
-The ``set`` type is mutable:
-it can be modified after it has been created.
+A dictionary can be seen
+as a **key** collection,
+each one having an associated **value**.
+The keys are disordered
+and there are no repeated keys.
+The only way to access a value
+is through their key.
 
-How to create a ``set``
-~~~~~~~~~~~~~~~~~~~~~~~
-The two main ways to create sets are:
+How to create a ``dictionary``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* use a literal set, in brackets::
+The main way to create a dictionary is using a literal dictionary.
+The key is associated to a value using two points (colon)::
 
-    >>> colors = {'blue', 'red', 'white', 'white'}
-    >>> colors
-    {'red', 'blue', 'white'}
+    >>> telephones = {'John': 5552437, 'Andy': 5551428, 'Shane': 5550012}
 
-  Note that set does not include repeated items,
-  and the items might not be in the same order they were added.
+In this example,
+the keys are ``'John'``, ``'Andy'`` and ``'Shane'``,
+and the associated values to them are,
+``5552437``, ``5551428`` and ``5550012`` respectively.
 
-* use the ``set`` function applied over an iterable::
+An empty dictionary can be created using ``{}`` or with a function called ``dict()``::
 
-    >>> set('abracadabra')
-    {'a', 'r', 'b', 'c', 'd'}
-    >>> set(range(50, 2000, 400))
-    {1250, 50, 1650, 850, 450}
-    >>> set([(1, 2, 3), (4, 5), (6, 7, 8, 9)])
-    {(4, 5), (6, 7, 8, 9), (1, 2, 3)}
+    >>> d = {}
+    >>> d = dict()
 
-  The empty set must be created using ``set()``,
-  as ``{}`` and represents the empty dictionary.
+How to use a ``dictionary``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The set items must be immutable.
-For example, it is not possible to create a set of lists,
-but it is to create a set of tuples::
+The associated value to the ``k`` key in the ``d`` dictionary
+can be obtained through ``d[k]``. ::
 
-    >>> s = {[2, 4], [6, 1]}
+    >>> telephones['John']
+    5552437
+    >>> telephones['Andy']
+    5551428
+
+If the key is not present in the dictionary,
+a **key error** (``KeyError``) occurs::
+
+    >>> telephones['Nancy']
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    TypeError: unhashable type: 'list'
-    >>> s = {(2, 4), (6, 1)}
-    >>> s
-    set([(6, 1), (2, 4)])
+    KeyError: 'Nancy'
 
-As a set is not ordered, it
-makes no sense trying to obtain an item using the index::
+It is possible to add new keys simply assigning them to a value::
 
-    >>> s = {'a', 'b', 'c'}
-    >>> s[0]
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    TypeError: 'set' object does not support indexing
+    >>> telephones['Peter'] = 4448139
+    >>> telephones
+    {'John': 5552437, 'Peter': 4448139, 'Andy': 5551428, 'Shane': 5550012}
 
+Note that the order in which the keys are stored in the dictionary
+is not necessarily the same order they were added.
 
-``set`` operations
-~~~~~~~~~~~~~~~~~~~
+If you assign a value to a key that is already present in the dictionary,
+the previous value is overwritten.
+Remember that a dictionary cannot have repeated keys::
 
-* ``len(s)`` returns the number of items of the ``s`` set::
+    >>> telephones
+    {'John': 5552437, 'Peter': 4448139, 'Andy': 5551428, 'Share': 5550012}
+    >>> telephones['Andy'] = 4448139
+    >>> telephones
+    {'John': 5552437, 'Peter': 4448139, 'Andy': 4448139, 'Share': 5550012}
 
-    >>> len(set('abracadabra'))
-    5
-    >>> len(set())
+The values can be repeated.
+In the previous example, Andy and Peter have the same number.
+
+To remove a key, you can use the statement ``del``::
+
+    >>> del telephones['Share']
+    >>> telephones
+    {'John': 5552437, 'Peter': 4448139, 'Andy': 4448139}
+
+If you use a dictionary in a ``for`` cycle, 
+in each iteration a key is obtained::
+
+    >>> for k in telephones:
+    ...     print(k)
+    ...
+    John
+    Peter
+    Andy
+
+To iterate over the keys, use ``d.values()``::
+
+    >>> for v in telephones.values():
+    ...     print(v)
+    ...
+    5552437
+    4448139
+    4448139
+
+It is also possible to create a list of keys or values::
+
+    >>> list(telephones)
+    ['John', 'Peter', 'Andy']
+    >>> list(telephones.values())
+    [5552437, 4448139, 4448139]
+
+``len(d)`` return how many key-value pairs are in the dictionary::
+
+    >>> numbers = {15: 'fifteen', 24: 'twenty-four'}
+    >>> len(numbers)
+    2
+    >>> len({})
     0
 
-* ``x in s`` allows to know if the ``x`` item is in the ``s`` set::
+``k in d`` allows to know if the key ``k`` is in the dictionary ``d``::
 
-    >>> 3 in {2, 3, 4}
+    >>> legs = {'cat': 4, 'human': 2, 'octopus': 8, 'dog': 4, 'centipede': 100}
+    >>> 'dog' in legs
     True
-    >>> 5 in {2, 3, 4}
+    >>> 'worm' in legs
     False
 
-  ``x not in s`` allows to know if ``x`` is not in the ``s`` set::
+To know if a key *is not* in the dictionary, it
+is possible to use the ``not in`` statement::
 
-    >>> 10 not in {2, 3, 4}
-    True
-
-* ``s.add(x)`` adds the ``x`` item to the ``s`` set::
-
-    >>> s = {6, 1, 5, 4, 3}
-    >>> s.add(-37)
-    >>> s
-    {1, 3, 4, 5, 6, -37}
-    >>> s.add(4)
-    >>> s
-    {1, 3, 4, 5, 6, -37}
-
-* ``s.remove(x)`` remove the ``x`` item from the ``s`` set::
-
-    >>> s = {6, 1, 5, 4, 3}
-    >>> s.remove(1)
-    >>> s
-    {3, 4, 5, 6}
-
-  If the ``x`` item is not in the set, an **key error** occurs::
-
-    >>> s.remove(10)
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    KeyError: 10
-
-* ``s & t`` returns the intersection between the sets ``s`` and ``t``::
-
-    >>> a = {1, 2, 3, 4}
-    >>> b = {2, 4, 6, 8}
-    >>> a & b
-    {2, 4}
-
-* ``s | t`` returns the union of the sets ``s`` and ``t``::
-
-    >>> a | b
-    {1, 2, 3, 4, 6, 8}
-
-* ``s - t`` returns the difference between the sets ``s`` and ``t``;
-  i.e. the items of ``s`` that are not in ``t``::
-
-    >>> a - b
-    {1, 3}
-
-* ``s ^ t`` returns the symmetric difference between the sets ``s`` and ``t``;
-  i.e. the items that are either in ``s`` or ``t`` ,
-  but not in both::
-
-    >>> a ^ b
-    {1, 3, 6, 8}
-
-* ``s < t`` indicates if ``s`` is a subset of ``t``::
-
-    >>> {1, 2} < {1, 2, 3}
-    True
-    >>> {1, 4} < {1, 2, 3}
-    False
-
-  ``s <= t`` also indicates if ``s`` is a subset of ``t``.
-  The difference occurs when the sets are the same::
-
-    >>> {1, 2, 3} < {1, 2, 3}
-    False
-    >>> {1, 2, 3} <= {1, 2, 3}
+    >>> 'worm' not in legs
     True
 
 Exercises
-~~~~~~~~~
+~~~~~~~~~~
 
 `1`_
 
-.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-conjuntos.html
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-diccionarios.html

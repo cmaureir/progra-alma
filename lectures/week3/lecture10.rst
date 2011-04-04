@@ -1,132 +1,152 @@
-Lecture 10 - Tuples
--------------------
+Lecture 10 - Sets
+-----------------
 
-.. index:: tuple
+.. index:: sets
 
-A **tuple** is a sequence of grouped values.
+A **set** is a disordered collection of non repeated values.
 
-A tuple is used to group several related values as a single value.
+The Python sets are analogues to mathematical sets.
+The data type that represent the sets is called ``set``.
 
-The data type that represents the tuple is called ``tuple``.
-The ``tuple`` type is immutable: a tuple cannot be modified once created.
+The ``set`` type is mutable:
+it can be modified after it has been created.
 
-.. index:: tuple literal
+How to create a ``set``
+~~~~~~~~~~~~~~~~~~~~~~~
+The two main ways to create sets are:
 
-A tuple can be created
-setting comma separated values and in round brackets.
-For example,
-we can create a tuple with the first-name and last-name of a person::
+* use a literal set, in brackets::
 
-    >>> person = ('John', 'Smith')
-    >>> person
-    ('John', 'Smith')
+    >>> colors = {'blue', 'red', 'white', 'white'}
+    >>> colors
+    {'red', 'blue', 'white'}
 
-Unpacking tuples
-~~~~~~~~~~~~~~~~
+  Note that set does not include repeated items,
+  and the items might not be in the same order they were added.
 
-.. index:: unpacking
+* use the ``set`` function applied over an iterable::
 
-The tuple values can be recovered assigning the tuple to the corresponding variables.
-This is called **unpacking tuples**::
+    >>> set('abracadabra')
+    {'a', 'r', 'b', 'c', 'd'}
+    >>> set(range(50, 2000, 400))
+    {1250, 50, 1650, 850, 450}
+    >>> set([(1, 2, 3), (4, 5), (6, 7, 8, 9)])
+    {(4, 5), (6, 7, 8, 9), (1, 2, 3)}
 
-    >>> person = ('John', 'Smith')
-    >>> name, surname = person
-    >>> name
-    'John'
+  The empty set must be created using ``set()``,
+  as ``{}`` and represents the empty dictionary.
 
-If you try to unpack the wrong number of values,
-a value error occurs::
+The set items must be immutable.
+For example, it is not possible to create a set of lists,
+but it is to create a set of tuples::
 
-    >>> a, b, c = person
+    >>> s = {[2, 4], [6, 1]}
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    ValueError: need more than 2 values to unpack
+    TypeError: unhashable type: 'list'
+    >>> s = {(2, 4), (6, 1)}
+    >>> s
+    set([(6, 1), (2, 4)])
 
-Also, it is possible to extract the values using their index::
+As a set is not ordered, it
+makes no sense trying to obtain an item using the index::
 
-    >>> person[1]
-    'Smith'
+    >>> s = {'a', 'b', 'c'}
+    >>> s[0]
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: 'set' object does not support indexing
 
-``tuple`` comparison
-~~~~~~~~~~~~~~~~~~~~~~
 
-Two tuples are the same
-when they have the same size
-and each of their items have the same value::
+``set`` operations
+~~~~~~~~~~~~~~~~~~~
 
-    >>> (1, 2) == (3 // 2, 1 + 1)
+* ``len(s)`` returns the number of items of the ``s`` set::
+
+    >>> len(set('abracadabra'))
+    5
+    >>> len(set())
+    0
+
+* ``x in s`` allows to know if the ``x`` item is in the ``s`` set::
+
+    >>> 3 in {2, 3, 4}
     True
-    >>> (6, 1) == (6, 2)
-    False
-    >>> (6, 1) == (6, 1, 0)
-    False
-
-.. index:: lexicographic order
-
-To determine if a tuple is smaller than other,
-the rule called **lexicographic order** is used.
-If the items in the first position from both tuples are different,
-comparing them determines the order of the tuples::
-
-    >>> (1, 4, 7) < (2, 0, 0, 1)
-    True
-    >>> (1, 9, 10) < (0, 5)
-    False
-
-The first comparison is  ``True`` because ``1 < 2``.
-The second comparison is ``False`` because ``1 > 0``.
-No matter the value of the following values
-or if a tuple has more elements than the other.
-
-If the first position items are the same,
-then the same comparison is used with the next value::
-
-    >>> (6, 1, 8) < (6, 2, 8)
-    True
-    >>> (6, 1, 8) < (6, 0)
+    >>> 5 in {2, 3, 4}
     False
 
-The first comparison is  ``True`` because ``6 == 6`` and ``1 < 2``.
-The second comparison is ``False`` because ``6 == 6`` and ``1 > 0``.
+  ``x not in s`` allows to know if ``x`` is not in the ``s`` set::
 
-If the respective items continue being the same,
-we continue comparing with the next values.
-If a tuple runs out of items to compare before the other,
-then it is immediately smaller than the other::
-
-    >>> (1, 2) < (1, 2 ,4)
+    >>> 10 not in {2, 3, 4}
     True
-    >>> (1, 3) < (1, 2, 4)
+
+* ``s.add(x)`` adds the ``x`` item to the ``s`` set::
+
+    >>> s = {6, 1, 5, 4, 3}
+    >>> s.add(-37)
+    >>> s
+    {1, 3, 4, 5, 6, -37}
+    >>> s.add(4)
+    >>> s
+    {1, 3, 4, 5, 6, -37}
+
+* ``s.remove(x)`` remove the ``x`` item from the ``s`` set::
+
+    >>> s = {6, 1, 5, 4, 3}
+    >>> s.remove(1)
+    >>> s
+    {3, 4, 5, 6}
+
+  If the ``x`` item is not in the set, an **key error** occurs::
+
+    >>> s.remove(10)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    KeyError: 10
+
+* ``s & t`` returns the intersection between the sets ``s`` and ``t``::
+
+    >>> a = {1, 2, 3, 4}
+    >>> b = {2, 4, 6, 8}
+    >>> a & b
+    {2, 4}
+
+* ``s | t`` returns the union of the sets ``s`` and ``t``::
+
+    >>> a | b
+    {1, 2, 3, 4, 6, 8}
+
+* ``s - t`` returns the difference between the sets ``s`` and ``t``;
+  i.e. the items of ``s`` that are not in ``t``::
+
+    >>> a - b
+    {1, 3}
+
+* ``s ^ t`` returns the symmetric difference between the sets ``s`` and ``t``;
+  i.e. the items that are either in ``s`` or ``t`` ,
+  but not in both::
+
+    >>> a ^ b
+    {1, 3, 6, 8}
+
+* ``s < t`` indicates if ``s`` is a subset of ``t``::
+
+    >>> {1, 2} < {1, 2, 3}
+    True
+    >>> {1, 4} < {1, 2, 3}
     False
 
-The first comparison is ``True`` because ``1 == 1``, ``2 == 2``
-and, at this point, all the elements from the first tuple have been compared.
-The second comparison is ``False`` because ``1 == 1`` and ``3 < 2``;
-in this case, it does reach the outcome before any of the tuples run out of elements.
+  ``s <= t`` also indicates if ``s`` is a subset of ``t``.
+  The difference occurs when the sets are the same::
 
-This comparison method is the same used to sort words in alphabetic order.
-(for example, in directories and dictionaries)::
-
-    >>> 'car' < 'carousel'
-    True
-    >>> 'car' < 'cars'
-    True
-    >>> 'mon' < 'month' < 'monthly''
+    >>> {1, 2, 3} < {1, 2, 3}
+    False
+    >>> {1, 2, 3} <= {1, 2, 3}
     True
 
 Exercises
 ~~~~~~~~~
 
-1. PENDING::
+`1`_
 
-    pending
-
-2. PENDING::
-
-    pending
-
-3. PENDING::
-
-    pending
-
-
+.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-conjuntos.html

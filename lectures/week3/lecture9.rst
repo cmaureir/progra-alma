@@ -62,7 +62,7 @@ The two main ways to create a list, are:
 
     >>> colors[4]
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
     IndexError: list index out of range
 
   If the index is negative,
@@ -130,7 +130,7 @@ The two main ways to create a list, are:
     2
     >>> colors.index('pink')
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
     ValueError: 'pink' is not in list
 
 * ``l.remove(x)`` removes the ``x`` item from the list::
@@ -141,7 +141,7 @@ The two main ways to create a list, are:
     ['visit Paris', 'plant a tree', 'do skydiving']
     >>> todo.remove('learn french')
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
     ValueError: list.remove(x): x not in list
 
 * ``l.reverse()`` reverses a list::
@@ -160,7 +160,7 @@ The two main ways to create a list, are:
 * ``l.sort()`` sorts the list::
 
     >>> numbers = [1,6,3,7,4,2,3,9,6,0]
-    >>> numbers
+    ->>> numbers
     [1, 6, 3, 7, 4, 2, 3, 9, 6, 0]
     >>> numbers.sort()
     >>> numbers
@@ -175,9 +175,204 @@ The two main ways to create a list, are:
 Exercises
 ~~~~~~~~~
 
-`1`_ `2`_  `3`_ `4`_
+#. Consider the next lists::   
 
-.. _`1`: http://progra.usm.cl/apunte/ejercicios/2/expresiones-listas.html
-.. _`2`: http://progra.usm.cl/apunte/ejercicios/2/estadisticos-localizacion.html
-.. _`3`: http://progra.usm.cl/apunte/ejercicios/2/polinomios.html
-.. _`4`: http://progra.usm.cl/apunte/ejercicios/2/problema-josefo.html
+    >>> a = [5, 1, 4, 9, 0]   
+    >>> b = range(3, 10) + range(20, 23)  
+    >>> c = [[1, 2], [3, 4, 5], [6, 7]]   
+    >>> d = ['dog', 'cat', 'giraffe', 'elephant']   
+    >>> e = ['a', a, 2 * a]   
+
+   Without using the computer,   
+   indify which is the result of the next expressions. 
+   Next,   
+   verify if your answers are correct (use the computer).
+   
+   * ``a[2]``  
+   * ``b[9]``  
+   * ``c[1][2]``     
+   * ``e[0] == e[1]``
+   * ``len(c)``
+   * ``len(c[0])``   
+   * ``len(e)``
+   * ``c[-1]`` 
+   * ``c[-1][+1]``   
+   * ``c[2:] + d[2:]``     
+   * ``a[3:10]``     
+   * ``a[3:10:2]``   
+   * ``d.index('jirafa')`` 
+   * ``e[c[0][1]].count(5)``     
+   * ``sorted(a)[2]``
+   * ``complex(b[0], b[1])``   
+
+#. The **arithmetic mean**  of the data set is the sum of the values,
+   divided by the data amount:
+   
+   Write a function called ``arithmetic_mean(data)``,
+   where ``data`` is a number list,  
+   which returns the arithmetic mean of the data:: 
+   
+    >>> arithmetic_mean([6, 1, 4, 8])    
+    4.75    
+ 
+#. The **harmonic mean** of a data set is the reciprocal of the data reciprocal sum,
+   multiplied by the amoun of data:    
+
+   .. math::   
+  
+        H = \frac{n}{ 
+        \frac{1}{x_1} +   
+        \frac{1}{x_2} +   
+        \cdots +    
+        \frac{1}{x_n} +   
+            } 
+   
+   Write a function called ``harmonic_mean(data)``,  
+   which return the harmonic mean of the data::   
+   
+        >>> harmonic_mean([6, 1, 4, 8])
+        2.5945945945945943
+
+#. The **median** of a real data set
+   is the set value that privide the same amount of lower and greater
+   values to it.
+   
+   More rigorously,
+   the median is defined as follow:
+   
+   * if the data amount is odd,
+     the median is the central value,
+     when we order the data from lowest to highest.
+   * if the data mount is even,
+     the median is the average of the two central values,
+     when we order he data from lowest to higheest.
+   
+   Write a function called ``median(data)``,   
+   which reurn the median of the data::
+   
+        >>> median([5.0, 1.4, 3.2])    
+        3.2     
+        >>> median([5.0, 1.4, 3.2, 0.1])     
+        2.3     
+   
+   The function should not modify the receive list::
+   
+        >>> x = [5.0, 1.4, 3.2]   
+        >>> median(x)
+        3.2     
+        >>> x   
+        [5.0, 1.4, 3.2]    
+        
+#. The **mode** of a data set  
+   is the most repeated value.
+   
+   Write a function called ``mode(data)``,     
+   where ``data`` is a list, 
+   which return a list with the data mode::
+   
+         >>> mode([5, 4, 1, 4, 3, 3, 4, 5, 0])
+         [4]     
+         >>> mode([5, 4, 1, 4, 3, 3, 4, 5, 3])
+         [3, 4]  
+         >>> mode([5, 4, 5, 4, 3, 3, 4, 5, 3])
+         [3, 4, 5]
+
+#. A polynomial_ is a mathematical function
+   of the form:
+   
+   .. math::   
+   
+       p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n,   
+   
+   where `x` is the parameter     
+   and `a_0, a_1, \dots, a_n`
+   are given real numbers.     
+   
+   .. _polynomial: http://en.wikipedia.org/wiki/Polynomial
+   
+   Some polynomial examples are:
+   
+   * `p(x) = 1 + 2x + x^2`,
+   * `q(x) = 4 - 17x`,     
+   * `r(x) = -1 - 5x^3 + 3x^5`,  
+   * `s(x) = 5x^{40} + 2x^{80}`. 
+   
+   Evaluate a polynomial    
+   means replace `x` by a value
+   and obtain the result.     
+   For example, if we evaluate the `p` polynomial
+   in the value `x = 3`,    
+   we obtain the result: 
+   
+   .. math::   
+   
+       p(3) = 1 + 2\cdot 3 + 3^2 = 16   
+   
+   A polynomial can be represented 
+   as a list with the values `a_0, a_1, \dots, a_n`.
+   For example,
+   the preivous polynomials
+   can be represented in a program as follows::
+   
+       >>> p = [1, 2, 1]   
+       >>> q = [4, -17]    
+       >>> r = [-1, 0, 0, -5, 0, 3]    
+       >>> s = [0] * 40 + [5] + [0] * 39 + [2]     
+
+   #. Write a function called ``degree(p)``
+      which return the degree of a polynomial::
+      
+       >>> degree(r) 
+       5
+       >>> degree(s) 
+       80     
+      
+   #. Write a function called ``evaluate(p, x)``   
+      which evaluate a ``p`` polynomial
+      (represented as a list)    
+      in the ``x`` value::  
+         
+          >>> evaluate(p, 3)  
+          16     
+          >>> evaluate(q, 0.0)
+          4.0    
+          >>> evaluate(r, 1.1)
+          -2.82347     
+          >>> evaluate([4, 3, 1], 3.14)   
+          23.2796
+         
+   #. Write a function called ``polynomial_sum(p1, p2)``    
+      which return the sum of two polynomial::     
+         
+          >>> polynomial_sum(p, r)     
+          [0, 2, 1, -5, 0, 3]
+         
+   #. Write a function called ``polynomial_derivative(p)`` 
+      which return the polynomial derivative::
+         
+           >>> polynomial_derivative(r) 
+           [0, 0, -15, 0, 15] 
+         
+   #. Write a function called ``polynomial_multiplication(p1, p2)``    
+      which return the product of two polynomial::
+         
+           >>> polynomial_mutiplication(p, q)     
+           [4, -9, -30, -17]     
+
+#. The `Josephus problem`_ is the follow:
+   `m` people are in a circle, 
+   and are executed in order counting each `n` people;
+   the alone person at the end is the survivor.
+   For example.
+                                                                                                                                     
+   with `m = 12` and `n = 3`,
+   the survivor is the person 10:                                                                                                                                                             
+   .. image:: http://img.thedailywtf.com/images/200907/Josephus.gif
+
+   Write a function which receive the ``m`` and ``n`` parameters,
+   and return as result the survivor::
+
+       >>> survivor(12, 3)
+       10 
+ 
+   .. _Josephus problem: http://en.wikipedia.org/wiki/Josephus_problem 
