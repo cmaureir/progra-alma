@@ -6,24 +6,24 @@ Expressions
 
 .. index:: expression
 
-An **expression** is combination of values and operations
-which are evaluated during execution,
-and yield a result.
+An **expression** is a combination of values and operations
+which are evaluated during execution
+and yields a result.
 For example, :math:`2 + 3` is an expression
 which, when evaluated, always returns the value 5.
 
 In the example, :math:`b^2 - 4ac` is an expression,
 whose result depends on what values
 :math:`a`, :math:`b` and :math:`c` have
-at the evaluation moment.
+at evaluation time.
 
 Assignment
 ~~~~~~~~~~~
 
 .. index:: assignment, variable, ID
 
-When an algorithm calculates some values,
-you need to put a name to it to be able to refer them
+When an algorithm calculates some values
+you need to put a name to be able to refer them
 in the following steps.
 This is what we do in the step 2 of our algorithm,
 when we calculate the discriminant and we call it :math:`A`.
@@ -32,7 +32,7 @@ and is represented as::
 
     name = expression
 
-To the used name in an expression is called
+The name used in an expression is called
 **variable** or **ID**.
 
 The assignment in the previous example, will be::
@@ -43,7 +43,7 @@ An assignment must be interpreted as follows:
 
 1. The expression at the right of the``=`` is evaluated,
    using the values that the variables have at that moment;
-2. once the result is obtained,
+2. Once the result is obtained
    the variable at the left of the ``=`` takes the result as its value.
 
 Under this interpretation,
@@ -51,11 +51,11 @@ an assignment like this is perfectly possible::
 
     i = i + 1
 
-First, the expression is evaluated,
+First, the expression is evaluated
 and their result is the successor of the actual ``i`` value.
 For example, if ``i`` has the value 15,
-after the assignment will be have the value 16.
-This *not* mean that 15 = 16.
+after the assignment it will have the value 16.
+This does *not* mean that 15 = 16.
 
 Conditionals
 ~~~~~~~~~~~~
@@ -64,13 +64,13 @@ Conditionals
 
 Sometimes an algorithm must do different steps
 under different conditions.
-Is what we do in the step 3 of the example:
+This is what we do in the third step of the example:
 we say that the equation does not have solutions
 only when the `Δ < 0` condition is satisfied.
 This is called **conditional**.
 
-The condition that determine what execute
-is an expression, whose value must be
+The condition that determines what to execute
+is an expression, whose value must be either
 true or false.
 
 Loops
@@ -83,18 +83,18 @@ an algorithm execute a set of instructions
 several times.
 
 As an algorithm cannot get stuck,
-a loop must have also a finish condition,
-which value indicates if the loop must continue or finish.
+a loop must have a finish condition. The condition is an
+expression and its value indicates if the loop must continue or finish.
 
-The example do not have loops.
+There are no loops in the example.
 
 Input
 ~~~~~
 
 .. index:: input, read
 
-When an algorithm need to receive data,
-is represented as::
+When an algorithm needs to receive data,
+it is represented as::
 
     variable = input()
 
@@ -102,9 +102,9 @@ or::
 
     variable = input("example message:")
 
-During the execution,
-this means that the data
-must stay saved in the variable.
+This means that the data 
+will be stored in the variable
+during the execution.
 
 In the example, the input occurs in the first step,
 and can be represented as::
@@ -118,24 +118,24 @@ Output
 
 .. index:: output, write
 
-Once the algorithm solve the problem
+Once the algorithm solves the problem
 for which it was designed,
-must return its results like a message.
+it must return its results as a message.
 The output is represented as::
 
     print(message)
 
 If the message is text,
-goes between quotation.
-If is a variable,
-is just the name of the variable.
+it has to be between quotation marks.
+If it is a variable,
+only the name of the variable is required.
 
-In the example, when there is no solutions,
+In the example, when there are no solutions,
 the output can be represented as::
 
     print('No solutions')
 
-When there is an only solution,
+When there is only one solution,
 is possible to include it in the message::
 
     print 'The only solution is', x
@@ -153,23 +153,23 @@ Exercises
 
    Remember the **input()** and the **print** functions. 
 
-2. You do not need to solve this exercise, the idea is to introduce into
-   the programming world, giving to you a little taste of a Python code.
+2. You do not need to solve this exercise, the idea is to introduce yourself into
+   the programming world, giving you a little taste of Python coding.
  
-   **Problem:** Design an algorithm to determinate if a natural number
+   **Problem:** Design an algorithm to determine if a natural number
    is prime or not.
     
    Remember that a prime number is a number divisible only by `1` and `itself`,
-   so we can catch a clue about how will be our algorithm.
+   so we can catch a clue about how our algorithm could be.
    We need to search divisors between `2` and `(n-1)`.
 
-   Take a look of the follow flow diagram, that explain a solution algorithm:
+   Take a look of the following flow diagram, that explains a solution algorithm:
 
    .. image:: ../../diagrams/primes.png
       :alt: (primes flow diagram)
    
    We need to start thinking that the number is prime,
-   and if we found a divisor, we modify the assumption.
+   and if we find a divisor, we modify the assumption.
    At the end, we need to verify if the assumption is
    true or false to return the correct answer.
 
@@ -204,6 +204,6 @@ Exercises
            else:
                print n, 'is not prime'
 
-   Do not worry if you don understand some statement,
+   Do not worry if you don understand some statements,
    the idea is to give you an approach to a Python program.
    In the next lecture, you will run this code in your computer.

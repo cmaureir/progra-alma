@@ -244,7 +244,7 @@ Also, a value can be assigned to several variables at the same time::
 Exercises
 ~~~~~~~~~
 
-1. Write a program that takes as input the radius of a circle
+1. Write a program that takes the radius of a circle as input
    and outputs its perimeter and its area::
 
     Enter radius: `5`
@@ -268,8 +268,8 @@ Exercises
     Enter length: `13`
     13 cm = 5.1181 in
 
-4. Write a program that receives as input
-   the legs `a` and `b` of a right triangle,
+4. Write a program that receives the legs `a` and
+   `b` of a right triangle as input,
    and outputs the length `c` of the hypotenuse,
    given by the `Pythagorean theorem`_ `c^2=a^2+b^2`::
 
@@ -293,7 +293,7 @@ Exercises
     In 43 hours, the clock will show 6 o'clock
 
 6. A student wants to know the grade of a final test in a course
-   to pass it.
+   required to pass it.
 
    The average of the course is calculated as follows.
 
