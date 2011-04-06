@@ -141,3 +141,8 @@ and accessing their objects by a point::
 The two cases are equivalent.
 As always, we must choose the one that makes the program
 easier to understand.
+
+Exercises
+---------
+
+

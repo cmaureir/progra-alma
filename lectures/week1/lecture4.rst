@@ -8,7 +8,7 @@ Lecture 4 - Data types
 .. _Python standard data types official documentation: http://docs.python.org/library/stdtypes.html
 
 A **data type** is the property of a value
-that define its domain (possible values),
+that defines its domain (possible values),
 what operations can be applied to it
 and how it is represented by the computer.
 
@@ -24,7 +24,7 @@ Strings
 
 .. index:: string, text data types, str
 
-A **strings** is a value that
+A **string** is a value that
 represents text, and whose type is **str**.
 
 The literal strings
@@ -120,7 +120,7 @@ produces the following output::
       -w  --warn         warn about non-standard bc constructs
       -v  --version      print version information and exit
     
-Also, you can access to each character of the string with an **index**,
+Also, you can obtain access to each character of the string with an **index**,
 starting from 0.
 If you want to access a sub-string of the string, you can also
 obtain a sub-string from ``i`` to ``j-1`` position.::
@@ -234,10 +234,10 @@ which is different to all other values.
 Exercises
 ~~~~~~~~~
 
-1. Create a program that make a fusion between two words.
+1. Create a program that makes a fusion between two words.
    The idea is obtain the first-half of the first word,
    and the last-half of the second word.
-   Consider only words with a pair length. For example.::
+   Consider only words with pair length. For example.::
 
        Enter word1 = `hi`
        Enter word2 = `planet`
@@ -251,9 +251,9 @@ Exercises
 
    Remember the ``len()`` function.
 
-2. Without use the computer, evaluate the next expressions
+2. Without using the computer, evaluate the next expressions
    and for each of them indicate the result and the type (if the expression is valid)
-   or what error occur (if is not valid)::
+   or the expected error (if is not valid)::
 
        >>> 2 + 3      # Answer: integer type, value is 5
        >>> 4 / 0      # Answer: zero division error
@@ -272,8 +272,8 @@ Exercises
    
    Once you finish, verify your results with the computer. 
 
-3. Write a program that receive two words,
-   and verify if the first one is in the second one::
+3. Write a program that receives two words,
+   and verifies if the first one is in the second one::
 
        Enter word 1 : `hi`
        Enter word 2 : `imaginary`

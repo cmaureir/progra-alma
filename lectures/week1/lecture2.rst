@@ -56,9 +56,9 @@ Do not use the ``x86-64`` installers
 unless you are sure that your computer
 has a 64-bit architecture.
 
-To test this,
+To test your Python installation
 download the primes.py_ file,
-which allows to determine if a natural number is or not prime.
+which allows to determine if a natural number is prime or not.
 
 .. _primes.py: ../../_static/programs/primes.py
 
@@ -124,7 +124,7 @@ the **console** (or **interactive interpreter**) will open.
 
 The console allows to enter a program through the command line.
 It also allows to evaluate expressions and see the results immediately.
-This allows, for example, using it like a calculator.
+This allows, for example, to use Python like a calculator.
 
 The interactive console
 always shows the ``>>>`` symbol,
@@ -142,7 +142,7 @@ and not in a program. For example::
     25
 
 In this example, at the time the expressions are entered ``a > 10`` and ``a ** 2``,
-the interactive interpreter give the results ``False`` and ``25``.
+the interactive interpreter gives the results ``False`` and ``25``.
 
 There is no reason to write the ``>>>`` symbol
 in a program, because it is not part of the language syntax.
