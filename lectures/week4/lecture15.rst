@@ -1,5 +1,5 @@
-Lecture 15 - Use of objects
----------------------------
+Lecture 15 - Use of objects and Files
+-------------------------------------
 
 In Python, the **objects** are abstraction for data.
 All the data inside a Python program is represented by objects,
@@ -7,6 +7,15 @@ or in some cases, by relations between two or more objects.
 We are saying that all the basic elements like `integers`, `functions`,
 `strings`, `dictionaries`, and so on, they are all objects,
 notoriously they have certain things in common.
+
+About the Python objects
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hablar de list() y otros constructores así,
+Dedicarse a Archivos de texto.
+
+
+
 
 Objects characteristics
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,63 +92,68 @@ making it refer to a integer object with the value 42,
 and in the next line, we making it point to a string
 with the value ``hello``.
 
-Object containers
-~~~~~~~~~~~~~~~~~
+.. Object containers
+.. ~~~~~~~~~~~~~~~~~
+.. 
+.. This is very different,
+.. when we work with **containers**,
+.. which are *objects* that contain references to other *objects*.
+.. For example, tuples, dictionaries, list, and so.
+.. 
+.. If we perform the next procedure::
+.. 
+..     >>> list1 = []
+..     >>> list1
+..     []
+..     >>> id(list1)
+..     3074653516L
+..     >>> list1.append(23)
+..     >>> list1
+..     [23]
+..     >>> id(list1)
+..     3074653516L
+.. 
+.. We are adding the name ``list1`` to the namespace,
+.. making it refer to an empty list object.
+.. Then we are calling an object method, to append an integer
+.. to itself.
+.. This modify the content of ``list1``, but do not touch the namespace name,
+.. or the integer object, or the identity of the object.
+.. 
+.. So, each time that we use a *method* of any previous
+.. `Data Type`_ we are using objects,
+.. for example::
+.. 
+..     >>> mylist = [5,3,2]
+..     >>> mylist.sort()
+..     >>> mylist
+..     [2, 3, 5]
+..     >>> mylist.remove(2)
+..     >>> mylist
+..     [3, 5]
+..     >>> number = mylist[0]
+..     >>> number*'hello ' 
+..     'hello hello hello '
+..     >>> line = number*'hello '
+..     >>> line
+..     'hello hello hello '
+..     >>> line.replace('o','')
+..     'hell hell hell '
+.. 
+.. Means that we are using the methods ``sort()``, ``remove()``,
+.. own by all the **list** objects,
+.. the method ``replace()``, own by all the **str** objects.
+.. 
+.. .. _Data Type: ../week1/lecture2.html
+.. 
+.. 
+.. We will look more deeply the *objects*,
+.. in the `Sixth week`_
+.. 
+.. .. _Sixth week: ../week6/index.html
 
-This is very different,
-when we work with **containers**,
-which are *objects* that contain references to other *objects*.
-For example, tuples, dictionaries, list, and so.
 
-If we perform the next procedure::
+Exercises
+---------
 
-    >>> list1 = []
-    >>> list1
-    []
-    >>> id(list1)
-    3074653516L
-    >>> list1.append(23)
-    >>> list1
-    [23]
-    >>> id(list1)
-    3074653516L
-
-We are adding the name ``list1`` to the namespace,
-making it refer to an empty list object.
-Then we are calling an object method, to append an integer
-to itself.
-This modify the content of ``list1``, but do not touch the namespace name,
-or the integer object, or the identity of the object.
-
-So, each time that we use a *method* of any previous
-`Data Type`_ we are using objects,
-for example::
-
-    >>> mylist = [5,3,2]
-    >>> mylist.sort()
-    >>> mylist
-    [2, 3, 5]
-    >>> mylist.remove(2)
-    >>> mylist
-    [3, 5]
-    >>> number = mylist[0]
-    >>> number*'hello ' 
-    'hello hello hello '
-    >>> line = number*'hello '
-    >>> line
-    'hello hello hello '
-    >>> line.replace('o','')
-    'hell hell hell '
-
-Means that we are using the methods ``sort()``, ``remove()``,
-own by all the **list** objects,
-the method ``replace()``, own by all the **str** objects.
-
-.. _Data Type: ../week1/lecture2.html
-
-
-We will look more deeply the *objects*,
-in the `Sixth week`_
-
-.. _Sixth week: ../week6/index.html
-
+PENDING

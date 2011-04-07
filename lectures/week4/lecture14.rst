@@ -105,154 +105,81 @@ but removing the ``if`` statement.
 Exercises
 ---------
 
-#. Desarrolle un módulo llamado ``listas.py``
-   que contenga las siguientes funciones.
+#. Write a module called ``lists.py``
+   which contains the following functions.
    
-   * Una función ``promedio(l)``,
-     cuyo parámetro ``l`` sea una lista de números reales,
-     y que entregue el promedio de los números::
+   * A function called ``average(l)``,
+     and the ``l`` parameter will be a real number list,
+     and return the average of these numbers::
    
-       >>> promedio([7.0, 3.1, 1.7])
+       >>> average([7.0, 3.1, 1.7])
        3.933333333333333
-       >>> promedio([1, 4, 9, 16])
+       >>> average([1, 4, 9, 16])
        7.5
    
-   * Una función ``cuadrados(l)``,
-     que entregue una lista con los cuadrados
-     de los valores de ``l``::
+   * A function called ``squares(l)``,
+     which return a list with the squares of the ``l`` values::
    
-       >>> cuadrados([1, 2, 3, 4, 5])
+       >>> squares([1, 2, 3, 4, 5])
        [1, 4, 9, 16, 25]
-       >>> cuadrados([3.4, 1.2])
+       >>> squares([3.4, 1.2])
        [11.559999999999999, 1.44]
    
-   * Una función ``mas_largo(palabras)``,
-     cuyo parámetro ``palabras`` es una lista de strings,
-     que entregue cuál es el string más largo::
+   * A function called ``longest(words)``,
+     and the ``words`` parameter is a string list,
+     which return the longest string::
    
-       >>> mas_largo(['raton', 'hipopotamo', 'buey', 'jirafa'])
-       'hipopotamo'
-       >>> mas_largo(['****', '**', '********', '**'])
+       >>> longest(['mouse', 'hippo', 'dog', 'giraffe'])
+       'giraffe'
+       >>> longest(['****', '**', '********', '**'])
        '********'
    
-     Si las palabras más largas son varias,
-     basta que entregue una de ellas.
+     If there are more than one longest word (with the same lenght)
+     is necesary to return only one.
 
-#. Para realizar estos ejercicios ,
-   usted debe descargar `el módulo con los datos`_
-   que vamos a utilizar.
-   
-   .. _el módulo con los datos: ../../_static/personas.py
-   
-   Para usar el módulo
-   hay que guardarlo en la misma carpeta
-   que se usará desde PyScripter,
-   e importar los datos de esta forma::
-   
-       from personas import *
-   
-   Este módulo contiene una lista llamada ``personas``
-   que contiene tuplas que representan los datos de una persona.
-   Cada tupla tiene tres valores: el nombre, el apellido y la fecha de nacimiento.
-   
-   El nombre y el apellido son strings,
-   y la fecha de nacimiento es una tupla de tres valores: el día, el mes y el año.
-   
-   Por ejemplo,
-   podemos ver los datos de la primera persona::
-   
-       >>> personas[0]
-       ('Martín', 'Soto', (24, 8, 1990))
+#. Write a module called ``my_math.py``
+   wich contains the following functions.
 
-   Para realizar estos ejercicios ,
-   usted debe descargar `el módulo con los datos`_
-   que vamos a utilizar.
-   
-   .. _el módulo con los datos: ../../_static/personas.py
-   
-   Para usar el módulo
-   hay que guardarlo en la misma carpeta
-   que se usará desde PyScripter,
-   e importar los datos de esta forma::
-   
-       from personas import *
-   
-   Este módulo contiene una lista llamada ``personas``
-   que contiene tuplas que representan los datos de una persona.
-   Cada tupla tiene tres valores: el nombre, el apellido y la fecha de nacimiento.
-   
-   El nombre y el apellido son strings,
-   y la fecha de nacimiento es una tupla de tres valores: el día, el mes y el año.
-   
-   Por ejemplo,
-   podemos ver los datos de la primera persona::
-   
-       >>> personas[0]
-       ('Martín', 'Soto', (24, 8, 1990))
-   
-   #. Escriba una función que imprima el nombre de todas las personas.
-      Para eso, recorra la lista con un ``for``,
-      obtenga el nombre de la persona
-      e imprímalo usando ``print``.
-      La función no tiene que retornar nada::
-      
-          >>> nombres(personas)
-          Martín
-          Gabriel
-          Humberto
-          Sebastián
-          Víctor
-          ...
-          Horacio
-          Ignacio
-          Nicolás
-          Pablo
-          Rolando
-          Ricardo
+   * A function called ``my_sin(x)``
+     which calculates the sine of an ``x`` value.
+
+     The ``sine`` function can be represented as the following infinite sum:
+
+     .. math::
+ 
+         \sin{x}\ =\ \frac{x^{1}}{1!} - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!} + \frac{x^{11}}{11!} - \frac{x^{13}}{13!} + \ldots 
+
+     The terms are getting smaller,  
+     so taking only some of the first terms is possible to reach a good approximation.
+
+     Choose an amount of terms to calculate the ``sine``.
+     Compare your results with the ``sin`` function from the ``math`` module.
+
+   * A function called ``my_cos(x)``
+     which calculates the cosine of an ``x`` value.
+
+     The ``cosine`` function can be represented as the following infinite sum:
+
+     .. math::
+ 
+         \cos{x}\ =\ 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \frac{x^{6}}{6!} + \frac{x^{8}}{8!} - \frac{x^{12}}{12!} + \ldots 
+
+     The terms are getting smaller,  
+     so taking only some of the first terms is possible to reach a good approximation.
+
+     Choose an amount of terms to calculate the ``cosine``.
+     Compare your results with the ``cos`` function from the ``math`` module.
+
+   * A function called ``exponential(x)``
+     which calculate the exponential function `e^{x}`.
+
+     The exponential function can be represented as the following infinite sum:
+
+     .. math::
+    
+        e^{x} = 1 + \frac{x^{1}}{1!} + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \frac{x^{4}}{4!} + \ldots
      
-   #. Escriba una función que imprima la fecha de nacimiento de todas las personas::
-      
-        >>> fechas(personas)
-        24 de agosto de 1990
-        2 de junio de 1974
-        14 de noviembre de 1973
-        18 de septiembre de 1973
-        12 de agosto de 1992
-        ...
-        18 de agosto de 1981
-        24 de abril de 1972
-        17 de mayo de 1977
-        4 de febrero de 1972
-        29 de enero de 1976
-   
-      Para hacerlo más fácil,
-      construya un diccionario con los nombres de los meses::
-    
-        meses = {
-            1: 'enero',
-            2: 'febrero',
-            # ...
-            12: 'diciembre',
-        }
-   
-   #. Realice una función llamada *cuantas_personas(lista)*
-      para determinar la cantidad de personas que hay
-      en la lista de personas.
-   
-   #. Escriba una función que retorne una lista de personas
-      que tengan cumpleaños el mismo día que usted::
-    
-        >>> mi_cumple(personas)
-        ['Jonathan Sepúlveda']
-   
-   #. Realice una función *cumples_repetidos(lista)*
-      que pueda determinar las personas en la lista que
-      tienen su cumpleaños el mismo día.
-   
-   #. Realice una función *nombre_mas_comun(lista)*
-      que sea capaz de determinar el nombre que más
-      se repite en la lista de personas.
-   
-   #. Realice una función *menor_mayor(lista)*
-      para poder determinar a la persona más vieja y más joven
-      de la lista.
+     Choose an amount of terms to calcule the ``exponential function``.
+     Compare your results with the ``exp`` function from the ``math`` module.
+
+#. PENDING

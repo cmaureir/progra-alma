@@ -275,3 +275,12 @@ more than one Error::
     unable to calculate reciprocal of 0
     reciprocal of 1 at 2 is 1.0
     index 3 out of range
+
+Exercises
+---------
+
+ * PENDING
+
+ * PENDING
+
+ * PENDING
