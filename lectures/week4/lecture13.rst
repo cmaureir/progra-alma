@@ -145,4 +145,58 @@ easier to understand.
 Exercises
 ---------
 
+#. Write a program which simulate the dice rolling of two dice,
+   the main idea of this game is reach a 7 in less than 10 tries.
+   The program must verifica in each try, if your game reach or not
+   the 7 until the tenth game.
+ 
+   Maybe the `random`_ module will be useful.
 
+#. Write a program which return the actual date in the format::
+
+       HH:MM:SS MM-DD-YYYY
+
+
+   Maybe the `time`_ module will be useful.
+
+#. Write a program which return a list of all the file with
+   a determinate extension (you can choose), for example,
+   all the PDF files.
+
+   Maybe the `glob`_ module will be useful.
+
+#. Write a program which return the amount of lines in a file
+   or output, using it throught the pipeline.
+
+   For example, if I have a file called ``test``, and it has
+   4 lines inside, the behaviour of the program must be.
+
+   In windows::
+
+       C:\> type test | python lines.py 
+       The file contain 4 lines.
+
+   In Unix::
+
+       $ cat test | python lines.py 
+       The file contain 4 lines.
+
+   Maybe the `sys`_ module will be useful.
+
+#. Write a program which generate a random password of 5 characters,
+   that can be `numbers`, `alpabeth` and `other symbols`.
+
+   For example::
+
+       $ python gen-pass.py
+       6y!45
+
+       $ python gen-pass.py
+       %g56/
+
+   Maybe the `random`_ module will be useful.
+
+.. _`random`: http://docs.python.org/library/random.html
+.. _`time`: http://docs.python.org/library/time.html 
+.. _`glob`: http://docs.python.org/library/glob.html
+.. _`sys`:  http://docs.python.org/library/sys.html
