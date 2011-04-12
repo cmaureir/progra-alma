@@ -11,6 +11,8 @@ notoriously they have certain things in common.
 About the Python objects
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 Hablar de list() y otros constructores así,
 Dedicarse a Archivos de texto.
 

@@ -54,7 +54,7 @@ Two tuples are the same
 when they have the same size
 and each of their items have the same value::
 
-    >>> (1, 2) == (3 // 2, 1 + 1)
+    >>> (1, 2) == (3 / 2, 1 + 1)
     True
     >>> (6, 1) == (6, 2)
     False
@@ -113,6 +113,125 @@ This comparison method is the same used to sort words in alphabetic order.
     True
     >>> 'mon' < 'month' < 'monthly''
     True
+
+
+Typical tuple uses
+~~~~~~~~~~~~~~~~~~
+
+The tuples are used everytime that is needed to group values.
+Usually, real world concepts are represented as tuples that
+group information on them.
+For example,
+A football match can be represented
+as a tuple of the opposing teams::
+
+    match1 = ('Milan', 'Bayern')
+
+To represent plane points,
+is possible to use two element tuples ``(x, y)``.
+For example, we can create a function called ``distance``
+which receive two points and return the distance between them::
+
+    def distance(p1, p2):
+        x1, y1 = p1
+        x2, y2 = p2
+        dx = x2 - x1
+        dy = y2 - y1
+        return (dx ** 2 + dy ** 2) ** 0.5
+
+When the function is called, is necesary to give two tuples::
+
+    >>> a = (2, 3)
+    >>> b = (7, 15)
+    >>> distance(a, b)
+    13.0
+
+Usually the dates are represented as tuples
+grouping the year, month and the day.
+The advantage of use the previous order (year first)
+is that the relational operation allow to know the order
+of the dates::
+
+    >>> today = (2011, 4, 19)
+    >>> yesterday = (2011, 4, 18)
+    >>> christmas = (2011, 12, 25)
+    >>> new_year = (2012, 1, 1)
+    >>> today < yesterday
+    False
+    >>> today < christmas < new_year
+    True
+
+A tuple can contain another tuples.
+For example,
+a person can be described by his name, his ID and his birth day::
+
+    person = ('John Smith', '12345678-9', (1980, 5, 14))
+
+In this case,
+the data can be unpacking like this::
+
+    >>> name, ID, (y, m, d) = person
+    >>> m
+    5
+
+Sometimes one is interested only one of the tuple values.
+To avoid create innecesary variables,
+usually is possible to assign this values to the ``_`` variable.
+For example, if only is necessary to know the month of the birth,
+we can obtain it as follow::
+
+    >>> _, _, (_, month, _) = person
+    >>> month
+    5
+
+A data table usually is represented as a tuple list.
+For example,
+the student information from a course,
+can be represented as follow::
+
+    students = [
+        ('James', 'Smith', '201199001-5', 'Civil'),
+        ('Joseph', 'Jones',      '201199002-6', 'Electrical'),
+        ('Joseph', 'Jones',      '201199003-7', 'Mechanics'),
+    ]
+
+In this case, the tuple can be unpacked automatically iterating
+the list with a ``for`` cycle::
+
+    for firstname, lastname, ID, carrer in students:
+        print firstname, 'study', carrer
+
+Is possible to create tuples of a fixed length,
+for example one, leaving only the comma next to the unique value::
+
+    >>> t = (12,)
+    >>> len(t)
+    1
+
+In other languages, the tuples receive
+the name of **register**.
+This name is common, so is convenient to know it.
+
+Tuples iteration
+~~~~~~~~~~~~~~~~
+
+Like the lists, the tuples are iterables::
+
+    for value in (6, 1):
+        print value ** 2
+
+Furthermore,
+is possible to convert a tuple in a list
+using the ``list`` function,
+and is possible to convert a list in a tuple using the
+``tuple`` function::
+
+    >>> a = (1, 2, 3)
+    >>> b = [4, 5, 6]
+    >>> list(a)
+    [1, 2, 3]
+    >>> tuple(b)
+    (4, 5, 6)
 
 Exercises
 ~~~~~~~~~

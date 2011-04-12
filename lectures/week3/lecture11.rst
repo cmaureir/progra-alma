@@ -128,6 +128,22 @@ is possible to use the ``not in`` statement::
     >>> 'worm' not in legs
     True
 
+Keys restrictions
+~~~~~~~~~~~~~~~~~
+
+No se puede usar cualquier objeto como llave de un diccionario.
+Las llaves deben ser de un tipo de datos inmutable.
+Por ejemplo, no se puede usar listas:
+
+::
+
+    >>> d = {[1, 2, 3]: 'hello'}
+    Traceback (most recent call last):
+      File "<console>", line 1, in <module>
+    TypeError: unhashable type: 'list'
+
+Typically, it use numbers, tuples or strings as dictionaries keys.
+
 Exercises
 ~~~~~~~~~~
 

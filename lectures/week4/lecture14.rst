@@ -181,5 +181,3 @@ Exercises
      
      Choose an amount of terms to calcule the ``exponential function``.
      Compare your results with the ``exp`` function from the ``math`` module.
-
-#. PENDING

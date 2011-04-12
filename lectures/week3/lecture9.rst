@@ -172,6 +172,31 @@ The two main ways to create a list, are:
     >>> friends
     ['Aron', 'John', 'Joseph', 'Maria']
 
+List iteration
+~~~~~~~~~~~~~~
+.. index:: iterable
+
+A list is an **iterable** object.
+This means that its values can be traveled using a ``for`` cycle::
+
+    values = [6, 1, 7, 8, 9]
+    for i in values:
+        print i ** 2
+
+In each iteration of the ``for`` cycle,
+the ``i`` variable takes one of the list values,
+so this program print the next values:
+
+.. testcase::
+
+    36
+    1
+    49
+    64
+    81
+
+
+
 Exercises
 ~~~~~~~~~
 
