@@ -11,10 +11,66 @@ notoriously they have certain things in common.
 About the Python objects
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
 Hablar de list() y otros constructores así,
-Dedicarse a Archivos de texto.
+
+Files
+~~~~~
+
+Work with a file is a nightmare in some programmig languages,
+but is very simple in Python.
+
+First of all, you must know that an instance of a file
+inside a program or script is an object, so like all the
+objects, has some very useful methods.
+
+To explain the files behaviour in Python, we will consider
+the next file, called `data.txt`_.
+
+::
+
+    Hello first line!
+    Oh! the second line
+    The next line is very boring
+    1,-234.5,45.8,ok
+    Final line :)
+
+.. _`data.txt`: ../../_static/data.txt
+
+
+*Opening* a file is very easy:
+
+::
+
+    my_file=open("data.txt","r")
+
+Now **my_file** is an object that is
+an instance to access to the `data.txt` file.
+
+But, what is the **'r'** statement?
+The second parameter of the **open()** method 
+specify the *mode* when the file is openned.
+Some useful modes are:
+
+* *r*, read-only mode,
+* *w*, write-only mode,
+* *a*, 
+
+Close
+
+Read
+f.read()
+f.readline()
+f.readlines()
+
+for line in f:
+    print line
+
+Write
+
+f.write("a")
+f.writelines(list)
+
+
 
 
 
