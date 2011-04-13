@@ -143,7 +143,7 @@ As always, we must choose the one that makes the program
 easier to understand.
 
 Exercises
----------
+~~~~~~~~~
 
 #. Write a program which simulate the dice rolling of two dice,
    the main idea of this game is reach a 7 in less than 10 tries.

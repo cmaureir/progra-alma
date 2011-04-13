@@ -277,7 +277,7 @@ more than one Error::
     index 3 out of range
 
 Exercises
----------
+~~~~~~~~~
 
  * PENDING
 

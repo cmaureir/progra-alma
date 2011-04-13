@@ -37,33 +37,33 @@ the next file, called `data.txt`_.
 .. _`data.txt`: ../../_static/data.txt
 
 
-*Opening* a file is very easy:
+**Opening** a file is very easy:
 
 ::
 
     my_file=open('data.txt','r')
 
-Now **my_file** is an object that is
+Now ``my_file`` is an object that is
 an instance to access to the `data.txt` file.
 
-But, what is the **'r'** statement?
+But, what is the *'r'* statement?
 The second parameter of the **open()** method 
 specify the *mode* when the file is openned.
 Some useful modes are:
 
-* *r*, **read-only** mode,
-* *w*, **write-only** mode,
+* *r*, ``read-only`` mode,
+* *w*, ``write-only`` mode,
   if the file exist will be overwrited,
-* *a*, **append** mode.
+* *a*, ``append`` mode.
 
 If you do not give any mode,
-the default mode is **read-only**.
+the default mode is ``read-only``.
 
-There are different ways to *Read* a file,
+There are different ways to **Read** a file,
 but now we will focus on three methods,
-**read()**, **readline()** and **readlines()**.
+``read()``, ``readline()`` and ``readlines()``.
 
-The **read()** method, return the entire content
+The ``read()`` method, return the entire content
 of the file, for example::
 
     >>> my_file=open('data.txt','r')
@@ -83,22 +83,22 @@ of the file, for example::
 The ``content`` variable contain all the information
 of the file.
 
-But, what happend with the **new_content** variable?
+But, what happend with the ``new_content`` variable?
 is empty!. This is because when you open a file
-a **pointer** is posisionated at the beginning of the file,
+a ``pointer`` is posisionated at the beginning of the file,
 and when you read the file, the pointer moves forward,
-so with the first call of the **read()** method,
+so with the first call of the ``read()`` method,
 the pointer reach the end of the file, so in the next
-call of the **read()** method, there is no more
+call of the ``read()`` method, there is no more
 content to read, that is the reason to have an
-empty variable called **new_content**.
+empty variable called ``new_content``.
 
 If you want to move backwards and forwards inside a file
 you need to read about the `seek()`_ method.
 
 .. _`seek()`: http://docs.python.org/library/stdtypes.html#file.seek
 
-The **readline()** method, return only one line of the file,
+The ``readline()`` method, return only one line of the file,
 for example::
 
     >>> my_file=open('data.txt','r')
@@ -123,14 +123,14 @@ You can also assign a line to a variable::
     >>> print simple_line
     'Hello first line!\n'
 
-The **readlines()** method, return a list with all 
+The ``readlines()`` method, return a list with all 
 the lines in the file, for example::
 
     >>> my_file=open('data.txt')
     >>> my_file.readlines()
     ['Hello first line!\n', 'Oh! the second line\n', 'The next line is very boring\n', '1,-234.5,45.8,ok\n', 'Final line :)\n']
 
-So, if you remember the **list** lecture
+So, if you remember the `list`_ lecture
 you can iterate over a list to work with each element::
 
     >>> my_file=open('data.txt')
@@ -149,6 +149,8 @@ you can iterate over a list to work with each element::
     
     >>> 
 
+.. _`list`: ../week3/lecture9.html
+
 Is very anoying to had blank lines
 between each line, to avoid this
 you need to add a comma to the print line,
@@ -166,11 +168,11 @@ like this::
     >>> 
 
 
-We will look two method to *Write*
-a file, using the **write()** and the **writelines()**
+We will look two method to **Write**
+a file, using the ``write()`` and the ``writelines()``
 method.
 
-The **write()** method allow to write a string
+The ``write()`` method allow to write a string
 inside the file, for example::
 
     >>> my_file=open('data2.txt','w')
@@ -182,13 +184,13 @@ inside the file, for example::
     
 
 
-The **writelines()** method allow to write
+The ``writelines()`` method allow to write
 several lines inside the file, this is possible
 giving a list as parameter to the method,
 for example ::
 
     >>> my_file=open('data2.txt','w')
-    >>> my_list=['first line\n','second line\n','final line\n
+    >>> my_list=['first line\n','second line\n','final line\n']
     >>> my_file.writelines(my_list)
     >>> my_file.close()
     >>> 
@@ -198,17 +200,18 @@ for example ::
     final line
 
 If you want to *close* a file,
-the function is called **close()**.
+the function is called ``close()``.
 
 ::
 
-    my_close.close()
+    my_file.close()
 
 
 Objects characteristics
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Every object have three main characteristics:
+
 * An identity (unique and unmodifiable), that is an integer returned by ``id(<object>)`` method.::
 
     >>> number = 13
@@ -280,68 +283,8 @@ making it refer to a integer object with the value 42,
 and in the next line, we making it point to a string
 with the value ``hello``.
 
-.. Object containers
-.. ~~~~~~~~~~~~~~~~~
-.. 
-.. This is very different,
-.. when we work with **containers**,
-.. which are *objects* that contain references to other *objects*.
-.. For example, tuples, dictionaries, list, and so.
-.. 
-.. If we perform the next procedure::
-.. 
-..     >>> list1 = []
-..     >>> list1
-..     []
-..     >>> id(list1)
-..     3074653516L
-..     >>> list1.append(23)
-..     >>> list1
-..     [23]
-..     >>> id(list1)
-..     3074653516L
-.. 
-.. We are adding the name ``list1`` to the namespace,
-.. making it refer to an empty list object.
-.. Then we are calling an object method, to append an integer
-.. to itself.
-.. This modify the content of ``list1``, but do not touch the namespace name,
-.. or the integer object, or the identity of the object.
-.. 
-.. So, each time that we use a *method* of any previous
-.. `Data Type`_ we are using objects,
-.. for example::
-.. 
-..     >>> mylist = [5,3,2]
-..     >>> mylist.sort()
-..     >>> mylist
-..     [2, 3, 5]
-..     >>> mylist.remove(2)
-..     >>> mylist
-..     [3, 5]
-..     >>> number = mylist[0]
-..     >>> number*'hello ' 
-..     'hello hello hello '
-..     >>> line = number*'hello '
-..     >>> line
-..     'hello hello hello '
-..     >>> line.replace('o','')
-..     'hell hell hell '
-.. 
-.. Means that we are using the methods ``sort()``, ``remove()``,
-.. own by all the **list** objects,
-.. the method ``replace()``, own by all the **str** objects.
-.. 
-.. .. _Data Type: ../week1/lecture2.html
-.. 
-.. 
-.. We will look more deeply the *objects*,
-.. in the `Sixth week`_
-.. 
-.. .. _Sixth week: ../week6/index.html
-
 
 Exercises
----------
+~~~~~~~~~
 
 PENDING

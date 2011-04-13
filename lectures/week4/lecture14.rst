@@ -103,7 +103,7 @@ but removing the ``if`` statement.
 .. _download the program: ../_static/programs/unit_conversion.py
 
 Exercises
----------
+~~~~~~~~~
 
 #. Write a module called ``lists.py``
    which contains the following functions.
