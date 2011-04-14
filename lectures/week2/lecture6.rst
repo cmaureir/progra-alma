@@ -40,7 +40,7 @@ depending on the result of a condition.
 
 A **loop** is a statement set
 which is executed several times,
-until one of the end condition are satisfied.
+until one of the end conditions are satisfied.
 
 .. index:: indentation
 
@@ -129,7 +129,7 @@ the following program indicates if someone is an adult (in Chile)::
     else:
         print 'You are an adult'
 
-The next program do different actions
+The next program does different actions
 depending if the input number is even or odd::
 
     n = int(raw_input('Enter a number: '))
@@ -183,8 +183,8 @@ less than 1000                           0%
 4000 or higher                          12%
 ====================== ====================
 
-So, a program that computes the tax to pay
-could be as follow::
+So, a program that computes how much taxes you should pay
+could be as follows::
 
     salary = int(raw_input('Enter salary: '))
     if salary < 1000:
@@ -218,33 +218,33 @@ by using only the ``if`` statement is as follows::
 
 This way is less clear,
 because it is not obvious at a first glance that
-only one of the conditions will be true and all 
-the conditions are evaluated.
+only one of the conditions will be true and has the 
+drawback that all the conditions will be evaluated.
 
 Exercises
 ~~~~~~~~~
 
-1. When the earth complete an orbit around the Sun,
-   have not passed 365 rations on itself correctly,
+1. When the earth completes an orbit around the Sun,
+   it has made exactly 365 rotations on itself,
    but a little more.
  
    More precisely, the difference is about a quarter of a day.
    
-   To avoid that the seasons be offset with the calendar,
+   To avoid an offset between the seasons and the calendar,
    the Julian calendar introduced a rule
-   of add an additional day in the years divisible by 4
-   (called `leap year`_),
+   that adds an additional day in the years that are divisible by 4
+   (called a `leap year`_),
    to take into consideration the four quarter of a day.
    
-   However, under this rule still a leap,
-   that is within about 3/400 of a day.
+   However, even using this rule, there is still a leap,
+   that is about 3/400 of a day.
    
    To fix this leap, in the year 1582
    the Pope Gregory XIII introduced a new calendar,
    in which the last year of each century was no longer a leap year,
    unless it was divisible by 400.
    
-   Write a program that return if a year is or no a leap year,
+   Write a program that returns if a year is a leap year or not,
    remembering the current calendar in that year:
    
    .. _`leap year`: http://en.wikipedia.org/wiki/Leap_year 
@@ -274,8 +274,8 @@ Exercises
    	Enter a year: `2400`
         2400 is a leap year
 
-2. Write a program that require two integer numbers and
-   calculate the division, indicating if the division is exact or not.
+2. Write a program that requires two integer numbers and
+   calculates the division, indicating if the division is exact or not.
    
    .. testcase::
    
@@ -295,8 +295,8 @@ Exercises
        Quotient: 10
        Remainder: 0
 
-3. Write a program that require two numbers,
-   then show its ordered lowest to highest:
+3. Write a program that requires two numbers,
+   then shows it ordered lowest to highest:
    
    .. testcase::
    
@@ -326,12 +326,12 @@ Exercises
         0 1 6 7
    
    Remember that your program must return the correct answer
-   to know the number combination,
-   not only to the examples showed previously.
+   to know the number of combinations,
+   not only for the examples showed previously.
 
-4. Write a program that determine if an input character is a character,
+4. Write a program that determines if an input character is a character,
    a number or neither.
-   In the case that is a character, determine if is upper or lower case.
+   In the case that it is a character, determine if it is upper or lower case.
    
    .. testcase::
    
@@ -354,8 +354,8 @@ Exercises
        Is not a character or number.
 
 
-5. Write a program that simulate a basic calculator,
-   this can be done using the sum, substraction, multiplication and vision operators.
+5. Write a program that simulates a basic calculator,
+   this can be done using the sum, substraction, multiplication and division operators.
   
    The program must receive as input, two real numbers and one operator,
    that can be ``+``, ``-``, ``*`` or ``/``.
@@ -398,7 +398,7 @@ Exercises
        -1 ** 4 = 1
 
 
-6. Write a program that return the user age,
+6. Write a program that returns the user age,
    starting from the date of birth:
    
    .. testcase::
@@ -410,12 +410,12 @@ Exercises
        You are 62 years old
    
    Of course, the return result depends on the day
-   of your program is executed.
+   your program is executed.
    
    To obtain the actual date,
-   can be done using the ``localtime`` function
+   you can use the ``localtime`` function,
    that is provided by the time_ module.
-   The values are obtained as the follow way
+   The values are obtained in the following way
    (suppose today is April 1st, 2011)::
    
        >>> from time import localtime
@@ -427,7 +427,7 @@ Exercises
        >>> t.tm_year
        2011
    
-   The program must note if the birthday
+   The program must consider if the birthday
    occurred or does not happened in this year.
    
    .. _time: http://docs.python.org/library/time.html
@@ -435,7 +435,7 @@ Exercises
 
 
    
-7. The risk of a people to suffer coronary diseases
+7. The risk for a person to suffer coronary diseases
    depends on his age and his body mass index (BMI):
    
      +----------------+---------------+---------------+
@@ -449,8 +449,8 @@ Exercises
    The BMI is the quotient between the weight (kg) and the
    square of his height (m).
    
-   Write a program that receive as input
-   the height, the weight and the age of a person,
+   Write a program that receives 
+   the height, the weight and the age of a person as input,
    and show the risk condition.
    
    .. [Camp09] Jennifer Campbell et al.
