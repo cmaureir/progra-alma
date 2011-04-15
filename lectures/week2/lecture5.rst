@@ -47,7 +47,7 @@ From that line onward,
 variable ``f`` can be used by the program
 to refer to the entered value.
 
-The ``input()`` function, that we use 
+The ``raw_input()`` function, that we use 
 to read the input of the user,
 always return as result a string.
 Be careful with the type of the return
@@ -57,7 +57,7 @@ to the properly type.
 For example,
 the next program has an type incompatibility error::
 
-    n = input('Write a number:')
+    n = raw_input('Write a number:')
     square = n * n
     print('The square of n is ', square)
 

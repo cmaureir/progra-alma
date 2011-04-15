@@ -96,11 +96,11 @@ Input
 When an algorithm needs to receive data,
 it is represented as::
 
-    variable = input()
+    variable = raw_input()
 
 or::
 
-    variable = input("example message:")
+    variable = raw_input("example message:")
 
 This means that the data 
 will be stored in the variable
@@ -109,9 +109,9 @@ during the execution.
 In the example, the input occurs in the first step,
 and can be represented as::
 
-    a = input()
-    b = input()
-    c = input()
+    a = raw_input()
+    b = raw_input()
+    c = raw_input()
 
 Output
 ~~~~~~
@@ -123,7 +123,7 @@ for which it was designed,
 it must return its results as a message.
 The output is represented as::
 
-    print(message)
+    print message
 
 If the message is text,
 it has to be between quotation marks.
@@ -133,7 +133,7 @@ only the name of the variable is required.
 In the example, when there are no solutions,
 the output can be represented as::
 
-    print('No solutions')
+    print 'No solutions'
 
 When there is only one solution,
 is possible to include it in the message::
@@ -151,7 +151,7 @@ Exercises
        Enter your name: `John`
        Hello John!
 
-   Remember the **input()** and the **print** functions. 
+   Remember the **raw_input()** and the **print** functions. 
 
 2. You do not need to solve this exercise, the idea is to introduce yourself into
    the programming world, giving you a little taste of Python coding.

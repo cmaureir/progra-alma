@@ -8,10 +8,96 @@ We are saying that all the basic elements like `integers`, `functions`,
 `strings`, `dictionaries`, and so on, they are all objects,
 notoriously they have certain things in common.
 
-About the Python objects
-~~~~~~~~~~~~~~~~~~~~~~~~
+About the objects
+~~~~~~~~~~~~~~~~~
 
-Hablar de list() y otros constructores así,
+The idea of this lecture is to understand
+the idea behind the objects, but all the
+*Object Oriented Paradigm* will be
+study with more detail in the next lectures.
+
+An *object* is an instance of a *class*,
+the most simple example to understand this,
+is to think in a class called ``Human``,
+and all of us are intances, because we are all
+human beings. In the same way, a *class* 
+have several functions, called *methods*.
+In our example, as Human, we can *walk*, *speak*,
+*run*, etc, so we as objects, can use that
+methods, because we can speak, walk, etc.
+
+Several functions that you used,
+create objects of different types,
+like *bool()*, *dict()*, *float()*,
+*int()*, *list()*, *set()*, *tuple()*, *str()*,
+ etc.
+
+The idea of the previous methods,
+is convert objects in another types,
+for example::
+
+    >>> a = 4
+    >>> b =float(a)
+    >>> b
+    4.0
+    >>> b = b + 0.3
+    >>> b
+    4.3
+    >>> c = int(b)
+    >>> c
+    4
+    >>> bool(c)
+    True
+    >>> c = c - c
+    >>> c
+    0
+    >>> bool(c)
+    False
+
+Also between objects like, *lists*, *sets*,
+*tuples* and *dictionaries*::
+
+    >>> a = (1,2)
+    >>> type(a)
+    <type 'tuple'>
+    >>> b = set(a)
+    >>> b
+    set([1, 2])
+    >>> a
+    (1, 2)
+    >>> type(b)
+    <type 'set'>
+    >>> d = list(b)
+    >>> d
+    [1, 2]
+    >>> e = dict([[1,'one'],[2,'two']])
+    >>> e
+    {1: 'one', 2: 'two'}
+    >>> type(e)
+    <type 'dict'>
+    >>> set(e)
+    set([1, 2])
+    >>> list(e)
+    [1, 2]
+
+
+The object, as you saw in the previous lectures,
+have several useful methods, which can be executed
+as following::
+
+    object.method()
+
+So, the previous examples about *lists*, *sets*,
+*tuples* and *dictionaries* like::
+
+    a = [1,3,2]
+    >>> a.sort()
+    >>> a
+    [1, 2, 3]
+
+    
+
+
 
 Files
 ~~~~~
