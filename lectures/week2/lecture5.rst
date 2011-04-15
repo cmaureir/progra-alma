@@ -49,13 +49,13 @@ to refer to the entered value.
 
 The ``raw_input()`` function, that we use 
 to read the input of the user,
-always return as result a string.
+always return a string as result.
 Be careful with the type of the return
-values, because you need to convert them,
+values, because you need to convert them
 to the properly type.
 
 For example,
-the next program has an type incompatibility error::
+the next program has a type incompatibility error::
 
     n = raw_input('Write a number:')
     square = n * n
@@ -109,7 +109,7 @@ A **comment** is a section of code
 that is ignored by the interpreter.
 A comment can be used by the programmer
 to place messages in the code that can be useful
-to someone that needs to read the code
+for someone that needs to read the code
 in the future.
 
 In Python,
@@ -138,7 +138,7 @@ operations in an expression.
 
 The precedence is given by the next list,
 in which the operators was listed in order
-from less to greater precedence:
+of precedence:
 
 * ``or``
 * ``and``
@@ -150,8 +150,8 @@ from less to greater precedence:
 * ``**``
 
 This means, for example,
-that the multiplications are evaluated before the sums,
-and that the comparison are evaluated before the logic operations::
+that the multiplications are evaluated before the additions,
+and the comparisons are evaluated before the logic operations::
 
     >>> 2 + 3 * 4
     14
@@ -187,11 +187,11 @@ is saving the intermediate results in variables::
     >>> 15 * n
     75
 
-As an example, let consider the next expression::
+As an example, consider the next expression::
 
     15 + 59 * 75 / 9 < 2 ** 3 ** 2 and (15 + 59) * 75 % n == 1
 
-and we will suppose that the ``n`` variable have the value 2.
+and we will suppose that the ``n`` variable has the value 2.
 Here we can see how the expression is evaluated until
 arrive in the final result, that is ``False``::
 
@@ -224,18 +224,18 @@ arrive in the final result, that is ``False``::
 The operations between brackets ``(15 + 59)``
 must be evaluated before the multiplication by 75,
 because is necessary to know their result to be able to calculate the product.
-The precise moment in which that occur is not important.
+The precise moment in which that occurs is not important.
 
-The same thing occur withe ``n`` variable evaluation:
-the only important thing is it evaluated before being used by the module
-operator.
+The same thing occurs with the evaluation of the variable ``n``:
+the only important thing is that it is evaluated before being used by the
+modulus operator.
 
 In the example,
-both cases was evaluated immediately before their value will is necessary.
+both cases were evaluated immediately before their value was required.
 
 The entire precedence rules,
 including another operator that we have not seen,
-can be asked in the `expressions section`_
+can be checked in the `expressions section`_
 of the official Python documentation.
 
 .. _expressions section: http://docs.python.org/reference/expressions.html#summary
@@ -247,11 +247,11 @@ The answer is: better not to learn them.
 The rules of precedence are many and not always intuitive.
 
 A program is easier to understand if you explicitly
-indicates the evaluation order using brackets, or saving in variables
+indicate the evaluation order using brackets or saving in variables
 the intermediate results of the calculation.
 
-A good programmer always worry that their code will be easy to understand
-by others, and ¡even for himself in a few weeks later!
+A good programmer always worry about their code being easy to understand
+by others and ¡even for himself in a few weeks!
 
 Function calls
 ~~~~~~~~~~~~~~
@@ -262,8 +262,8 @@ Function calls
 .. _Python built-in function official documentation: http://docs.python.org/library/functions.html
 
 
-Complementary the previous lectures, we will take a look
-to some useful functions.
+Complementary to the previous lectures, we will take a look
+at some useful functions.
 
 The operators form a very reduced set of operations.
 More commonly, the more general operations are represented
@@ -271,19 +271,19 @@ as **functions**.
 
 .. index:: parameter, argument, function call
 
-As in math, the function have a name,
+As in math, a function has a name,
 and receive **parameters** (or **arguments**)
 which are between brackets after the name.
-The operation of use the function to obtain a result
-is called **function call**.
+The operation to use a function to obtain a result
+is called a **function call**.
 
 We already know the ``raw_input()`` function,
-that return as result
-the user entered text through the keyboard.
+that returns as result
+the text entered by the user through the keyboard.
 
 .. index:: abs
 
-The ``abs`` function return the absolute value of their argument::
+The ``abs`` function returns the absolute value of their argument::
 
     >>> abs(4 - 5)
     1
@@ -292,7 +292,7 @@ The ``abs`` function return the absolute value of their argument::
 
 .. index:: len (of a string)
 
-The ``len`` function receive an string and return their length.
+The ``len`` function receives a string and returns its length.
 (you might remember from the past week lecture)::
 
     >>> len('hello world')
@@ -317,7 +317,7 @@ which return the equivalent of its parameter in the corresponding type::
 .. index:: min, max
 
 The ``min`` and ``max`` functions
-return the minimum and the maximum of its arguments::
+return the minimum or the maximum value among its arguments::
 
     >>> min(6, 1, 8)
     1
@@ -354,17 +354,17 @@ which we will look deeply in the next lectures::
     0.0015926529164868282
 
 The entire mathematical function list
-that can be imported is in the `math module description`_
+that can be imported is available at the `math module description`_
 in the official Python documentation.
 
 .. _math module description: http://docs.python.org/library/math.html
 
-Later, also we will learn to create
-our own function.
-But now, we only need to know how to call its.
+Later, we will also learn to create
+our own functions.
+But now, we only need to know how to call one.
 
-Of course,
-always is necessary that the call arguments have the appropriated type::
+Of course, it is
+always necessary to provide arguments of appropriate type to the function call::
 
     >>> round('dog')
     Traceback (most recent call last):
@@ -378,7 +378,7 @@ always is necessary that the call arguments have the appropriated type::
 Exercises
 ~~~~~~~~~
 
-1. Write a program that receive two words, and indicates which of them
+1. Write a program that receives two words, and indicates which of them
    is the longest and by how much. (the words cannot be of the same size)
 
    .. testcase::
@@ -393,7 +393,7 @@ Exercises
        Word 2: `parallelepiped`
        The parallelepiped word has 11 more characters than sun.
 
-2. Write a program that receive a real number and calculates the ``sine`` and
+2. Write a program that receives a real number and calculates the ``sine`` and
    the ``cosine``.
 
    .. testcase::
@@ -406,7 +406,7 @@ Exercises
        sin(1.5) = 0.9974949866040544
        cos(1.5) = 0.0707372016677029
 
-3. Write a program that receive two numbers,
+3. Write a program that receives two numbers,
    with the greatest number, you must determinate the `e^{max\_number}`
    and with the lowest, you must determinate the `\sqrt{min\_number}`.
 
@@ -422,7 +422,7 @@ Exercises
        e^11 : 59874.14171519782
        sqrt(22) : 4.69041575982343
 
-4. Given n-bodies with a initial position `x_i` and a velocity `v_i`, `1<=i<=N`,
+4. Given n-bodies with an initial position `x_i` and a velocity `v_i`, `1<=i<=N`,
    the force vector `f_{ij}` over the i-body by the gravitational attraction
    to the j-body, will be:
 
@@ -436,8 +436,8 @@ Exercises
    * `r_{ij} = (xj−xi)`, vector between the `i` and `j` bodies.
    * `G`: gravitational constant (`6.67428*10−11 m^{3}\cdot kg^{−1}\cdot s^{−2}`)
 
-   Write a program that receive the previous values (`x_i`, `v_i`, `m_i`) of two bodies,
-   consider only an 1-dimension and only two bodies.
+   Write a program that receives the previous values (`x_i`, `v_i`, `m_i`) of two bodies,
+   consider only a 1-dimension space and only two bodies.
 
    .. testcase::
       x_1 : 3
