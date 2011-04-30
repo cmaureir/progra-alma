@@ -378,14 +378,14 @@ always necessary to provide arguments of appropriate type to the function call::
 Exercises
 ~~~~~~~~~
 
-1. Write a program that receives two words, and indicates which of them
-   is the longest and by how much. (the words cannot be of the same size)
+1. Write a program that receives two words, and indicates the extra
+   characters of the second word in comparison the first word.
 
    .. testcase::
 
        Word 1: `building`
        Word 2: `train`
-       The building word has 3 more characters than train.
+       The train word has -3 more characters than train.
 
    .. testcase::
    
@@ -419,8 +419,8 @@ Exercises
    .. testcase::
        Number 1: 11
        Number 2: 22
-       e^11 : 59874.14171519782
-       sqrt(22) : 4.69041575982343
+       e^22 : 3584912846.1315875
+       sqrt(11) : 3.3166247903554
 
 4. Given n-bodies with an initial position `x_i` and a velocity `v_i`, `1<=i<=N`,
    the force vector `f_{ij}` over the i-body by the gravitational attraction
@@ -446,4 +446,4 @@ Exercises
       v_2 : -2
       m_1 : 10
       m_2 : 8
-      f_12 : -8.342850000000001e-10
+      f_12 : -8.342850e-11
