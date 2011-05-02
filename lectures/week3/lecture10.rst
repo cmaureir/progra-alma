@@ -19,7 +19,7 @@ The two main ways to create sets are:
 
     >>> colors = {'blue', 'red', 'white', 'white'}
     >>> colors
-    {'red', 'blue', 'white'}
+    set(['red', 'blue', 'white'])
 
   Note that set does not include repeated items,
   and the items might not be in the same order they were added.
@@ -27,11 +27,11 @@ The two main ways to create sets are:
 * use the ``set`` function applied over an iterable::
 
     >>> set('abracadabra')
-    {'a', 'r', 'b', 'c', 'd'}
+    set(['a', 'r', 'b', 'c', 'd'])
     >>> set(range(50, 2000, 400))
-    {1250, 50, 1650, 850, 450}
+    set([1250, 50, 1650, 850, 450])
     >>> set([(1, 2, 3), (4, 5), (6, 7, 8, 9)])
-    {(4, 5), (6, 7, 8, 9), (1, 2, 3)}
+    set([(4, 5), (6, 7, 8, 9), (1, 2, 3)])
 
   The empty set must be created using ``set()``,
   as ``{}`` and represents the empty dictionary.
@@ -85,17 +85,17 @@ makes no sense trying to obtain an item using the index::
     >>> s = {6, 1, 5, 4, 3}
     >>> s.add(-37)
     >>> s
-    {1, 3, 4, 5, 6, -37}
+    set([1, 3, 4, 5, 6, -37])
     >>> s.add(4)
     >>> s
-    {1, 3, 4, 5, 6, -37}
+    set([1, 3, 4, 5, 6, -37])
 
 * ``s.remove(x)`` remove the ``x`` item from the ``s`` set::
 
     >>> s = {6, 1, 5, 4, 3}
     >>> s.remove(1)
     >>> s
-    {3, 4, 5, 6}
+    set([3, 4, 5, 6])
 
   If the ``x`` item is not in the set, an **key error** occurs::
 
@@ -109,25 +109,25 @@ makes no sense trying to obtain an item using the index::
     >>> a = {1, 2, 3, 4}
     >>> b = {2, 4, 6, 8}
     >>> a & b
-    {2, 4}
+    set([2, 4])
 
 * ``s | t`` returns the union of the sets ``s`` and ``t``::
 
     >>> a | b
-    {1, 2, 3, 4, 6, 8}
+    set([1, 2, 3, 4, 6, 8])
 
 * ``s - t`` returns the difference between the sets ``s`` and ``t``;
   i.e. the items of ``s`` that are not in ``t``::
 
     >>> a - b
-    {1, 3}
+    set([1, 3])
 
 * ``s ^ t`` returns the symmetric difference between the sets ``s`` and ``t``;
   i.e. the items that are either in ``s`` or ``t`` ,
   but not in both::
 
     >>> a ^ b
-    {1, 3, 6, 8}
+    set([1, 3, 6, 8])
 
 * ``s < t`` indicates if ``s`` is a subset of ``t``::
 

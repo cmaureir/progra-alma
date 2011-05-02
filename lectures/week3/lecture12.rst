@@ -39,7 +39,7 @@ a value error occurs::
 
     >>> a, b, c = person
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
+      File "<stdin>", line 1, in <module>
     ValueError: need more than 2 values to unpack
 
 Also, it is possible to extract the values using their index::
@@ -111,7 +111,7 @@ This comparison method is the same used to sort words in alphabetic order.
     True
     >>> 'car' < 'cars'
     True
-    >>> 'mon' < 'month' < 'monthly''
+    >>> 'mon' < 'month' < 'monthly'
     True
 
 
@@ -463,16 +463,16 @@ Exercises
        >>> ('aries', 'taurus') in compatible_signs
        True
    
-   # means that Aries women
-   # is compatible with Taurus man.                                                                                                                                          
+   #. means that Aries women
+   #. is compatible with Taurus man.                                                                                                                                          
    
        >>> ('capricorn', 'libra') in compatible_signs
        False
    
-   # It means that women Capricorn
-   # is not compatible with free men. 
+   #. It means that women Capricorn
+   #. is not compatible with free men. 
    
-   Write a function "compatibles(p1, p2)", to indicate
+   Write a function ``compatibles(p1, p2)``, to indicate
    if two people are compatible or not.
     
       .. _you can download here: ../../_static/programs/signs.py
