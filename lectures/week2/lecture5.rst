@@ -380,14 +380,14 @@ always necessary to provide arguments of appropriate type to the function call::
 Exercises
 ~~~~~~~~~
 
-1. Write a program that receives two words, and indicates which of them
-   is the longest and by how much. (the words cannot be of the same size)
+1. Write a program that receives two words, and indicates the extra
+   characters of the second word in comparison the first word.
 
    .. testcase::
 
        Word 1: `building`
        Word 2: `train`
-       The building word has 3 more characters than train.
+       The train word has -3 more characters than train.
 
    .. testcase::
    

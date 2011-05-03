@@ -66,17 +66,17 @@ the previous value is overwritten.
 Remember that a dictionary cannot have repeated keys::
 
     >>> telephones
-    {'John': 5552437, 'Peter': 4448139, 'Andy': 5551428, 'Share': 5550012}
+    {'John': 5552437, 'Peter': 4448139, 'Andy': 5551428, 'Shane': 5550012}
     >>> telephones['Andy'] = 4448139
     >>> telephones
-    {'John': 5552437, 'Peter': 4448139, 'Andy': 4448139, 'Share': 5550012}
+    {'John': 5552437, 'Peter': 4448139, 'Andy': 4448139, 'Shane': 5550012}
 
 The values can be repeated.
 In the previous example, Andy and Peter have the same number.
 
 To remove a key, you can use the statement ``del``::
 
-    >>> del telephones['Share']
+    >>> del telephones['Shane']
     >>> telephones
     {'John': 5552437, 'Peter': 4448139, 'Andy': 4448139}
 
@@ -131,9 +131,9 @@ is possible to use the ``not in`` statement::
 Keys restrictions
 ~~~~~~~~~~~~~~~~~
 
-No se puede usar cualquier objeto como llave de un diccionario.
-Las llaves deben ser de un tipo de datos inmutable.
-Por ejemplo, no se puede usar listas:
+Is not possible use any object as a dictionary key.
+The keys must have an immutable data type.
+For example, is not possible to use lists:
 
 ::
 
@@ -245,13 +245,13 @@ Exercises
 #. The ``countries`` dictionary associated each person
    with the set of the visited countries::
    
-     countries = {    
-     Peter': {'Chile', 'Argentina'},  
-     Jenny': {'France', 'Switzerland', 'Chile'}, 
-     John': {'Chile', 'Italy', 'France', 'Peru'},
-     ... 
-       } 
-   
+      >>> countries = {
+      ...   'Peter': {'Chile', 'Argentina'},
+      ...   'Jenny': {'France', 'Switzerland', 'Chile'},
+      ...   'John': {'Chile', 'Italy', 'France', 'Peru'},
+      ...   ...
+      ... }  
+ 
    Write a function called ``how_many_in_common(a, b)``, 
    which indicates how many countries in common are visited
    by the person ``a`` and ``b``::
@@ -307,12 +307,13 @@ Exercises
 
  
 #. Actually a widely used method to choose a password is change
-   some characters of a certain word by numbers, for example: 
-   
+   some characters of a certain word by numbers, for example:  
    ::    
+
        I like football
- 
+
    ::    
+
        1 l1k3 f00tb4ll
    
    Therefore, to do more easy this task, write a function that using:
@@ -322,19 +323,20 @@ Exercises
    
    can return the password with the new characters.
    
-   Remember the *replace()* function.    
-   
+   Remember the *replace()* function.     
    ::    
-       phrase = "I want my password, now!"  
-       d = {'a':4,'o':0,'!':'?'}   
-       change(phrase,d)  
-       "I w4nt my p4ssw0rd, n0w?"
-   
-   ::    
-       phrase = "cute kitty"   
-       d = {'e':3,'i':1}  
-       change(phrase,d)  
-       "cut3 k1tty"   
+
+      phrase = "I want my password, now!"  
+      d = {'a':4,'o':0,'!':'?'}   
+      change(phrase,d)  
+      "I w4nt my p4ssw0rd, n0w?"
+
+   ::   
+ 
+      phrase = "cute kitty"   
+      d = {'e':3,'i':1}  
+      change(phrase,d)  
+      "cut3 k1tty"   
    
    Also, because we need a more secure password, change the previous functions to change the
    characters of the phrase only a certain number of times.

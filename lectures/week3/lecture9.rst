@@ -62,7 +62,7 @@ The two main ways to create a list, are:
 
     >>> colors[4]
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
+      File "<stdin>", line 1, in <module>
     IndexError: list index out of range
 
   If the index is negative,
@@ -121,7 +121,7 @@ The two main ways to create a list, are:
   is in the list::
 
     >>> list('millimeter').count('i')
-    3
+    2
 
 * ``l.index(x)`` returns the index of the ``x`` item::
 
@@ -130,7 +130,7 @@ The two main ways to create a list, are:
     2
     >>> colors.index('pink')
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
+      File "<stdin>", line 1, in <module>
     ValueError: 'pink' is not in list
 
 * ``l.remove(x)`` removes the ``x`` item from the list::
@@ -141,12 +141,12 @@ The two main ways to create a list, are:
     ['visit Paris', 'plant a tree', 'do skydiving']
     >>> todo.remove('learn french')
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
+      File "<stdin>", line 1, in <module>
     ValueError: list.remove(x): x not in list
 
 * ``l.reverse()`` reverses a list::
 
-    >>> palindrome = = list("No lemon, no melon")
+    >>> palindrome = list("No lemon, no melon")
     >>> palindrome
     ['N', 'o', ' ', 'l', 'e', 'm', 'o', 'n', ',', ' ', 'n', 'o', ' ', 'm', 'e', 'l', 'o', 'n']   
     >>> palindrome.reverse()
@@ -268,7 +268,7 @@ Exercises
    * if the data amount is odd,
      the median is the central value,
      when we order the data from lowest to highest.
-   * if the data mount is even,
+   * if the data amount is even,
      the median is the average of the two central values,
      when we order he data from lowest to highest.
    
@@ -391,7 +391,8 @@ Exercises
    For example.
                                                                                                                                      
    with `m = 12` and `n = 3`,
-   the survivor is the person 10:                                                                                                                                                             
+   the survivor is the person 10:
+ 
    .. image:: http://img.thedailywtf.com/images/200907/Josephus.gif
 
    Write a function which receive the ``m`` and ``n`` parameters,

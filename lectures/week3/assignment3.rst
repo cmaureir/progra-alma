@@ -23,7 +23,9 @@ Assignment 3
        ...     ('Spain',       'Honduras'):    (1, 0),   
        ...     ('Chile',       'Spain'):       (5, 5),   
        ...     ('Switzerland', 'Honduras'):    (1, 2);   
-       ... }   
+       ... }  
+
+   **Note:** Use this dictionary to test your functions.
    
    #. Write a function called ``teams(tournament)``  
       that return the set of teams which participated in the tournament::
