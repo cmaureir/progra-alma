@@ -10,19 +10,19 @@ of the last ten days.
 * Must show at the final the quantity of the days which the value
   increase and decrease respect the previous day.::
 
-    Dia 1: 496.96
-    Dia 2: 499.03
-    El promedio hasta ahora es 497.995
-    Dia 3: 496.03
-    Dia 4: 493.27
-    Dia 5: 488.82
-    Dia 6: 492.16
-    El promedio hasta ahora es 494.378333
-    Dia 7: 490.32
-    Dia 8: 490.67
-    El promedio hasta ahora es 493.4075
-    Dia 9: 490.89
-    El promedio hasta ahora es 493.127778
-    Dia 10: 490.89
-    El precio subio 5 veces y bajo 4 veces
-    La mayor alza fue de 3.34 pesos
+    Day 1: 496.96
+    Day 2: 499.03
+    The average is 497.995
+    Day 3: 496.03
+    Day 4: 493.27
+    Day 5: 488.82
+    Day 6: 492.16
+    The average is 494.378333
+    Day 7: 490.32
+    Day 8: 490.67
+    The average is 493.4075
+    Day 9: 490.89
+    The average is 493.127778
+    Day 10: 490.89
+    The dollar price increase 5 times and decrease 4 times
+    The largest increase was 3.34 CLP

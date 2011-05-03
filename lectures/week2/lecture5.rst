@@ -31,7 +31,7 @@ If a different type is required,
 we need to convert it explicitly.
 
 For example,
-in the temperature conversion program,
+in the `temperature conversion program`_,
 the input is converted to a real value
 by the following statement::
 
@@ -42,6 +42,8 @@ the message ``Enter temperature in Fahrenheit degrees:``
 is shown to the user, who must enter a value,
 which is converted into a real number
 and bound to the name ``f``.
+
+.. _`temperature conversion program`: ../../_static/programs/temperature.py 
 
 From that line onward,
 variable ``f`` can be used by the program
@@ -419,8 +421,8 @@ Exercises
    .. testcase::
        Number 1: 11
        Number 2: 22
-       e^11 : 59874.14171519782
-       sqrt(22) : 4.69041575982343
+       e^22 : 3584912846.1315875
+       sqrt(11) : 3.3166247903554
 
 4. Given n-bodies with an initial position `x_i` and a velocity `v_i`, `1<=i<=N`,
    the force vector `f_{ij}` over the i-body by the gravitational attraction
@@ -446,4 +448,4 @@ Exercises
       v_2 : -2
       m_1 : 10
       m_2 : 8
-      f_12 : -8.342850000000001e-10
+      f_12 : -8.342850e-11
