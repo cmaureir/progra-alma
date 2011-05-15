@@ -84,12 +84,6 @@ Here are a few examples of syntax errors.::
       File "<stdin>", line 1
     SyntaxError: can't assign to operator
 
-::
-
-    >>> True = 1000
-      File "<stdin>", line 1
-    SyntaxError: assignment to keyword
-
 Name Error
 ~~~~~~~~~~
 .. index:: name error
@@ -186,8 +180,7 @@ The name of the exception is ``ZeroDivsionError``::
     >>> 1/0
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    ZeroDivisionError: division by zero
-
+    ZeroDvisionError: integer division or modulo by zero
 Overflow Error
 ~~~~~~~~~~~~~~
 .. index:: error de desborde

@@ -33,26 +33,6 @@ Assignment 4
    
    .. _el módulo con los datos: ../../_static/personas.py
    
-   para usar el módulo
-   hay que guardarlo en la misma carpeta
-   que se usará desde pyscripter,
-   e importar los datos de esta forma::
-   
-       from personas import *
-   
-   este módulo contiene una lista llamada ``personas``
-   que contiene tuplas que representan los datos de una persona.
-   cada tupla tiene tres valores: el nombre, el apellido y la fecha de nacimiento.
-   
-   el nombre y el apellido son strings,
-   y la fecha de nacimiento es una tupla de tres valores: el día, el mes y el año.
-   
-   por ejemplo,
-   podemos ver los datos de la primera persona::
-   
-       >>> personas[0]
-       ('martín', 'soto', (24, 8, 1990))
-   
    #. escriba una función que imprima el nombre de todas las personas.
       para eso, recorra la lista con un ``for``,
       obtenga el nombre de la persona

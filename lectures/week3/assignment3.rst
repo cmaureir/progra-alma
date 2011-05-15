@@ -19,7 +19,7 @@ Assignment 3
        >>> tournament = {  
        ...     ('Honduras',    'Chile'):       (1, 4),   
        ...     ('Spain',       'Switzerland'): (1, 1),   
-       ...     ('Chile',       'Switzerland'):(2, 0),   
+       ...     ('Chile',       'Switzerland'): (2, 0),   
        ...     ('Spain',       'Honduras'):    (1, 0),   
        ...     ('Chile',       'Spain'):       (5, 5),   
        ...     ('Switzerland', 'Honduras'):    (1, 2);   
@@ -36,7 +36,8 @@ Assignment 3
    #. Write a function called ``draws(tournament)``    
       which count how many games of the tournament finish in a draw::   
          
-       >>> draws(tournament)     
+       >>> draws(tournament)
+       2
 
    #. When a team win a game, receives 3 points; 
       when draws, receive 1 point, and when lose, does not receive any point.
@@ -74,5 +75,5 @@ Assignment 3
       from highest to lowest::
          
           >>> position_table(tournament)   
-          [('Spain', 6, 2), ('Chile', 6, 1), ('Switzerland', 4, 0), ('Honduras', 1, -3)] 
+          [('Spain', 5, 1), ('Chile', 7, 5), ('Switzerland', 1, -3), ('Honduras', 3, -3)] 
 

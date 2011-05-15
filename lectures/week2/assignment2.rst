@@ -17,12 +17,12 @@ of the last ten days.
     Day 4: 493.27
     Day 5: 488.82
     Day 6: 492.16
-    The average is 494.378333
+    The average is 494.378333333
     Day 7: 490.32
     Day 8: 490.67
     The average is 493.4075
     Day 9: 490.89
-    The average is 493.127778
+    The average is 493.127777778
     Day 10: 490.89
-    The dollar price increase 4 times and decrease 4 times
+    The dollar price increased 4 times and decreased 4 times
     The largest increase was 3.34 CLP

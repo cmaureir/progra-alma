@@ -100,7 +100,7 @@ Next, do the same,
 but removing the ``if`` statement.
 
 
-.. _download the program: ../_static/programs/unit_conversion.py
+.. _download the program: ../../_static/programs/unit_conversion.py
 
 Exercises
 ~~~~~~~~~

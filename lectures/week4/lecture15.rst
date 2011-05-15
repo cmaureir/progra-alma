@@ -30,7 +30,7 @@ Several functions that you used,
 create objects of different types,
 like *bool()*, *dict()*, *float()*,
 *int()*, *list()*, *set()*, *tuple()*, *str()*,
- etc.
+etc.
 
 The idea of the previous methods,
 is convert objects in another types,
@@ -95,18 +95,48 @@ So, the previous examples about *lists*, *sets*,
     >>> a
     [1, 2, 3]
 
-    
-
-
 
 Files
 ~~~~~
+
+Every data used by a program during it execution are in their variables,
+which are stored in the RAM memory of the computer.
+
+The RAM memory is a volatile storage element: when the program is finished,
+or when the computer turn off, all the data is lost forever.
+
+For a program can save the data permanently, is necesary to use a persistent storage medium,
+which the most important is the hard-drive.
+
+The hard-drive data is organized in files.
+A file is a data sequence saved in a persistent medium, avaibale to being used
+by another program.
+
+All the files has a name and ubication inside the file system
+of the same Operating System.
+
+The data file is present after the program, which write the file, is finished.
+
+A program can save their data in files to used in a future execution,
+also can read the data from data-files created by others programs.
+
+A program can not manipulate directly the data in another file.
+To use a file, a program always must open a file and allocate it to a variable,
+which is called logic-file.
+
+All the operations over a file, performed through the logic-file.
+
+Depending of the content, there are many file-types.
+We will work with the file-text,
+which contain text, and can be opened and modificated using
+a text-editor, like Notepad.
+The text-file generally has names finishing with a ``.txt``.
 
 Work with a file is a nightmare in some programmig languages,
 but is very simple in Python.
 
 First of all, you must know that an instance of a file
-inside a program or script is an object, so like all the
+inside a program or script is an object (logic-file), so like all the
 objects, has some very useful methods.
 
 To explain the files behaviour in Python, we will consider
@@ -216,6 +246,17 @@ the lines in the file, for example::
     >>> my_file.readlines()
     ['Hello first line!\n', 'Oh! the second line\n', 'The next line is very boring\n', '1,-234.5,45.8,ok\n', 'Final line :)\n']
 
+To obtain strings without the ``\n``,
+can use the **strip** method,
+which remove all the space symbols from the beggining
+to the end::
+
+
+   >>> s = '   Hello\n'
+   >>> s.strip()
+   'Hello'
+
+
 So, if you remember the `list`_ lecture
 you can iterate over a list to work with each element::
 
@@ -293,8 +334,9 @@ the function is called ``close()``.
     my_file.close()
 
 
-Objects characteristics
-~~~~~~~~~~~~~~~~~~~~~~~
+
+Objects characteristics (optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Every object have three main characteristics:
 
@@ -373,4 +415,296 @@ with the value ``hello``.
 Exercises
 ~~~~~~~~~
 
-PENDING
+.. Para cada alumno en el archivo ``alumnos.txt``,
+.. crear un archivo llamado ``nombre-apellido.txt``
+.. que sea una carta para el alumno
+.. con el siguiente contenido:
+.. 
+.. .. code-block:: none
+.. 
+..     Estimado [nombre],
+..     usted ha [aprobado/reprobado]
+..     con promedio [p].
+.. 
+.. Por ejemplo,
+.. la carta para Marcelo Bielsa
+.. se llamará ``marcelo-bielsa.txt``
+.. y su contenido será:
+.. 
+.. .. code-block:: none
+.. 
+..     Estimado Marcelo,
+..     usted ha aprobado
+..     con promedio 5.7.
+
+
+1. The files `a.txt`_ and `b.txt`_
+   have several sorted numbers from lowest to highest.
+   
+   .. _a.txt: ../../_static/a.txt 
+   .. _b.txt: ../../_static/b.txt 
+   
+   Write a program which create a file called ``c.txt``
+   which contain all the numbers from ``a.txt`` and ``b.txt``
+   and also is sorted.
+   
+   Do not save the numbers in a data structure.
+   Read and write them one by one.
+
+
+
+2. A charity institution has a register of the people which do some
+   donations, in a register file called ``donors.txt``.
+   
+   The file is sorted by the people ID from lowest to highest.
+   To simplify the poblem,
+   lets suppose that the ID's has five digits,
+   and does not include a verification after the dash.
+   
+   For example,
+   the file content can be the following:
+   
+       ====== ==================== ======
+       ID     Name                 Amount
+       ====== ==================== ======
+       15274  Marie Curie             200
+       15891  Jean Dupont             150
+       16443  Erika Mustermann        400
+       16504  John Smith               80
+       17004  Jan Kowalski            200
+       ====== ==================== ======
+   
+   The challenges are the following:
+   
+   1. Write a function which create the file, with the table data.
+   2. Write a function which show the file content.
+   3. Write a function which ask to the user to enter an ID,
+      and show as output the donation amount by that person.
+   4. Write a function which ask to the user to enter an ID,
+      and remove from the file the user with that ID.
+   5. Write a program which ask to the user enter the donor information
+      and add them to the file.
+
+3. The ``data1.txt`` file
+   has three integer numbers in each line:
+   
+   .. code-block:: none
+   
+       45 12 98
+       1 12 65
+       7 15 76
+       54 23 1
+       65 2 84
+   
+   1. Write a function called ``lines_addition(filename)``
+      which return a list with the addition of all the lines in the file::
+   
+       >>> lines_addition('data1.txt')
+       [155, 78, 98, 78, 151]
+   
+   2. Write a function called ``column_addition(filename)``
+      which return a list with the addition of the three columns of the file::
+   
+       >>> column_addition('data1.txt')
+       [172, 64, 324]
+
+4. A shop has their product information in a file called ``products.txt``.
+   Each file line has three data:
+   
+   * the product code (an integer number),
+   * the product name, and
+   * the units number of the product
+     remainder in the warehouse.
+   
+   The data is divided by a ``/`` symbol.
+   For example,
+   the next lines can be the file content:
+   
+   .. code-block:: none
+   
+       1265/Watch/26
+       613/Notebook/87
+       9801/Trompet/3
+       321/Pencil/12
+       5413/Tomatoes/5
+   
+   1. Write a function called ``product_exist(code)``
+      which allow to know if a product with the code
+      exist or not::
+   
+       >>> product_exist(1784)
+       False
+       >>> product_exist(321)
+       True
+       >>> product_exist(613)
+       True
+       >>> product_exist(0)
+       False
+   
+   2. Write a function called ``replenish_soon()``
+      which create a new file called ``replenish_soon.txt``
+      which contain all the product data of those who are less than 10 units.
+   
+      In this case,
+      the ``replenish_soon.txt`` file
+      must contain the following information:
+   
+   .. code-block:: none
+   
+       9801/Trompet/3
+       5413/Tomatoes/5
+
+5. A Medical center has a file called ``patients.txt``
+   with the personal data of their patients.
+   Each file line has the ID, the name and the age of a patient,
+   divided by the ``:`` symbol.
+   This is the file looks like:
+   
+   .. code-block:: none
+   
+       12067539-7:Anastasia López:32
+       15007265-4:Andrés Morales:26
+       8509454-8:Pablo Muñoz:45
+       7752666-8:Ignacio Navarro:49
+       8015253-1:Alejandro Pacheco:51
+       9217890-0:Patricio Pimienta:39
+       9487280-4:Ignacio Rosas:42
+       12393241-2:Ignacio Rubio:33
+       11426761-9:Romina Pérez:35
+       15690109-1:Francisco Ruiz:26
+       6092377-9:Alfonso San Martín:65
+       9023365-3:Manuel Toledo:38
+       10985778-5:Jesús Valdés:38
+       13314970-8:Abel Vázquez:30
+       7295601-k:Edison Muñoz:60
+       5106360-0:Andrea Vega:71
+       8654231-5:Andrés Zambrano:55
+       10105321-0:Antonio Almarza:31
+       13087677-3:Jorge Álvarez:28
+       9184011-1:Laura Andrade:47
+       12028339-1:Jorge Argandoña:29
+       10523653-0:Camila Avaria:40
+       12187197-1:Felipe Ávila:36
+       5935556-2:Aquiles Barriga:80
+       14350739-4:Eduardo Bello:29
+       6951420-0:Cora Benítez:68
+       11370775-5:Hugo Berger:31
+       11111756-k:Cristóbal Bórquez:34
+   
+   Also,
+   each time that someone has a doctor appointment,
+   the visit is registered in a file called ``appointments.txt``, 
+   adding a new line with the patient ID,
+   the visit date (in ``day-month-year`` format)
+   and the appointment cost,
+   also divided by a ``:`` symbol.
+   The file looks like:
+   
+   
+   .. code-block:: none
+   
+       8015253-1:4-5-2010:69580
+       12393241-2:6-5-2010:57274
+       10985778-5:8-5-2010:73206
+       8015253-1:10-5-2010:30796
+       8015253-1:12-5-2010:47048
+       12028339-1:12-5-2010:47927
+       11426761-9:13-5-2010:39117
+       10985778-5:15-5-2010:86209
+       7752666-8:18-5-2010:41916
+       8015253-1:18-5-2010:74101
+       12187197-1:20-5-2010:38909
+       8654231-5:20-5-2010:75018
+       8654231-5:22-5-2010:64944
+       5106360-0:24-5-2010:53341
+       8015253-1:27-5-2010:76047
+       9217890-0:30-5-2010:57726
+       7752666-8:1-6-2010:54987
+       8509454-8:2-6-2010:76483
+       6092377-9:2-6-2010:62106
+       11370775-5:3-6-2010:67035
+       11370775-5:7-6-2010:47299
+       8509454-8:7-6-2010:73254
+       8509454-8:10-6-2010:82955
+       11111756-k:10-6-2010:56520
+       7752666-8:10-6-2010:40820
+       12028339-1:12-6-2010:79237
+       11111756-k:13-6-2010:69094
+       5935556-2:14-6-2010:73174
+       11111756-k:21-6-2010:70417
+       11426761-9:22-6-2010:80217
+       12067539-7:25-6-2010:31555
+       11370775-5:26-6-2010:75796
+       10523653-0:26-6-2010:34585
+       6951420-0:28-6-2010:45433
+       5106360-0:1-7-2010:48445
+       8654231-5:4-7-2010:76458
+   
+   Note that the date are sorted from lowest to the recently date,
+   because the new lines always are added at the final of the file.
+   
+   1. Write a function called ``total_patient_cost(ID)``
+      which contain the patient appointments total cost
+      of the given ID::
+   
+       >>> total_patient_cost('8015253-1')
+       297572
+       >>> total_patient_cost('14350739-4')
+       0
+   
+   2. Write a function called ``day_patients(day, month, year)``
+      which returns a list with the patients name attended
+      the given date::
+   
+       >>> day_patients(2, 6, 2010)
+       ['Pablo Muñoz', 'Alfonso San Martín']
+       >>> day_patients(23, 6, 2010)
+       []
+   
+   3. Write a function called ``split_patients()``
+      which make two different files:
+   
+      * ``youngers.txt``, with the data of the younger patients with less than 30 years old;
+      * ``olders.txt``, with the data of all the patients with more than 60 years old.
+   
+      For example,
+      the  ``youngers.txt`` file must looks like:
+   
+      .. code-block:: none
+   
+          15007265-4:Andrés Morales:26
+          15690109-1:Francisco Ruiz:26
+          13087677-3:Jorge Álvarez:28
+          12028339-1:Jorge Argandoña:29
+          14350739-4:Eduardo Bello:29
+   
+   4. Write a function called  ``profit_by_month()``
+      which make a new file called ``profits.txt``
+      which contain the total of profit for each month
+      following the next format:
+   
+      .. code-block:: none
+   
+          5-2010:933159
+          6-2010:1120967
+          7-2010:124903
+   
+   
+6. The grades of a subject are saved in a file called ``grades.txt``,
+   which contain the following data::
+   
+       Pepito:5.3:3.7:6.7:6.7:7.1:5.5
+       Yayita:5.5:5.2:2.0:5.6:6.0:2.0
+       Fulanita:7.1:6.6:6.4:5.1:5.8:6.3
+       Moya:5.2:4.7:1.8:3.5:2.7:4.5
+   
+   Each line has the student name and their six grades, divided by a ``:`` symbol.
+   
+   Write a program which make a new file called ``report.txt``,
+   in which each line show if the student is approved (average ≥ 4,0) o failed (average < 4,0)::
+   
+       Pepito approved
+       Yayita aproved
+       Fulanita aproved
+       Moya failed
+   
