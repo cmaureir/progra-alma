@@ -19,7 +19,7 @@ study with more detail in the next lectures.
 An *object* is an instance of a *class*,
 the most simple example to understand this,
 is to think in a class called ``Human``,
-and all of us are intances, because we are all
+and all of us are instances, because we are all
 human beings. In the same way, a *class* 
 have several functions, called *methods*.
 In our example, as Human, we can *walk*, *speak*,
@@ -105,14 +105,14 @@ which are stored in the RAM memory of the computer.
 The RAM memory is a volatile storage element: when the program is finished,
 or when the computer turn off, all the data is lost forever.
 
-For a program can save the data permanently, is necesary to use a persistent storage medium,
+For a program can save the data permanently, is necessary to use a persistent storage medium,
 which the most important is the hard-drive.
 
 The hard-drive data is organized in files.
-A file is a data sequence saved in a persistent medium, avaibale to being used
+A file is a data sequence saved in a persistent medium, available to being used
 by another program.
 
-All the files has a name and ubication inside the file system
+All the files has a name and location inside the file system
 of the same Operating System.
 
 The data file is present after the program, which write the file, is finished.
@@ -128,11 +128,11 @@ All the operations over a file, performed through the logic-file.
 
 Depending of the content, there are many file-types.
 We will work with the file-text,
-which contain text, and can be opened and modificated using
+which contain text, and can be opened and modified using
 a text-editor, like Notepad.
 The text-file generally has names finishing with a ``.txt``.
 
-Work with a file is a nightmare in some programmig languages,
+Work with a file is a nightmare in some programming languages,
 but is very simple in Python.
 
 First of all, you must know that an instance of a file
@@ -164,7 +164,7 @@ an instance to access to the `data.txt` file.
 
 But, what is the *'r'* statement?
 The second parameter of the **open()** method 
-specify the *mode* when the file is openned.
+specify the *mode* when the file is opened.
 Some useful modes are:
 
 * *r*, ``read-only`` mode,
@@ -199,9 +199,9 @@ of the file, for example::
 The ``content`` variable contain all the information
 of the file.
 
-But, what happend with the ``new_content`` variable?
+But, what happened with the ``new_content`` variable?
 is empty!. This is because when you open a file
-a ``pointer`` is posisionated at the beginning of the file,
+a ``pointer`` is positioned at the beginning of the file,
 and when you read the file, the pointer moves forward,
 so with the first call of the ``read()`` method,
 the pointer reach the end of the file, so in the next
@@ -248,7 +248,7 @@ the lines in the file, for example::
 
 To obtain strings without the ``\n``,
 can use the **strip** method,
-which remove all the space symbols from the beggining
+which remove all the space symbols from the beginning
 to the end::
 
 
@@ -278,7 +278,7 @@ you can iterate over a list to work with each element::
 
 .. _`list`: ../week3/lecture9.html
 
-Is very anoying to had blank lines
+Is very annoying to had blank lines
 between each line, to avoid this
 you need to add a comma to the print line,
 like this::
@@ -340,7 +340,7 @@ Objects characteristics (optional)
 
 Every object have three main characteristics:
 
-* An identity (unique and unmodifiable), that is an integer returned by ``id(<object>)`` method.::
+* An identity (unique and unchangeable), that is an integer returned by ``id(<object>)`` method.::
 
     >>> number = 13
     >>> id(number)
@@ -349,7 +349,7 @@ Every object have three main characteristics:
     >>> id(name)
     3075656576L
 
-* A type (unmodifiable), that is returned by ``type(<object>)`` method::
+* A type (unchangeable), that is returned by ``type(<object>)`` method::
 
     >>> number = 13
     >>> type(number)
@@ -457,7 +457,7 @@ Exercises
    donations, in a register file called ``donors.txt``.
    
    The file is sorted by the people ID from lowest to highest.
-   To simplify the poblem,
+   To simplify the problem,
    lets suppose that the ID's has five digits,
    and does not include a verification after the dash.
    
@@ -524,7 +524,7 @@ Exercises
    
        1265/Watch/26
        613/Notebook/87
-       9801/Trompet/3
+       9801/Trumpet/3
        321/Pencil/12
        5413/Tomatoes/5
    
@@ -551,7 +551,7 @@ Exercises
    
    .. code-block:: none
    
-       9801/Trompet/3
+       9801/Trumpet/3
        5413/Tomatoes/5
 
 5. A Medical center has a file called ``patients.txt``
@@ -664,11 +664,11 @@ Exercises
    3. Write a function called ``split_patients()``
       which make two different files:
    
-      * ``youngers.txt``, with the data of the younger patients with less than 30 years old;
-      * ``olders.txt``, with the data of all the patients with more than 60 years old.
+      * ``young.txt``, with the data of the young patients with less than 30 years old;
+      * ``old.txt``, with the data of all the patients with more than 60 years old.
    
       For example,
-      the  ``youngers.txt`` file must looks like:
+      the  ``young.txt`` file must looks like:
    
       .. code-block:: none
    
@@ -704,7 +704,7 @@ Exercises
    in which each line show if the student is approved (average ≥ 4,0) o failed (average < 4,0)::
    
        Pepito approved
-       Yayita aproved
-       Fulanita aproved
+       Yayita approved
+       Fulanita approved
        Moya failed
    

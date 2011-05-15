@@ -171,7 +171,7 @@ you have to worry about always using appropriate values.
     
 Zero Division Error
 ~~~~~~~~~~~~~~~~~~~
-.. index:: error de división por cero
+.. index:: zero division error
 
 The **zero division error** occurs when try to divide by zero.
 
@@ -181,9 +181,10 @@ The name of the exception is ``ZeroDivsionError``::
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     ZeroDvisionError: integer division or modulo by zero
+
 Overflow Error
 ~~~~~~~~~~~~~~
-.. index:: error de desborde
+.. index:: overflow error
 
 The **overflow error**
 occurs when the operation result is so big 

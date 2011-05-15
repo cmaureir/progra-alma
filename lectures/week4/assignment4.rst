@@ -2,44 +2,35 @@ Assignment 4
 ============
 
 #. To do this assignment,
-   you must download `el módulo con los datos`_
-   que vamos a utilizar.
+   you must download `the module with the data`_
+   that we will use.
    
-   .. _el módulo con los datos: ../../_static/personas.py
+   .. _the module with the data: ../../_static/personas.py
    
-   para usar el módulo
-   hay que guardarlo en la misma carpeta
-   que se usará desde pyscripter,
-   e importar los datos de esta forma::
+   For use the module you have to save them in the same folder
+   that you will use from the pyscripter,
+   and import the data as following::
    
-       from personas import *
-   
-   este módulo contiene una lista llamada ``personas``
-   que contiene tuplas que representan los datos de una persona.
-   cada tupla tiene tres valores: el nombre, el apellido y la fecha de nacimiento.
-   
-   el nombre y el apellido son strings,
-   y la fecha de nacimiento es una tupla de tres valores: el día, el mes y el año.
-   
-   por ejemplo,
-   podemos ver los datos de la primera persona::
-   
-       >>> personas[0]
+       from people import *
+  
+   this module contains a list called ``people`` which contain tuples,
+   which represent the data of a people.
+   Each tuple has three values: name, last name and date of birth.
+
+   The name and last name are strings,
+   and the date of birth is a tuple of three values: day, month and year.
+
+   For example, we can see the data of the first person::
+ 
+       >>> people[0]
        ('martín', 'soto', (24, 8, 1990))
 
-   para realizar estos ejercicios ,
-   usted debe descargar `el módulo con los datos`_
-   que vamos a utilizar.
-   
-   .. _el módulo con los datos: ../../_static/personas.py
-   
-   #. escriba una función que imprima el nombre de todas las personas.
-      para eso, recorra la lista con un ``for``,
-      obtenga el nombre de la persona
-      e imprímalo usando ``print``.
-      la función no tiene que retornar nada::
+   #. Write a function which print the name of all the people.
+      For these, it is necessary to pass through the list with a ``for`` statement,
+      getting the name of the person and printing it using the ``print`` statement.
+      The function do not need to return nothing:
       
-          >>> nombres(personas)
+          >>> names(people)
           martín
           gabriel
           humberto
@@ -53,9 +44,9 @@ Assignment 4
           rolando
           ricardo
      
-   #. escriba una función que imprima la fecha de nacimiento de todas las personas::
+   #. Write a function which print the date of birth of all the people:
       
-        >>> fechas(personas)
+        >>> dates(people)
         24 de agosto de 1990
         2 de junio de 1974
         14 de noviembre de 1973
@@ -68,34 +59,29 @@ Assignment 4
         4 de febrero de 1972
         29 de enero de 1976
    
-      para hacerlo más fácil,
-      construya un diccionario con los nombres de los meses::
+      To do this easier, build a dictionary with the names of the months:
     
-        meses = {
-            1: 'enero',
-            2: 'febrero',
+        months = {
+            1: 'January',
+            2: 'February',
             # ...
-            12: 'diciembre',
+            12: 'December',
         }
    
-   #. realice una función llamada *cuantas_personas(lista)*
-      para determinar la cantidad de personas que hay
-      en la lista de personas.
-   
-   #. escriba una función que retorne una lista de personas
-      que tengan cumpleaños el mismo día que usted::
-    
-        >>> mi_cumple(personas)
+   #. Do a function called *how_many_people(list)* to determinate
+      the amount of people in the list.
+
+   #. Write a function which return a list of people which has their birthday
+      the same day that you have:
+
+        >>> my_birthday(people)
         ['jonathan sepúlveda']
    
-   #. realice una función *cumples_repetidos(lista)*
-      que pueda determinar las personas en la lista que
-      tienen su cumpleaños el mismo día.
+   #. Do a function called *repeated_birthdays(list)* that can
+      determinate the number of people in the list who have their birthday the same day.
+
+   #. Do a function called *most_common_name(list)* capable to determinate
+      the repeated name on the list of people.
    
-   #. realice una función *nombre_mas_comun(lista)*
-      que sea capaz de determinar el nombre que más
-      se repite en la lista de personas.
-   
-   #. realice una función *menor_mayor(lista)*
-      para poder determinar a la persona más vieja y más joven
-      de la lista.
+   #. Do a function called *younger_older(list)* to determinate the younger and older people
+      of the list   

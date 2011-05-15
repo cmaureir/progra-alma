@@ -134,11 +134,11 @@ Exercises
        >>> longest(['****', '**', '********', '**'])
        '********'
    
-     If there are more than one longest word (with the same lenght)
-     is necesary to return only one.
+     If there are more than one longest word (with the same length)
+     is necessary to return only one.
 
 #. Write a module called ``my_math.py``
-   wich contains the following functions.
+   which contains the following functions.
 
    * A function called ``my_sin(x)``
      which calculates the sine of an ``x`` value.
@@ -179,5 +179,5 @@ Exercises
     
         e^{x} = 1 + \frac{x^{1}}{1!} + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \frac{x^{4}}{4!} + \ldots
      
-     Choose an amount of terms to calcule the ``exponential function``.
+     Choose an amount of terms to calculate the ``exponential function``.
      Compare your results with the ``exp`` function from the ``math`` module.

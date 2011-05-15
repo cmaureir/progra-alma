@@ -147,7 +147,7 @@ Exercises
 
 #. Write a program which simulate the dice rolling of two dice,
    the main idea of this game is reach a 7 in less than 10 tries.
-   The program must verifica in each try, if your game reach or not
+   The program must verify in each try, if your game reach or not
    the 7 until the tenth game.
  
    Maybe the `random`_ module will be useful.
@@ -166,7 +166,7 @@ Exercises
    Maybe the `glob`_ module will be useful.
 
 #. Write a program which return the amount of lines in a file
-   or output, using it throught the pipeline.
+   or output, using it through the pipeline.
 
    For example, if I have a file called ``test``, and it has
    4 lines inside, the behaviour of the program must be.
@@ -184,7 +184,7 @@ Exercises
    Maybe the `sys`_ module will be useful.
 
 #. Write a program which generate a random password of 5 characters,
-   that can be `numbers`, `alpabeth` and `other symbols`.
+   that can be `numbers`, `alphabet` and `other symbols`.
 
    For example::
 
