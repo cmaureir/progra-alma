@@ -3,7 +3,7 @@ Lecture 14 - Modules creation
 .. index:: module (creation)
 
 A simple module is simply a file with Python code.
-The name of the file indicates which is the module name.
+The name of the file indicates which is the module's name.
 
 For example, we can create a file called ``parity.py``
 which have functions related to the parity numbers.::
@@ -19,7 +19,7 @@ which have functions related to the parity numbers.::
 
 In this case, the name of the module is ``parity``.
 To use the functions in another program, the file ``parity.py`` must be
-in the same folder that the program.
+in the same folder as the program.
 
 For example,
 the ``show_even.py`` program can be 
@@ -50,31 +50,31 @@ Use modules as programs
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 A file with ``.py`` extension can be either a module or a program.
-If is a module, it contains definitions that can be imported from a program or other module.
-If is a program, it contains code to be executed.
+If it is a module, it contains definitions that can be imported from a program or other module.
+If it is a program, it contains code to be executed.
 
 Sometimes, a program also contains definitions
 (for example, functions and variables)
-which also may be useful from another program.
-However, cannot be imported,
-because by using the ``import`` statement
-the full program will be executed.
-What would happen in this case,
-to run the second program,
-also will run the first.
+which also may be useful for another program.
+However, they cannot be imported,
+because, by using the ``import`` statement
+the full program would be executed.
+What would happen in this case, is that
+if you run the second program, then the first
+program will be executed first.
 
 There is a trick to avoid this problem:
-whenever there is code  being executed,
-exist a variable called ``__name__``.
-When is a program,
+Whenever there is code being executed,
+a variable called ``__name__`` exists.
+When the program is executed
 the value of this variable is ``__main__``,
-while in the module,
-is the module name.
+but when the module is imported this value
+takes the module's name.
 
 Therefore, 
 you can use the value of this variable to mark
-the program part to be executed to run the file, 
-but not to import it.
+the part of the program to be executed when the
+file is run, but not when it is imported.
 
 For example,
 the following program converts 
@@ -83,16 +83,16 @@ measurement units of length:
 .. literalinclude:: ../../_static/programs/unit_conversion.py
 
 This program is useful by itself,
-but also their four functions and 
-constants ``km_per_mile`` and ``cm_per_inch``
+but also its four functions and 
+the constants ``km_per_mile`` and ``cm_per_inch``
 might be useful for use in another program.
 
-To put the body of the program inside 
-of the ``if __name__ == '__main__'``,
-the file can be use like a module.
-If we did not do this,
-whenever the other program import a function
-will be executed the whole program.
+If the body of the program is put inside 
+the ``if __name__ == '__main__'`` statement,
+the file can be used like a module.
+If we do not do this,
+whenever the other program imports a function
+the whole program would be executed.
 
 Try it: `download the program`_ and run it.
 Then, write another program to import some of the functions.
@@ -109,8 +109,8 @@ Exercises
    which contains the following functions.
    
    * A function called ``average(l)``,
-     and the ``l`` parameter will be a real number list,
-     and return the average of these numbers::
+     where the parameter ``l`` is a list of real numbers
+     and its return value is the average of these numbers::
    
        >>> average([7.0, 3.1, 1.7])
        3.933333333333333
@@ -118,7 +118,8 @@ Exercises
        7.5
    
    * A function called ``squares(l)``,
-     which return a list with the squares of the ``l`` values::
+     which returns a list with the squares of the values
+     in the list ``l``::
    
        >>> squares([1, 2, 3, 4, 5])
        [1, 4, 9, 16, 25]
@@ -126,22 +127,22 @@ Exercises
        [11.559999999999999, 1.44]
    
    * A function called ``longest(words)``,
-     and the ``words`` parameter is a string list,
-     which return the longest string::
+     where the ``words`` parameter is a list of strings
+     and its return value is the longest string in the list::
    
        >>> longest(['mouse', 'hippo', 'dog', 'giraffe'])
        'giraffe'
        >>> longest(['****', '**', '********', '**'])
        '********'
    
-     If there are more than one longest word (with the same length)
-     is necessary to return only one.
+     If there is a tie in length among the longest two or more words, it is
+     necessary to return only one of them.
 
 #. Write a module called ``my_math.py``
    which contains the following functions.
 
    * A function called ``my_sin(x)``
-     which calculates the sine of an ``x`` value.
+     which calculates the sine of the ``x`` value.
 
      The ``sine`` function can be represented as the following infinite sum:
 
@@ -171,7 +172,7 @@ Exercises
      Compare your results with the ``cos`` function from the ``math`` module.
 
    * A function called ``exponential(x)``
-     which calculate the exponential function `e^{x}`.
+     which calculates the exponential function `e^{x}`.
 
      The exponential function can be represented as the following infinite sum:
 

@@ -3,14 +3,14 @@ Lecture13 - Modules
 
 .. index:: module, library
 
-A **module** (or **library**) is a collection of variable definition, 
+A **module** (or **library**) is a collection of variable definitions, 
 functions and types (among other things) that can be imported 
 to be used from any program. 
 
 We have seen some examples of how to use modules,
 particularly the mathematics module,
 from which we can import functions
-as the exponential, cosine,
+such as the exponential, cosine,
 and the constants π and *e*::
 
  >>> from math import exp, cos
@@ -20,24 +20,24 @@ and the constants π and *e*::
 
 The advantages of using modules are:
 
-* The functions and variables must be defined only once,
+* The functions and variables are defined only once
   and then can be used in many programs, 
   without the need to rewrite the code;
-* allows a program can be organized in several logic sections,
-  each placed in separate file,
+* allows a program to be organized in several logic sections,
+  each placed in separate files,
 * make it easier to share components with other developers.
 
 Python comes with many modules ready to be used.
-Besides, it is possible download from Internet and install modules
-practically to do anything.
-Finally, we will learn to create ours own modules.
+Besides, it is possible to download modules from Internet and install
+them to do practically anything.
+Finally, we will learn to create our own modules.
 
 
 Modules from Python
 ~~~~~~~~~~~~~~~~~~~
 
 These are some of the standard modules of Python,
-can be used from any program.
+which can be used from any program.
 
 The math_ module contains mathematical functions and constants::
 
@@ -79,7 +79,7 @@ manipulate dates and times::
  570
 
 The fractions_ module provides one data type to 
-represent rationals numbers::
+represent rational numbers::
 
  >>> from fractions import Fraction
  >>> a = Fraction(5, 12)
@@ -132,7 +132,7 @@ In this case, the ``sin`` and ``cos`` functions were not created by us,
 but imported from math modules, which are defined.
 
 The other way to use ``import`` is importing the entire module,
-and accessing their objects by a point::
+and accessing their objects using a dot::
 
  >>> import math
  >>> print math.sin(10)
@@ -145,27 +145,27 @@ easier to understand.
 Exercises
 ~~~~~~~~~
 
-#. Write a program which simulate the dice rolling of two dice,
-   the main idea of this game is reach a 7 in less than 10 tries.
+#. Write a program which simulates the dice rolling of two dices,
+   the main idea of this game is to reach a 7 in less than 10 tries.
    The program must verify in each try, if your game reach or not
    the 7 until the tenth game.
  
-   Maybe the `random`_ module will be useful.
+   Maybe the `random`_ module could be useful.
 
-#. Write a program which return the actual date in the format::
+#. Write a program which returns the actual date in the format::
 
        HH:MM:SS MM-DD-YYYY
 
 
-   Maybe the `time`_ module will be useful.
+   Maybe the `time`_ module could be useful.
 
-#. Write a program which return a list of all the file with
-   a determinate extension (you can choose), for example,
+#. Write a program which returns a list of all the files with
+   a specific extension (you can choose), for example,
    all the PDF files.
 
-   Maybe the `glob`_ module will be useful.
+   Maybe the `glob`_ module could be useful.
 
-#. Write a program which return the amount of lines in a file
+#. Write a program which returns the amount of lines in a file
    or output, using it through the pipeline.
 
    For example, if I have a file called ``test``, and it has
@@ -181,10 +181,11 @@ Exercises
        $ cat test | python lines.py 
        The file contain 4 lines.
 
-   Maybe the `sys`_ module will be useful.
+   Maybe the `sys`_ module could be useful.
 
-#. Write a program which generate a random password of 5 characters,
-   that can be `numbers`, `alphabet` and `other symbols`.
+#. Write a program which generates a random 5 charatcers password,
+   each character can be either a `number`, an `alphabet` letter or
+   `other symbols`.
 
    For example::
 
@@ -194,7 +195,7 @@ Exercises
        $ python gen-pass.py
        %g56/
 
-   Maybe the `random`_ module will be useful.
+   Maybe the `random`_ module could be useful.
 
 .. _`random`: http://docs.python.org/library/random.html
 .. _`time`: http://docs.python.org/library/time.html 
