@@ -2,11 +2,11 @@ Lecture 15 - Use of objects and Files
 -------------------------------------
 
 In Python, the **objects** are abstraction for data.
-All the data inside a Python program is represented by objects,
-or in some cases, by relations between two or more objects.
+All the data inside a Python program is represented by objects
+or, in some cases, by relations between two or more objects.
 We are saying that all the basic elements like `integers`, `functions`,
-`strings`, `dictionaries`, and so on, they are all objects,
-notoriously they have certain things in common.
+`strings`, `dictionaries`, and so on, are all objects
+and, notoriously they have certain things in common.
 
 About the objects
 ~~~~~~~~~~~~~~~~~
@@ -14,16 +14,16 @@ About the objects
 The idea of this lecture is to understand
 the idea behind the objects, but all the
 *Object Oriented Paradigm* will be
-study with more detail in the next lectures.
+studied in more detail in the next lectures.
 
 An *object* is an instance of a *class*,
 the most simple example to understand this,
 is to think in a class called ``Human``,
-and all of us are instances, because we are all
+and all of us as instances of this class, because we are all
 human beings. In the same way, a *class* 
-have several functions, called *methods*.
+has several functions, called *methods*.
 In our example, as Human, we can *walk*, *speak*,
-*run*, etc, so we as objects, can use that
+*run*, etc. so we, as objects, can use those
 methods, because we can speak, walk, etc.
 
 Several functions that you used,
@@ -33,7 +33,7 @@ like *bool()*, *dict()*, *float()*,
 etc.
 
 The idea of the previous methods,
-is convert objects in another types,
+is to convert objects to different types,
 for example::
 
     >>> a = 4
@@ -81,14 +81,14 @@ Also between objects like, *lists*, *sets*,
     [1, 2]
 
 
-The object, as you saw in the previous lectures,
+The objects, as you saw in the previous lectures,
 have several useful methods, which can be executed
-as following::
+as follows::
 
     object.method()
 
-So, the previous examples about *lists*, *sets*,
-*tuples* and *dictionaries* like::
+As it was done in the previous examples about *lists*, *sets*,
+*tuples* and *dictionaries*, for example::
 
     a = [1,3,2]
     >>> a.sort()
@@ -99,40 +99,40 @@ So, the previous examples about *lists*, *sets*,
 Files
 ~~~~~
 
-Every data used by a program during it execution are in their variables,
+Every data used by a program during its execution are stored in their variables,
 which are stored in the RAM memory of the computer.
 
 The RAM memory is a volatile storage element: when the program is finished,
-or when the computer turn off, all the data is lost forever.
+or when the computer is turned off, all the data is lost forever.
 
-For a program can save the data permanently, is necessary to use a persistent storage medium,
-which the most important is the hard-drive.
+For a program to save the data permanently, it is necessary to use a persistent storage medium,
+being the hard-drive the most important case.
 
 The hard-drive data is organized in files.
-A file is a data sequence saved in a persistent medium, available to being used
+A file is a sequence of data saved in a persistent medium, available to being used
 by another program.
 
-All the files has a name and location inside the file system
+All the files have a name and location inside the file system
 of the same Operating System.
 
-The data file is present after the program, which write the file, is finished.
+The data file is present after the program, which writes the file, is finished.
 
-A program can save their data in files to used in a future execution,
-also can read the data from data-files created by others programs.
+A program can save its data in files to be used in a future execution,
+also can read the data from data-files created by other programs.
 
 A program can not manipulate directly the data in another file.
-To use a file, a program always must open a file and allocate it to a variable,
-which is called logic-file.
+To use a file, a program must always open a file and allocate it to a variable,
+which is called a logic-file.
 
-All the operations over a file, performed through the logic-file.
+All the operations over a file are performed through the logic-file.
 
-Depending of the content, there are many file-types.
-We will work with the file-text,
-which contain text, and can be opened and modified using
+Depending on the content, there are many file-types.
+We will work with the file-text type,
+which contains text and can be opened and modified using
 a text-editor, like Notepad.
 The text-file generally has names finishing with a ``.txt``.
 
-Work with a file is a nightmare in some programming languages,
+Working with files is a nightmare in some programming languages,
 but is very simple in Python.
 
 First of all, you must know that an instance of a file
@@ -160,16 +160,16 @@ the next file, called `data.txt`_.
     my_file=open('data.txt','r')
 
 Now ``my_file`` is an object that is
-an instance to access to the `data.txt` file.
+an instance to access the `data.txt` file.
 
 But, what is the *'r'* statement?
 The second parameter of the **open()** method 
-specify the *mode* when the file is opened.
+specifies the *mode* when the file is opened.
 Some useful modes are:
 
 * *r*, ``read-only`` mode,
 * *w*, ``write-only`` mode,
-  if the file exist will be overwrited,
+  if the file exists it will be overwritten,
 * *a*, ``append`` mode.
 
 If you do not give any mode,
@@ -179,7 +179,7 @@ There are different ways to **Read** a file,
 but now we will focus on three methods,
 ``read()``, ``readline()`` and ``readlines()``.
 
-The ``read()`` method, return the entire content
+The ``read()`` method, returns the entire content
 of the file, for example::
 
     >>> my_file=open('data.txt','r')
@@ -196,7 +196,7 @@ of the file, for example::
     
     >>>
 
-The ``content`` variable contain all the information
+The ``content`` variable contains all the information
 of the file.
 
 But, what happened with the ``new_content`` variable?
@@ -204,17 +204,17 @@ is empty!. This is because when you open a file
 a ``pointer`` is positioned at the beginning of the file,
 and when you read the file, the pointer moves forward,
 so with the first call of the ``read()`` method,
-the pointer reach the end of the file, so in the next
+the pointer reached the end of the file, so in the next
 call of the ``read()`` method, there is no more
 content to read, that is the reason to have an
 empty variable called ``new_content``.
 
-If you want to move backwards and forwards inside a file
+If you want to move backward or forward inside a file
 you need to read about the `seek()`_ method.
 
 .. _`seek()`: http://docs.python.org/library/stdtypes.html#file.seek
 
-The ``readline()`` method, return only one line of the file,
+The ``readline()`` method, returns only one line of the file,
 for example::
 
     >>> my_file=open('data.txt','r')
@@ -239,7 +239,7 @@ You can also assign a line to a variable::
     >>> print simple_line
     'Hello first line!\n'
 
-The ``readlines()`` method, return a list with all 
+The ``readlines()`` method, returns a list with all 
 the lines in the file, for example::
 
     >>> my_file=open('data.txt')
@@ -247,8 +247,8 @@ the lines in the file, for example::
     ['Hello first line!\n', 'Oh! the second line\n', 'The next line is very boring\n', '1,-234.5,45.8,ok\n', 'Final line :)\n']
 
 To obtain strings without the ``\n``,
-can use the **strip** method,
-which remove all the space symbols from the beginning
+you can use the **strip** method,
+which removes all the space symbols from the beginning
 to the end::
 
 
@@ -278,8 +278,8 @@ you can iterate over a list to work with each element::
 
 .. _`list`: ../week3/lecture9.html
 
-Is very annoying to had blank lines
-between each line, to avoid this
+Is very annoying to have blank lines
+between each line. To avoid this
 you need to add a comma to the print line,
 like this::
 
@@ -295,11 +295,11 @@ like this::
     >>> 
 
 
-We will look two method to **Write**
-a file, using the ``write()`` and the ``writelines()``
-method.
+We will look two methods to **Write**
+a file: Using the ``write()`` and the ``writelines()``
+methods.
 
-The ``write()`` method allow to write a string
+The ``write()`` method allows to write a string
 inside the file, for example::
 
     >>> my_file=open('data2.txt','w')
@@ -313,7 +313,7 @@ inside the file, for example::
 
 The ``writelines()`` method allow to write
 several lines inside the file, this is possible
-giving a list as parameter to the method,
+to give a list of strings as parameter to the method,
 for example ::
 
     >>> my_file=open('data2.txt','w')
@@ -338,7 +338,7 @@ the function is called ``close()``.
 Objects characteristics (optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Every object have three main characteristics:
+Every object has three main characteristics:
 
 * An identity (unique and unchangeable), that is an integer returned by ``id(<object>)`` method.::
 
@@ -367,7 +367,7 @@ Every object have three main characteristics:
     >>> name
     'carl'
 
-If you change the value of a variable, the identity will change is almost all the cases.::
+If you change the value of a variable, the identity will change in almost all the cases.::
 
     >>> number = 12
     >>> id(number)
@@ -376,27 +376,27 @@ If you change the value of a variable, the identity will change is almost all th
     >>> id(number)
     163098656
 
-Some objects do not allow to change their content, because are immutable like the tuples
+Some objects do not allow to change their content, because they are immutable like the tuples
 (See lecture10_ for more details)
 
 .. _lecture10:  ../week3/lecture10.html
 
-The idea of the **type** of an object is know some details from it,
-the methods they have, the bytes of memory that use, etc.
+The idea of the **type** of an object is to know some details about it,
+the methods they have, the bytes of memory they use, etc.
 
 The **name** of an object is different,
-is not a property itself, because the object
-does not know their name.
+it is not a property itself, because the object
+does not know its name.
 An object can have several names or not have a name,
 so they live only in the namespace
-(Namespace, collection of name and object references pairs).
+(Namespace, collection of names and object references pairs).
 
 To clarify this idea,
 lets see this simple line::
 
    >>> variable = 42
 
-this means that we are adding the name 'variable' in our namespace,
+this means that we are adding the name 'variable' to our namespace,
 making it refer to an integer object with the value '42'.
 
 You can assign a new object reference to a name,
@@ -407,8 +407,8 @@ for example::
     >>> variable = 'hello'
 
 First, we add the name ``variable`` to the local namespace,
-making it refer to a integer object with the value 42,
-and in the next line, we making it point to a string
+making it refer to an integer object with the value 42,
+and in the next line, we are making it point to a string
 with the value ``hello``.
 
 
@@ -444,9 +444,9 @@ Exercises
    .. _a.txt: ../../_static/a.txt 
    .. _b.txt: ../../_static/b.txt 
    
-   Write a program which create a file called ``c.txt``
-   which contain all the numbers from ``a.txt`` and ``b.txt``
-   and also is sorted.
+   Write a program which creates a file called ``c.txt``
+   which contains all the numbers from ``a.txt`` and ``b.txt``
+   sorted as well.
    
    Do not save the numbers in a data structure.
    Read and write them one by one.
@@ -456,10 +456,10 @@ Exercises
 2. A charity institution has a register of the people which do some
    donations, in a register file called ``donors.txt``.
    
-   The file is sorted by the people ID from lowest to highest.
+   The file is sorted by the people's ID from lowest to highest.
    To simplify the problem,
-   lets suppose that the ID's has five digits,
-   and does not include a verification after the dash.
+   lets suppose that each ID has five digits
+   without including a verification digit after the dash.
    
    For example,
    the file content can be the following:
@@ -476,14 +476,14 @@ Exercises
    
    The challenges are the following:
    
-   1. Write a function which create the file, with the table data.
-   2. Write a function which show the file content.
-   3. Write a function which ask to the user to enter an ID,
-      and show as output the donation amount by that person.
-   4. Write a function which ask to the user to enter an ID,
-      and remove from the file the user with that ID.
-   5. Write a program which ask to the user enter the donor information
-      and add them to the file.
+   1. Write a function which creates the file, with the table data.
+   2. Write a function which shows the file content.
+   3. Write a function which asks the user to enter an ID,
+      and shows as output the donation amount by that person.
+   4. Write a function which asks the user to enter an ID,
+      and removes the user with that ID from the file.
+   5. Write a program which asks the user to enter a donor's information
+      and add it to the file.
 
 3. The ``data1.txt`` file
    has three integer numbers in each line:
@@ -497,26 +497,26 @@ Exercises
        65 2 84
    
    1. Write a function called ``lines_addition(filename)``
-      which return a list with the addition of all the lines in the file::
+      which returns a list with the addition of each of the lines in the file::
    
        >>> lines_addition('data1.txt')
        [155, 78, 98, 78, 151]
    
    2. Write a function called ``column_addition(filename)``
-      which return a list with the addition of the three columns of the file::
+      which return a list with the addition of each of the three columns in the file::
    
        >>> column_addition('data1.txt')
        [172, 64, 324]
 
-4. A shop has their product information in a file called ``products.txt``.
-   Each file line has three data:
+4. A shop has their products information in a file called ``products.txt``.
+   Each line in the file has three data:
    
    * the product code (an integer number),
    * the product name, and
    * the units number of the product
-     remainder in the warehouse.
+     remaining in the warehouse.
    
-   The data is divided by a ``/`` symbol.
+   The data is separated by a ``/`` symbol.
    For example,
    the next lines can be the file content:
    
@@ -529,8 +529,8 @@ Exercises
        5413/Tomatoes/5
    
    1. Write a function called ``product_exist(code)``
-      which allow to know if a product with the code
-      exist or not::
+      which allows to know if a product with the given code
+      exists or not::
    
        >>> product_exist(1784)
        False
@@ -542,8 +542,8 @@ Exercises
        False
    
    2. Write a function called ``replenish_soon()``
-      which create a new file called ``replenish_soon.txt``
-      which contain all the product data of those who are less than 10 units.
+      which creates a new file called ``replenish_soon.txt``
+      which contains all the product data for the products that are less than 10 units remaining.
    
       In this case,
       the ``replenish_soon.txt`` file
@@ -557,8 +557,8 @@ Exercises
 5. A Medical center has a file called ``patients.txt``
    with the personal data of their patients.
    Each file line has the ID, the name and the age of a patient,
-   divided by the ``:`` symbol.
-   This is the file looks like:
+   separated by the ``:`` symbol.
+   This is how the file looks like:
    
    .. code-block:: none
    
@@ -592,12 +592,12 @@ Exercises
        11111756-k:Cristóbal Bórquez:34
    
    Also,
-   each time that someone has a doctor appointment,
+   each time that someone has an appointment with a doctor,
    the visit is registered in a file called ``appointments.txt``, 
    adding a new line with the patient ID,
    the visit date (in ``day-month-year`` format)
    and the appointment cost,
-   also divided by a ``:`` symbol.
+   also separated by a ``:`` symbol.
    The file looks like:
    
    
@@ -640,11 +640,11 @@ Exercises
        5106360-0:1-7-2010:48445
        8654231-5:4-7-2010:76458
    
-   Note that the date are sorted from lowest to the recently date,
-   because the new lines always are added at the final of the file.
+   Note that the dates are sorted from the oldest to the most recent date,
+   because the new lines are always added at the end of the file.
    
    1. Write a function called ``total_patient_cost(ID)``
-      which contain the patient appointments total cost
+      which contains the patient appointments total cost
       of the given ID::
    
        >>> total_patient_cost('8015253-1')
@@ -653,8 +653,8 @@ Exercises
        0
    
    2. Write a function called ``day_patients(day, month, year)``
-      which returns a list with the patients name attended
-      the given date::
+      which returns a list with the name of the patients that attended
+      on a given date::
    
        >>> day_patients(2, 6, 2010)
        ['Pablo Muñoz', 'Alfonso San Martín']
@@ -662,7 +662,7 @@ Exercises
        []
    
    3. Write a function called ``split_patients()``
-      which make two different files:
+      which makes two different files:
    
       * ``young.txt``, with the data of the young patients with less than 30 years old;
       * ``old.txt``, with the data of all the patients with more than 60 years old.
@@ -679,8 +679,8 @@ Exercises
           14350739-4:Eduardo Bello:29
    
    4. Write a function called  ``profit_by_month()``
-      which make a new file called ``profits.txt``
-      which contain the total of profit for each month
+      which makes a new file called ``profits.txt``
+      which contains the total profit for each month
       following the next format:
    
       .. code-block:: none
@@ -691,7 +691,7 @@ Exercises
    
    
 6. The grades of a subject are saved in a file called ``grades.txt``,
-   which contain the following data::
+   which contains the following data::
    
        Pepito:5.3:3.7:6.7:6.7:7.1:5.5
        Yayita:5.5:5.2:2.0:5.6:6.0:2.0
@@ -700,8 +700,8 @@ Exercises
    
    Each line has the student name and their six grades, divided by a ``:`` symbol.
    
-   Write a program which make a new file called ``report.txt``,
-   in which each line show if the student is approved (average ≥ 4,0) o failed (average < 4,0)::
+   Write a program which makes a new file called ``report.txt``,
+   in which each line shows if the student passed (average ≥ 4,0) or failed (average < 4,0)::
    
        Pepito approved
        Yayita approved

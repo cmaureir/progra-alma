@@ -3,12 +3,12 @@ Lecture 16 - Errors and exceptions
 
 .. index:: error
 
-Not always the programs that we write are correct.
+The programs we write aren't always correct.
 There are many types of errors that may be present in a program.
 
 Not all the errors can be detected by the computer.
 For example,
-the following program have one logic error quite evident::
+the following program have one quite evident logic error::
 
     n = int(raw_input('Enter a number: '))
     double = 3 * n
@@ -16,10 +16,10 @@ the following program have one logic error quite evident::
 
 The computer will not notice the error,
 because all the program's instructions are correct.
-The program simply will give always the wrong answer.
+The program simply will always give the wrong answer.
 
 There are other errors that can be detected.
-When an error is detected *during* the program execution
+When an error is detected *during* the program's execution
 an **exception** occurs. 
 
 The interpreter announced an exception
@@ -44,8 +44,8 @@ invalid operation::
     ZeroDivisionError: division by zero
 
 The second line of the message
-indicates the file name where is located the error
-and the number of the line.
+indicates the file name where the error is located
+and the the line where this happened.
 In this example,
 the error is in the line 3 of ``division.py``.
 The last line shows the name of the exception
@@ -59,14 +59,14 @@ Syntax Error
 ~~~~~~~~~~~~
 .. index:: syntax error
 
-A **syntax error** occurs when the program does not follows
+A **syntax error** occurs when the program does not follow
 the rules of language.
-When this error occur,
+When this error occurs,
 it means that the program is not written correctly.
 The name of the error is ``SyntaxError``.
 
 The syntax errors always happen *before*
-the program run.
+the program is run.
 It means, a badly written program cannot execute any instruction.
 Therefore, the syntax error is not an exception.
 
@@ -126,18 +126,18 @@ cannot multiply two strings::
       File "<stdin>", line 1, in <module>
     TypeError: can't multiply sequence by non-int of type 'str'
 
-Neither can obtained the length of a number::
+Neither can obtain the length of a number::
 
     >>> len(68)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: object of type 'int' has no len()
 
-When occurs in type error,
-usually the program is not properly designed.
-Must be checked, ideally making routing 
-to understand the error,
-and finally fix it.
+When the type error occurs, it is
+usually because the program is not properly designed.
+It must be checked, ideally routing the program
+to understand the error
+and, finally fix it.
 
 Value Error
 ~~~~~~~~~~~
@@ -145,14 +145,14 @@ Value Error
 
 
 The **value error**
-occurs when the operands are of correct type,
+occurs when the operands are of the correct type,
 but the operation does not make sense for that value.
 
 The name of the exception is ``ValueError``.
 
 For example,
 the ``int`` function can convert a string to an integer,
-but the string should be the representation of a integer number.
+but the string should be the representation of an integer number.
 Any other value throws a Value Error::
 
     >>> int('41')
@@ -167,13 +167,13 @@ Any other value throws a Value Error::
     ValueError: invalid literal for int() with base 10: 'forty one'
 
 To fix this error,
-you have to worry about always using appropriate values.
+you have to make sure to always use appropriate values.
     
 Zero Division Error
 ~~~~~~~~~~~~~~~~~~~
 .. index:: zero division error
 
-The **zero division error** occurs when try to divide by zero.
+The **zero division error** occurs when trying to divide by zero.
 
 The name of the exception is ``ZeroDivsionError``::
 
@@ -188,7 +188,7 @@ Overflow Error
 
 The **overflow error**
 occurs when the operation result is so big 
-that the computer cannot represent internally.
+that the computer cannot represent it internally.
 
 The name of the exception is ``OverflowError``::
 
@@ -198,7 +198,7 @@ The name of the exception is ``OverflowError``::
     OverflowError: (34, 'Numerical result out of range')
 
 For those interested in learning  more about exceptions,
-can review the `section about exceptions`_
+you can review the `section about exceptions`_
 in the official documentation Python.
 
 .. _section about exceptions: http://docs.python.org/library/exceptions.html
@@ -207,11 +207,11 @@ Exception handling
 ~~~~~~~~~~~~~~~~~~
 
 When you are creating a program,
-maybe you need to take some option when
-an exceptions occurs, to avoid restart the program,
-or lost some changes, etc.
+maybe you need to take some action when
+an exceptions occurs, to avoid restarting the program,
+or loose some changes, etc.
 
-Python provides a easy way to handle
+Python provides an easy way to handle
 the exceptions, using the statements ``try`` and ``except``.
 
 For example, one of the previous examples::
@@ -253,8 +253,8 @@ only if in the content of the ``try`` block,
 everything is correct, error free.
 
 You can use multiple instances of the ``except``
-because maybe inside the ``try`` block can occurs
-more than one Error::
+because inside the ``try`` block
+more than one Error can occur::
 
     >>> values = [-1, 0, 1]
     >>> for i in range(4):
