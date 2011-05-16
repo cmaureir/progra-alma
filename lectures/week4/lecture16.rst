@@ -270,23 +270,131 @@ more than one Error can occur::
     reciprocal of 1 at 2 is 1.0
     index 3 out of range
 
-Agregar contenido libro OReilly
+The ``raise`` statement
+~~~~~~~~~~~~~~~~~~~~~~~~
 
+If you want to explicitly trigger an exception,
+the solution is use the ``raise`` statement.
+
+There are two basic ways to call this statement:
+
+::
+
+   raise <name>
+   raise <name>, <data>
+
+The first one manually trigger an exception called ``<name>``
+and the second one manually trigger an exception called ``<name>``
+but also, return some extra data.
+
+::
+
+    >>> raise TypeError
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError
+    >>> raise TypeError, 'testing extra data'
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: testing extra data
+
+This is very useful, when you want to create your own exceptions
+and errors, based in some new criteria.
 
 Exercises
 ~~~~~~~~~
 
- *  
+ * Write a program which check a date input by the user.
+   The date must have the format YYYY-MM-DD.
+   Consider a normal years, in other words, February has
+   only 28 days.
 
-.. >>> while True:
-..     ...     try:
-..     ...         x = int(raw_input("Enter a number: "))
-..     ...         break
-..     ...     except ValueError:
-..     ...         print "Not a valid number.  Try again..."
-..     ...    
+   .. testcase::
+      Input date: `2010-15-10`
+      Incorrect month!
+      Input date: `2010-12-10`
+      Your date is correct!
+
+   .. testcase::
+      Input date: `2010-05-40`
+      Incorrect day!
+      Input date: `2010-05-hello`
+      Incorrect day!
+      Input date: `2010-05-01`
+      Your date is correct!
 
 
+
+ * Write a program which calculates the age of a people,
+   the user must input the day, month and year of birth.
+
+   The program can not finish without a correct answer,
+   it means, you must verify if the input data is correct,
+   in terms of numerical bounds. (Remember the exceptions!)
+
+   Use the previous program implemented to do this solution.
+
+   
+   .. testcase::
+
+      Enter year of birth: `1988`
+      Enter month of birth: `10`
+      Enter day of birth: `19`
+      You are 22 years old.
+  
+   .. testcase::
+
+      Enter year of birth: `1992`
+      Enter month of birth: `15`
+      Not a valid month!
+      Enter month of birth: `2`
+      Enter day of birth: `hello`
+      Not a valid day!
+      Enter day of birth: `ok`
+      Not a valid day!
+      Enter day of birth: `1`
+      You are 19 years old.
+
+
+ * Write a function which calculates the average of a set of number
+   in a list, the main function must use another two functions wrote
+   by you, to perform the addition of all the elements called ``sum`` 
+   and another to divide the addition total by the number of elements
+   called ``avg``. 
+   The program must detect some input list errors.
+   (Remember the exceptions!)
+		
+   ::
+ 
+      >>> average([1,2,3])
+      The average is: 2
+      >>> average([1,2,'three'])
+      Incorrect element type! (TypeError)
+      >>> average([])
+      Empty list! (ZeroDivisionError)
+
+ * Write a function which allows to the user a `safe` way to open
+   files in the system, it means, if the file does not exist,
+   raise an exception, otherwise the reading can be done properly.
+
+   If the ``test.txt`` file exist:
+
+   ::
+
+      >>> myfile = open_file('test.txt','r')
+      File exist!
+
+   If the ``test.txt`` file does not exist:
+
+   ::
+
+      >>> myfile = open_file('test.txt','r')
+      Warning, file does not exist!
+
+   Look in the `Python documentation`_, the Error
+   for this cases, and use it.
+
+   .. _`Python documentation`: http://www.python.org/doc/essays/stdexceptions/
 
 .. import sys
 ..     
@@ -301,8 +409,6 @@ Exercises
 ..     except:
 ..         print "Unexpected error:", sys.exc_info()[0]
 ..         raise 
-
-.. Comprobar fecha correcta 
 
 .. for arg in sys.argv[1:]:
 ..         try:
@@ -327,26 +433,6 @@ Exercises
 ..      modulo by zero
 
 
-
-.. def avg( someList ):
-..     """Raises TypeError or ZeroDivisionError exceptions."""
-..     sum= 0
-..     for v in someList:
-..         sum = sum + v
-..     return float(sum)/len(someList)
-.. def avgReport( someList ):
-..     try:
-..         m= avg(someList)
-..         print "Average+15%=", m*1.15
-..     except TypeError, ex:
-..         print "TypeError:", ex
-..     except ZeroDivisionError, ex:
-..         print "ZeroDivisionError:", ex
-.. 
-.. 
-.. 
-.. 
-.. 
 .. def sum( someList ):
 ..     """Raises TypeError"""
 ..     sum= 0
