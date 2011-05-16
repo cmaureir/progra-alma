@@ -270,11 +270,101 @@ more than one Error::
     reciprocal of 1 at 2 is 1.0
     index 3 out of range
 
+Agregar contenido libro OReilly
+
+
 Exercises
 ~~~~~~~~~
 
- * PENDING
+ *  
 
- * PENDING
+.. >>> while True:
+..     ...     try:
+..     ...         x = int(raw_input("Enter a number: "))
+..     ...         break
+..     ...     except ValueError:
+..     ...         print "Not a valid number.  Try again..."
+..     ...    
 
- * PENDING
+
+
+.. import sys
+..     
+..     try:
+..         f = open('myfile.txt')
+..         s = f.readline()
+..         i = int(s.strip())
+..     except IOError, (errno, strerror):
+..         print "I/O error(%s): %s" % (errno, strerror)
+..     except ValueError:
+..         print "Could not convert data to an integer."
+..     except:
+..         print "Unexpected error:", sys.exc_info()[0]
+..         raise 
+
+.. Comprobar fecha correcta 
+
+.. for arg in sys.argv[1:]:
+..         try:
+..             f = open(arg, 'r')
+..         except IOError:
+..             print 'cannot open', arg
+..         else:
+..             print arg, 'has', len(f.readlines()), 'lines'
+..             f.close()
+
+
+
+..   >>> def this_fails():
+..     ...     x = 1/0
+..     ... 
+..     >>> try:
+..     ...     this_fails()
+..     ... except ZeroDivisionError, detail:
+..     ...     print 'Handling run-time error:', detail
+..     ... 
+..     Handling run-time error: integer division or
+..      modulo by zero
+
+
+
+.. def avg( someList ):
+..     """Raises TypeError or ZeroDivisionError exceptions."""
+..     sum= 0
+..     for v in someList:
+..         sum = sum + v
+..     return float(sum)/len(someList)
+.. def avgReport( someList ):
+..     try:
+..         m= avg(someList)
+..         print "Average+15%=", m*1.15
+..     except TypeError, ex:
+..         print "TypeError:", ex
+..     except ZeroDivisionError, ex:
+..         print "ZeroDivisionError:", ex
+.. 
+.. 
+.. 
+.. 
+.. 
+.. def sum( someList ):
+..     """Raises TypeError"""
+..     sum= 0
+..     for v in someList:
+..         sum = sum + v
+..     return sum
+.. def avg( someList ):
+..     """Raises TypeError or ZeroDivisionError exceptions."""
+..     try:
+..         s= sum(someList)
+..         return float(s)/len(someList)
+..     except TypeError, ex:
+..         return "Non-Numeric Data"
+.. def avgReport( someList ):
+..     try:
+..         m= avg(someList)
+..         print "Average+15%=", m*1.15
+..     except TypeError, ex:
+..         print "TypeError: ", ex
+..     except ZeroDivisionError, ex:
+..         print "ZeroDivisionError: ", ex
