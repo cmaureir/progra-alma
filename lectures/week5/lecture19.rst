@@ -1,4 +1,8 @@
 Lecture 19 - Iterators
 ----------------------
 
-PENDING
+           * Iterators
+               * iterators (itertools)
+                  * chain, count, no necsito lista
+               * for
+                  *       zip, map, sorted, enumerated, reversed

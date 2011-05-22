@@ -1,4 +1,6 @@
 Lecture 20 - Coding good practices
 -----------------------------------
 
-PENDING
+ http://www.python.org/dev/peps/pep-0008/
+               * if __main__ = __name__:
+               * docstring
