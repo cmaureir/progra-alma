@@ -1,4 +1,4 @@
-personas = [
+people = [
     ('Martin', 'Soto', (24, 8, 1990), ),
     ('Gabriel', 'Cuellar', (2, 6, 1974)),
     ('Humberto', 'Espinosa', (14, 11, 1973)),
