@@ -12,7 +12,7 @@ which have functions related to the parity numbers.::
     return n % 2 == 0
 
  def is_odd(n):
-    return not es_par(n)
+    return not is_even(n)
 
  def to_even(n):
     return range(0, n, 2)

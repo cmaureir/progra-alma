@@ -22,7 +22,7 @@ Assignment 3
        ...     ('Chile',       'Switzerland'): (2, 0),   
        ...     ('Spain',       'Honduras'):    (1, 0),   
        ...     ('Chile',       'Spain'):       (5, 5),   
-       ...     ('Switzerland', 'Honduras'):    (1, 2);   
+       ...     ('Switzerland', 'Honduras'):    (1, 2),
        ... }  
 
    **Note:** Use this dictionary to test your functions.
@@ -30,8 +30,8 @@ Assignment 3
    #. Write a function called ``teams(tournament)``  
       that return the set of teams which participated in the tournament::
          
-          >>> teams(tournament)   
-          {'Chile', 'Honduras', 'Switzerland', 'Spain'}    
+          >>> teams(tournament)
+          set(['Chile', 'Honduras', 'Switzerland', 'Spain'])
    
    #. Write a function called ``draws(tournament)``    
       which count how many games of the tournament finish in a draw::   
@@ -52,7 +52,7 @@ Assignment 3
    #. The difference of the goals of a team    
       is the sum of all the goals made 
       minus the sum of the goals against.  
-      Write a function ``gf(team, tournament)``     
+      Write a function ``gd(team, tournament)``     
       which returns the goal differences    
       of a team in a tournament::    
          
@@ -74,6 +74,6 @@ Assignment 3
       The teams with the same points, must be ordered by goal differences
       from highest to lowest::
          
-          >>> position_table(tournament)   
-          [('Spain', 5, 1), ('Chile', 7, 5), ('Switzerland', 1, -3), ('Honduras', 3, -3)] 
+          >>> position_table(tournament)
+          [('Chile', 7, 5), ('Spain', 5, 1), ('Honduras', 3, -3), ('Switzerland', 1, -3)] 
 
