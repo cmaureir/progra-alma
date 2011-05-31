@@ -2,10 +2,10 @@ Lecture 17 - Advanced topics on functions
 ------------------------------------------
 
 When you read the lecture about the function,
-maybe you had some questions about extra functions functionalities,
+maybe you had some questions about extra functions functionality,
 and the answer is yes.
 
-Functions in Python are a very powerfull tool to the programmer,
+Functions in Python are a very powerful tool to the programmer,
 if you learn some extra content.
 
 Returning more than one value
@@ -43,7 +43,7 @@ you can return more than one object.
 
 For example,
 we can have a function to obtain the first
-and last name for a determinated person,
+and last name for a determined person,
 so we will program that as following:
 
 ::
@@ -152,11 +152,11 @@ The form of the *default parameters* is like a normal assignation,
 it means `parameter=expression`.
 
 If a parameter has a default value, the argument may be omitted from call,
-substituing the default value.
+substituting the default value.
 
 The *default parameters* are evaluated when the function definition is executed,
 it means only once per script execution, using that value for each call,
-in other words, the *default parameter* is a mutable object, because is modificable
+in other words, the *default parameter* is a mutable object, because is modifiable
 by the user.
 
 To explain the idea of a *default parameter*
@@ -218,14 +218,14 @@ parameters if is needed, like the following example::
 Function special parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The special parameters is the main idea of the use of `*args` and `**kwards`,
-which means variable lenght arguments lists arguments.
+The special parameters is the main idea of the use of `*args` and `**kwargs`,
+which means variable length arguments lists arguments.
 
 The syntax of these special arguments, is used to pass variable number of arguments in a function,
-the first case, `*args` is widely used to pass a non-keyworded variable lenght argument list,
-and the second case, `**kwards` is used to pass a keyworded variable lenght argument list.
+the first case, `*args` is widely used to pass a non-keyworded variable length argument list,
+and the second case, `**kwargs` is used to pass a keyworded variable length argument list.
 
-In other words, the structure of these differente special parameters is as follow:
+In other words, the structure of these different special parameters is as follow:
 
 * `*args`, simple multiple parameters::
 
@@ -260,13 +260,13 @@ In other words, the structure of these differente special parameters is as follo
   It means, that the `args` variable is a tuple.
 
 
-* `**kwards`, argument with a name:: 
+* `**kwargs`, argument with a name:: 
 
-    >>> def f(**kwards):
-    ...   for i in kwards:
+    >>> def f(**kwargs):
+    ...   for i in kwargs:
     ...     print i,
     ...   print '...'
-    ...   for j in kwards.values():
+    ...   for j in kwargs.values():
     ...     print j,
     ... 
     >>> f(a='hello',tmp='world',number=42)
@@ -278,10 +278,10 @@ In other words, the structure of these differente special parameters is as follo
     number ...
     10
 
-  And if you want to know the `kwards` data type::
+  And if you want to know the `kwargs` data type::
 
-    >>> def f(**kwards):
-    ...   print kwards
+    >>> def f(**kwargs):
+    ...   print kwargs
     ... 
     >>> f(a='hello', b = 45)
     {'a': 'hello', 'b': 45}
@@ -289,16 +289,16 @@ In other words, the structure of these differente special parameters is as follo
     {'a': 'hello', 'tmp': {'i': 'bye', 'j': 'thanks'}, 'b': 45}
     >>> 
 
-  It means, that the `kwards` variable is a dictionary.
+  It means, that the `kwargs` variable is a dictionary.
 
 
-But, this special arguments are not exclusive, you can use both, indeed,
-with another normal arguments::
+  But, this special arguments are not exclusive, you can use both, indeed,
+  with another normal arguments::
 
-    >>> def f(arg0,*args,**kwards):
+    >>> def f(arg0,*args,**kwargs):
     ...   print arg0
     ...   print args
-    ...   print kwards
+    ...   print kwargs
     ... 
     >>> f(42)
     42
@@ -329,7 +329,7 @@ with another normal arguments::
 
 
   There are another way to use this *special parameters*,
-  passing the `*args` and/or `**kwards` as a parameter
+  passing the `*args` and/or `**kwargs` as a parameter
   when the function is called.
 
   Lets see the following example::
@@ -355,5 +355,9 @@ with another normal arguments::
     42
     100
 
-Excercises
+Exercises
 ~~~~~~~~~~
+
+* PENDING
+* PENDING
+* PENDING
