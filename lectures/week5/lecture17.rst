@@ -141,96 +141,219 @@ like a list, for example:
    IndexError: tuple index out of range
 
 
-Returning functions
-~~~~~~~~~~~~~~~~~~~
-
-
-
 Default parameters
 ~~~~~~~~~~~~~~~~~~
 
-When one or more top-level parameters have the form parameter = expression, the function is said to have “default parameter values.” For a parameter with a default value, the corresponding argument may be omitted from a call, in which case the parameter’s default value is substituted. If a parameter has a default value, all following parameters must also have a default value — this is a syntactic restriction that is not expressed by the grammar.
+In some cases, a function parameter is not necessary
+or in some cases is required special statements for initialization
+or a different treatment.
 
-Default parameter values are evaluated when the function definition is executed. This means that the expression is evaluated once, when the function is defined, and that that same “pre-computed” value is used for each call. This is especially important to understand when a default parameter is a mutable object, such as a list or a dictionary: if the function modifies the object (e.g. by appending an item to a list), the default value is in effect modified. This is generally not what was intended. A way around this is to use None as the default, and explicitly test for it in the body of the function, e.g.:
+The form of the *default parameters* is like a normal assignation,
+it means `parameter=expression`.
 
-def whats_on_the_telly(penguin=None):
-    if penguin is None:
-        penguin = []
-    penguin.append("property of the zoo")
-    return penguin
+If a parameter has a default value, the argument may be omitted from call,
+substituing the default value.
 
-Function call semantics are described in more detail in section Calls. A function call always assigns values to all parameters mentioned in the parameter list, either from position arguments, from keyword arguments, or from default values. If the form “*identifier” is present, it is initialized to a tuple receiving any excess positional parameters, defaulting to the empty tuple. If the form “**identifier” is present, it is initialized to a new dictionary receiving any excess keyword arguments, defaulting to a new empty dictionary.
+The *default parameters* are evaluated when the function definition is executed,
+it means only once per script execution, using that value for each call,
+in other words, the *default parameter* is a mutable object, because is modificable
+by the user.
 
-It is also possible to create anonymous functions (functions not bound to a name), for immediate use in expressions. This uses lambda forms, described in section Lambdas. Note that the lambda form is merely a shorthand for a simplified function definition; a function defined in a “def” statement can be passed around or assigned to another name just like a function defined by a lambda form. The “def” form is actually more powerful since it allows the execution of multiple statements.
+To explain the idea of a *default parameter*
+look the following example::
 
-Programmer’s note: Functions are first-class objects. A “def” form executed inside a function definition defines a local function that can be returned or passed around. Free variables used in the nested function can access the local variables of the function containing the def. See section Naming and binding for details.
+    >>> def example(var=None):
+    ...   if var is None:
+    ...     print 'ok, the variable is None'
+    ...   else:
+    ...     print 'the value of var is',var
+    ... 
+    >>> example()
+    ok, the variable is None
+    >>> example(var=10)
+    the value of var is 10
+    >>> example(var=None)
+    ok, the variable is None
+    >>> example(var='test')
+    the value of var is test
+    >>> var2 = 'hello'
+    >>> example(var2)
+    the value of var is hello
 
 
-def f(a=[])
-def f(a, b=2)
 
+The *default parameters* can also be used by any data type,
+for example::
 
+    >>> def f(a,b=2):
+    ...   print a,b
+    ... 
+    >>> f(1)
+    1 2
+    >>> f('a')
+    a 2
+    >>> f('a',1)
+    a 1
+    >>> f('a','b')
+    a b
+
+Finally, you can also use the *default parameter* to store
+parameters if is needed, like the following example::
+
+    >>> def f(a=[]):
+    ...  a.append(1)
+    ...  return a
+    ... 
+    >>> f()
+    [1]
+    >>> f()
+    [1, 1]
+    >>> f()
+    [1, 1, 1]
+    >>> f([])
+    [1]
+    >>> f([2,3])
+    [2, 3, 1]
 
 Function special parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-def f(a,b, *args)	
-def f(a, b, **kwards)
+The special parameters is the main idea of the use of `*args` and `**kwards`,
+which means variable lenght arguments lists arguments.
 
-How to use *args and **kwargs in Python
-Date: 2008-01-03  |   Modified: 2010-03-15  |   Tags: python   |   63 Comments
-Or, How to use variable length argument lists in Python.
+The syntax of these special arguments, is used to pass variable number of arguments in a function,
+the first case, `*args` is widely used to pass a non-keyworded variable lenght argument list,
+and the second case, `**kwards` is used to pass a keyworded variable lenght argument list.
 
-The special syntax, *args and **kwargs in function definitions is used to pass a variable number of arguments to a function. The single asterisk form (*args) is used to pass a non-keyworded, variable-length argument list, and the double asterisk form is used to pass a keyworded, variable-length argument list. Here is an example of how to use the non-keyworded form. This example passes one formal (positional) argument, and two more variable length arguments.
+In other words, the structure of these differente special parameters is as follow:
 
-def test_var_args(farg, *args):
-    print "formal arg:", farg
-    for arg in args:
-        print "another arg:", arg
+* `*args`, simple multiple parameters::
 
-test_var_args(1, "two", 3)
-Results:
+    >>> def f(*args):
+    ...   for i in args:
+    ...     print 'argument:',i
+    ... 
+    >>> f()
+    >>> f(23)
+    argument: 23
+    >>> f(23,'hello')
+    argument: 23
+    argument: hello
+    >>> f(23,'hello',[1,2,3])
+    argument: 23
+    argument: hello
+    argument: [1, 2, 3]
+    >>> f(23,'hello',[1,2,3], set(['red','blue']))
+    argument: 23
+    argument: hello
+    argument: [1, 2, 3]
+    argument: set(['blue', 'red'])
 
-formal arg: 1
-another arg: two
-another arg: 3
+  And if you want to know the `args` data type::
 
-Here is an example of how to use the keyworded form. Again, one formal argument and two keyworded variable arguments are passed.
+    >>> def f(*args):
+    ...   print args
+    ... 
+    >>> f(1,[2,3],set(['hello','world']))
+    (1, [2, 3], set(['world', 'hello']))
 
-def test_var_kwargs(farg, **kwargs):
-    print "formal arg:", farg
-    for key in kwargs:
-        print "another keyword arg: %s: %s" % (key, kwargs[key])
+  It means, that the `args` variable is a tuple.
 
-test_var_kwargs(farg=1, myarg2="two", myarg3=3)
-Results:
 
-formal arg: 1
-another keyword arg: myarg2: two
-another keyword arg: myarg3: 3
+* `**kwards`, argument with a name:: 
 
-Using *args and **kwargs when calling a function
-This special syntax can be used, not only in function definitions, but also when calling a function.
+    >>> def f(**kwards):
+    ...   for i in kwards:
+    ...     print i,
+    ...   print '...'
+    ...   for j in kwards.values():
+    ...     print j,
+    ... 
+    >>> f(a='hello',tmp='world',number=42)
+    a tmp number ...
+    hello world 42
+    >>> f()
+    ...
+    >>> f(number=10)
+    number ...
+    10
 
-def test_var_args_call(arg1, arg2, arg3):
-    print "arg1:", arg1
-    print "arg2:", arg2
-    print "arg3:", arg3
+  And if you want to know the `kwards` data type::
 
-args = ("two", 3)
-test_var_args_call(1, *args)
-Results:
+    >>> def f(**kwards):
+    ...   print kwards
+    ... 
+    >>> f(a='hello', b = 45)
+    {'a': 'hello', 'b': 45}
+    >>> f(a='hello', b = 45, tmp = {'i':'bye','j':'thanks'})
+    {'a': 'hello', 'tmp': {'i': 'bye', 'j': 'thanks'}, 'b': 45}
+    >>> 
 
-arg1: 1
-arg2: two
-arg3: 3
-Here is an example using the keyworded form when calling a function:
+  It means, that the `kwards` variable is a dictionary.
 
-def test_var_args_call(arg1, arg2, arg3):
-    print "arg1:", arg1
-    print "arg2:", arg2
-    print "arg3:", arg3
 
-kwargs = {"arg3": 3, "arg2": "two"}
-test_var_args_call(1, **kwargs)
-Results:
+But, this special arguments are not exclusive, you can use both, indeed,
+with another normal arguments::
+
+    >>> def f(arg0,*args,**kwards):
+    ...   print arg0
+    ...   print args
+    ...   print kwards
+    ... 
+    >>> f(42)
+    42
+    ()
+    {}
+    >>> f(42,[1,2])
+    42
+    ([1, 2],)
+    {}
+    >>> f(42,[1,2],'hello')
+    42
+    ([1, 2], 'hello')
+    {}
+    >>> f(42,[1,2],'hello',tmp=(0,0))
+    42
+    ([1, 2], 'hello')
+    {'tmp': (0, 0)}
+    >>> f(42,[1,2],'hello',tmp=(0,0),var={'foo':'bar'})
+    42
+    ([1, 2], 'hello')
+    {'tmp': (0, 0), 'var': {'foo': 'bar'}}
+
+  Be careful with the argument order!::
+
+    >>> f(42,[1,2],var='bye','hello',tmp=(0,0))
+      File "<stdin>", line 1
+    SyntaxError: non-keyword arg after keyword arg
+
+
+  There are another way to use this *special parameters*,
+  passing the `*args` and/or `**kwards` as a parameter
+  when the function is called.
+
+  Lets see the following example::
+
+    >>> def f(arg0,arg1):
+    ...   print arg0
+    ...   print arg1
+    ... 
+    >>> args = ('hello',42)
+    >>> f(*args)
+    hello
+    42
+
+
+  The same idea works with a keyworded parameter::
+
+    >>> def f(arg0,arg1):
+    ...   print arg0
+    ...   print arg1
+    ... 
+    >>> kwargs = {'arg0': 42, 'arg1': 100}
+    >>> f(**kwargs)
+    42
+    100
+
+Excercises
+~~~~~~~~~~
