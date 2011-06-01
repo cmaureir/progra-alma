@@ -202,109 +202,116 @@ we can easily do this simple task with the `map` function::
 `reduce()` function
 ~~~~~~~~~~~~~~~~~~~~
 
-.. reduce(function, iterable[, initializer])
-.. Apply function of two arguments cumulatively to the items of iterable, from left to right, so as to reduce the iterable to a single value. For example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5). The left argument, x, is the accumulated value and the right argument, y, is the update value from the iterable. If the optional initializer is present, it is placed before the items of the iterable in the calculation, and serves as a default when the iterable is empty. If initializer is not given and iterable contains only one item, the first item is returned.
-.. 
-.. reduce(function, sequence) returns a single value constructed by calling the binary function function on the first two items of the sequence, then on the result and the next item, and so on. For example, to compute the sum of the numbers 1 through 10:
-.. 
-.. >>> def add(x,y): return x+y
-.. ...
-.. >>> reduce(add, range(1, 11))
-.. 55
-.. If there’s only one item in the sequence, its value is returned; if the sequence is empty, an exception is raised.
-.. 
-.. A third argument can be passed to indicate the starting value. In this case the starting value is returned for an empty sequence, and the function is first applied to the starting value and the first sequence item, then to the result and the next item, and so on. For example,
-.. 
-.. >>> def sum(seq):
-.. ...     def add(x,y): return x+y
-.. ...     return reduce(add, seq, 0)
-.. ...
-.. >>> sum(range(1, 11))
-.. 55
-.. >>> sum([])
-.. 0
-.. Don’t use this example’s definition of sum(): since summing numbers is such a common need, a built-in function sum(sequence) is already provided, and works exactly like this.
-.. 
-.. 
-.. 
-.. 
-.. 
-.. The reduce is in the functools in Python 3.0. It is more complex. It accepts an iterator to process, but it's not an iterator itself. It returns a single result:
-.. 
-.. >>> 
-.. >>> from functools import reduce
-.. >>> reduce( (lambda x, y: x * y), [1, 2, 3, 4] )
-.. 24
-.. >>> reduce( (lambda x, y: x / y), [1, 2, 3, 4] )
-.. 0.041666666666666664
-.. >>> 
-.. At each step, reduce passes the current product or division, along with the next item from the list, to the passed-in lambda function. By default, the first item in the sequence initialized the starting value. Here's the for loop version of the first of these calls, with the multiplication hardcoded inside the loop:
-.. 
-.. >>> L = [1, 2, 3, 4]
-.. >>> result = L[0]
-.. >>> for x in L[1:]:
-.. 	result = result * x
-.. 
-.. 	
-.. >>> result
-.. 24
-.. >>> 
-.. Let's make our own version of reduce.
-.. 
-.. >>> def myreduce(fnc, seq):
-.. 	tally = seq[0]
-.. 	for next in seq[1:]:
-.. 		tally = fnc(tally, next)
-.. 	return tally
-.. 
-.. >>> myreduce( (lambda x, y: x * y), [1, 2, 3, 4])
-.. 24
-.. >>> myreduce( (lambda x, y: x / y), [1, 2, 3, 4])
-.. 0.041666666666666664
-.. >>> 
-.. The built-in reduce also allows an optional third argument placed before the items in the sequence to serve as a default result when the sequence is empty.
+The `reduce` struct is::
 
+    reduce(function, iterable[, initializer])
+
+This function give the possibility to apply a function of two arguments to the items of the iterable,
+to obtain a final single value.
+
+The evaluation of the function is from left to right,
+taking the given elements,
+
+for example if we want to substract a list of numbers,
+like ``9,4,3,2``, the internal behaviour of the `reduce` function
+will be::
+
+    (((9-4)-3)-2) = 0
+
+which is different result, in comparison to the substraction
+of the list ``2,3,4,9``::
+
+    (((2-3)-4)-9) = -14
+
+So, coding will be::
+
+    >>> def subs(x,y):
+    ...   return x - y
+    ... 
+    >>> reduce(subs,[9,4,3,2])
+    0
+    >>> reduce(subs,[2,3,4,9])
+    -14
+
+
+If there is an optional initializer,
+it is placed before the items of the iterable in the calculation,
+and give us a default result if the iterable is empty.
+
+Another simple example, will be reduce a list of numbers
+between 5 and 20, using a sum::
+
+    >>> def add(x,y):
+    ...   return x + y
+    ... 
+    >>> reduce(add, range(5,21))
+    200
+
+If there is only one item in the iterable sequence, its value
+is returned::
+
+    >>> reduce(add, [1])
+    1
+
+If the iterable sequence is empty,
+an exception is raised.::
+
+    >>> reduce(add, [])
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: reduce() of empty sequence with no initial value
+
+As we say previously, the initializer is a kind of safe-status
+to avoid some weird behaviour, or just a default value to prevent
+an exception::
+
+    >>> def my_sum(seq):
+    ...     return reduce(add, seq, 0)
+    ...
+    >>> my_sum(range(1, 11))
+    55
+    >>> my_sum([])
+    0
 
 `filter()` function
 ~~~~~~~~~~~~~~~~~~~~
-.. 
-.. filter(function, iterable)
-.. Construct a list from those elements of iterable for which function returns true. iterable may be either a sequence, a container which supports iteration, or an iterator. If iterable is a string or a tuple, the result also has that type; otherwise it is always a list. If function is None, the identity function is assumed, that is, all elements of iterable that are false are removed.
-.. 
-.. Note that filter(function, iterable) is equivalent to [item for item in iterable if function(item)] if function is not None and [item for item in iterable if item] if function is None.
-.. 
-.. See itertools.ifilter() and itertools.ifilterfalse() for iterator versions of this function, including a variation that filters for elements where the function returns false.
-.. 
-.. 
-.. 
-.. 
-.. filter(function, sequence) returns a sequence consisting of those items from the sequence for which function(item) is true. If sequence is a string or tuple, the result will be of the same type; otherwise, it is always a list. For example, to compute primes up to 25:
-.. 
-.. >>> def f(x): return x % 2 != 0 and x % 3 != 0
-.. ...
-.. >>> filter(f, range(2, 25))
-.. [5, 7, 11, 13, 17, 19, 23]
-.. 
-.. 
-.. 
-.. 
-.. As an example, the following filter call picks out items in a sequence that are less than zero:
-.. 
-.. >>> list(range(-5,5))
-.. [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]
-.. >>>
-.. >>> list( filter((lambda x: x < 0), range(-5,5)))
-.. [-5, -4, -3, -2, -1]
-.. >>> 
-.. Items in the sequence or iterable for which the function returns a true, the result are added to the result list. Like map, this function is roughly equivalent to a for loop, but it is built-in and fast:
-.. 
-.. >>> 
-.. >>> result = []
-.. >>> for x in range(-5, 5):
-.. 	if x < 0:
-.. 		result.append(x)
-.. 
-.. 		
-.. >>> result
-.. [-5, -4, -3, -2, -1]
-.. >>> 
+
+The `filter` structure is::
+
+    filter(function, iterable)
+
+The main idea of the `filter` is to construct a list from an initial ``iterable``
+but only with the elements which satisfied a condition inside the ``function``.
+
+If the iterable have a special data type,
+like `string` or `tuple` the result also has that type.
+
+Another case is when the iterable is `None`,
+assuming an indentity function,
+all the elements of the iterable which are false are removed.
+
+Remembering the *list comprehension* we can note two situations:
+
+* ``filter(function, iterable)`` is equivalent to :
+
+ * ``[item for item in iterable if function(item)]`` if function is `not` None, and
+ * ``[item for item in iterable if item]`` if function is None.
+
+
+For example,
+if we need to determine the primes up to 20::
+
+    >>> def primes(x):
+    ...   return x % 2 != 0 and x % 3 != 0
+    ...
+    >>> filter(primes, range(0, 21))
+    [5, 7, 11, 13, 17, 19]
+    >>> [x for x in range(0, 21) if primes(x)]
+    [1, 5, 7, 11, 13, 17, 19]
+
+Exercises
+~~~~~~~~~
+
+* PENDING
+* PENDING
+* PENDING
