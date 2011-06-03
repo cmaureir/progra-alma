@@ -97,21 +97,9 @@ Example::
 
 * `sorted()` function.
 
-.. 
-.. sorted(iterable[, cmp[, key[, reverse]]])
-.. Return a new sorted list from the items in iterable.
-.. 
-.. The optional arguments cmp, key, and reverse have the same meaning as those for the list.sort() method (described in section Mutable Sequence Types).
-.. 
-.. cmp specifies a custom comparison function of two arguments (iterable elements) which should return a negative, zero or positive number depending on whether the first argument is considered smaller than, equal to, or larger than the second argument: cmp=lambda x,y: cmp(x.lower(), y.lower()). The default value is None.
-.. 
-.. key specifies a function of one argument that is used to extract a comparison key from each list element: key=str.lower. The default value is None (compare the elements directly).
-.. 
-.. reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.
-.. 
-.. In general, the key and reverse conversion processes are much faster than specifying an equivalent cmp function. This is because cmp is called multiple times for each list element while key and reverse touch each element only once. Use functools.cmp_to_key() to convert an old-style cmp function to a key function.
-.. 
-.. For sorting examples and a brief sorting tutorial, see Sorting HowTo.
+This is a very simple function,
+and the main idea is to sort any element given as parameter,
+returning a sorted list.
 
 We can sort a simple list::
 
@@ -123,22 +111,57 @@ And, we can sort a dictionary by the keys::
     >>> sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'})
     [1, 2, 3, 4, 5]
 
-Also, we can use the `sorted()` function to sort words
-in a certain phrase. The strings data types has a method
-called `split()`, which without parameters split a string
-by the empty-spaces, for example::
 
-    >>> "hello world!".split()
-    ['hello', 'world!']
+You can include two optionals parameters, the `cmp`, `key` and `reverse`
+which specifies the following characteristics:
 
-The string data types also has another method called `upper()`
-which allow to change the *case* of a entire string.
+ * `cmp`: specify a custom comparison function, but with only two arguments,
+   which return a negative, positive or zero number depending on the evaluation
+   case. (condiering if the first argument is smaller than the second)
+ * `key`: specify a function, with one argument, using to extract a comparison key.
+ * `reverse`: specify a boolean value, which when is true, the comparison will be
+   performed reversed.
 
-So, we can use the same idea to sort some words::
+A couple of examples of the previous arguments are:
 
-    >>> sorted("Hello world python course!".split(), key=str.upper)
-    ['course!', 'Hello', 'python', 'world']
+ * Using the `cmp` parameter::
 
+     >>> def compare(i,j):
+     ...   return i - j
+     ... 
+     >>> sorted([4,5,1,10],cmp=compare)
+     [1, 4, 5, 10]
+     >>> def compare(i,j):
+     ...   return j - i
+     ... 
+     >>> sorted([4,5,1,10],cmp=compare)
+     [10, 5, 4, 1]
+
+ * Using the `key` parameter:
+
+   Also, we can use the `sorted()` function to sort words
+   in a certain phrase. The strings data types has a method
+   called `split()`, which without parameters split a string
+   by the empty-spaces, for example::
+   
+       >>> "hello world!".split()
+       ['hello', 'world!']
+   
+   The string data types also has another method called `upper()`
+   which allow to change the *case* of a entire string.
+   
+   So, we can use the same idea to sort some words::
+   
+       >>> sorted("Hello world python course!".split(), key=str.upper)
+       ['course!', 'Hello', 'python', 'world']
+
+
+ * Using the `reverse` parameter::
+
+       >>> sorted([4,5,1,10])
+       [1, 4, 5, 10]
+       >>> sorted([4,5,1,10],reverse=True)
+       [10, 5, 4, 1]
 
 * `enumerated()` function
 
