@@ -62,110 +62,109 @@ methods which should be good to familiarized.
 
 * `zip()` function
 
-This  function returns a list of tuples,
-taking one-by-one of each iterable given as parameter.
-
-If the sequence of iterables has differente lengths,
-the `zip()` function truncate the lenght to the shortest one.
-
-Using the `*` operator inside the iterable,
-is possible to perform a kind of `unzip` function
-over a list.
-
-Example::
-
-    >>> firstnames = ['john','marie','homer']
-    >>> lastnames = ['smith','curie','simpsons']
-    >>> zipped = zip(firstnames,lastnames)
-    >>> zipped
-    [('john', 'smith'), ('marie', 'curie'), ('homer', 'simpsons')]
-    >>> for i in zipped:
-    ...   print i
-    ... 
-    ('john', 'smith')
-    ('marie', 'curie')
-    ('homer', 'simpsons')
-    >>> fnames , lnames = zip(*zipped)
-    >>> fnames
-    ('john', 'marie', 'homer')
-    >>> firstnames
-    ['john', 'marie', 'homer']
-    >>> lnames == lastnames
-    False
-    >>> list(lnames) == lastnames
-    True
+  This  function returns a list of tuples,
+  taking one-by-one of each iterable given as parameter.
+  
+  If the sequence of iterables has differente lengths,
+  the `zip()` function truncate the lenght to the shortest one.
+  
+  Using the `*` operator inside the iterable,
+  is possible to perform a kind of `unzip` function
+  over a list.
+  
+  Example::
+  
+      >>> firstnames = ['john','marie','homer']
+      >>> lastnames = ['smith','curie','simpsons']
+      >>> zipped = zip(firstnames,lastnames)
+      >>> zipped
+      [('john', 'smith'), ('marie', 'curie'), ('homer', 'simpsons')]
+      >>> for i in zipped:
+      ...   print i
+      ... 
+      ('john', 'smith')
+      ('marie', 'curie')
+      ('homer', 'simpsons')
+      >>> fnames , lnames = zip(*zipped)
+      >>> fnames
+      ('john', 'marie', 'homer')
+      >>> firstnames
+      ['john', 'marie', 'homer']
+      >>> lnames == lastnames
+      False
+      >>> list(lnames) == lastnames
+      True
 
 * `sorted()` function.
 
-This is a very simple function,
-and the main idea is to sort any element given as parameter,
-returning a sorted list.
-
-We can sort a simple list::
-
-    >>> sorted([5, 2, 3, 1, 4])
-    [1, 2, 3, 4, 5]
-
-And, we can sort a dictionary by the keys::
-
-    >>> sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'})
-    [1, 2, 3, 4, 5]
-
-
-You can include two optionals parameters, the `cmp`, `key` and `reverse`
-which specifies the following characteristics:
-
- * `cmp`: specify a custom comparison function, but with only two arguments,
-   which return a negative, positive or zero number depending on the evaluation
-   case. (condiering if the first argument is smaller than the second)
- * `key`: specify a function, with one argument, using to extract a comparison key.
- * `reverse`: specify a boolean value, which when is true, the comparison will be
-   performed reversed.
-
-A couple of examples of the previous arguments are:
-
- * Using the `cmp` parameter::
-
-     >>> def compare(i,j):
-     ...   return i - j
-     ... 
-     >>> sorted([4,5,1,10],cmp=compare)
-     [1, 4, 5, 10]
-     >>> def compare(i,j):
-     ...   return j - i
-     ... 
-     >>> sorted([4,5,1,10],cmp=compare)
-     [10, 5, 4, 1]
-
- * Using the `key` parameter:
-
-   Also, we can use the `sorted()` function to sort words
-   in a certain phrase. The strings data types has a method
-   called `split()`, which without parameters split a string
-   by the empty-spaces, for example::
-   
-       >>> "hello world!".split()
-       ['hello', 'world!']
-   
-   The string data types also has another method called `upper()`
-   which allow to change the *case* of a entire string.
-   
-   So, we can use the same idea to sort some words::
-   
-       >>> sorted("Hello world python course!".split(), key=str.upper)
-       ['course!', 'Hello', 'python', 'world']
-
-
- * Using the `reverse` parameter::
-
-       >>> sorted([4,5,1,10])
+  This is a very simple function,
+  and the main idea is to sort any element given as parameter,
+  returning a sorted list.
+  
+  We can sort a simple list::
+  
+      >>> sorted([5, 2, 3, 1, 4])
+      [1, 2, 3, 4, 5]
+  
+  And, we can sort a dictionary by the keys::
+  
+      >>> sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'})
+      [1, 2, 3, 4, 5]
+  
+  
+  You can include two optionals parameters, the `cmp`, `key` and `reverse`
+  which specifies the following characteristics:
+  
+   * `cmp`: specify a custom comparison function, but with only two arguments,
+     which return a negative, positive or zero number depending on the evaluation
+     case. (condiering if the first argument is smaller than the second)
+   * `key`: specify a function, with one argument, using to extract a comparison key.
+   * `reverse`: specify a boolean value, which when is true, the comparison will be
+     performed reversed.
+  
+  A couple of examples of the previous arguments are:
+  
+   * Using the `cmp` parameter::
+  
+       >>> def compare(i,j):
+       ...   return i - j
+       ... 
+       >>> sorted([4,5,1,10],cmp=compare)
        [1, 4, 5, 10]
-       >>> sorted([4,5,1,10],reverse=True)
+       >>> def compare(i,j):
+       ...   return j - i
+       ... 
+       >>> sorted([4,5,1,10],cmp=compare)
        [10, 5, 4, 1]
+  
+   * Using the `key` parameter:
+  
+     Also, we can use the `sorted()` function to sort words
+     in a certain phrase. The strings data types has a method
+     called `split()`, which without parameters split a string
+     by the empty-spaces, for example::
+     
+         >>> "hello world!".split()
+         ['hello', 'world!']
+     
+     The string data types also has another method called `upper()`
+     which allow to change the *case* of a entire string.
+     
+     So, we can use the same idea to sort some words::
+     
+         >>> sorted("Hello world python course!".split(), key=str.upper)
+         ['course!', 'Hello', 'python', 'world']
+  
+  
+   * Using the `reverse` parameter::
+  
+         >>> sorted([4,5,1,10])
+         [1, 4, 5, 10]
+         >>> sorted([4,5,1,10],reverse=True)
+         [10, 5, 4, 1]
 
 * `enumerated()` function
 
-.. 
 .. enumerate(sequence[, start=0])¶
 .. Return an enumerate object. sequence must be a sequence, an iterator, or some other object which supports iteration. The next() method of the iterator returned by enumerate() returns a tuple containing a count (from start which defaults to 0) and the corresponding value obtained from iterating over iterable. enumerate() is useful for obtaining an indexed series: (0, seq[0]), (1, seq[1]), (2, seq[2]), .... For example:
 .. 
@@ -175,18 +174,11 @@ A couple of examples of the previous arguments are:
 .. 1 Summer
 .. 2 Fall
 .. 3 Winter
-.. 
-.. 
 
 * `reversed()` function
 
-
-.. 
 .. reversed(seq)¶
 .. Return a reverse iterator. seq must be an object which has a __reversed__() method or supports the sequence protocol (the __len__() method and the __getitem__() method with integer arguments starting at 0).
-.. 
-.. 
-..
 
 To loop over a sequence in reverse, first specify the sequence in a forward direction and then call the reversed() function.
 
