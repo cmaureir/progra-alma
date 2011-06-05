@@ -292,6 +292,9 @@ div.versioninfo {
     font-size: 0.9em;
 }
 
+.red {
+	color: red;
+}
 
 @media print {
     #disqus_thread {
