@@ -2,7 +2,7 @@ Lecture 20 - Coding good practices
 -----------------------------------
 
 In every programming language (fortran, Java, C/C++, Perl, etc)
-there are some proposed normatives by the languages creators,
+there are some proposed normative by the languages creators,
 or actual maintainers, which are a good advise to new programmers
 or for people who want to improve their code.
 
@@ -12,13 +12,13 @@ send your code to some institution related with you selected programming languag
 For example, the developers of the python modules
 *must* achieve this norms.
 
-For this course, the only important idea is to tell you `how can be written` but 
+For this course, the only important idea is to tell you ``how can be written`` but 
 there will be ``not`` a normative, this is only for educational purpose.
 
 
 The following material are some ideas extracted from
 the official `Style Guide for Python Code`_ which is a adaptation from
-the original Python Style Guide Essay writted by the Python's creator,
+the original Python Style Guide Essay written by the Python's creator,
 `Guido van Rossum`_.
 
 .. _`Style Guide for Python Code`: http://www.python.org/dev/peps/pep-0008/
@@ -26,19 +26,19 @@ the original Python Style Guide Essay writted by the Python's creator,
 
 .. if __main__ = __name__:
 
-Do not worry if you see sme ``class`` or ``method`` reference,
+Do not worry if you see some ``class`` or ``method`` reference,
 because in the next lectures we will deep into the Object Oriented world!.
 
 
 Code lay-out
 ~~~~~~~~~~~~
 
-* Identation
+* **Indentation**
  
-  When you are writing code, and you need to enter into a new identation level,
-  for example, in an ``if`` statement, you must use 4 spaces per each identation
+  When you are writing code, and you need to enter into a new indentation level,
+  for example, in an ``if`` statement, you must use 4 spaces per each indentation
   level.
-    
+ 
   Correct::
   
       if condition:
@@ -85,7 +85,7 @@ Code lay-out
         var_one, var_two, var_three,
         var_four) 
  
-* Tabs or Spaces?
+* **Tabs or Spaces?**
 
   Is very important to note that the programmer will never mix tabs and spaces.
 
@@ -94,13 +94,13 @@ Code lay-out
 
   So, you can choose.
 
-* Maximum Line lenght
+* **Maximum Line length**
 
   The programmer must limit all lines to a maximum of 79 characters.
-  (there are severals plugins for text editors to do this, do not think
+  (there are several plugins for text editors to do this, do not think
   that you must count every character!) 
 
-* Blank Lines
+* **Blank Lines**
 
   You must use blank lines in different times:
   
@@ -111,7 +111,7 @@ Code lay-out
 Imports
 ~~~~~~~
 
-* Separate lines
+* **Separate lines**
 
   In several scripts you need to import more than one Python module,
   so, What is the correct way to do this?
@@ -131,7 +131,7 @@ Imports
       from subprocess import Popen, PIPE
 
 
-* Top of the file
+* **Top of the file**
 
   The module import of any script must be at the top of the file,
   does not matter where do you use it in your code,
@@ -160,7 +160,7 @@ Imports
 Whitespace in Expressions and Statements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Avoiding whitespace
+* **Avoiding whitespace**
 
   Is important to avoid the unnecessary whitespaces in your code,
   in the following situations:
@@ -221,7 +221,7 @@ Whitespace in Expressions and Statements
 
 
 
-* Other recomendations
+* **Other recommendations**
 
   Another situations when you must be careful, are the following:
 
@@ -299,12 +299,12 @@ Comments
 ~~~~~~~~
 
 The comments are the main component of a code,
-to understant the programmer thought,
+to understand the programmer thought,
 so is very important to keep it simple and updated.
 
 There are two types of comments:
 
-* Block comments
+* **Block comments**
 
   Block comments generally apply to some (or all) code that follows them,
   and are indented to the same level as that code.
@@ -317,12 +317,12 @@ There are two types of comments:
 
   For example::
 
-      # This is my comment firts line
+      # This is my comment first line
       # and this is the second line.
       # 
       # This is a new paragraph.
 
-* Inline comments
+* **Inline comments**
 
   Is fundamental to use inline comments sparingly.
 
@@ -410,7 +410,7 @@ like a gold rule, but there is a lot of recommendations.
 It does not matter what style you use, the important
 thing is that you must be consistent.
 
-* Descriptive: Naming Styles
+* **Descriptive:** *Naming Styles*
 
   The following naming styles are commonly distinguished:
 
@@ -429,47 +429,48 @@ thing is that you must be consistent.
   underscores are recognized (these can generally be combined with any case
   convention):
 
-  * `_single_leading_underscore`: weak "internal use" indicator.
-  * `single_trailing_underscore_`: used by convention to avoid conflicts with
+  * ``_single_leading_underscore``: weak "internal use" indicator.
+  * ``single_trailing_underscore_``: used by convention to avoid conflicts with
     Python keyword, for example ``class`` is protected, so we will use ``class_``
-  * `__double_leading_and_trailing_underscore__`: attributes that live in user-controlled namespaces.
+  * ``__double_leading_and_trailing_underscore__``: attributes that live in user-controlled namespaces.
 
   .. _`CamelCase`: http://en.wikipedia.org/wiki/CamelCase
 
-* Prescriptive
+* **Prescriptive**
 
-  * Names to avoid
+  * **Names to avoid**
 
     Never use the characters which are indistinguishable,
     from the numerals one and zero, or if are used for another things.
+
     * `l` (lowercase letter el),
     *  `O` (uppercase letter oh),
     * `I` (uppercase letter eye)
 
-  * Module names
+  * **Module names**
 
     Modules should have short, all-lowercase names.
     Underscores can be used only if it improves readability.
 
-  * Class names
+  * **Class names**
 
     Almost without exception, class names use the CapWords convention.
     Classes for internal use have a leading underscore in addition.
 
-  * Global variable names
+  * **Global variable names**
 
     The conventions are about the same as those for functions.
 
-  * Functions names
+  * **Functions names**
 
     Function names should be lowercase, with words separated by underscores
     as necessary to improve readability.
 
-  * Method arguments
+  * **Method arguments**
 
     Always use 'self' for the first argument to instance methods.
 
-  * Constants
+  * **Constants**
 
     Constants are usually defined on a module level and written in all
     capital letters with underscores separating words, for example::

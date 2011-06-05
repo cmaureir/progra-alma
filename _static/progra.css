@@ -296,8 +296,13 @@ div.versioninfo {
 	color: red;
 }
 
+.green {
+	color: green
+}
+
 @media print {
     #disqus_thread {
         display: none;
     }
 }
+
