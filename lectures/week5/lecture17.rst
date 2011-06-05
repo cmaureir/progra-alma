@@ -1,18 +1,18 @@
 Lecture 17 - Advanced topics on functions
 ------------------------------------------
 
-When you read the lecture about the function,
-maybe you had some questions about extra functions functionality,
+When you read the lecture about functions,
+maybe you had some questions about the existance of extra function functionalities,
 and the answer is yes.
 
-Functions in Python are a very powerful tool to the programmer,
+Functions in Python are a very powerful tool for the programmer,
 if you learn some extra content.
 
 Returning more than one value
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One important thing to remember,
-is that the Python functions can ``return`` any Python object,
+is that Python functions can ``return`` any Python object,
 so you can return anything.
 
 For example, Lists:
@@ -37,14 +37,14 @@ Tuples:
    def f(var):
       return (var,var*var)
 
-And so,
-but the more important thing is that
+And so forth,
+but the most important thing is that
 you can return more than one object.
 
 For example,
 we can have a function to obtain the first
 and last name for a determined person,
-so we will program that as following:
+so we will usually program that as follows:
 
 ::
    
@@ -65,7 +65,7 @@ But we can do it in only one function:
 
    def get_names():
       first = "John"
-      last ="Smith"
+      last = "Smith"
       return first,last
 
    firstname, lastname = get_names()
@@ -123,7 +123,7 @@ the other values, for example:
    5
 
 
-Finally, you can user the return parameters from a function,
+Finally, you can use the return parameters from a function,
 like a list, for example:
 
 ::
@@ -145,22 +145,22 @@ Default parameters
 ~~~~~~~~~~~~~~~~~~
 
 In some cases, a function parameter is not necessary
-or in some cases is required special statements for initialization
+or in some cases it requires special statements for initialization
 or a different treatment.
 
 The form of the *default parameters* is like a normal assignation,
 it means `parameter=expression`.
 
-If a parameter has a default value, the argument may be omitted from call,
+If a parameter has a default value, the argument may be omitted from a call,
 substituting the default value.
 
 The *default parameters* are evaluated when the function definition is executed,
-it means only once per script execution, using that value for each call,
-in other words, the *default parameter* is a mutable object, because is modifiable
+it means only once per script execution, using that value for each call.
+In other words, the *default parameter* is a mutable object, because it is modifiable
 by the user.
 
 To explain the idea of a *default parameter*
-look the following example::
+look at the following example::
 
     >>> def example(var=None):
     ...   if var is None:
@@ -198,7 +198,7 @@ for example::
     a b
 
 Finally, you can also use the *default parameter* to store
-parameters if is needed, like the following example::
+parameters if needed, like the following example::
 
     >>> def f(a=[]):
     ...  a.append(1)
@@ -219,13 +219,13 @@ Function special parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The special parameters is the main idea of the use of `*args` and `**kwargs`,
-which means variable length arguments lists arguments.
+which means variable length argument lists.
 
 The syntax of these special arguments, is used to pass variable number of arguments in a function,
 the first case, `*args` is widely used to pass a non-keyworded variable length argument list,
 and the second case, `**kwargs` is used to pass a keyworded variable length argument list.
 
-In other words, the structure of these different special parameters is as follow:
+In other words, the structure of these different special parameters is as follows:
 
 * `*args`, simple multiple parameters::
 
@@ -293,7 +293,7 @@ In other words, the structure of these different special parameters is as follow
 
 
   But, this special arguments are not exclusive, you can use both, indeed,
-  with another normal arguments::
+  with additional normal arguments::
 
     >>> def f(arg0,*args,**kwargs):
     ...   print arg0
@@ -328,8 +328,8 @@ In other words, the structure of these different special parameters is as follow
     SyntaxError: non-keyword arg after keyword arg
 
 
-  There are another way to use this *special parameters*,
-  passing the `*args` and/or `**kwargs` as a parameter
+  There is another way to use this *special parameters*,
+  by passing the `*args` and/or `**kwargs` as a parameter
   when the function is called.
 
   Lets see the following example::

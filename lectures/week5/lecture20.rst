@@ -2,23 +2,23 @@ Lecture 20 - Coding good practices
 -----------------------------------
 
 In every programming language (fortran, Java, C/C++, Perl, etc)
-there are some proposed normative by the languages creators,
+there are some proposed normative by the language creators
 or actual maintainers, which are a good advise to new programmers
-or for people who want to improve their code.
+or for people who wants to improve their code.
 
-In the cases which are a very strict normative, is when you want to
-send your code to some institution related with you selected programming language.
+In the cases which have a very strict normative, is when you want to
+send your code to some institution related with your selected programming language.
 
 For example, the developers of the python modules
 *must* achieve this norms.
 
-For this course, the only important idea is to tell you ``how can be written`` but 
+For this course, the only important idea is to tell you ``how should be written`` but 
 there will be ``not`` a normative, this is only for educational purpose.
 
 
 The following material are some ideas extracted from
-the official `Style Guide for Python Code`_ which is a adaptation from
-the original Python Style Guide Essay written by the Python's creator,
+the official `Style Guide for Python Code`_ which is an adaptation from
+the original Python Style Guide Essay written by Python's creator,
 `Guido van Rossum`_.
 
 .. _`Style Guide for Python Code`: http://www.python.org/dev/peps/pep-0008/
@@ -27,7 +27,7 @@ the original Python Style Guide Essay written by the Python's creator,
 .. if __main__ = __name__:
 
 Do not worry if you see some ``class`` or ``method`` reference,
-because in the next lectures we will deep into the Object Oriented world!.
+because in the next lectures we will get deep into the Object Oriented world!.
 
 
 Code lay-out
@@ -35,7 +35,7 @@ Code lay-out
 
 * **Indentation**
  
-  When you are writing code, and you need to enter into a new indentation level,
+  When you are writing code and you need to enter into a new indentation level,
   for example, in an ``if`` statement, you must use 4 spaces per each indentation
   level.
  
@@ -57,10 +57,10 @@ Code lay-out
   etc.
 
   If you have very long lines calling functions, or creating variables, etc,
-  you can user more than one line to do this.
+  you can use more than one line to do this.
 
   There are two ways to write this statements with parenthesis,
-  without lines in the first line, or with some parameters,
+  without parameters in the first line or with some parameters,
   for example.
 
   Correct::
@@ -89,7 +89,7 @@ Code lay-out
 
   Is very important to note that the programmer will never mix tabs and spaces.
 
-  The most popular way to indent Python code is with  spaces only.
+  The most popular way to indent Python code is with spaces only.
   The second popular way, is with tabs.
 
   So, you can choose.
@@ -185,7 +185,7 @@ Whitespace in Expressions and Statements
  
         if x == 4 : print x , y ; x , y = y , x
 
-  * Immediately before the open parenthesis that starts the argument list of a function call:
+  * Immediately before an open parenthesis that starts the argument list of a function call:
 
     Correct::
     
@@ -195,7 +195,7 @@ Whitespace in Expressions and Statements
 
         spam (1)
 
-  * Immediately before the open parenthesis that starts an indexing or slicing:
+  * Immediately before an open parenthesis that starts an indexing or slicing:
 
     Correct::
 
@@ -299,8 +299,8 @@ Comments
 ~~~~~~~~
 
 The comments are the main component of a code,
-to understand the programmer thought,
-so is very important to keep it simple and updated.
+to understand the programmer's thought,
+so it is very important to keep it simple and updated.
 
 There are two types of comments:
 
@@ -346,7 +346,7 @@ Documentation Strings
 ~~~~~~~~~~~~~~~~~~~~~
 
 The documentation process for some programmers
-is a very terrible situation, however is a vital
+is a very terrible situation, however it is a vital
 process, because the first approximation of an external
 person to a programming project is their documentation.
 
@@ -388,7 +388,7 @@ Version bookkeeping
 ~~~~~~~~~~~~~~~~~~~
 
 Some development projects use software version control,
-like SVN, CVS, Git, Bazaar, Mercurial, etc, so is important
+like SVN, CVS, Git, Bazaar, Mercurial, etc, so it is important
 to show the version inside the files.
 
 The properly way to do this is, as follows::
@@ -405,7 +405,7 @@ Naming Conventions
 
 The naming conventions is a very discussed section
 into the standard of Python, so there is now such thing
-like a gold rule, but there is a lot of recommendations.
+like a gold rule, but there are a lot of recommendations.
 
 It does not matter what style you use, the important
 thing is that you must be consistent.

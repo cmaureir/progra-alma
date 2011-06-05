@@ -1,37 +1,37 @@
 Lecture 18 - Higher-order functions
 ------------------------------------
 
-List comprehensions
+List comprehension
 ~~~~~~~~~~~~~~~~~~~
 
 Remembering the *list* chapter,
-we can learn an extra issue about the list iteration
-structure, the list comprehensions.
+we can learn an extra topic about the list iteration
+structure, the list comprehension.
 
 A simple example of this new characteristic can be 
-the following example, prevenient of the official python wiki,
+the following example, prevenient from the official python wiki,
 in a section called `Performance Tips`_.
 
 .. _`Performance Tips`: http://wiki.python.org/moin/PythonSpeed/PerformanceTips 
 
 The main problem is that we have a list called *oldlist*
-containing a lot of word with different cases (upper and lower case),
+containing a lot of words with different cases (upper and lower case),
 so we need to convert that words into only upper case words.
 
-The simple initial solution will be::
+The simple initial solution would be::
 
     newlist = []
     for word in oldlist:
         newlist.append(word.upper())
 
-So, using *list comprehensions*, the code will be::
+So, using *list comprehensions*, the code would be::
 
     newlist = [s.upper() for s in oldlist]
 
 Providing a more simple, efficient and compact way of writing the first version.
 
-A *list comprehension* consist of an `expression` followed by a `for` statement,
-then you can use any expressions like another `for` or `if` statement.
+A *list comprehension* consists of an `expression` followed by a `for` statement
+and then you can use any expressions like another `for` or `if` statement.
 
 
 The result of the *list comprehension* will be the evaluation of the expression
@@ -86,7 +86,7 @@ You can perform the same with `tuples`:
     [8, 12, -54]
 
 
-Function as parameters
+Functions as parameters
 ~~~~~~~~~~~~~~~~~~~~~~
 
 In Python, the functions are values as any other kind of value.
@@ -101,16 +101,16 @@ For example, it is possible to create a new name with a simple assignation::
     >>> m(2,6)
     12
 
-One of the advantages of this characteristic is that is possible
+One of the advantages of this characteristic is that it is possible
 to create functions which receive other functions as parameters.
 
 In the following example, we define a function called `my_sum`
-which return the sum of the values lower than `n`,
-but before apply a function received with the `f` parameter.
+which returns the sum of the values lower than `n`,
+but before that, it applies a function received in the `f` parameter.
 
-The program call the function `my_sum` three times,
+The program calls the function `my_sum` three times,
 in each case a different function is given as parameter.
-In this way, it is possible to use a unique function to calculate
+In this way, it is possible to use the same function to calculate
 the sum of the values until 1000,
 the sum of the squares until 1000
 and the sum of the cubes until 1000.::
@@ -144,13 +144,13 @@ The `map` structure is very simple::
 Which means, that each given element (of the iterable) will be passed through a function evaluation,
 and returning a result list.
 
-There is possible to give additional iterable arguments,
-but function must take  all the arguments and applied to the items
+It is possible to give additional iterable arguments,
+but the function must take all the arguments and be applied to the items
 from the iterables in parallel.
 
 If there are several arguments,
-the function `map` return an entire list of tuples,
-with the items from all iterables.::
+the function `map` returns an entire list of tuples,
+with the items from all the iterables.::
 
     >>> def double(x):
     ...   return 2*x
@@ -160,7 +160,7 @@ with the items from all iterables.::
 
 
 It is possible to give more than one sequence,
-but is important to give the same number of sequences as the function parameters:
+but it is important to give the same number of sequences as the function parameters:
 
 For example::
 
@@ -178,7 +178,7 @@ For example::
 
 
 Since it's a built-in function,
-will be very useful for simple tasks,
+it will be very useful for simple tasks,
 so `map` will be available any time.
 
 For example, if we need to calculate the power of several
@@ -206,7 +206,7 @@ The `reduce` struct is::
 
     reduce(function, iterable[, initializer])
 
-This function give the possibility to apply a function of two arguments to the items of the iterable,
+This function gives the possibility to apply a function of two arguments to the items of the iterable,
 to obtain a final single value.
 
 The evaluation of the function is from left to right,
@@ -214,7 +214,7 @@ taking the given elements,
 
 for example if we want to substract a list of numbers,
 like ``9,4,3,2``, the internal behaviour of the `reduce` function
-will be::
+would be::
 
     (((9-4)-3)-2) = 0
 
@@ -223,7 +223,7 @@ of the list ``2,3,4,9``::
 
     (((2-3)-4)-9) = -14
 
-So, coding will be::
+So, the code would be::
 
     >>> def subs(x,y):
     ...   return x - y
@@ -238,7 +238,7 @@ If there is an optional initializer,
 it is placed before the items of the iterable in the calculation,
 and give us a default result if the iterable is empty.
 
-Another simple example, will be reduce a list of numbers
+Another simple example, would be to reduce a list of numbers
 between 5 and 20, using a sum::
 
     >>> def add(x,y):
@@ -261,7 +261,7 @@ an exception is raised.::
       File "<stdin>", line 1, in <module>
     TypeError: reduce() of empty sequence with no initial value
 
-As we say previously, the initializer is a kind of safe-status
+As we said previously, the initializer is a kind of safe-status
 to avoid some weird behaviour, or just a default value to prevent
 an exception::
 
@@ -280,10 +280,10 @@ The `filter` structure is::
 
     filter(function, iterable)
 
-The main idea of the `filter` is to construct a list from an initial ``iterable``
-but only with the elements which satisfied a condition inside the ``function``.
+The main idea of the `filter` function is to construct a list from an initial ``iterable``,
+but only with the elements which satisfies a condition inside the ``function``.
 
-If the iterable have a special data type,
+If the iterable has a special data type,
 like `string` or `tuple` the result also has that type.
 
 Another case is when the iterable is `None`,

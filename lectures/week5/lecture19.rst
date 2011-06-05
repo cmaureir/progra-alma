@@ -1,21 +1,21 @@
 Lecture 19 - Iterators
 ----------------------
 
-In simple words,
+In simple words
 an iterator is a type of object which has a method
 to advance over a certain data type.
 In almost all the cases that method is called `next()`.
 
-The previous idea is very basic, and not entirely true,
-because in Python the most of the iterators
-has a lot of methods, built-in, user-defined, etc.
+The previous idea is very basic and not entirely true,
+because in Python most of the iterators
+have a lot of methods, built-in, user-defined, etc.
 
-So, iterators objects are used in order to iterate
+So, iterator objects are used in order to iterate
 over an objects data.
 
 For example,
 with the content of the previous lectures,
-you will now how to do this in Python using lists::
+you will now know how to do this in Python using lists::
 
     >>> my_list = ['a',2,(0,0)]
     >>> for item in my_list:
@@ -25,8 +25,8 @@ you will now how to do this in Python using lists::
     2
     (0,0)
 	
-The previous code iterate over a list object
-created by us, printing all the list items.
+The previous code iterates over a list object
+created by us, printing all the list's items.
 
 According to the previous example,
 lists are iterable since you can iterate over them multiple times.
@@ -45,7 +45,6 @@ and in the previous lectures you can note
 that we can iterate almost any Python data-type,
 for example::
 
-
     for num in [1, 2, 3]:
         print num
     for num in (1, 2, 3):
@@ -58,15 +57,15 @@ for example::
         print line
 
 But there is another very useful
-methods which should be good to familiarized.
+method which should be good to be familiarized with.
 
 * `zip()` function
 
-  This  function returns a list of tuples,
-  taking one-by-one of each iterable given as parameter.
+  This function returns a list of tuples,
+  taking one-by-one each iterable given as a parameter.
   
   If the sequence of iterable has different lengths,
-  the `zip()` function truncate the length to the shortest one.
+  the `zip()` function truncates the length to the shortest one.
   
   Using the `*` operator inside the iterable,
   is possible to perform a kind of `unzip` function
@@ -116,11 +115,11 @@ methods which should be good to familiarized.
   which specifies the following characteristics:
   
    * `cmp`: specify a custom comparison function, but with only two arguments,
-     which return a negative, positive or zero number depending on the evaluation
+     which returns a negative, positive or zero number depending on the evaluation
      case. (considering if the first argument is smaller than the second)
-   * `key`: specify a function, with one argument, using to extract a comparison key.
-   * `reverse`: specify a boolean value, which when is true, the comparison will be
-     performed reversed.
+   * `key`: specifies a function, with one argument, used to extract a comparison key.
+   * `reverse`: specifies a boolean value, which if true, the comparison would be
+     performed in reverse order.
   
   A couple of examples of the previous arguments are:
   
@@ -140,15 +139,15 @@ methods which should be good to familiarized.
    * Using the `key` parameter:
   
      Also, we can use the `sorted()` function to sort words
-     in a certain phrase. The strings data types has a method
-     called `split()`, which without parameters split a string
+     in a certain phrase. The string data type has a method
+     called `split()`, which without parameters splits a string
      by the empty-spaces, for example::
      
          >>> "hello world!".split()
          ['hello', 'world!']
      
-     The string data types also has another method called `upper()`
-     which allow to change the *case* of a entire string.
+     The string data type also has another method called `upper()`
+     which allows to change the *case* of an entire string.
      
      So, we can use the same idea to sort some words::
      
@@ -169,12 +168,12 @@ methods which should be good to familiarized.
   is to be able to assign a numeration to a certain sequence of objects.
   It is important to know that the sequence of objects must be iterable.
   
-  This function return a tuple with the number and the object,
-  starting from 0, if the user do not change this starting point,
-  because is possible adding a new argument called ``start=n``
+  This function returns a tuple with the number and the object,
+  starting from 0, if the user does not change this starting point,
+  because it is possible adding a new argument called ``start=n``
   where ``n`` is the new starting point.
   
-  Look the following examples::
+  Look at the following examples::
   
       >>> for item in enumerate(['John','Marie','Joseph','Rose']):
       ...   print item
@@ -208,12 +207,12 @@ methods which should be good to familiarized.
 
 * `reversed()` function
 
-  The ``reversed`` function achieve a very simple
-  functionality, change the order, reversing an object
-  iterable, this mean which is a good idea to use it
+  The ``reversed`` function achieves a very simple
+  functionality, changes the order, reversing an object
+  iterable, this means that it is a good idea to use it
   when you want to start from the end.
   
-  The following examples show the function idea::
+  The following examples show the function's idea::
   
       >>> for i in range(1,5):
       ...   print i
@@ -310,8 +309,8 @@ the module::
 * `chain()` function
 
   The ``chain()`` function from the itertools module,
-  give us the possibility to iterate over a certain numbers of Python object,
-  does not matter if the objects are `lists`, `tuples`, `strings` etc.
+  gives us the possibility to iterate over a certain number of Python objects,
+  it does not matter if the objects are `lists`, `tuples`, `strings` etc.
   
   The following examples show their functionality::
   
@@ -339,10 +338,10 @@ the module::
 
 * `count()` function
 
-  The idea of the ``count()``  function,
-  if to start counting numbers from a certain given number
-  to the infinite, well, not the infinite, but yes to the
-  maximum number capacity.
+  The idea of the ``count()`` function
+  is to start counting numbers from a certain given number
+  to the infinite, well, not the infinite, but the
+  maximum number's capacity.
   
   The default call to the function,
   start counting numbers one-by-one,
@@ -377,9 +376,9 @@ the module::
   You can use, ``break`` statement, to terminate the loop,
   so you do not receive a lot of numbers on your screen,
   
-  for example, lets imagine which we are working into solve
-  a certain problem so, we use a iterative method to find the solution,
-  you can imagine an infinite iteration until reach the real solution
+  for example, lets imagine we are working into solve
+  a certain problem, so we use an iterative method to find the solution,
+  you can imagine an infinite iteration until reaching the real solution
   or an approximated value, using different precision::
   
       >>> from itertools import count
@@ -401,18 +400,18 @@ the module::
 
 * `cycle()` function
 
-  Every programmer has more than once time
-  to develop a script which compare a certain
-  sequence of elements over an another big sequence,
-  so is needed to iterate over a sequence,
-  and once it finished, we need to iterate again,
-  the ``cycle()`` function give us the chance
+  Every programmer more than once time had
+  to develop a script which compares a certain
+  sequence of elements over another big sequence. In this
+  case we need to iterate over a sequence
+  and, once it finishes, we need to iterate again.
+  The ``cycle()`` function gives us the chance
   to iterate infinite times over a sequence
   to perform any comparison or another
   statement.
   
   For example,
-  image that you are working
+  imagine that you are working
   with Nitrogenous bases in the DNA (A,T, C, G),
   and you are looking for certain pattern over
   a big sequence of DNA.
@@ -424,7 +423,7 @@ the module::
   
   For example,
   lets do a simple program
-  which show the day and number of a month (August, 2011)::
+  which shows the day and number of a month (August, 2011)::
   
       >>> from itertools import cycle
       >>> august = 31
@@ -471,10 +470,10 @@ the module::
 * `repeat()` function
 
   As the name of this function says,
-  the idea is to generate a certain numbers of elements
+  the idea is to generate a certain number of elements
   a determinate number of times.
   
-  This function require one parameter,
+  This function requires one parameter,
   to repeat it indefinite times
   the object given as parameter.::
   
