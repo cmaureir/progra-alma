@@ -2,7 +2,7 @@ Lecture 17 - Advanced topics on functions
 ------------------------------------------
 
 When you read the lecture about functions,
-maybe you had some questions about the existance of extra function functionalities,
+maybe you had some questions about the existence of extra function functionality,
 and the answer is yes.
 
 Functions in Python are a very powerful tool for the programmer,
@@ -358,6 +358,77 @@ In other words, the structure of these different special parameters is as follow
 Exercises
 ~~~~~~~~~~
 
-* PENDING
-* PENDING
-* PENDING
+* One of the most used methods by the system administrators to generate password
+  to their servers is to choose a phrase and change some vocals to numbers
+  (remember the exercise in the lecture 11), for example::
+
+     "new password"
+
+  will be::
+
+     "n3w p4ssw0rd"
+
+  So the changes will be:
+  
+  .. math::
+
+      'a' \rightarrow '4'
+      'e' \rightarrow '3'
+      'i' \rightarrow '1'
+      'o' \rightarrow '0'
+  
+  But, this changes can be modified by the user,
+  for example, maybe the system administrators wants to change only
+  the 'i' for the character '&'.
+
+  Write a function which returns the original password, the modified one,
+  and the dictionary used, also this function must have the default previous
+  configuration, but the user must modified some character if their wants.
+
+  ::
+
+      >>> pass = 'hello world'
+      >>> change_password(pass)
+      'hello world' to 'h3ll0 w0rld' using dictionary {'a':'4','e':'3','i':'1','o':'0'}
+      >>> change_password(pass,{'e':'@','o':'9'})
+      'hello world' to 'h@ll9 w9rld' {'e':'@','o':'9'}
+
+  **Note**: Use *default parameters* and *return more than one value*
+
+* Write a function which receive as parameter a undefined quantity of numbers
+  and calculate the average of that numbers::
+
+      >>> average(1)
+      1
+      >>> average(1,2,3,4,5)
+      3
+      >>> average(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+      8
+      >>> average(3.14, 2.71, 5.76, 0.0000001)
+      2.902500025
+
+* If you develop the previous exercise without much details
+  it is possible if you run the function without arguments,
+  you will receive::
+
+      >>> average()
+      Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        File "<stdin>", line 5, in average
+      ZeroDivisionError: integer division or modulo by zero
+
+  Avoid this situation, but not using a `if` statement,
+  but a *default parameter*.
+
+* Write a function to calculate the `Value Added Tax (VAT)`_
+  of several products given by the user (consider VAT as 10%).
+ 
+  Print the VAT for each product::
+
+     >>> vat(Rice=1250,Meat=5670,Beer=4000,Soap=300)
+     VAT Beer 400.0
+     VAT Rice 125.0
+     VAT Meat 567.0
+     VAT Soap 30.0
+
+  .. _`Value Added Tax (VAT)`: http://en.wikipedia.org/wiki/Value_added_tax

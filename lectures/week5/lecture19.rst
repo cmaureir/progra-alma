@@ -504,6 +504,90 @@ the module::
 Exercises
 ~~~~~~~~~
 
-* PENDING 
-* PENDING 
-* PENDING 
+* The *sin* and *cos* mathematical functions can be represented
+  using infinite sums:
+
+  .. math::
+
+    \text{sen}(x) =
+      \frac{x^1}{1!} -
+      \frac{x^3}{3!} +
+      \frac{x^5}{5!} -
+      \frac{x^7}{7!} +
+      \cdots
+
+  .. math::
+
+    \text{cos}(x) =
+      \frac{x^0}{0!} -
+      \frac{x^2}{2!} +
+      \frac{x^4}{4!} -
+      \frac{x^6}{6!} +
+      \cdots
+
+  * Write the functions called *my_sin()* and *my_cos()*
+    which determine the approximation using the previous series.
+  
+    Remember the factorial definition:
+ 
+    .. math::
+
+        n! = 1\cdot 2\cdot 3\cdot 4\cdot \ldots \cdot n
+
+  * given a list of values for *x*, write a function using
+    your previous *my_sin()* and *my_cos()* functions,
+    which return tuples with the values `(x,sin(x))`
+    (use the *zip()* function)
+
+* You are selected to write a list of all the students of the course,
+  the bad news is that the students are not in order, so you need
+  to order by *lastname* and *firstname*.
+
+  Also, the generated list must contain tuples with *(number, firstname, lastname)*
+  which number is an incremental number.
+
+  Remember the *sorted* and *enumerated* functions.
+
+  The list with the names of the course students is::
+
+      students = [('Ruediger','Kneissl'),
+                  ('Jose','Velasquez'),
+                  ('Hector','Alarcon'),
+                  ('Luis','Cortez'),
+                  ('Juan','Cortes'),
+                  ('Vilaro','Vila'),
+                  ('Pedro','Campana'),
+                  ('Jorge','García'),
+                  ('Alejandro','Barrientos'),
+                  ('jorge','ramirez'),
+                  ('Cristian','Lopez'),
+                  ('Leonardo','Bustos'),
+                  ('Jorge','Castillo'),
+                  ('Itziar','de Gregorio'),
+                  ('Carlos','Gonzalez'),
+                  ('Rodrigo','Guarda'),
+                  ('Lewis','Knee'),
+                  ('Fernando',Morales'),
+                  ('Edward','Ormeno'),
+                  ('German','Ortiz'),
+                  ('Matias','Radiszcz'),
+                  ('Jorge','Ramirez',
+                  ('Mark','Rawlings')]
+
+  So the result must be::
+
+      >>> student_list(students)
+      (0,'Hector','Alarcon')
+      (1,'Alejandro','Barrientos')
+      ...  
+
+* Write a function which return the total
+  price of different elements list::
+
+      >>> fun = {'kindle':139, 'ps3':297.30, 'led':799.99}
+      >>> clothe = {'jeans':26.24, 't-shirt':14.99, 'boots':40.00}
+      >>> services = {'water':20.00, 'light':42.70, 'internet':51.31}
+      >>> total_price(fun,clothe,services)
+      1431.53 USD
+
+  Use the *chain()* iterator.

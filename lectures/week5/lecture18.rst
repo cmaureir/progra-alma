@@ -9,7 +9,7 @@ we can learn an extra topic about the list iteration
 structure, the list comprehension.
 
 A simple example of this new characteristic can be 
-the following example, prevenient from the official python wiki,
+the following example,   from the official python wiki,
 in a section called `Performance Tips`_.
 
 .. _`Performance Tips`: http://wiki.python.org/moin/PythonSpeed/PerformanceTips 
@@ -87,7 +87,7 @@ You can perform the same with `tuples`:
 
 
 Functions as parameters
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 In Python, the functions are values as any other kind of value.
 For example, it is possible to create a new name with a simple assignation::
@@ -146,11 +146,11 @@ and returning a result list.
 
 It is possible to give additional iterable arguments,
 but the function must take all the arguments and be applied to the items
-from the iterables in parallel.
+from the iterable in parallel.
 
 If there are several arguments,
 the function `map` returns an entire list of tuples,
-with the items from all the iterables.::
+with the items from all the iterable.::
 
     >>> def double(x):
     ...   return 2*x
@@ -202,7 +202,7 @@ we can easily do this simple task with the `map` function::
 `reduce()` function
 ~~~~~~~~~~~~~~~~~~~~
 
-The `reduce` struct is::
+The `reduce` structure is::
 
     reduce(function, iterable[, initializer])
 
@@ -212,7 +212,7 @@ to obtain a final single value.
 The evaluation of the function is from left to right,
 taking the given elements,
 
-for example if we want to substract a list of numbers,
+for example if we want to subtract a list of numbers,
 like ``9,4,3,2``, the internal behaviour of the `reduce` function
 would be::
 
@@ -312,6 +312,81 @@ if we need to determine the primes up to 20::
 Exercises
 ~~~~~~~~~
 
-* PENDING
-* PENDING
-* PENDING
+* Using *list comprehension*:
+
+ * Write in one line of code a way to remove the vocals of a word::
+
+
+     >>> word = 'hello world'
+     >>> # your code here
+     ['h', 'l', 'l', ' ', 'w', 'r', 'l', 'd']
+
+ * Write in one line of code a way to determinate the pow at two of the
+   odd numbers in a list::
+
+     >>> numbers = [1,2,3,4,5,6,7]
+     >>> # your code here
+     [1, 9, 25, 49]
+
+ * Write in one line of code a way to write in upper-case, lower-case
+   and the length of a list of words in  several tuples.
+   Remember the functions *str.upper()*, *str.lower()* and *len(str)*::
+
+     >>> words = ['The', 'yellow', 'duck', 'swim', 'over', 'the', 'lake']
+     >>> # your code here
+
+* Having this functions::
+
+      def lower(x,y):
+          return x < y
+      def greater(x,y):
+          return x > y
+
+  write another function called *mm()*
+  which receive a function and some numbers
+  returning the greatest or the lowest number
+  using the previous functions.
+
+  For example::
+
+      >>> mm(lower, 6, 7, 2, 8, 3, 2, 5) 
+      2
+      >>> mm(greater, 1, 5, 7, 3, 7, 0, 9, 5, 3, 1)
+      9
+
+* Write a function which *map* a list of numbers
+  to a Fibonacci function, which return the *i-th*
+  number of the Fibonacci sequence where *i* is one
+  of the elements in the list of numbers.
+
+  Remember the Fibonacci definition.
+
+  .. math::
+
+      F_{0} = 0,
+      F_{1} = 1,
+      F_{k} = F_{k-1} + F_{k-2},\ when\ k\ \geq\ 2
+
+  Writing a Fibonacci function, the behaviour would be
+  as following::
+
+      >>> map(fibonacci, [1,3,6])
+      1 2 8
+      >>> map(fibonacci, [8, 6, 12])
+      21 8 144
+
+* Write a function which change the consonants of a word
+  from lower-case to upper-case using the *map* function::
+
+      >>> map(change_case, 'hello world')
+      HeLLo WoRLD
+
+* Using the function *filter()*,
+  define a function *long_words()* which takes a list of words
+  and an integer *n*, and returns the list of words that are lowest than *n*::
+
+      >>> long_words(['hello','dog','department','cat','antenna'], 6)
+      ['hello','dog','cat']
+
+* Implement your own versions of the functions *map()*, *reduce()*
+  and *filter()*, compare it with the original ones.
