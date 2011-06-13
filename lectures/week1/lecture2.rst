@@ -1,170 +1,209 @@
-Lecture 2 - Program development
--------------------------------
+Lecture 1 - Algorithm elements
+------------------------------
 
-A **program** is a text file that contains
-code to be executed by the computer.
-
-In the case of the Python programming language, 
-the program is executed by an **interpreter**.
-The interpreter is a program that executes programs.
-
-The programs written in Python
-must be contained in a file
-with the ``.py`` extension.
-In Windows, the program can be executed by double-clicking the file icon.
-
-
-Python interpreter installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. index:: interpreter (installation)
-
-One thing is to edit the program and another one is to execute it.
-The **interpreter** must be installed in order to
-be able to execute the program using Python.
-
-You can find the installer list
-in the `Python download web`_
-You must download the one indicated for your computer
-and operating system.
-
-.. _Python download web: http://www.python.org/download/
-..
-
-You must install the version **2.7.1**,
-not 3.1.3.
-
-If you are using a `Linux`_ distribution
-install it with you software installer system.
-
-* In `Ubuntu/Debian`::
-
-    apt-get install python
-
-* In `Fedora/RedHat/ScientificLinux`::
-
-    yum install python
-
-If you have a local `ACS`_ installation,
-you can use the Python provided by the `ACS`_ in::
-
-    /alma/ACS-X.X/Python/bin/python
-
-.. _ACS: http://www.eso.org/~almamgr/AlmaAcs/
-.. _Linux: http://en.wikipedia.org/wiki/Linux
-
-Do not use the ``x86-64`` installers
-unless you are sure that your computer
-has a 64-bit architecture.
-
-To test your Python installation
-download the primes.py_ file,
-which allows to determine if a natural number is prime or not.
-
-.. _primes.py: ../../_static/programs/primes.py
-
-
-Editing programs
-~~~~~~~~~~~~~~~~
-.. index:: text editor
-
-A program is a `text file`_.
-Therefore, it can be created or edited
-using any `text editor`_,
-like Notepad.
-
-What cannot be used
-is a text processor,
-like Microsoft Word.
-
-Try it:
-open the ``quadratic.py`` program
-with Notepad (or any other editor)
-and you will see its contents.
-
-.. _text file: http://en.wikipedia.org/wiki/Text_file
-.. _text editor: http://en.wikipedia.org/wiki/Text_editor
-
-.. index:: text editor (list)
-
-Other text editors
-(much better than Notepad)
-that you can install are:
-
-* in Windows:
-  `Notepad++ <http://notepad-plus-plus.org/>`_,
-  `Textpad <http://www.textpad.com/>`_;
-* in Mac:
-  `TextWrangler <http://www.barebones.com/products/textwrangler/>`_,
-  `TextMate <http://macromates.com/>`_;
-* in Linux:
-  `Gedit <http://projects.gnome.org/gedit/>`_,
-  `Kate <http://kate-editor.org/>`_.
-
-Program execution
-~~~~~~~~~~~~~~~~~
-
-Once the program is written and the interpreter has been installed,
-it is possible to execute the programs.
-
-In **Windows** you only need to double click the program icon.
-
-In **Linux** you need to open a Linux terminal and execute it::
-
-    localhost > python my_program.py
-
-
-Console use
+Expressions
 ~~~~~~~~~~~
-.. index:: interpreter (interactive), console
 
-Executing the programs
-is not the only way to use the interpreter.
-If we execute Python without passing any program,
-the **console** (or **interactive interpreter**) will open.
+.. index:: expression
 
-The console allows to enter a program through the command line.
-It also allows to evaluate expressions and see the results immediately.
-This allows, for example, to use Python like a calculator.
+An **expression** is a combination of values and operations
+which are evaluated during execution
+and yields a result.
+For example, :math:`2 + 3` is an expression
+which, when evaluated, always returns the value 5.
 
-The interactive console
-always shows the ``>>>`` symbol,
-to indicate the possibility to enter code.
-In all the books about Python
-and in all these lectures,
-each time an example appears using this symbol
-means that it must be executed in a console
-and not in a program. For example::
+In the example, :math:`b^2 - 4ac` is an expression,
+whose result depends on what values
+:math:`a`, :math:`b` and :math:`c` have
+at evaluation time.
 
-    >>> a = 5
-    >>> a > 10
-    False
-    >>> a ** 2
-    25
+Assignment
+~~~~~~~~~~~
 
-In this example, at the time the expressions are entered ``a > 10`` and ``a ** 2``,
-the interactive interpreter gives the results ``False`` and ``25``.
+.. index:: assignment, variable, ID
 
-There is no reason to write the ``>>>`` symbol
-in a program, because it is not part of the language syntax.
+When an algorithm calculates some values
+you need to put a name to be able to refer them
+in the following steps.
+This is what we do in the step 2 of our algorithm,
+when we calculate the discriminant and we call it :math:`A`.
+This is called an **assignment**,
+and is represented as::
+
+    name = expression
+
+The name used in an expression is called
+**variable** or **ID**.
+
+The assignment in the previous example, will be::
+
+    Δ = b² − 4 * a * c
+
+An assignment must be interpreted as follows:
+
+1. The expression at the right of the``=`` is evaluated,
+   using the values that the variables have at that moment;
+2. Once the result is obtained
+   the variable at the left of the ``=`` takes the result as its value.
+
+Under this interpretation,
+an assignment like this is perfectly possible::
+
+    i = i + 1
+
+First, the expression is evaluated
+and their result is the successor of the actual ``i`` value.
+For example, if ``i`` has the value 15,
+after the assignment it will have the value 16.
+This does *not* mean that 15 = 16.
+
+Conditionals
+~~~~~~~~~~~~
+
+.. index:: conditional
+
+Sometimes an algorithm must do different steps
+under different conditions.
+This is what we do in the third step of the example:
+we say that the equation does not have solutions
+only when the `Δ < 0` condition is satisfied.
+This is called **conditional**.
+
+The condition that determines what to execute
+is an expression, whose value must be either
+true or false.
+
+Loops
+~~~~~
+
+.. index:: loop, finish condition
+
+A **loop** occur when
+an algorithm execute a set of instructions
+several times.
+
+As an algorithm cannot get stuck,
+a loop must have a finish condition. The condition is an
+expression and its value indicates if the loop must continue or finish.
+
+There are no loops in the example.
+
+Input
+~~~~~
+
+.. index:: input, read
+
+When an algorithm needs to receive data,
+it is represented as::
+
+    variable = raw_input()
+
+or::
+
+    variable = raw_input("example message:")
+
+This means that the data 
+will be stored in the variable
+during the execution.
+
+In the example, the input occurs in the first step,
+and can be represented as::
+
+    a = raw_input()
+    b = raw_input()
+    c = raw_input()
+
+Output
+~~~~~~
+
+.. index:: output, write
+
+Once the algorithm solves the problem
+for which it was designed,
+it must return its results as a message.
+The output is represented as::
+
+    print message
+
+If the message is text,
+it has to be between quotation marks.
+If it is a variable,
+only the name of the variable is required.
+
+In the example, when there are no solutions,
+the output can be represented as::
+
+    print 'No solutions'
+
+When there is only one solution,
+is possible to include it in the message::
+
+    print 'The only solution is', x
+
+Exercises
+~~~~~~~~~
+
+1. Open a Python terminal executing ``python`` in a Linux terminal,
+   or double clicking the ``Python`` icon in windows,
+   and write lines to *enter your name* and display a *hello* message,
+   in this way::
+
+       Enter your name: `John`
+       Hello John!
+
+   Remember the **raw_input()** and the **print** functions. 
+
+2. You do not need to solve this exercise, the idea is to introduce yourself into
+   the programming world, giving you a little taste of Python coding.
+ 
+   **Problem:** Design an algorithm to determine if a natural number
+   is prime or not.
+    
+   Remember that a prime number is a number divisible only by `1` and `itself`,
+   so we can catch a clue about how our algorithm could be.
+   We need to search divisors between `2` and `(n-1)`.
+
+   Take a look of the following flow diagram, that explains a solution algorithm:
+
+   .. image:: ../../diagrams/primes.png
+      :alt: (primes flow diagram)
+   
+   We need to start thinking that the number is prime,
+   and if we find a divisor, we modify the assumption.
+   At the end, we need to verify if the assumption is
+   true or false to return the correct answer.
+
+   Try the diagram with an example, is the number `91` prime?.
+
+   In the same way, we can describe the algorithm using `pseudocode`_.
+
+.. _`pseudocode`: http://en.wikipedia.org/wiki/Pseudocode
+
+   .. testcase::
+
+        read `n`
+        is_prime = true
+        `for` d `from` 2 `to` n - 1:
+           `if` n is divisible by d:
+              is_prime = false
+        `if` is_prime is true:
+           write "n is prime"
+        `in other case`:
+           write "n is not prime"
 
 
-Development environment
-~~~~~~~~~~~~~~~~~~~~~~~
-.. index:: development environment, IDE
+   And finally, the Python version of the algorithm will be::
 
-In general,
-using a simple text editor to write programs is not
-the most efficient way to work.
+       n = int(raw_input('Enter n: '))
+       is_prime = True
+       for d in range(2, n):
+           if n % d == 0:
+               is_prime = False
+           if is_prime:
+               print n, 'is prime'
+           else:
+               print n, 'is not prime'
 
-The  **development environments**
-(also called *IDE*)
-are applications that facilitate the task of writing programs.
-
-Python comes with its own development environment, called **IDLE**.
-
-Other good advanced Python development environments are:
-
-* `PyScripter <http://code.google.com/p/pyscripter/downloads/list>`_,
-* `WingIDE 101 <http://www.wingware.com/downloads/wingide-101/3.2.12-1/binaries>`_
-
-You can test them and use the most comfortable for you.
+   Do not worry if you don understand some statements,
+   the idea is to give you an approach to a Python program.
+   In the next lecture, you will run this code in your computer.
