@@ -60,7 +60,7 @@ so the maximum previous value will be 14).
    but in this time, he is only looking for finish the
    **Python album**.
 
-   The register is a simple list, called ``album_stickers``-
+   The register is a simple list, called ``album_stickers``.
 
    Each day, the boy go to the store and buy some stickers
    and obviously, add them to the register.
@@ -96,7 +96,7 @@ so the maximum previous value will be 14).
     >>> album_stickers = []
     >>> add_stickers(new_packets=128)
     >>> missing(album_stickers)
-    {514, 3, 5, 7, 10, 523, 12, 525, 14, 16, 529, ...}
+    [514, 3, 5, 7, 10, 523, 12, 525, 14, 16, 529, ...]
 
    Please note that the boy buy 128 packets,
    that in total are the same number of the album stickers
