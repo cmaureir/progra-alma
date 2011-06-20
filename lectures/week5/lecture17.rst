@@ -372,9 +372,9 @@ Exercises
   
   .. math::
 
-      'a' \rightarrow '4'
-      'e' \rightarrow '3'
-      'i' \rightarrow '1'
+      'a' \rightarrow '4'\\
+      'e' \rightarrow '3'\\
+      'i' \rightarrow '1'\\
       'o' \rightarrow '0'
   
   But, this changes can be modified by the user,

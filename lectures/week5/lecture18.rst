@@ -363,8 +363,8 @@ Exercises
 
   .. math::
 
-      F_{0} = 0,
-      F_{1} = 1,
+      F_{0} = 0,\\
+      F_{1} = 1,\\
       F_{k} = F_{k-1} + F_{k-2},\ when\ k\ \geq\ 2
 
   Writing a Fibonacci function, the behaviour would be
