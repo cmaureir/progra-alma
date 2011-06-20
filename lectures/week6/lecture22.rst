@@ -1,4 +1,4 @@
-Lecture 22 - More on class creation
-------------------------------------
+Lecture 22 - Object-Oriented Programming - More on class creation
+-----------------------------------------------------------------
 
 PENDING

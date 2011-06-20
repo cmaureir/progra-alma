@@ -1,4 +1,4 @@
-Lecture 2 - Program development
+Lecture 1 - Program development
 -------------------------------
 
 A **program** is a text file that contains
