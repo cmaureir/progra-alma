@@ -47,7 +47,7 @@ Here, `M` , `\rho`, `c`, and `K` are properties of the egg:
 * `K = 5.4\cdot 10^{-3}\,[\text{W}\,\text{cm}^{-1} \text{K}^{-1}]`.
 
 Furthermore, `T_w` is the temperature (in C
-degrees) of the boiling water, and `T_o` is the original temperature (in C
+degrees) of the boiling water (`100^{o}`), and `T_o` is the original temperature (in C
 degrees) of the egg before being put in the water.
 
 Write a program which receive as input
@@ -55,6 +55,8 @@ the original temperature `T_o` of the egg
 and return as output the time in seconds
 that it takes to reach the maximum temperature to
 cook properly.
+
+You can use the `T_y` with `70^{o}` or `63^{o}` celcius degrees.
 
 **Hint:**
 
