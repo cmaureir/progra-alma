@@ -1,4 +1,4 @@
-Lecture 1 - Algorithm elements
+Lecture 2 - Algorithm elements
 ------------------------------
 
 Expressions

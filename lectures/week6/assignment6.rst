@@ -1,4 +1,5 @@
 Assignment 6
 ============
 
-PENDING
+Software engineering book
+Figures

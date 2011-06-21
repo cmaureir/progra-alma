@@ -1,7 +1,7 @@
-Lecture 21 - Class creation
----------------------------
+Lecture 21 - Object-Oriented Programming - Class creation
+----------------------------------------------------------
 
-The object-orientes (OO) programming paradigm,
+The object-oriented (OO) programming paradigm,
 is widely used in serious project,
 the main idea is to work with objects as data structures,
 which contain a lot of functionallity programmed by

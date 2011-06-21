@@ -82,8 +82,8 @@ so the maximum previous value will be 14).
    Also, the boy can add new entire packets,
    without know the content::
 
-    >>> add_stickers(new_packets=2, 14)
-    [1,2,500,156,4,75,23,8,324,36,244,234]
+    >>> add_stickers(14, new_packets=2)
+    [14,1,2,500,156,4,75,23,8,324]
 
    Please note that the function does not return anything,
    only modify the ``album_stickers`` list.

@@ -1,6 +1,5 @@
-Lecture 24 - Object-oriented design good practices
----------------------------------------------------
-
+Lecture 24 - Object-Oriented Programming - Design good practices
+-----------------------------------------------------------------
 
 como iniciar clases
 clases cohecionadas

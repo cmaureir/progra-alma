@@ -1,5 +1,5 @@
-Lecture 22 - More on class creation
-------------------------------------
+Lecture 22 - Object-Oriented Programming - More on class creation
+-----------------------------------------------------------------
 
 There are another thing that you can use
 when you are programming with the OO paradigm
