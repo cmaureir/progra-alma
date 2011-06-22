@@ -387,10 +387,10 @@ Exercises
 
   ::
 
-      >>> pass = 'hello world'
-      >>> change_password(pass)
+      >>> passw = 'hello world'
+      >>> change_password(passw)
       'hello world' to 'h3ll0 w0rld' using dictionary {'a':'4','e':'3','i':'1','o':'0'}
-      >>> change_password(pass,{'e':'@','o':'9'})
+      >>> change_password(passw,{'e':'@','o':'9'})
       'hello world' to 'h@ll9 w9rld' {'e':'@','o':'9'}
 
   **Note**: Use *default parameters* and *return more than one value*
