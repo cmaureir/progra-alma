@@ -88,10 +88,9 @@ A Python class will be writed as follow:
     >>> class my_class():
     ...    def __init__(self): # Constructor
     ...        self.first_attribute = 0 # atribute
-    ...        señf.second_attribute = 3.14 # atribute
+    ...        self.second_attribute = 3.14 # atribute
     ...    def my_method(self, my_parameter): # method
     ...        return my_parameter * 2
-    >>>
 
 An object will be create as follow:
 
@@ -180,3 +179,11 @@ Exercises
 * PENDING
 * PENDING
 * PENDING
+
+.. MyBag. con metodos para agregar elementos, ordenar, sacar, verificar repetidos, buscar elementos, imprimir, 
+.. Vectors, (x,y) calcular distancia entre puntos, y otras cosas
+.. Polinomios, construirlos y mostrarlos, operaciones de mult, sum, resta, solve, etc
+.. Generar piezas de ajedres y simular el movimiento de una a una.
+.. Dos personas que intercambian laminas
+.. Generar dispositivos que van generando datos pero que pueden tener errores y cambian estados o enrtegan datos manipulados.
+.. Cubo y Bola  obtener area y volumen

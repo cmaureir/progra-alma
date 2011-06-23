@@ -215,6 +215,7 @@ So, lets try this code:
     >>> animals.append(Snake('Beast'))
     >>> for i in animals:
     ...    print i.name, ':', i.talk()
+    ...    
     >>> 
     Tom : Meow!
     Bobby : Woof! Woof!
@@ -228,23 +229,20 @@ Excercise
 * Look carefully the next example, and withour execute it,
   answer the question, What will be the output?
 
-::
-
-    class A:
-        def f(self):
-            return self.g()
-    
-        def g(self):
-            return 'A'
-    
-    class B(A):
-        def g(self):
-            return 'B'
-    
-    a = A()
-    b = B()
-    print a.f(), b.f()
-    print a.g(), b.g()
+  ::
+  
+      class A:
+          def f(self):
+              return self.g() 
+          def g(self):
+              return 'A'
+      class B(A):
+          def g(self):
+              return 'B'
+      a = A()
+      b = B()
+      print a.f(), b.f()
+      print a.g(), b.g()
 
   Execute the code and verify your answer.
 

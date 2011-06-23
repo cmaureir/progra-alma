@@ -56,7 +56,6 @@ For example:
     (5, 2)
     (6, -2)
     (2, -3)
-    >>> 
 
 So, we can have list, dictionaries, set, etc  of objects!.
 
@@ -166,7 +165,6 @@ For example:
     >>> class Student():
     ...     pass
     ... 
-    >>>
 
 And now, modifying the instance:
 

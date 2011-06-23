@@ -417,8 +417,7 @@ Exercises
         File "<stdin>", line 5, in average
       ZeroDivisionError: integer division or modulo by zero
 
-  Avoid this situation, but not using a `if` statement,
-  but a *default parameter*.
+  Avoid this situation, but not using a `if` statement to verify if the count is zero.
 
 * Write a function to calculate the `Value Added Tax (VAT)`_
   of several products given by the user (consider VAT as 10%).
