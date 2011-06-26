@@ -4,7 +4,7 @@ Lecture 21 - Object-Oriented Programming - Class creation
 The object-oriented (OO) programming paradigm,
 is widely used in serious project,
 the main idea is to work with objects as data structures,
-which contain a lot of functionallity programmed by
+which contain a lot of functionality programmed by
 the user, called methods, giving the chance to interact
 with another objects.
 
@@ -29,7 +29,7 @@ We are humans, so, we are types of humans.
 So, we can think the concepts, as  the following,
 
 * Human, will be a *class*,
-* Functionalities (walk, talk, etc) will be *methods*,
+* Functionalists (walk, talk, etc) will be *methods*,
 * We, people, are *objects* of the *human class*.
 
 *Objects* (humans) can *walk*, *talk*, etc.
@@ -40,20 +40,20 @@ and *object* is an instance of a *class*
 
 There are five main reasons to use OO,
 
-* **Inheritance**, we can obtain special object, wich
+* **Inheritance**, we can obtain special object, which
   inherit some *methods* from main *class*, so can
   be reused by all the class objects. Also, we can develop
   *classes* who inherit a structure from another *class*.
 * **Composition**, you can see an object as a composition
-  of component working together. (methods, atributes)
+  of component working together. (methods, attributes)
 * **Multiple instances**, you can create more than one
   object for each class.
 * **Customization via inheritance**, you can instance an object
   from a class, adding new attributes, and methods, which is
-  the customizatin of an existing object which previously
+  the customization of an existing object which previously
   has a inherit from the main class.
 * **Operator overloading**, you can develop and operator
-  which could be called, using diferent parameters.
+  which could be called, using different parameters.
 
 
 Following, we will explain the previous terms,
@@ -68,10 +68,10 @@ in which their attributes, variable, functions, etc;
 provide a certain behavior for all the instances.
 
 An **instance** represent the concrete items in a program's
-domain. An instance will be the object, algo called as,
+domain. An instance will be the object, something called as,
 a class abstraction.
 
-A **method** is a functionallity inside a class,
+A **method** is a functionality inside a class,
 in simple words, a method is a function inside
 a class with the parameter *self* as the first argument.
 
@@ -81,14 +81,14 @@ the class attributes must be written with a *self*
 statement before their name.
 
 
-A Python class will be writed as follow:
+A Python class will be wrote as follow:
 
 ::
 
     >>> class my_class():
     ...    def __init__(self): # Constructor
     ...        self.first_attribute = 0 # atribute
-    ...        self.second_attribute = 3.14 # atribute
+    ...        self.second_attribute = 3.14 # attribute
     ...    def my_method(self, my_parameter): # method
     ...        return my_parameter * 2
 
@@ -126,7 +126,7 @@ from a class, it means give some initial arguments
 to build an object.
 
 The *__init__* method will be able to manipulate
-the arguments of a class, passing in the object contruction.
+the arguments of a class, passing in the object contructor.
 
 For example:
 

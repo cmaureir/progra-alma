@@ -16,7 +16,7 @@ the people in a virtual system created by us (University).
 
 If we think in people, there are several characteristics
 in common, regardless the profession or activity,
-like somo functionalities, and attributes (age, sex, address,
+like some functionalities, and attributes (age, sex, address,
 name, etc).
 But, depending of the activity their have specific characteristics,
 like the amount of the salary, the marks, the courses, etc.
@@ -53,9 +53,9 @@ Now we need to create two different classes
 which **inherit** from the `People` class their structure,
 called `Student` and `Professor`.
 
-Note that creating another classes to diferentiate
+Note that creating another classes to differentiate
 the students from the professors, we have more possibilities
-to add and change new functionalities. Also, you can always
+to add and change new functionality. Also, you can always
 refer to a student or professor object as a `People` object,
 which will be very useful in cases when you try to know
 the total amount of people in the University.
@@ -223,10 +223,10 @@ So, lets try this code:
     Beast : Ssssss!
  
 
-Excercise
+Exercises
 ~~~~~~~~~
 
-* Look carefully the next example, and withour execute it,
+* Look carefully the next example, and without execute it,
   answer the question, What will be the output?
 
   ::

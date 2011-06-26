@@ -8,7 +8,7 @@ in Python, that in some cases will be very useful.
 ``objects`` are data types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The objects are data tupes like any another
+The objects are data types like any another
 python data type, so you can mix it with
 different Python statement.
 
@@ -90,14 +90,14 @@ Lets talk about all the code:
   between a *method* and a *function*).
 * The ``myClass`` is a simple class declaration.
 * The ``f`` method is a normal method, without extra
-  parameter, and the only functionallity is that return an string,
+  parameter, and the only functionality is that return an string,
   with a message.
-* The ``p`` attribute is initializing refering the external function object,
+* The ``p`` attribute is initializing referring the external function object,
   so, calling *p()* will be the same that calling *ext_pow()*.
-* The ``h`` attribute is initializing refering the ``f`` function,
+* The ``h`` attribute is initializing referring the ``f`` function,
   so, calling *h()* will be the same that calling *f()*.
 
-Lets look the functionallity:
+Lets look the functionality:
 
 ::
 

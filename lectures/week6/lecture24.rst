@@ -17,7 +17,7 @@ The `class` Statement
 ~~~~~~~~~~~~~~~~~~~~~
 
 The Python class statement is very similar to another languages statement,
-but only by the *name*, because if we seee the closer implementation, is quite
+but only by the *name*, because if we see the closer implementation, is quite
 different.
 
 In Python, a class is not a declaration, but is an object builder.
@@ -35,7 +35,7 @@ with its structure. Here is the statement's general form.
 
 Any assignment inside a class, will be a class attribute.
 
-To explain in more details the classes functionalities,
+To explain in more details the classes functionality,
 lets study the namespace behaviour of the classes.
 
 The idea is to perform the same steps of a module creation,
@@ -81,7 +81,7 @@ it means, that for each object you can change the attribute values:
     (88, 99, 99)
 
 It also possible to create attributes in a class,
-which are not inheritables by the objects,
+which are not inheritable by the objects,
 for example:
 
 ::
@@ -93,8 +93,8 @@ for example:
         def display(self):
             print(self.data, MixedNames.data) # Instance attr, class attr
 
-This implementation contains a class variable called `data` (simple variable asignation), but
-algo has an internal variable (inheritable) called `self.data` (class's local scope).
+This implementation contains a class variable called `data` (simple variable assignation), but
+also has an internal variable (inheritable) called `self.data` (class's local scope).
 
 You can compare this issue, with the following example:
 
@@ -171,13 +171,13 @@ Specializing Inherited Methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can easily change the methods
-from the class intances, trying to optimize
-the functionallity.
+from the class instances, trying to optimize
+the functionality.
 
 A simple way to do this,
 is to use the previous method (provided by a class),
-but adding some other functionallities,
-to 'specilize' the idea.
+but adding some other functionality,
+to 'specialize' the idea.
 
 The main idea is to re-write some methods
 provided by the class.
@@ -199,7 +199,7 @@ Documentation
 
 The docstring can be used by classes and by the class components,
 being strings literals to describe the mechanism and details of some
-Python statement, using the `__doc__` reserver function.
+Python statement, using the `__doc__` reserved function.
 (this can be used by modules, functions, classes and methods).
 
 The following example summarizes the places where doctstrings can show up
@@ -265,9 +265,9 @@ Another issue related to the method specialization
 is the method overload.
 If you are not familiarized with this concept,
 in simple words consist to write more than one
-method with the same name but with differente
+method with the same name but with different
 signature, it means that the arguments inside
-the parenthesis is diferent.
+the parenthesis is different.
 
 A simple method overload can be:
 
@@ -297,12 +297,14 @@ One patch, solution can be to use the `*args` parameter:
 
 
 But this is not recommended too,
-because we were losing the ida behind oject oriented paradigm,
+because we were losing the idea behind object oriented paradigm,
 so, the next way to use this mechanism.
 
-class C:
-    def meth(self, x): # Assume x does the right thing
-        x.operation()
+::
+
+    class C:
+        def average(self, x): # Assume x does the right thing
+            x.operation()
     
 
 Because with this implementation,
@@ -313,7 +315,7 @@ Python and OOP, final review
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The three main ideas of the Pythons OO paradigm,
-can be sumarized by:
+can be summarized by:
 
 * Inheritance
 
