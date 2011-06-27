@@ -9,16 +9,15 @@ we can think in an small approach focused
 only in the interaction between an antenna and
 a transporter.
 
-The main idea will be,
-move the antennas from one path to another,
-and this was performed by a transporter,
-so easily you can saw some restrictions,
-for example, a transporter cannot has more
+The main idea will be to 
+move the antennas from one path to another.
+This is performed by a transporter,
+so you can easily deduce some restrictions.
+For example, a transporter cannot has more
 than one antenna, or each path cannot
 has more than antenna neither, etc.
 
-This assignment will be related to the previous
-general approach to this interaction.
+This assignment will only be related with the previus idea.
 
 Lets consider the following two incomplete
 classes:
@@ -79,12 +78,12 @@ in separated functions (not methods!).
 
   * Function name ``create_transporters(...)``.
   * Create two instance of the ``Transporter`` class.
-  * Display a message warning of the creation.
+  * Display a message warning the creation.
 * **Create 10 antennas**, instructions:
 
   * Function name ``create_antennas(...)``.
   * Create two instance of the ``Antenna`` class.
-  * Display a message warning of the creation.
+  * Display a message warning the creation.
 * **Move the antennas**, instructions:
 
   * Function name ``move_antenna(...)``
@@ -94,25 +93,25 @@ in separated functions (not methods!).
   * Change the transporter status (*MOVING*).
   * Change the antenna status (random, between *OBSERVING* and *FAIL*).
   * Change the path status (Remove path from set).
-  * Display a message warning of the movement.
+  * Display a message warning the movement.
 * **Set antennas positions**, instructions:
 
   * Function name ``set_antenna_position(...)``.
   * For each path, change the dice position to a random ``(x,y,z)`` position.
-  * Display a message warning of the movement.
+  * Display a message warning the movement.
 * **Set antennas status**, instructions:
 
   * Function name ``set_antenna_state(...)``.
   * For each antenna in a path, change the state randomly-
   * Change antenna state.
-  * Display a message warning of the state change.
+  * Display a message warning the state change.
 * **Start antenna observation**, instructions:
 
   * Function name ``start_observation(...)``
   * For each antenna in a path, with a *READY* state, start the observation
     and generate a list of ten data numbers randomly.
   * Change antenna state.
-  * Display a message warning of the observation process.
+  * Display a message warning the observation process.
 
 * **Getting the observation data**, instructions:
 
@@ -145,7 +144,7 @@ General considerations:
 * When a transporter move an antenna to a certain path,
   the transporter stay in that path, until the next movement.
 * Will be very useful to add in some code sections a ``sleep(0.5)``
-  statement, to note all the process not so quick.
+  statement, to see all the process not so quickly.
 * Remember the mechanism to generate a random number:
 
   ::
