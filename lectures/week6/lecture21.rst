@@ -176,8 +176,8 @@ parenthesis:
 Exercises
 ~~~~~~~~~
 
-* Lets consider a class called `Bag`, which will provide a lot of functionallities,
-  to personalize my own bag (instance) with a certain total volume, each element has a name and dimensions
+* Lets consider a class called `Bag`, which will provide a lot of functionallities.
+  To personalize my own bag (instance) with a certain total volume, each element has a name and dimensions
   (width, height, profundity (z))
 
   Create the class `Bag` and develop the following methods:
@@ -198,11 +198,11 @@ Exercises
   which means that the origin point is constructed by ``(x1,y1)`` and the end of the vector
   is giving by ``(x2,y2)``.
 
-  Create a class called `Vector` which contain the previous variables as self variables,
+  Create a class called `Vector` which contain the previous variables as local variables,
   and provide the following methods:
 
   * Imagine the vector as the diagonal of a rectangle, so, now it is possible to calculate
-    the rectangle area. Develop a method to calculate the associated rectangle area.
+    the rectangle area. Create a method to calculate the associated rectangle area.
   * Calculate the distance between the points of the vector.
     Remember that the distance can be calculted as follows:
 
