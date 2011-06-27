@@ -106,7 +106,7 @@ You can compare this issue, with the following example:
     2 spam
 
 The result is different because the variables lives in two places,
-in the instances objects (created inside the `__init___` method)
+in the instances objects (created inside the ``__init__`` method)
 and in the class (simple assignation).
 
 Methods
