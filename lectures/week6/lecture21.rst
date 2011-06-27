@@ -1,5 +1,5 @@
-Lecture 21 - Object-Oriented Programming - Class creation
-----------------------------------------------------------
+Lecture 21 - Class creation
+----------------------------
 
 The object-oriented (OO) programming paradigm,
 is widely used in serious project,
@@ -176,14 +176,86 @@ parenthesis:
 Exercises
 ~~~~~~~~~
 
-* PENDING
-* PENDING
-* PENDING
+* Lets consider a class called `Bag`, which will provide a lot of functionallities,
+  to personalize my own bag (instance) with a certain total volume, each element has a name and dimensions
+  (width, height, profundity (z))
 
-.. MyBag. con metodos para agregar elementos, ordenar, sacar, verificar repetidos, buscar elementos, imprimir, 
-.. Vectors, (x,y) calcular distancia entre puntos, y otras cosas
-.. Polinomios, construirlos y mostrarlos, operaciones de mult, sum, resta, solve, etc
-.. Generar piezas de ajedres y simular el movimiento de una a una.
-.. Dos personas que intercambian laminas
-.. Generar dispositivos que van generando datos pero que pueden tener errores y cambian estados o enrtegan datos manipulados.
-.. Cubo y Bola  obtener area y volumen
+  Create the class `Bag` and develop the following methods:
+  
+  * Sort the bag elements by volume,
+  * Add new elements,
+  * Remove elements,
+  * Search elements with a given volume,
+  * Show elements with the same volume,
+  * Put the whole content of my bag in another new bag.
+
+* The vectors in two dimensions are structures which contain two pair of coordinates:
+
+  ::
+
+      x1, y1, x2, y2
+
+  which means that the origin point is constructed by ``(x1,y1)`` and the end of the vector
+  is giving by ``(x2,y2)``.
+
+  Create a class called `Vector` which contain the previous variables as self variables,
+  and provide the following methods:
+
+  * Imagine the vector as the diagonal of a rectangle, so, now it is possible to calculate
+    the rectangle area. Develop a method to calculate the associated rectangle area.
+  * Calculate the distance between the points of the vector.
+    Remember that the distance can be calculted as follows:
+
+    .. math::
+
+        distance = \sqrt{(x_{2}-x_{1})+(y_{2}-y_{1})}
+      
+* The previous exercise consider a vector with a position in the space,
+  because we have the origin and destiny point.
+  Lets consider now vectors but without a position in the space,
+  it means, we provide a vector with one x and y component,
+  for example the vector ``(3,4)`` will be a vector 
+
+  .. image:: ../../diagrams/simple-vector.png 
+     :alt: (simple-vector diagram)
+ 
+  Develop a class called `Vector` which provide the following methods:
+
+  * The method will receive an object, which will be another `Vector`
+    and will calculate the addition of both vectors, for example
+    the addition of the vectors ``(1,3)`` and ``(4,2)`` will be ``(5,5)``.
+
+    .. image:: ../../diagrams/suma-vectores.png 
+       :alt: (addition-vector diagram)
+
+  * The method will receive an object, which will be another `Vector`
+    and will calculate the substraction of both vectors, for example
+    the substraction of the vectors ``(4,2)`` and ``(1,-2)`` will be ``(3,4)``.
+
+    .. image:: ../../diagrams/resta-vectores.png 
+       :alt: (substraction-vector diagram)
+
+  * The method will receive an object, which will be another `Vector`
+    and will calculate the angle between both vectors, for example
+    the angle between the vectors ``(3,0)`` and ``(5,5)`` is `\alpha = 45^{o}`.
+
+    .. image:: ../../diagrams/angulo-vectores.png 
+       :alt: (angle-vector diagram)
+
+    Remember the formula:
+
+    .. math:
+    
+        \vector{u} = (3,0)
+        \vector{v} = (5,5)
+        \cos \alpha = \frac{3\cdot 5 + 0\cdot 5}{\sqrt{3^{2} + 0^{2}} \cdot \sqrt{5^{2}+5^{2}}} = \frac{\sqrt{2}}{2}
+    
+     
+
+* Create two classes called `Cube` and `Sphere`, which receive the dimensions, and radious repectively,
+  and provide three methods:
+
+  * ``get_area(self)``, which return the figure area.
+  * ``get_volume(self)``, which return the figure volume.
+  * ``get_difference(self,object)``, which return the volume difference between the figure and an object
+    of the same kind, giving as parameter.
