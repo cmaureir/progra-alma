@@ -122,7 +122,7 @@ in separated functions (not methods!).
 * **Problems report**, instructions:
 
   * Function name ``get_problems(..)``.
-  * Display all the antennas ``id_number`` with a **FAILED** status.
+  * Display all the antennas ``id_number`` with a *FAILED* status.
 
 Also, this global list and dictionaries will be very useful,
 to manipulate the states, models, etc:
