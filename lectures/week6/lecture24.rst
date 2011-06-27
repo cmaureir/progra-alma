@@ -35,7 +35,7 @@ with its structure. Here is the statement's general form.
 Any assignment inside a class, will be a class attribute.
 
 To explain in more details the classes functionality,
-lets study the namespace behaviour of the classes.
+lets study the namespace behavior of the classes.
 
 The idea is to perform the same steps of a module creation,
 but with a different statement declaration.

@@ -252,7 +252,7 @@ Exercises
   * We can turn-on and turn-off the TV,
   * We can change the channel and volume of the TV
 
-  But is widely know that the actual TV, has much more functionallities,
+  But is widely know that the actual TV, has much more functionalities,
   for example, the LCD TV provide, media centers, USB port, etc,
   and the more actual ones, like LED TV,
   provide besides internet connection, Skype calls, etc.

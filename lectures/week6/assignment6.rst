@@ -17,7 +17,7 @@ For example, a transporter cannot has more
 than one antenna, or each path cannot
 has more than antenna neither, etc.
 
-This assignment will only be related with the previus idea.
+This assignment will only be related with the previous idea.
 
 Lets consider the following two incomplete
 classes:

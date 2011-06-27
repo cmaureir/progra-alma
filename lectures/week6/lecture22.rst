@@ -108,7 +108,7 @@ Lets look the functionality:
     <bound method myClass.f of <a.myClass instance at 0xb74448ac>>
     >>> obj.f()
     'hello, this is a method'
-    >>> obj.p(2,3) # this is the behaviour of the ext_pow function
+    >>> obj.p(2,3) # this is the behavior of the ext_pow function
     8
     >>> obj.p
     <bound method myClass.ext_pow of <a.myClass instance at 0xb74448ac>>
@@ -232,15 +232,15 @@ Exercises
 
 * Create a class called ``Data`` which provide
   an attribute called *numbers* and two methods,
-  an *average* method, and a *standar deviation* method.
+  an *average* method, and a *standard deviation* method.
 
-  The idea is when the method *standar deviation*
+  The idea is when the method *standard deviation*
   start the calculus, use the *average* method.
 
   You can develop a method to  add some numbers to the
   attribute.
 
-  Remember that the standar deviation of a sample
+  Remember that the standard deviation of a sample
   is defined by:
 
   .. math::

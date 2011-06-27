@@ -87,7 +87,7 @@ A Python class will be wrote as follow:
 
     >>> class my_class():
     ...    def __init__(self): # Constructor
-    ...        self.first_attribute = 0 # atribute
+    ...        self.first_attribute = 0 # attribute
     ...        self.second_attribute = 3.14 # attribute
     ...    def my_method(self, my_parameter): # method
     ...        return my_parameter * 2
@@ -126,7 +126,7 @@ from a class, it means give some initial arguments
 to build an object.
 
 The *__init__* method will be able to manipulate
-the arguments of a class, passing in the object contructor.
+the arguments of a class, passing in the object constructor.
 
 For example:
 
@@ -176,7 +176,7 @@ parenthesis:
 Exercises
 ~~~~~~~~~
 
-* Lets consider a class called `Bag`, which will provide a lot of functionallities.
+* Lets consider a class called `Bag`, which will provide a lot of functionalities.
   To personalize my own bag (instance) with a certain total volume, each element has a name and dimensions
   (width, height, profundity (z))
 
@@ -204,7 +204,7 @@ Exercises
   * Imagine the vector as the diagonal of a rectangle, so, now it is possible to calculate
     the rectangle area. Create a method to calculate the associated rectangle area.
   * Calculate the distance between the points of the vector.
-    Remember that the distance can be calculted as follows:
+    Remember that the distance can be calculated as follows:
 
     .. math::
 
@@ -229,11 +229,11 @@ Exercises
        :alt: (addition-vector diagram)
 
   * The method will receive an object, which will be another `Vector`
-    and will calculate the substraction of both vectors, for example
-    the substraction of the vectors ``(4,2)`` and ``(1,-2)`` will be ``(3,4)``.
+    and will calculate the subtraction of both vectors, for example
+    the subtraction of the vectors ``(4,2)`` and ``(1,-2)`` will be ``(3,4)``.
 
     .. image:: ../../diagrams/resta-vectores.png 
-       :alt: (substraction-vector diagram)
+       :alt: (subtraction-vector diagram)
 
   * The method will receive an object, which will be another `Vector`
     and will calculate the angle between both vectors, for example
@@ -252,7 +252,7 @@ Exercises
     
      
 
-* Create two classes called `Cube` and `Sphere`, which receive the dimensions, and radious repectively,
+* Create two classes called `Cube` and `Sphere`, which receive the dimensions, and radius respectively,
   and provide three methods:
 
   * ``get_area(self)``, which return the figure area.
