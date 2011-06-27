@@ -1,5 +1,5 @@
-Lecture 22 - Object-Oriented Programming - More on class creation
------------------------------------------------------------------
+Lecture 22 - More on class creation
+------------------------------------
 
 There are another thing that you can use
 when you are programming with the OO paradigm
@@ -200,6 +200,6 @@ You can also add some function to a class instance:
 Exercises
 ~~~~~~~~~
 
-* PENDING
-* PENDING
-* PENDING
+* object in list and dictionaries
+* methods inside methods
+

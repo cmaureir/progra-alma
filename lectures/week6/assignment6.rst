@@ -157,4 +157,6 @@ General considerations:
 
 To avoid confusion, you can download a template file from `here`_.
 
+Is this the best way to work with Antennas and Transporters? Why? (Justify).
+
 .. _`here`: ../../_static/programs/login-a6.py

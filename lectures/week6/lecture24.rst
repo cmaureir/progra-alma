@@ -1,10 +1,9 @@
-Lecture 24 - Object-Oriented Programming - Design good practices
------------------------------------------------------------------
+Lecture 24 - Design good practices
+-----------------------------------
 
 The content of this lecture is based on the chapters 28 and 30
 of the Learning Python 4th edition book.
 
-.. como iniciar clases
 .. clases cohecionadas
 .. sin acoplamiento
 .. no crear clases que lo hagan todo
@@ -308,31 +307,4 @@ so, the next way to use this mechanism.
     
 
 Because with this implementation,
-you can use the widely object-oriented 
-
-
-Python and OOP, final review
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The three main ideas of the Pythons OO paradigm,
-can be summarized by:
-
-* Inheritance
-
- * Inheritance is based on attribute lookup in Python (in X.name expressions).
- 
-* Polymorphism
-
- * In X.method, the meaning of method depends on the type (class) of X.
- 
-* Encapsulation
-
-  * Methods and operators implement behavior; data hiding is a convention by default.
-  * Allows the implementation of an object’s interface to be changed without impacting the users of that object.
-
-Exercises
-~~~~~~~~~
-
-* PENDING
-* PENDING
-* PENDING
+you can use the widely object-oriented. 

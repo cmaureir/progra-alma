@@ -1,0 +1,27 @@
+\documentclass{minimal}
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows,decorations}
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}[scale=.5]
+
+  \def\gridsize{5}
+  \def\Rx{3}
+  \def\Ry{4}
+  \draw[gray] (0, 0) grid (\gridsize, \gridsize);
+  \draw[thick,->] (-1, 0) -- (\gridsize, 0);
+  \draw[thick,->] (0, -1) -- (0, \gridsize);
+  \draw[thick,->] (0, 0) -- (\Rx, \Ry);
+  \node[anchor=north] at (\gridsize, -.1) {x};
+  \node[anchor=east] at (-.1, \gridsize) {y};
+  \node[anchor=east] at (\Rx, \Ry) {\((\Rx, \Ry)\)};
+
+\end{tikzpicture}
+\end{preview}
+
+\end{document}
+
