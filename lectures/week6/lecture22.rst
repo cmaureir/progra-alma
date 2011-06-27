@@ -201,8 +201,48 @@ Exercises
 ~~~~~~~~~
 
 * A course is composed by a group of students,
-  and student can be s
+  and a student can be saw as a *class*.
 
-* object in list and dictionaries
-* methods inside methods
+  Create a class called ``Student`` which contain
+  the following attributes:
 
+  * Name (string)
+  * Age (integer)
+  * Grades (list)
+
+  and the methods:
+
+  * ``add_grade(self, grade)``, which add a grade (0 to 100) to the Grades list.
+  * ``check_status(self)``, calculate the average of the grades.
+    If the average is over 60, the method must return `True`, otherwise `False`.
+
+  Develop a program which use this class to generate a course,
+  of 20 students.
+
+  Also, you need to create a list of these students, for each student,
+  you need to add new grades randomly and check the status grade by grade.
+
+  Remember that you can generate randomly grades:
+
+  ::
+
+      from random import randint
+
+      grade = randint(0,101)      
+
+* Create a class called ``Data`` which provide
+  an attribute called *numbers* and two methods,
+  an *average* method, and a *standar deviation* method.
+
+  The idea is when the method *standar deviation*
+  start the calculus, use the *average* method.
+
+  You can develop a method to  add some numbers to the
+  attribute.
+
+  Remember that the standar deviation of a sample
+  is defined by:
+
+  .. math::
+
+      s = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_{i} - \hat{x})^{2}}
