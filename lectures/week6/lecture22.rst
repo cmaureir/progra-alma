@@ -200,6 +200,9 @@ You can also add some function to a class instance:
 Exercises
 ~~~~~~~~~
 
+* A course is composed by a group of students,
+  and student can be s
+
 * object in list and dictionaries
 * methods inside methods
 

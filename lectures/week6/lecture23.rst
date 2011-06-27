@@ -246,5 +246,40 @@ Exercises
 
   Execute the code and verify your answer.
 
-* PENDING
-* Chess
+* Lets consider the idea of a simple TV, as a parent class,
+  with some simple characteristics and methods, like:
+
+  * We can turn-on and turn-off the TV,
+  * We can change the channel and volume of the TV
+
+  But is widely know that the actual TV, has much more functionallities,
+  for example, the LCD TV provide, media centers, USB port, etc,
+  and the more actual ones, like LED TV,
+  provide besides internet connection, Skype calls, etc.
+
+  Develop a parent class called ``TV``, and two child classes
+  which inherit from the parent class, called ``Lcd`` and ``Led``.
+
+  There are not special methods, only variable changing, like,
+  channels, volume, status, and in the special cases, you need
+  to develop methods like ``connect_to_internet`` and ``skype_call``.
+
+  The main idea here, is not develop some big methods, but
+  understand the inheritance meaning.
+
+* A Chess figure has three main characteristics, 
+  the position, the color and the type.
+
+  Create a class called figure, with the generic
+  attributes mentioned before.
+
+  All the figures in the chess has different
+  movement, so develop sub-classes for the
+  *Horse*  figure, which inherit the attributes
+  from the parent class, and also implement
+  the ``movements`` method, which display all the possibilities
+  of movement of the object. (consider that the
+  horse start in the first square of the chess board),
+  Also develop a ``move`` method which receive the destiny
+  position, and check the availability of the movement.
+  

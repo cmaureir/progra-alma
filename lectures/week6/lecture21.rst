@@ -244,10 +244,10 @@ Exercises
 
     Remember the formula:
 
-    .. math:
+    .. math::
     
-        \vector{u} = (3,0)
-        \vector{v} = (5,5)
+        \vec{u} = (3,0) \\
+        \vec{v} = (5,5) \\
         \cos \alpha = \frac{3\cdot 5 + 0\cdot 5}{\sqrt{3^{2} + 0^{2}} \cdot \sqrt{5^{2}+5^{2}}} = \frac{\sqrt{2}}{2}
     
      
