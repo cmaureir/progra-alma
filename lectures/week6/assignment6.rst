@@ -57,7 +57,6 @@ classes:
             self.id_number = id_number
             self.name = name
             self.state = state
-            self.fuel = 100
     
         def move(self, antenna, orig_path, dest_path):
             print 'not implemented'
@@ -100,7 +99,7 @@ in separated functions (not methods!).
 * **Set antennas positions**, instructions:
 
   * Function name ``set_antenna_position(...)``.
-  * For each path, change the dice position to a random ``(x,y,z)`` position.
+  * For each path, change the dish position to a random ``(x,y,z)`` position.
   * Display a message warning the movement.
 * **Set antennas status**, instructions:
 
@@ -155,7 +154,7 @@ General considerations:
     from random import randint
     x =  randint(0,3)
 
-  This will produce a random integer, between 0 and 2 (the 3 is not included)
+  This will produce a random integer, between 0 and 3.
 
 To avoid confusion, you can download a template file from `here`_.
 
