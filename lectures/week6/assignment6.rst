@@ -138,10 +138,12 @@ to manipulate the states, models, etc:
     
     transporters = []
     antennas = []
-    pads = set([i for i in range(0,10)])    
+    pads = set([i for i in range(0,11)])    
 
 General considerations:
 
+* Consider the **Pad 0** as the **Base** Pad, to start the movement
+  to another Pad.
 * All the transporters and antennas start in a zero point.
 * When a transporter move an antenna to a certain pad,
   the transporter stay in that pad, until the next movement.
