@@ -13,11 +13,11 @@ only in the interaction between an antenna and
 a transporter.
 
 The main idea will be to 
-move the antennas from one path to another.
+move the antennas from one pad to another.
 This is performed by a transporter,
 so you can easily deduce some restrictions.
 For example, a transporter cannot has more
-than one antenna, or each path cannot
+than one antenna, or each pad cannot
 has more than antenna neither, etc.
 
 This assignment will only be related with the previous idea.
@@ -34,19 +34,18 @@ classes:
             self.id_number = id_number
             self.model = model
             self.state = state
-            self.x = 0
-            self.y = 0
-            self.z = 0
-            self.path = 0
+            self.azimuth = 0 # 0 to 360 degrees
+            self.elevation = 0 # 0 to 90 degrees
+            self.pad = 0
             self.data = []
     
         def get_position(self):
             print 'not implemented'
     
-        def set_position(self,x,y,z):
+        def set_position(self,azimuth, elevation):
             print 'not implemented'
     
-        def get_path(self):
+        def get_pad(self):
             print 'not implemented'
     
         def get_state(self):
@@ -58,10 +57,10 @@ classes:
             self.name = name
             self.state = state
     
-        def move(self, antenna, orig_path, dest_path):
+        def move(self, antenna, orig_pad, dest_pad):
             print 'not implemented'
             # change status
-            # display message of moving (from initial path, to final path)
+            # display message of moving (from initial pad, to final pad)
             sleep(0.5) # intentional delay to note the mechanism
     
         def get_fuel_status(self):
@@ -90,27 +89,28 @@ in separated functions (not methods!).
 
   * Function name ``move_antenna(...)``
   * Call the ``move`` method of the transporter.
-  * The main idea is to move all the antennas to the paths randomly,
-    it means, which is not necessary to place the antenna 1 in the path 1.
+  * The main idea is to move all the antennas to the pads randomly,
+    it means, which is not necessary to place the antenna 1 in the pad 1.
   * Change the transporter status (*MOVING*).
   * Change the antenna status (random, between *OBSERVING* and *FAIL*).
-  * Change the path status (Remove path from set).
+  * Change the pad status (Remove pad from set).
   * Display a message warning the movement.
 * **Set antennas positions**, instructions:
 
   * Function name ``set_antenna_position(...)``.
-  * For each path, change the dish position to a random ``(x,y,z)`` position.
+  * For each pad, change the dish position to a random ``(azimuth, elevation)`` position.
+  * Remember the restriction of the azimuth and elevation (degrees range)
   * Display a message warning the movement.
 * **Set antennas status**, instructions:
 
   * Function name ``set_antenna_state(...)``.
-  * For each antenna in a path, change the state randomly-
+  * For each antenna in a pad, change the state randomly-
   * Change antenna state.
   * Display a message warning the state change.
 * **Start antenna observation**, instructions:
 
   * Function name ``start_observation(...)``
-  * For each antenna in a path, with a *READY* state, start the observation
+  * For each antenna in a pad, with a *READY* state, start the observation
     and generate a list of ten data numbers randomly.
   * Change antenna state.
   * Display a message warning the observation process.
@@ -138,13 +138,13 @@ to manipulate the states, models, etc:
     
     transporters = []
     antennas = []
-    paths = set([i for i in range(0,10)])    
+    pads = set([i for i in range(0,10)])    
 
 General considerations:
 
 * All the transporters and antennas start in a zero point.
-* When a transporter move an antenna to a certain path,
-  the transporter stay in that path, until the next movement.
+* When a transporter move an antenna to a certain pad,
+  the transporter stay in that pad, until the next movement.
 * Will be very useful to add in some code sections a ``sleep(0.5)``
   statement, to see all the process not so quickly.
 * Remember the mechanism to generate a random number:
