@@ -162,7 +162,7 @@ To avoid confusion, you can download a template file from `here`_.
 
 A diagram of the assignment idea:
 
-    .. image:: ../../diagrams/a6.png
+    .. image:: ../../diagrams/a6.jpg
        :alt: (a6 diagram)
 
 Is this the best way to work with Antennas and Transporters? Why? (Justify).
