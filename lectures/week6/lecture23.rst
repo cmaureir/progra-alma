@@ -6,7 +6,14 @@ is that you can reuse code, because a *class* is a kind
 of a data type structure template.
 
 An easiest way to reuse code, is using **Inheritance**,
-which is a good approach to implement relationship between classes.
+which is a good approach to implement relationship between classes,
+and objects.
+
+A diagram to understand the hierarchy of the **classes**, **sub-classes** and **objects**:
+
+    .. image:: ../../diagrams/inheritance.png
+       :alt: (inheritance diagram)
+
 
 The best way to understand the concept behind *inheritance*,
 is with an example situation.

@@ -35,6 +35,9 @@ So, we can think the concepts, as  the following,
 *Objects* (humans) can *walk*, *talk*, etc.
 because we inherit the **methods** from the **class** Human.
 
+    .. image:: ../../diagrams/object-interaction.png
+       :alt: (object interaction diagram)
+
 Formally,
 and *object* is an instance of a *class*
 

@@ -1,0 +1,41 @@
+\documentclass{minimal}
+\usepackage[pdftex,active,tightpage]{preview}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows,decorations,backgrounds}
+
+\begin{document}
+\begin{preview}
+\tikzstyle{circle}=[draw, shape=circle, fill=blue!40]
+\tikzstyle{line}=[->, thick]
+\begin{tikzpicture}[node distance= 3cm,yscale=-1, scale=.9]
+  \node[circle] (a) at ( 0 , 0) {a};
+  \node[circle] (b) at ( 2 , 0) {b};
+  \node[circle] (c) at (-2 , 0) {c};
+  \node[circle] (d) at ( 0 , 2) {d};
+  \node[circle] (e) at ( 0 , -2) {e};
+  \node[circle, label=above:$object$] (x) at ( 3.5 , -1.5) {x};
+  \node[label=above:$method$] (x) at ( 3.5 , 0.2) {};
+
+  \draw [line ] (a) to (b);
+  \draw [line ] (a) to (e);
+  \draw [line, bend left = 30 ] (d) to (a);
+  \draw [line, bend right = 45 ] (c) to (e);
+  \draw [line, bend right = 45 ] (d) to (c);
+  \draw [line, bend right = 45 ] (e) to (b);
+  \draw [line, bend right = 45 ] (c) to (d);
+  \draw [line] (3,0.5) to (4,0.5);
+
+\begin{pgfonlayer}{background}
+    \filldraw [line width=4mm,join=round,black!10]
+      (e.north  -| b.east)  rectangle (d.south  -| c.west);
+  \end{pgfonlayer}
+
+
+
+\end{tikzpicture}
+\end{preview}
+
+\end{document}
+

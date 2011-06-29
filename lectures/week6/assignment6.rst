@@ -158,6 +158,11 @@ General considerations:
 
 To avoid confusion, you can download a template file from `here`_.
 
+A diagram of the assignment idea:
+
+    .. image:: ../../diagrams/a6.png
+       :alt: (a6 diagram)
+
 Is this the best way to work with Antennas and Transporters? Why? (Justify).
 
 .. _`here`: ../../_static/programs/login-a6.py
