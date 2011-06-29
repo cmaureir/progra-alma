@@ -13,6 +13,7 @@ gif: $(GIFFILES)
 %.png: %.pdf
 	@echo "creating $@..."
 	@convert -density 1200 -scale 10\% -quality 80 $< $@
+	@convert -geometry 500 a6.svg a6.jpg
 clean:
 	@rubber --clean --pdf $(TEXFILES:.tex=)
 	@rm -f *.png *.gif *.vrb

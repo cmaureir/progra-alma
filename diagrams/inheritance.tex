@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees}
+\begin{document}
+\begin{preview}
+\pagestyle{empty}
+\begin{tikzpicture}
+  \path[mindmap,concept color=black,text=white]
+    node[concept] {Parent Class}
+    [clockwise from=0]
+    child[concept color=green!50!black] {
+      node[concept] {Child class 2}
+      [clockwise from=40]
+      child { node[concept] {object 1} }
+      child { node[concept] {object 2} }
+      child { node[concept] {object 3} }
+      child { node[concept] {object 3} }
+    }  
+    child[concept color=blue] {
+      node[concept] {Child class 1}
+      [clockwise from=-50]
+      child { node[concept] {object 1} }
+      child { node[concept] {object 2} }
+    }
+    child[concept color=orange] { node[concept] {object 1} }
+    child[concept color=orange] { node[concept] {object 2} };
+\end{tikzpicture}
+\end{preview}
+\end{document}
