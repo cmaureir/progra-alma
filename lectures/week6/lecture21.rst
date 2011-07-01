@@ -211,7 +211,7 @@ Exercises
 
     .. math::
 
-        distance = \sqrt{(x_{2}-x_{1})+(y_{2}-y_{1})}
+        distance = \sqrt{(x_{2}-x_{1})^{2}+(y_{2}-y_{1})^{2}}
       
 * The previous exercise consider a vector with a position in the space,
   because we have the origin and destiny point.
