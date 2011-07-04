@@ -41,17 +41,17 @@ so the maximum previous value will be 14).
 
    Write a function called ``new_packet()``
    which return a list with the new stickers
-   and a status, which is *correct* or *wrong*
-   in cases which the stickers are 4 or 5::
+   and a status, which is *wrong* or *correct*
+   in cases which the stickers are 4 or 5 respectively::
 
     >>> new_packet()
-    [27, 31, 207, 455, 529], correct
-    >>> new_packet(), wrong
-    [66, 577, 481, 171]
+    ([27, 31, 207, 455, 529], 'correct')
     >>> new_packet()
-    [275, 493, 167, 25], wrong
+    ([66, 577, 481, 171], 'wrong')
     >>> new_packet()
-    [113, 35, 592, 560, 244], correct
+    ([275, 493, 167, 25], 'wrong')
+    >>> new_packet()
+    ([113, 35, 592, 560, 244], 'correct')
 
 
    **Hint:** Returning more than one value.
@@ -95,7 +95,7 @@ so the maximum previous value will be 14).
 
     >>> album_stickers = []
     >>> add_stickers(new_packets=128)
-    >>> missing(album_stickers)
+    >>> print missing(album_stickers)
     [514, 3, 5, 7, 10, 523, 12, 525, 14, 16, 529, ...]
 
    Please note that the boy buy 128 packets,
@@ -112,7 +112,7 @@ so the maximum previous value will be 14).
    to the number of times which is in the stickers list::
 
     >>> album_stickers = [4, 6, 9, 12, 9, 9, 6, 12, 2]
-    >>> count_stickers(album_stickers)
+    >>> print count_stickers(album_stickers)
     {9: 3, 2: 1, 4: 1, 6: 2, 12: 2}
 
   **Hint:** *sorted()* function.
