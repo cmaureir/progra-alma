@@ -1,10 +1,8 @@
 Lecture 25 - NumPy arrays (part I)
 ----------------------------------
-.. 
-.. Arreglos
-.. ========
-.. 
-.. Las estructuras de datos que hemos visto hasta ahora
+ 
+Arrays
+~~~~~~
 .. (listas, tuplas, diccionarios, conjuntos)
 .. permiten manipular datos de manera muy flexible.
 .. Combinándolas y anidándolas,
@@ -157,8 +155,10 @@ Lecture 25 - NumPy arrays (part I)
 ..     >>> linspace(1, 2, 5)
 ..     array([ 1.  ,  1.25,  1.5 ,  1.75,  2.  ])
 .. 
-.. Operaciones con arreglos
-.. ------------------------
+
+Arrays operations
+~~~~~~~~~~~~~~~~~~
+
 .. Las limitaciones que tienen los arreglos respecto de las listas
 .. son compensadas por la cantidad de operaciones convenientes
 .. que permiten realizar sobre ellos.
@@ -232,8 +232,9 @@ Lecture 25 - NumPy arrays (part I)
 ..     >>> all(a == c)
 ..     True
 .. 
-.. Funciones sobre arreglos
-.. ------------------------
+Functions over Arrays
+~~~~~~~~~~~~~~~~~~~~~
+
 .. NumPy provee muchas funciones matemáticas
 .. que también operan elemento a elemento.
 .. Por ejemplo,
@@ -269,8 +270,9 @@ Lecture 25 - NumPy arrays (part I)
 ..     1960218, 0.70710678118654746, 0.83146961230254524, 0.9238795
 ..     3251128674, 0.98078528040323043, 1.0]
 .. 
-.. Arreglos aleatorios
-.. -------------------
+
+Random Arrays
+~~~~~~~~~~~~~
 .. El módulo NumPy contiene a su vez otros módulos
 .. que proveen funcionalidad adicional
 .. a los arreglos y funciones básicos.
@@ -291,8 +293,9 @@ Lecture 25 - NumPy arrays (part I)
 ..     >>> random(3)
 ..     array([ 0.51886706,  0.46220545,  0.95818726])
 .. 
-.. Obtener elementos de un arreglo
-.. -------------------------------
+
+Obtain Array Elements
+~~~~~~~~~~~~~~~~~~~~~
 .. Cada elemento del arreglo tiene un índice,
 .. al igual que en las listas.
 .. El primer elemento tiene índice 0.
@@ -369,8 +372,10 @@ Lecture 25 - NumPy arrays (part I)
 ..     >>> b[1:5:2]
 ..     array([ 2.19, -2.29])
 .. 
-.. Algunos métodos convenientes
-.. ----------------------------
+
+
+Convenient Methods
+~~~~~~~~~~~~~~~~~~
 .. Los arreglos proveen algunos métodos útiles que conviene conocer.
 .. 
 .. Los métodos ``min`` y ``max``,
@@ -399,8 +404,9 @@ Lecture 25 - NumPy arrays (part I)
 ..     >>> a.prod()
 ..     -11393.086289208301
 .. 
-.. Arreglos bidimensionales
-.. ========================
+
+Bidimensional Arrays
+~~~~~~~~~~~~~~~~~~~~
 .. 
 .. .. index:: arreglo bidimensional
 .. 
@@ -421,8 +427,8 @@ Lecture 25 - NumPy arrays (part I)
 .. el de su fila y el de su columna.
 .. 
 .. 
-.. Crear arreglos bidimensionales
-.. ------------------------------
+Creating Bidimensional Arrays
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 
 .. Los arreglos bidimensionales
 .. también son provistos por NumPy,
@@ -507,8 +513,9 @@ Lecture 25 - NumPy arrays (part I)
 ..            [ 0.35710483,  0.44033758],
 ..            [ 0.04107107,  0.47408363]])
 .. 
-.. Operaciones con arreglos bidimensionales
-.. ----------------------------------------
+
+Bidimensional Arrays Operations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. Al igual que los arreglos de una dimensión,
 .. las operaciones sobre las matrices
 .. se aplican término a término::
@@ -539,8 +546,9 @@ Lecture 25 - NumPy arrays (part I)
 ..       File "<stdin>", line 1, in <module>
 ..     ValueError: shape mismatch: objects cannot be broadcast to a single shape
 .. 
-.. Obtener elementos de un arreglo bidimensional
-.. ---------------------------------------------
+
+Obtaining Bidimensional Arrays Elements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. Para obtener un elemento de un arreglo,
 .. debe indicarse los índices de su fila ``i`` y su columna ``j``
 .. mediante la sintaxis ``a[i, j]``::
@@ -611,8 +619,9 @@ Lecture 25 - NumPy arrays (part I)
 ..     >>> a[2:3, 3:4]  # arreglo de dos dimensiones de 1 x 1
 ..     array([[ 2.56]])
 .. 
-.. Otras operaciones
-.. -----------------
+
+Other Operations
+~~~~~~~~~~~~~~~~
 .. .. index:: trasposición, transpose
 .. 
 .. La **trasposicion** consiste en cambiar las filas por las columnas y viceversa.
@@ -687,8 +696,8 @@ Lecture 25 - NumPy arrays (part I)
 ..            [0, 0, 0, 3, 0],
 ..            [0, 0, 0, 0, 4]])
 .. 
-.. Excercises
-.. -----------
+Excercises
+~~~~~~~~~~
 .. 
 .. 
 .. Transmisión de datos
