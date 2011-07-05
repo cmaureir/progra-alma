@@ -77,12 +77,14 @@ is a text processor,
 like Microsoft Word.
 
 Try it:
-open the ``quadratic.py`` program
+open the `quadratic.py`_ program
 with Notepad (or any other editor)
 and you will see its contents.
 
 .. _text file: http://en.wikipedia.org/wiki/Text_file
 .. _text editor: http://en.wikipedia.org/wiki/Text_editor
+
+.. _`quadratic.py`: ../../_static/programs/quadratic.py
 
 .. index:: text editor (list)
 
