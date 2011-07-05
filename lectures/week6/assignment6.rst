@@ -63,12 +63,6 @@ classes:
             # display message of moving (from initial pad, to final pad)
             sleep(0.5) # intentional delay to note the mechanism
     
-        def get_fuel_status(self):
-            print 'not implemented'
-            
-        def add_fuel(self):
-            print 'not implemented'
-
 
 You need to write the content
 of the previous incomplete methods,
@@ -83,7 +77,7 @@ in separated functions (not methods!).
 * **Create 10 antennas**, instructions:
 
   * Function name ``create_antennas(...)``.
-  * Create two instance of the ``Antenna`` class.
+  * Create ten instance of the ``Antenna`` class.
   * Display a message warning the creation.
 * **Move the antennas**, instructions:
 
@@ -92,7 +86,7 @@ in separated functions (not methods!).
   * The main idea is to move all the antennas to the pads randomly,
     it means, which is not necessary to place the antenna 1 in the pad 1.
   * Change the transporter status (*MOVING*).
-  * Change the antenna status (random, between *OBSERVING* and *FAIL*).
+  * Change the antenna status (random, between *READY* and *FAIL*).
   * Change the pad status (Remove pad from set).
   * Display a message warning the movement.
 * **Set antennas positions**, instructions:
@@ -111,7 +105,7 @@ in separated functions (not methods!).
 
   * Function name ``start_observation(...)``
   * For each antenna in a pad, with a *READY* state, start the observation
-    and generate a list of ten data numbers randomly.
+    and generate a list of ten data numbers randomly (integer between 0 and 10).
   * Change antenna state.
   * Display a message warning the observation process.
 

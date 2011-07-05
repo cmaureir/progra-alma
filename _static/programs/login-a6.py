@@ -14,10 +14,9 @@ class Antenna():
         self.id_number = id_number
         self.model = model
         self.state = state
-        self.x = 0
-        self.y = 0
-        self.z = 0
-        self.path = 0
+        self.azimuth = 0 # 0 to 360 degrees
+        self.elevation = 0 # 0 to 90 degrees
+        self.pad = 0
         self.data = []
 
     def get_position(self):
@@ -37,19 +36,12 @@ class Transporter():
         self.id_number = id_number
         self.name = name
         self.state = state
-        self.fuel = 100
 
     def move(self, antenna, orig_path, dest_path):
         print 'not implemented'
         # change status
         # display message of moving (from initial path, to final path)
         sleep(0.5) # intentional delay to note the mechanism
-
-    def get_fuel_status(self):
-        print 'not implemented'
-
-    def add_fuel(self):
-        print 'not implemented'
 
 # Add functions parameters if is needed
 
