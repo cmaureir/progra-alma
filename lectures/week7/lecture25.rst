@@ -3,111 +3,112 @@ Lecture 25 - NumPy arrays (part I)
  
 Arrays
 ~~~~~~
-(listas, tuplas, diccionarios, conjuntos)
-permiten manipular datos de manera muy flexible.
-Combinándolas y anidándolas,
-es posible organizar información de manera estructurada
-para representar sistemas del mundo real.
+(lists, tuples, dictionary, sets)
+allow to manipulate data in a flexible way.
+Combining and nesting,
+is it possible to organize the information of structured way
+to represent real world systems.
 
-En muchas aplicaciones de Ingeniería, por otra parte,
-más importante que la organización de los datos
-es la capacidad de hacer muchas operaciones a la vez
-sobre grandes conjuntos de datos numéricos
-de manera eficiente.
-Algunos ejemplos de problemas
-que requieren manipular grandes secuencias de números son:
-la predicción del clima,
-la construcción de edificios,
-y el análisis de indicadores financieros
-entre muchos otros.
+In many engineering applications, on the other hand,
+most important than the data organization
+is the capacity of perform many operations at once
+over large sets of numerical data,
+efficiently.
+Some problems examples which require handling large sequences
+of numbers are the following:
+weather forecast,
+building construction,
+and the analysis of financial indicators,
+among many others.
 
-.. index:: arreglo
+.. index:: array
 
-La estructura de datos que sirve para almacenar
-estas grandes secuencias de números
-(generalmente de tipo ``float``)
-es el **arreglo**.
+The data structure used to store this large sequences
+of numbers (usually ``float`` type) is the **array**.
 
-Los arreglos tienen algunas similitudes con las listas:
+The arrays have some similarities with the list:
 
-* los elementos tienen un orden y se pueden acceder mediante su posición,
-* los elementos se pueden recorrer usando un ciclo ``for``.
+* the elements (items) have an order and can be accessed by its position.
+* the elements (items) can be traveled by a ``for`` cycle.
 
-Sin embargo,
-también tienen algunas restricciones:
+However,
+they also have some restrictions:
 
-* todos los elementos del arreglo deben tener el mismo tipo,
-* en general, el tamaño del arreglo es fijo
-  (no van creciendo dinámicamente como las listas),
-* se ocupan principalmente para almacenar datos numéricos.
+* all the elements (items) of the array must have the same type,
+* in general, the size of the array is fixed
+  (they don’t grow dynamically as the lists),
+* are primarily used to store numerical data.
 
-A la vez,
-los arreglos tienen muchas ventajas por sobre las listas,
-que iremos descubriendo a medida que avancemos en la materia.
+At the same time,
+arrays have many advantages over the lists,
+which we will discover as we proceed in the course content. 
 
-.. index:: matriz, vector
+.. index:: matrix, vector
 
-Los arreglos son los equivalentes en programación
-de las **matrices** y **vectores** de las matemáticas.
-Precisamente,
-una gran motivación para usar arreglos
-es que hay mucha teoría detrás de ellos
-que puede ser usada en el diseño de algoritmos
-para resolver problemas verdaderamente interesantes.
+The arrays are equivalent in programming
+to mathematics **matrix** and **vectors**.
+Precisely,
+a huge motivation to use arrays
+is because there are many theories behind them
+which can be used in the algorithm design
+to solve really interesting problems.
 
 Array Creation
 ~~~~~~~~~~~~~~
 .. index:: NumPy
 
-El módulo que provee las estructuras de datos
-y las funciones para trabajar con arreglos
-se llama **NumPy**,
-y no viene incluído con Python,
-por lo que hay que instalarlo por separado.
+The module which provides data structures
+and functions to work with arrays is called **NumPy**,
+and is not included with Python,
+so you have to install it separately.
 
-.. index:: NumPy (página de descargas)
+.. index:: NumPy (download page)
 
-Descargue el instalador apropiado
-para su versión de Python
-desde la `página de descargas de NumPy`_.
-Para ver qué versión de Python tiene instalada,
-vea la primera línea que aparece al abrir una consola.
+Download the appropriate installer for your
+Python version from the `NumPy download page`.
+To see what version of Python you have installed,
+see the first line that appears when you open a console,
+for example:
 
-.. _página de descargas de NumPy: http://tinyurl.com/bajar-numpy
+::
 
-Para usar las funciones provistas por NumPy,
-debemos importarlas al principio del programa::
+    localhost~> python
+    Python 2.7.2 (default, Jun 12 2011, 03:16:36) 
+    [GCC 4.6.0 20110603 (prerelease)] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> 
+
+In this case, I have installed the 2.7 Python version.
+
+.. _NumPy download Page: http://sourceforge.net/projects/numpy/files/NumPy/1.6.0/
+
+To use the functions provided by NumPy,
+we need to import at the beginning of the program
+as a simple module::
 
     from numpy import array
 
-Como estaremos usando frecuentemente
-muchas funciones de este módulo,
-conviene importarlas todas de una vez
-usando la siguiente sentencia::
+Because we will use frequently a lot of this module functions,
+is convenient to import all using the following statement::
 
     from numpy import *
 
-(Si no recuerda cómo usar el ``import``,
-puede repasar la materia sobre módulos_).
-
-.. _módulos: modulos.html
-
 .. index:: array
 
-El tipo de datos de los arreglos se llama ``array``.
-Para crear un arreglo nuevo,
-se puede usar la función ``array``
-pasándole como parámetro la lista de valores
-que deseamos agregar al arreglo::
+The data type of arrays is called ``array``.
+To create a new array
+we can use the ``array`` function
+passing as parameter the list of values
+which we want to add to the array::
 
     >>> a = array([6, 1, 3, 9, 8])
     >>> a
     array([6, 1, 3, 9, 8])
 
-Todos los elementos del arreglo
-tienen exactamente el mismo tipo.
-Para crear un arreglo de números reales,
-basta con que uno de los valores lo sea::
+All the array elements
+have exactly the same type.
+To create a real number array,
+is enough if only one of the values be a real number::
 
     >>> b = array([6.0, 1, 3, 9, 8])
     >>> b
@@ -115,8 +116,8 @@ basta con que uno de los valores lo sea::
 
 .. index:: astype
 
-Otra opción es convertir el arreglo a otro tipo
-usando el método ``astype``::
+Another option is to convert the array to another type
+using the ``astype`` method::
 
     >>> a
     array([6, 1, 3, 9, 8])
@@ -127,19 +128,17 @@ usando el método ``astype``::
 
 .. index:: zeros, ones, arange, linspace
 
-Hay muchas formas de arreglos
-que aparecen a menudo en la práctica,
-por lo que existen funciones especiales para crearlos:
+There are many array forms
+which often appear in practice,
+so there are special functions to create them:
 
-* ``zeros(n)`` crea un arreglo de ``n`` ceros;
-* ``ones(n)`` crea un arreglo de ``n`` unos;
-* ``arange(a, b, c)`` crea un arreglo
-  de forma similar a la función ``range``,
-  con las diferencias que ``a``, ``b`` y ``c`` pueden ser reales,
-  y que el resultado es un arreglo y no una lista;
-* ``linspace(a, b, n)`` crea un arreglo
-  de ``n`` valores equiespaciados
-  entre ``a`` y ``b``.
+* ``zeros(n)`` creates an array of ``n`` zeros;
+* ``ones(n)`` creates an array of ``n`` ones;
+* ``arange(a, b, c)`` creates an array is a similar way to the
+  ``range`` function, with the difference that ``a``, ``b`` and ``c``
+  can be real numbers, and that the result is an array and not a list;
+* ``linspace(a, b, n)`` creates an array of ``n`` equally spaced
+  between ``a`` and ``b``.
 
 ::
 
@@ -148,6 +147,9 @@ por lo que existen funciones especiales para crearlos:
 
     >>> ones(5)
     array([ 1.,  1.,  1.,  1.,  1.])
+
+    >>> arange(1.0, 9.0, 2)
+    array([1., 3., 5., 7.])
 
     >>> arange(3.0, 9.0)
     array([ 3.,  4.,  5.,  6.,  7.,  8.])
@@ -159,53 +161,53 @@ por lo que existen funciones especiales para crearlos:
 Arrays operations
 ~~~~~~~~~~~~~~~~~~
 
-Las limitaciones que tienen los arreglos respecto de las listas
-son compensadas por la cantidad de operaciones convenientes
-que permiten realizar sobre ellos.
+The limitations of the arrays
+respect the lists are balanced by the amount of operations
+which allow to realize over them.
 
 .. index:: arreglos (operaciones)
 
-Las operaciones aritméticas entre arreglos
-se aplican elemento a elemento::
+Arithmetic operations between arrays
+are applied element by element::
 
     >>> a = array([55, 21, 19, 11,  9])
     >>> b = array([12, -9,  0, 22, -9])
 
-    # sumar los dos arreglos elemento a elemento
+    # add to arrays element-by-element
     >>> a + b
     array([67, 12, 19, 33,  0])
 
-    # multiplicar elemento a elemento
+    # multiply element-by-element
     >>> a * b
     array([ 660, -189,    0,  242,  -81])
 
-    # restar elemento a elemento
+    # substraction element-by-element
     >>> a - b
     array([ 43,  30,  19, -11,  18])
 
-Las operaciones entre un arreglo y un valor simple
-funcionan aplicando la operación
-a todos los elementos del arreglo,
-usando el valor simple como operando todas las veces::
+Operations between an array and a single value
+works applying the operation
+to all the array elements,
+using simple value as operating every time::
 
     >>> a
     array([55, 21, 19, 11,  9])
 
-    # multiplicar por 0.1 todos los elementos
+    # multiply by 0.1 all the elements
     >>> 0.1 * a
     array([ 5.5,  2.1,  1.9,  1.1,  0.9])
 
-    # restar 9.0 a todos los elementos
+    # substract 9.0 to all the elements
     >>> a - 9.0
     array([ 46.,  12.,  10.,   2.,   0.])
 
-Note que si quisiéramos hacer estas operaciones usando listas,
-necesitaríamos usar un ciclo
-para hacer las operaciones elemento a elemento.
+If we want to do these operations using lists,
+we need to use a cycle
+to do the element by element operations.
 
-Las operaciones relacionales
-también se aplican elemento a elemento,
-y retornan un arreglo de valores booleanos::
+The relational operations
+are also applied element by element,
+and return an array of boolean values::
 
     >>> a = array([5.1, 2.4, 3.8, 3.9])
     >>> b = array([4.2, 8.7, 3.9, 0.3])
@@ -219,11 +221,10 @@ y retornan un arreglo de valores booleanos::
 
 .. index:: any, all
 
-Para reducir el arreglo de booleanos a un único valor,
-se puede usar las funciones ``any`` y ``all``.
-``any`` retorna ``True`` si al menos uno de los elementos es verdadero,
-mientras que ``all`` retorna ``True`` sólo si todos lo son
-(en inglés, *any* signfica «alguno», y *all* significa «todos»)::
+To reduce the boolean array to a single value,
+you can use ``any`` and ``all`` functions.
+``any`` returns ``True`` if at least one element is true,
+while ``all`` returns ``True`` only if all are true::
 
     >>> any(a < b)
     True
@@ -235,12 +236,12 @@ mientras que ``all`` retorna ``True`` sólo si todos lo son
 Functions over Arrays
 ~~~~~~~~~~~~~~~~~~~~~
 
-NumPy provee muchas funciones matemáticas
-que también operan elemento a elemento.
-Por ejemplo,
-podemos obtener el seno de 9 valores equiespaciados
-entre 0 y *π*/2
-con una sola llamada a la función ``sin``::
+NumPy provides many mathematical functions
+which also operate element by element.
+For example,
+we can get *sine* of 9 values equally spaced
+between 0 and *π*/2
+with a single ``sin`` function call::
 
     >>> from numpy import linspace, pi, sin
 
@@ -255,21 +256,22 @@ con una sola llamada a la función ``sin``::
             0.55557023,  0.70710678,  0.83146961,
             0.92387953,  0.98078528,  1.        ])
 
-Como puede ver,
-los valores obtenidos crecen desde 0 hasta 1,
-que es justamente como se comporta la función seno
-en el intervalo [0, *π*/2].
+As you can see,
+the obtained values grow from 0 to 1,
+which is exactly how it behaves the sine function
+in the interval [0, *π*/2].
 
-Aquí también se hace evidente otra de las ventajas de los arreglos:
-al mostrarlos en la consola o al imprimirlos,
-los valores aparecen perfectamente alineados.
-Con las listas, esto no ocurre::
+This is also evident another advantage of the arrays:
+displaying or printing on the console,
+the values are perfectly aligned.
+With lists, this does not happen::
 
     >>> list(sin(x))
     [0.0, 0.19509032201612825, 0.38268343236508978, 0.5555702330
     1960218, 0.70710678118654746, 0.83146961230254524, 0.9238795
     3251128674, 0.98078528040323043, 1.0]
 
+.. **********************************************
 
 Random Arrays
 ~~~~~~~~~~~~~
