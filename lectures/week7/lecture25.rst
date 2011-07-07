@@ -275,16 +275,17 @@ With lists, this does not happen::
 
 Random Arrays
 ~~~~~~~~~~~~~
-El módulo NumPy contiene a su vez otros módulos
-que proveen funcionalidad adicional
-a los arreglos y funciones básicos.
 
-El módulo ``numpy.random``
-provee funciones para crear **números aleatorios**
-(es decir, generados al azar),
-de las cuales la más usada es la función ``random``,
-que entrega un arreglo de números al azar
-distribuidos uniformemente entre 0 y 1::
+The NumPy module contains other modules
+which provide array additional functionalities
+and basic functions.
+
+The ``numpy.random`` module provide
+functions to create **random numbers**
+(i.e. randomly generated),
+of which the most used is the ``random`` function,
+which provides a randomly generated array
+uniformly distributed between 0 and 1::
 
     >>> from numpy.random import random
 
@@ -298,13 +299,14 @@ distribuidos uniformemente entre 0 y 1::
 
 Obtain Array Elements
 ~~~~~~~~~~~~~~~~~~~~~
-Cada elemento del arreglo tiene un índice,
-al igual que en las listas.
-El primer elemento tiene índice 0.
-Los elementos también pueden numerarse
-desde el final hasta el principio
-usando índices negativos.
-El último elemento tiene índice —1::
+
+Each array element has an index,
+as well as the lists.
+The first element has index 0.
+Items can also be numbered
+from end to beginning
+using negative indexes.
+The last element has index -1::
 
     >>> a = array([6.2, -2.3, 3.4, 4.7, 9.8])
 
@@ -317,10 +319,10 @@ El último elemento tiene índice —1::
     >>> a[3]
     4.7
 
-Una seccion del arreglo puede ser obtenida
-usando el operador de rebanado ``a[i:j]``.
-Los índices ``i`` y ``j``
-indican el rango de valores que serán entregados::
+An array section can be obtained
+using the slice operator ``a[i:j]``.
+The ``i`` and ``j`` indexes
+indicate the range of values to be returned::
 
     >>> a
     array([ 6.2, -2.3,  3.4,  4.7,  9.8])
@@ -329,19 +331,18 @@ indican el rango de valores que serán entregados::
     >>> a[2:-2]
     array([ 3.4])
 
-Si el primer índice es omitido,
-el rebanado comienza desde el principio del arreglo.
-Si el segundo índice es omitido,
-el rebanado termina al final del arreglo::
+If the first index is omitted,
+the slice starts from the beginning of the array.
+If the second index is omitted,
+the slice ends at the end of the array::
 
     >>> a[:2]
     array([ 6.2, -2.3])
     >>> a[2:]
     array([ 3.4,  4.7,  9.8])
 
-Un tercer índice puede indicar
-cada cuántos elementos
-serán incluídos en el resultado::
+A third index can indicate
+how many items will be included in the result::
 
     >>> a = linspace(0, 1, 9)
     >>> a
@@ -355,11 +356,11 @@ serán incluídos en el resultado::
     >>> a[::-1]
     array([ 1.   ,  0.875,  0.75 ,  0.625,  0.5  ,  0.375,  0.25 ,  0.125,  0.   ])
 
-Una manera simple de recordar cómo funciona el rebanado
-es considerar que los índices no se refieren a los elementos,
-sino a los espacios entre los elementos:
+A simple way to remember how the slicing work
+is to consider that the indexes do not refer to the elements,
+but the spaces between the elements:
 
-.. image:: ../diagramas/indices.png
+.. image:: ../../diagrams/indexes.png
    :align: center
 
 ::
@@ -376,11 +377,12 @@ sino a los espacios entre los elementos:
 
 Convenient Methods
 ~~~~~~~~~~~~~~~~~~
-Los arreglos proveen algunos métodos útiles que conviene conocer.
 
-Los métodos ``min`` y ``max``,
-entregan respectivamente el mínimo y el máximo
-de los elementos del arreglo::
+The array provides some useful methods that should know.
+
+Methods ``min`` and ``max``,
+returns the minimum and maximum array element
+respectively::
 
     >>> a = array([4.1, 2.7, 8.4, pi, -2.5, 3, 5.2])
     >>> a.min()
@@ -388,16 +390,16 @@ de los elementos del arreglo::
     >>> a.max()
     8.4000000000000004
 
-Los métodos ``argmin`` y ``argmax``
-entregan respectivamente la posición del mínimo y del máximo::
+The ``argmin`` and ``argmax`` methods
+return the position of the minimum and maximum value respectively::
 
     >>> a.argmin()
     4
     >>> a.argmax()
     2
 
-Los métodos ``sum`` y ``prod``
-entregan respectivamente la suma y el producto de los elementos::
+The ``sum`` and ``prod`` methods returns
+the sum and the product of the elements respectively::
 
     >>> a.sum()
     24.041592653589795
@@ -408,47 +410,45 @@ entregan respectivamente la suma y el producto de los elementos::
 Bidimensional Arrays
 ~~~~~~~~~~~~~~~~~~~~
 
-.. index:: arreglo bidimensional
+.. index:: bidimensional array
 
-Los **arreglos bidimensionales**
-son tablas de valores.
-Cada elemento de un arreglo bidimensional
-está simultáneamente en una fila y en una columna.
+The **bidimensional arrays**
+are tables of values.
+Each bidimensional array element
+is simultaneously in a row and a column.
 
-.. index:: matriz
+.. index:: matrix
 
-En matemáticas,
-a los arreglos bidimensionales se les llama matrices_,
-y son muy utilizados en problemas de Ingeniería.
+In mathematics,
+the bidimensional arrays are called matrices_,
+and are widely used in engineering problems.
 
-En un arreglo bidimensional,
-cada elemento tiene una posición
-que se identifica mediante dos índices:
-el de su fila y el de su columna.
-
+In a bidimensional array,
+each element has a position
+which is identified by two index:
+its row and its column.
 
 Creating Bidimensional Arrays
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Los arreglos bidimensionales
-también son provistos por NumPy,
-por lo que debemos comenzar
-importando las funciones de este módulo::
+Bidimensional arrays are also provided by NumPy,
+so we should start importing the functions
+of this module::
 
     from numpy import *
 
-Al igual que los arreglos de una dimensión,
-los arreglos bidimensionales también pueden ser creados
-usando la función ``array``,
-pero pasando como argumentos
-una lista con las filas de la matriz::
+In the same way of one dimension array,
+the bidimensional arrays can also be created
+using the ``array`` function,
+but passing as arguments
+a list with the rows of the matrix::
 
     a = array([[5.1, 7.4, 3.2, 9.9],
                [1.9, 6.8, 4.1, 2.3],
                [2.9, 6.4, 4.3, 1.4]])
 
-Todas las filas deben ser del mismo largo,
-o si no ocurre un error de valor::
+All the rows must be of the same length,
+or a value error will occurs::
 
     >>> array([[1], [2, 3]])
     Traceback (most recent call last):
@@ -457,42 +457,42 @@ o si no ocurre un error de valor::
 
 .. index:: shape
 
-Los arreglos tienen un atributo llamado ``shape``,
-que es una tupla con los tamaños de cada dimensión.
-En el ejemplo,
-``a`` es un arreglo de dos dimensiones
-que tiene tres filas y cuatro columnas::
+The arrays have an attribute called ``shape``,
+which is a tuple with the sizes of each dimension.
+In the example,
+``a`` is a bidimensional array
+which has three rows and four columns::
 
     >>> a.shape
     (3, 4)
 
 .. index:: size
 
-Los arreglos también tienen otro atributo llamado ``size``
-que indica cuántos elementos tiene el arreglo::
+The arrays also have another attribute called ``size``
+which indicates how many items have the array::
 
     >>> a.size
     12
 
-Por supuesto, el valor de ``a.size`` siempre es el producto
-de los elementos de ``a.shape``.
+Of course, the value of ``a.size`` is always the product
+of the ``a.shape`` elements.
 
-Hay que tener cuidado con la función ``len``,
-ya que no retorna el tamaño del arreglo,
-sino su cantidad de filas::
+Be careful with the ``len`` function,
+because that does not return the array size,
+but its number of rows::
 
     >>> len(a)
     3
 
 .. index:: zeros (bidimensional), ones (bidimensional)
 
-Las funciones ``zeros`` y ``ones``
-también sirven para crear arreglos bidimensionales.
-En vez de pasarles como argumento un entero,
-hay que entregarles una tupla
-con las cantidades de filas y columnas
-que tendrá la matriz::
-
+The ``zeros`` and ``ones`` functions
+are also used to create bidimensional arrays.
+Rather than pass an integer as an argument,
+you have to give them a tuple
+with the numbers of rows and columns
+that will have the matrix::
+    
     >>> zeros((3, 2))
     array([[ 0.,  0.],
            [ 0.,  0.],
@@ -502,8 +502,9 @@ que tendrá la matriz::
     array([[ 1.,  1.,  1.,  1.,  1.],
            [ 1.,  1.,  1.,  1.,  1.]])
 
-Lo mismo se cumple para muchas otras funciones
-que crean arreglos; por ejemplom la función ``random``::
+The same is true for many other functions
+which create arrays,
+for example the ``random`` function::
 
     >>> from numpy.random import random
     >>> random((5, 2))
@@ -516,9 +517,10 @@ que crean arreglos; por ejemplom la función ``random``::
 
 Bidimensional Arrays Operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Al igual que los arreglos de una dimensión,
-las operaciones sobre las matrices
-se aplican término a término::
+
+Like a one dimenson arrays,
+operations on matrices
+are applied term by term::
 
     >>> a = array([[5, 1, 4],
     ...            [0, 3, 2]])
@@ -533,8 +535,8 @@ se aplican término a término::
     array([[25,  1,  0],
           [ 0,  1,  2]])
 
-Cuando dos matrices aparecen en una operación,
-ambas deben tener exactamente la misma forma::
+When two matrices are in operation,
+both must have exactly the same form::
 
     >>> a = array([[5, 1, 4],
     ...            [0, 3, 2]])
@@ -549,10 +551,10 @@ ambas deben tener exactamente la misma forma::
 
 Obtaining Bidimensional Arrays Elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Para obtener un elemento de un arreglo,
-debe indicarse los índices de su fila ``i`` y su columna ``j``
-mediante la sintaxis ``a[i, j]``::
 
+To obtain an element of an array,
+must be indicated in its index of their ``i-th`` row and its ``j-th`` column
+using the syntax  ``a[i,j]``::
 
     >>> a = array([[ 3.21,  5.33,  4.67,  6.41],
                    [ 9.54,  0.30,  2.14,  6.57],
@@ -571,8 +573,8 @@ mediante la sintaxis ``a[i, j]``::
     >>> a[0, -1]
     6.41
 
-También se puede obtener secciones rectangulares del arreglo
-usando el operador de rebanado con los índices::
+You can also get rectangular sections of the array
+using slicing operator with index::
 
     >>> a[2:3, 1:4]
     array([[ 0.54,  0.71,  2.56]])
@@ -593,12 +595,11 @@ usando el operador de rebanado con los índices::
     array([[ 3.21,  6.41],
            [ 8.72,  8.78]])
 
-
-Para obtener una fila completa,
-hay que indicar el índice de la fila,
-y poner ``:`` en el de las columnas
-(significa «desde el principio hasta el final»).
-Lo mismo para las columnas::
+To obtain an entire row,
+you must indicate the row index,
+and put a ``:`` in the column place
+(meaning "from the beginning to the end").
+Same for the columns::
 
     >>> a[2, :]
     array([ 5.62,  0.54,  0.71,  2.56])
@@ -606,27 +607,28 @@ Lo mismo para las columnas::
     >>> a[:, 3]
     array([ 6.41,  6.57,  2.56,  8.76,  8.78])
 
-Note que el número de dimensiones
-es igual a la cantidad de rebanados
-que hay en los índices::
 
-    >>> a[2, 3]      # valor escalar (arreglo de cero dimensiones)
+The number of dimensions
+is equals to the number of slices
+which are in the index::
+
+    >>> a[2, 3]      # scalar value (zero dimension array)
     2.56
 
-    >>> a[2:3, 3]    # arreglo de una dimensión de 1 elemento
+    >>> a[2:3, 3]    # one dimension array of one element
     array([ 2.56])
 
-    >>> a[2:3, 3:4]  # arreglo de dos dimensiones de 1 x 1
+    >>> a[2:3, 3:4]  # two dimension array of 1 x 1
     array([[ 2.56]])
 
 
 Other Operations
 ~~~~~~~~~~~~~~~~
-.. index:: trasposición, transpose
+.. index:: trasposition, transpose
 
-La **trasposicion** consiste en cambiar las filas por las columnas y viceversa.
-Para trasponer un arreglo,
-se usa el método ``transpose``::
+The **transposition** is changing rows by columns and vice versa.
+To transpose an array,
+is used the ``transpose`` method::
 
     >>> a
     array([[ 3.21,  5.33,  4.67,  6.41],
@@ -641,10 +643,10 @@ se usa el método ``transpose``::
 
 .. index:: reshape
 
-El método ``reshape``
-entrega un arreglo que tiene los mismos elementos pero otra forma.
-El parámetro de ``reshape`` es una tupla
-indicando la nueva forma del arreglo::
+The ``reshape`` method
+returns an array which has the same elements but in a different way.
+The ``reshape`` parameter is a tuple
+indicating the new way of arrangement:
 
     >>> a = arange(12)
     >>> a
@@ -662,9 +664,9 @@ indicando la nueva forma del arreglo::
 
 .. index:: diag
 
-La función ``diag`` aplicada a un arreglo bidimensional
-entrega la diagonal principal de la matriz
-(es decir, todos los elementos de la forma ``a[i, i]``)::
+The ``diag`` function applied to a bidimensional array
+provide the main diagonal of the matrix
+(i.e. all elements of the form ``a[i, i]``)::
 
     >>> a
     array([[ 3.21,  5.33,  4.67,  6.41],
@@ -674,20 +676,20 @@ entrega la diagonal principal de la matriz
     >>> diag(a)
     array([ 3.21,  0.3 ,  0.71])
 
-Además, ``diag`` recibe un segundo parámetro opcional
-para indicar otra diagonal que se desee obtener.
-Las diagonales sobre la principal son positivas,
-y las que están bajo son negativas::
+In addition, ``diag`` receives an optional second parameter
+to indicate another diagonal which is desired.
+The diagonal over the main are positive,
+and those under are negative::
 
     >>> diag(a, 2)
     array([ 4.67,  6.57])
     >>> diag(a, -1)
     array([ 9.54,  0.54])
 
-La misma función ``diag`` también cumple el rol inverso:
-al recibir un arreglo de una dimensión,
-retorna un arreglo bidimensional
-que tiene los elementos del parámetro en la diagonal::
+The same ``diag`` function also fulfills the reverse role:
+to receive an array of one dimension,
+it returns a bidimensional array
+which has elements of the parameter on the diagonal::
 
     >>> diag(arange(5))
     array([[0, 0, 0, 0, 0],

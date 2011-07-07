@@ -1,214 +1,214 @@
 Lecture 26 - NumPy arrays (part II)
 -----------------------------------
 
-.. Productos entre arreglos
-.. ========================
-.. 
-.. Recordemos que **vector** es sinónimo de arreglo de una dimensión,
-.. y **matriz** es sinónimo de arreglo de dos dimensiones.
-.. 
-.. 
-.. Producto interno (vector-vector)
-.. --------------------------------
-.. El **producto interno** entre dos vectores
-.. es la suma de los productos entre elementos correspondientes:
-.. 
-.. .. image:: ../diagramas/producto-interno.png
-..    :align: center
-.. 
-.. El producto interno entre dos vectores
-.. se obtiene usando la función ``dot``
-.. provista por NumPy::
-.. 
-..     >>> a = array([-2.8 , -0.88,  2.76,  1.3 ,  4.43])
-..     >>> b = array([ 0.25, -1.58,  1.32, -0.34, -4.22])
-..     >>> dot(a, b)
-..     -14.803
-.. 
-.. El producto interno es una operación muy común.
-.. Por ejemplo, suele usarse para calcular totales::
-.. 
-..     >>> precios = array([200, 100, 500, 400, 400, 150])
-..     >>> cantidades = array([1, 0, 0, 2, 1, 0])
-..     >>> total_a_pagar = dot(precios, cantidades)
-..     >>> total_a_pagar
-..     1400
-.. 
-.. También se usa para calcular promedios ponderados::
-.. 
-..     >>> notas = array([45, 98, 32])
-..     >>> ponderaciones = array([30, 30, 40]) / 100.
-..     >>> nota_final = dot(notas, ponderaciones)
-..     >>> nota_final
-..     55.7
-.. 
-.. Producto matriz-vector
-.. ----------------------
-.. El **producto matriz-vector**
-.. es el vector de los productos internos
-.. El producto matriz-vector puede ser visto
-.. simplemente como varios productos internos
-.. calculados de una sola vez.
-.. 
-.. Esta operación también es obtenida
-.. usando la función ``dot``
-.. entre las filas de la matriz y el vector:
-.. 
-.. .. image:: ../diagramas/matriz-vector.png
-..    :align: center
-.. 
-.. El producto matriz-vector puede ser visto
-.. simplemente como varios productos internos
-.. calculados de una sola vez.
-.. 
-.. Esta operación también es obtenida
-.. usando la función ``dot``::
-.. 
-..     >>> a = array([[-0.6,  4.8, -1.2],
-..                    [-2. , -3.6, -2.1],
-..                    [ 1.7,  4.9,  0. ]])
-..     >>> x = array([-0.6, -2. ,  1.7])
-..     >>> dot(a, x)
-..     array([-11.28,   4.83, -10.82])
-.. 
-.. Producto matriz-matriz
-.. ----------------------
-.. El **producto matriz-matriz**
-.. es la matriz de los productos internos
-.. entre las filas de la primera matriz
-.. y las columnas de la segunda:
-.. 
-.. .. image:: ../diagramas/matriz-matriz.png
-..    :align: center
-.. 
-.. Esta operación también es obtenida
-.. usando la función ``dot``::
-.. 
-..     >>> a = array([[ 2,  8],
-..                    [-3,  7],
-..                    [-8, -5]])
-..     >>> b array([[-3, -5, -6, -3],
-..                  [-9, -2,  3, -3]])
-..     >>> dot(a, b)
-..     array([[-78, -26,  12, -30],
-..            [-54,   1,  39, -12],
-..            [ 69,  50,  33,  39]])
-.. 
-.. La multiplicación de matrices
-.. puede ser vista como varios productos matriz-vector
-.. (usando como vectores todas las filas de la segunda matriz),
-.. calculados de una sola vez.
-.. 
-.. En resumen,
-.. al usar la función ``dot``,
-.. la estructura del resultado
-.. depende de cuáles son los parámetros pasados::
-.. 
-..     dot(vector, vector) → número
-..     dot(matriz, vector) → vector
-..     dot(matriz, matriz) → matriz
-.. 
-.. Resolución de sistemas lineales
-.. ===============================
-.. 
-.. Repasemos el producto matriz-vector:
-.. 
-.. .. image:: ../diagramas/dieta-1.png
-..    :align: center
-.. 
-.. Esta operación tiene dos operandos:
-.. una matriz y un vector.
-.. El resultado es un vector.
-.. A los operandos los denominaremos respectivamente ``A`` y ``x``,
-.. y al resultado, ``b``.
-.. 
-.. Un problema recurrente en Ingeniería
-.. consiste en obtener cuál es el vector ``x``
-.. cuando ``A`` y ``b`` son dados:
-.. 
-.. .. image:: ../diagramas/dieta-2.png
-..    :align: center
-.. 
-.. La ecuación matricial `Ax = b` es una manera abreviada
-.. de expresar un `sistema de ecuaciones lineales`_.
-.. Por ejemplo,
-.. la ecuación del diagrama
-.. es equivalente al siguiente sistema de tres ecuaciones
-.. que tiene las tres incógnitas `w`, `y` y `z`:
-.. 
-.. .. math::
-.. 
-..     \begin{align}
-..       36w + 51y + 13z &= 3 \\
-..       52w + 34y + 74z &= 45 \\
-..              7y + 1.1z &= 33 \\
-..     \end{align}
-.. 
-.. .. _sistema de ecuaciones lineales: http://es.wikipedia.org/wiki/Sistema_de_ecuaciones_lineales
-.. 
-.. En matemáticas,
-.. este sistema se representa matricialmente así:
-.. 
-.. .. math::
-.. 
-..     \begin{bmatrix}
-..       36 & 51 & 13 \\
-..       52 & 34 & 74 \\
-..          &  7 & 1.1 \\
-..     \end{bmatrix}
-..     \begin{bmatrix}
-..        w \\ y \\ z \\
-..     \end{bmatrix}
-..     =
-..     \begin{bmatrix}
-..        3 \\ 45 \\ 33 \\
-..     \end{bmatrix}
-.. 
-.. La teoría detrás de la resolución de problemas de este tipo
-.. usted la aprenderá en sus ramos de matemáticas.
-.. Sin embargo,
-.. como este tipo de problemas aparece a menudo en la práctica,
-.. aprenderemos cómo obtener rápidamente la solución
-.. usando Python.
-.. 
-.. Dentro de los varios módulos incluídos en NumPy
-.. (por ejemplo, ya vimos ``numpy.random``),
-.. está el módulo ``numpy.linalg``,
-.. que provee algunas funciones que implementan algoritmos de álgebra lineal,
-.. que es la rama de las matemáticas que estudia los problemas de este tipo.
-.. En este módulo está la función ``solve``,
-.. que entrega la solución ``x`` de un sistema
-.. a partir de la matriz ``A`` y el vector ``b``::
-.. 
-..     >>> a = array([[ 36. ,  51. ,  13. ],
-..     ...            [ 52. ,  34. ,  74. ],
-..     ...            [  0. ,   7. ,   1.1]])
-..     >>> b = array([  3.,  45.,  33.])
-..     >>> x = solve(a, b)
-..     >>> x
-..     array([-7.10829222,  4.13213834,  3.70457422])
-.. 
-.. Podemos ver que el vector ``x`` en efecto
-.. satisface la ecuación ``Ax = b``::
-.. 
-..     >>> dot(a, x)
-..     array([  3.,  45.,  33.])
-..     >>> b
-..     array([  3.,  45.,  33.])
-.. 
-.. Sin embargo, es importante tener en cuenta que
-.. los valores de tipo real
-.. casi nunca están representados de manera exacta en el computador,
-.. y que el resultado de un algoritmo que involucra muchas operaciones
-.. puede sufrir de algunos errores de redondeo.
-.. Por esto mismo,
-.. puede ocurrir que aunque los resultados se vean iguales en la consola,
-.. los datos obtenidos son sólo aproximaciones
-.. y no exactamente los mismos valores::
-.. 
-..     >>> (dot(a, x) == b).all()
-..     False
-.. 
+Productos entre arreglos
+========================
+
+Recordemos que **vector** es sinónimo de arreglo de una dimensión,
+y **matriz** es sinónimo de arreglo de dos dimensiones.
+
+
+Producto interno (vector-vector)
+--------------------------------
+El **producto interno** entre dos vectores
+es la suma de los productos entre elementos correspondientes:
+
+.. image:: ../diagramas/producto-interno.png
+   :align: center
+
+El producto interno entre dos vectores
+se obtiene usando la función ``dot``
+provista por NumPy::
+
+    >>> a = array([-2.8 , -0.88,  2.76,  1.3 ,  4.43])
+    >>> b = array([ 0.25, -1.58,  1.32, -0.34, -4.22])
+    >>> dot(a, b)
+    -14.803
+
+El producto interno es una operación muy común.
+Por ejemplo, suele usarse para calcular totales::
+
+    >>> precios = array([200, 100, 500, 400, 400, 150])
+    >>> cantidades = array([1, 0, 0, 2, 1, 0])
+    >>> total_a_pagar = dot(precios, cantidades)
+    >>> total_a_pagar
+    1400
+
+También se usa para calcular promedios ponderados::
+
+    >>> notas = array([45, 98, 32])
+    >>> ponderaciones = array([30, 30, 40]) / 100.
+    >>> nota_final = dot(notas, ponderaciones)
+    >>> nota_final
+    55.7
+
+Producto matriz-vector
+----------------------
+El **producto matriz-vector**
+es el vector de los productos internos
+El producto matriz-vector puede ser visto
+simplemente como varios productos internos
+calculados de una sola vez.
+
+Esta operación también es obtenida
+usando la función ``dot``
+entre las filas de la matriz y el vector:
+
+.. image:: ../diagramas/matriz-vector.png
+   :align: center
+
+El producto matriz-vector puede ser visto
+simplemente como varios productos internos
+calculados de una sola vez.
+
+Esta operación también es obtenida
+usando la función ``dot``::
+
+    >>> a = array([[-0.6,  4.8, -1.2],
+                   [-2. , -3.6, -2.1],
+                   [ 1.7,  4.9,  0. ]])
+    >>> x = array([-0.6, -2. ,  1.7])
+    >>> dot(a, x)
+    array([-11.28,   4.83, -10.82])
+
+Producto matriz-matriz
+----------------------
+El **producto matriz-matriz**
+es la matriz de los productos internos
+entre las filas de la primera matriz
+y las columnas de la segunda:
+
+.. image:: ../diagramas/matriz-matriz.png
+   :align: center
+
+Esta operación también es obtenida
+usando la función ``dot``::
+
+    >>> a = array([[ 2,  8],
+                   [-3,  7],
+                   [-8, -5]])
+    >>> b array([[-3, -5, -6, -3],
+                 [-9, -2,  3, -3]])
+    >>> dot(a, b)
+    array([[-78, -26,  12, -30],
+           [-54,   1,  39, -12],
+           [ 69,  50,  33,  39]])
+
+La multiplicación de matrices
+puede ser vista como varios productos matriz-vector
+(usando como vectores todas las filas de la segunda matriz),
+calculados de una sola vez.
+
+En resumen,
+al usar la función ``dot``,
+la estructura del resultado
+depende de cuáles son los parámetros pasados::
+
+    dot(vector, vector) → número
+    dot(matriz, vector) → vector
+    dot(matriz, matriz) → matriz
+
+Resolución de sistemas lineales
+===============================
+
+Repasemos el producto matriz-vector:
+
+.. image:: ../diagramas/dieta-1.png
+   :align: center
+
+Esta operación tiene dos operandos:
+una matriz y un vector.
+El resultado es un vector.
+A los operandos los denominaremos respectivamente ``A`` y ``x``,
+y al resultado, ``b``.
+
+Un problema recurrente en Ingeniería
+consiste en obtener cuál es el vector ``x``
+cuando ``A`` y ``b`` son dados:
+
+.. image:: ../diagramas/dieta-2.png
+   :align: center
+
+La ecuación matricial `Ax = b` es una manera abreviada
+de expresar un `sistema de ecuaciones lineales`_.
+Por ejemplo,
+la ecuación del diagrama
+es equivalente al siguiente sistema de tres ecuaciones
+que tiene las tres incógnitas `w`, `y` y `z`:
+
+.. math::
+
+    \begin{align}
+      36w + 51y + 13z &= 3 \\
+      52w + 34y + 74z &= 45 \\
+             7y + 1.1z &= 33 \\
+    \end{align}
+
+.. _sistema de ecuaciones lineales: http://es.wikipedia.org/wiki/Sistema_de_ecuaciones_lineales
+
+En matemáticas,
+este sistema se representa matricialmente así:
+
+.. math::
+
+    \begin{bmatrix}
+      36 & 51 & 13 \\
+      52 & 34 & 74 \\
+         &  7 & 1.1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+       w \\ y \\ z \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+       3 \\ 45 \\ 33 \\
+    \end{bmatrix}
+
+La teoría detrás de la resolución de problemas de este tipo
+usted la aprenderá en sus ramos de matemáticas.
+Sin embargo,
+como este tipo de problemas aparece a menudo en la práctica,
+aprenderemos cómo obtener rápidamente la solución
+usando Python.
+
+Dentro de los varios módulos incluídos en NumPy
+(por ejemplo, ya vimos ``numpy.random``),
+está el módulo ``numpy.linalg``,
+que provee algunas funciones que implementan algoritmos de álgebra lineal,
+que es la rama de las matemáticas que estudia los problemas de este tipo.
+En este módulo está la función ``solve``,
+que entrega la solución ``x`` de un sistema
+a partir de la matriz ``A`` y el vector ``b``::
+
+    >>> a = array([[ 36. ,  51. ,  13. ],
+    ...            [ 52. ,  34. ,  74. ],
+    ...            [  0. ,   7. ,   1.1]])
+    >>> b = array([  3.,  45.,  33.])
+    >>> x = solve(a, b)
+    >>> x
+    array([-7.10829222,  4.13213834,  3.70457422])
+
+Podemos ver que el vector ``x`` en efecto
+satisface la ecuación ``Ax = b``::
+
+    >>> dot(a, x)
+    array([  3.,  45.,  33.])
+    >>> b
+    array([  3.,  45.,  33.])
+
+Sin embargo, es importante tener en cuenta que
+los valores de tipo real
+casi nunca están representados de manera exacta en el computador,
+y que el resultado de un algoritmo que involucra muchas operaciones
+puede sufrir de algunos errores de redondeo.
+Por esto mismo,
+puede ocurrir que aunque los resultados se vean iguales en la consola,
+los datos obtenidos son sólo aproximaciones
+y no exactamente los mismos valores::
+
+    >>> (dot(a, x) == b).all()
+    False
+
 .. 
 .. Exercises
 .. ---------

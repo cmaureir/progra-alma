@@ -75,7 +75,7 @@ webpage.
 
 .. _`official installation guide`: http://matplotlib.sourceforge.net/users/installing.html 
 .. _`sourceforge`: http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-1.0.1/
-.. 
+ 
 .. Concepts
 .. ~~~~~~~~
 .. 
