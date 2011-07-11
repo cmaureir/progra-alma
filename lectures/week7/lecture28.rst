@@ -525,8 +525,3 @@ For example:
     plt.show()
 
 .. image:: ../../_static/images/annotating-text.png
-
-Exercises
-~~~~~~~~~
-
-* PENDING

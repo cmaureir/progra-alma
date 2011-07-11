@@ -14,7 +14,7 @@ is simultaneously in a row and a column.
 .. index:: matrix
 
 In mathematics,
-the bi-dimensional arrays are called matrices_,
+the bi-dimensional arrays are called matrix,
 and are widely used in engineering problems.
 
 In a bi-dimensional array,
@@ -296,4 +296,340 @@ which has elements of the parameter on the diagonal::
 Exercises
 ~~~~~~~~~~
 
-* PENDING
+* *Bi-dimensional arrays creation*
+ 
+  The ``arange`` function, return an array with numbers in the indicated range::
+  
+      >>> from numpy import arange
+      >>> a = arange(12)
+      >>> a
+      array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+  
+  Starting from an array  called ``a`` defined before,
+  show how to obtain the following arrays of the simplest way::
+  
+      >>> # ???
+      array([[ 0,  1,  2,  3],
+             [ 4,  5,  6,  7],
+             [ 8,  9, 10, 11]])
+      >>> # ???
+      array([[  0,   1,   4,   9],
+             [ 16,  25,  36,  49],
+             [ 64,  81, 100, 121]])
+      >>> # ???
+      array([[ 0,  4,  8],
+             [ 1,  5,  9],
+             [ 2,  6, 10],
+             [ 3,  7, 11]])
+      >>> # ???
+      array([[ 0,  1,  2],
+             [ 4,  5,  6],
+             [ 8,  9, 10]])
+      >>> # ???
+      array([[ 11.5,  10.5,   9.5],
+             [  8.5,   7.5,   6.5],
+             [  5.5,   4.5,   3.5],
+             [  2.5,   1.5,   0.5]])
+      >>> # ???
+      array([[100, 201, 302, 403],
+             [104, 205, 306, 407],
+             [108, 209, 310, 411]])
+      >>> # ???
+      array([[100, 101, 102, 103],
+             [204, 205, 206, 207],
+             [308, 309, 310, 311]])
+
+* *Magic square*
+
+  A `magic square`_ is a natural numbers disposal in a square table,
+  so that the sums of each column, of each row and of each diagonal are the same.
+  
+  The most popular magic squares are those which has consecutive numbers from
+  `1` to `n^2`, where `n` is the square rows and columns numbers (length).
+  
+  For example, the following example is a magic square with the `n = 4`.
+  All their rows, columns and diagonal sums 34:
+  
+  .. image:: ../../diagrams/magic-square.png
+
+  .. _magic square: http://en.wikipedia.org/wiki/Magic_square 
+  
+  #. Write a function which receive an integer square array of `n\times n`,
+     and indicates if is conformed by the consecutive numbers from `1` to `n^2`::
+  
+       >>> from numpy import array
+       >>> consecutive(array([[3, 1, 5],
+       ...                     [4, 7, 2],
+       ...                     [9, 8, 6]]))
+       True
+       >>> consecutive(array([[3, 1, 4],
+       ...                     [4, 0, 2],
+       ...                     [9, 9, 6]]))
+       False
+  
+  #. Write a function which receive an array and indicates if is or not a magic square::
+  
+       >>> is_magic(array([[3, 1, 5],
+       ...                  [4, 7, 2],
+       ...                  [9, 8, 6]]))
+       False
+       >>> is_magic(array([[2, 7, 6],
+       ...                  [9, 5, 1],
+       ...                  [4, 3, 8]]))
+       True
+ 
+* *Matrix rotation*
+ 
+  #. Write a function called ``rotation90(a)`` which return the ``a`` array
+     rotated in 90 degrees, counter-clockwise::
+  
+        >>> a = arange(12).reshape((3, 4))
+        >>> a
+        array([[ 0,  1,  2,  3],
+               [ 4,  5,  6,  7],
+               [ 8,  9, 10, 11]])
+        >>> rotation90(a)
+        array([[ 3,  7, 11],
+               [ 2,  6, 10],
+               [ 1,  5,  9],
+               [ 0,  4,  8]])
+  
+     There are two ways to do it:
+     the long way (using nested loops)
+     and the short way (using array operations).
+     Try to do it in both ways.
+  
+  #. Write two functions called ``rotation180(a)`` and ``rotation270(a)``::
+  
+        >>> rotation180(a)
+        array([[11, 10,  9,  8],
+               [ 7,  6,  5,  4],
+               [ 3,  2,  1,  0]])
+        >>> rotation270(a)
+        array([[ 8,  4,  0],
+               [ 9,  5,  1],
+               [10,  6,  2],
+               [11,  7,  3]])
+  
+     There are three ways to do it:
+     the long way (using nested loops),
+     the short way (using array operations)
+     and the clever one.
+     Try to do it in three ways.
+  
+  #. Write a module called ``rotation.py`` which provides the three
+     previous functions.
+     Will be very useful in the following exercises::
+  
+        >>> from rotation import rotation90
+        >>> a = array([[6, 3, 8],
+        ...            [9, 2, 0]])
+        >>> rotation90(a)
+        array([[8, 0],
+               [3, 2],
+               [6, 9]])
+ 
+* *Sudoku*
+
+  The Sudoku is a puzzle which consist in fill a grid of `9 × 9`
+  with the digits from 1 to 9, so that there is no repeat value
+  in each row, in each column and in each `3 × 3` section
+  marked by the thick lines.
+  
+  The unresolved Sudoku has some of the digits in some points on the grid.
+  When the puzzle has been solved, all the box has a digit,
+  and between all satisfied the listed conditions.
+  
+  .. image:: ../../diagrams/sudoku.png
+  
+  In a program,
+  a solved Sudoku can be saved in a 9 × 9 array::
+  
+      from numpy import array
+      sr = array([[4, 2, 6, 5, 7, 1, 3, 9, 8],
+                  [8, 5, 7, 2, 9, 3, 1, 4, 6],
+                  [1, 3, 9, 4, 6, 8, 2, 7, 5],
+                  [9, 7, 1, 3, 8, 5, 6, 2, 4],
+                  [5, 4, 3, 7, 2, 6, 8, 1, 9],
+                  [6, 8, 2, 1, 4, 9, 7, 5, 3],
+                  [7, 9, 4, 6, 3, 2, 5, 8, 1],
+                  [2, 6, 5, 8, 1, 4, 9, 3, 7],
+                  [3, 1, 8, 9, 5, 7, 4, 6, 2]])
+  
+  Write a function called ``correct_solution(Sudoku)``
+  which receive as parameter a 9 × 9 array, representing a solved Sudoku,
+  and which indicates if the solution is correct (i.e. if there are no repeated elements
+  in rows, columns and sections)::
+  
+      >>> correct_solution(s)
+      True
+      >>> s[0, 0] = 9
+      >>> correct_solution(s)
+      False
+  
+.. 2. (¡Difícil!).
+..    Un sudoku sin resolver puede ser representado como un arreglo
+..    donde las casillas vacías se marcan con el número cero::
+.. 
+..     s = array([[0, 2, 0, 5, 0, 1, 0, 9, 0],
+..                [8, 0, 0, 2, 0, 3, 0, 0, 6],
+..                [0, 3, 0, 0, 6, 0, 0, 7, 0],
+..                [0, 0, 1, 0, 0, 0, 6, 0, 0],
+..                [5, 4, 0, 0, 0, 0, 0, 1, 9],
+..                [0, 0, 2, 0, 0, 0, 7, 0, 0],
+..                [0, 9, 0, 0, 3, 0, 0, 8, 0],
+..                [2, 0, 0, 8, 0, 4, 0, 0, 7],
+..                [0, 1, 0, 9, 0, 7, 0, 6, 0]])
+.. 
+..    Escriba una función ``resolver(sudoku)``
+..    que reciba un sudoku sin resolver
+..    y retorne el sudoku resuelto::
+.. 
+..     >>> resolver(s)
+..     array([[4, 2, 6, 5, 7, 1, 3, 9, 8],
+..            [8, 5, 7, 2, 9, 3, 1, 4, 6],
+..            [1, 3, 9, 4, 6, 8, 2, 7, 5],
+..            [9, 7, 1, 3, 8, 5, 6, 2, 4],
+..            [5, 4, 3, 7, 2, 6, 8, 1, 9],
+..            [6, 8, 2, 1, 4, 9, 7, 5, 3],
+..            [7, 9, 4, 6, 3, 2, 5, 8, 1],
+..            [2, 6, 5, 8, 1, 4, 9, 3, 7],
+..            [3, 1, 8, 9, 5, 7, 4, 6, 2]])
+.. 
+..    Sugerencia: en vez de intentar resolver el sudoku completo,
+..    intente resolver sólo algunas de las casillas
+..    (las más sencillas).
+
+
+* *Special matrix*
+
+  #. A matrix called ``a`` is **symmetrical**
+     if for all index ``i`` and ``j`` pair is satisfied the condition
+     ``a[i, j] == a[j, i]``.
+  
+     Write a function called ``is_symmetrical(a)``
+     which indicates if the ``a`` matrix is or not
+     symmetrical.
+  
+     Write some symmetrical matrix and other
+     non-symmetrical matrix to test the function.
+  
+  #. A matrix called ``a`` is **antisymmetric**
+     if for all index ``i`` and ``j`` pair is satisfied the
+     condition ``a[i, j] == -a[j, i]``
+     (please note the minus sign).
+  
+     Write a function called ``is_antisymmetric(a)``
+     which indicates if the ``a`` matrix is or not
+     antisymmetric.
+  
+     Write some antisymmetric matrix and other
+     non-antisymmetric matrix to test the function.
+  
+  #. A matrix called ``a`` is **diagonal**
+     if all their elements which are not in the main diagonal
+     has the zero value.
+     For example,
+     the following matrix is diagonal:
+  
+     .. math:: 
+  
+       \begin{bmatrix}
+         9 & 0 & 0 & 0 \\
+         0 & 2 & 0 & 0 \\
+         0 & 0 & 0 & 0 \\
+         0 & 0 & 0 & -1 \\
+       \end{bmatrix}
+  
+     Write a function called ``is_diagonal(a)``
+     which indicates if the matrix ``a`` is or not diagonal.
+  
+  #. A matrix called ``a`` is **upper triangular**
+     if all their elements down the main diagonal
+     has the zero value.
+     For example,
+     the following example is an upper triangular matrix:
+  
+     .. math:: 
+  
+       \begin{bmatrix}
+         9 & 1 & 0 & 4 \\
+         0 & 2 & 8 & -3 \\
+         0 & 0 & 0 & 7 \\
+         0 & 0 & 0 & -1 \\
+       \end{bmatrix}
+  
+     Write a function called  ``upper_triangular(a)``
+     which indicates if the matrix ``a`` is or not upper triangular.
+  
+  #. Is easy to understand the meaning of a
+     matrix **lower triangular**.
+     Write a function called ``lower_triangular(a)``.
+     To do less work, you can use inside this function
+     the previous function called ``upper_triangular()``.
+  
+  #. A matrix is **idempotent**
+     if the result of the matrix product with itself
+     is the same matrix.
+     For example:
+  
+     .. math::
+  
+          \begin{bmatrix}
+             2 & -2 & -4 \\
+            -1 &  3 &  4 \\
+             1 & -2 & -3 \\
+          \end{bmatrix}
+          \begin{bmatrix}
+             2 & -2 & -4 \\
+            -1 &  3 &  4 \\
+             1 & -2 & -3 \\
+          \end{bmatrix}
+          =
+          \begin{bmatrix}
+             2 & -2 & -4 \\
+            -1 &  3 &  4 \\
+             1 & -2 & -3 \\
+          \end{bmatrix}
+  
+     Write a function called ``is_idempotent(a)``
+     which indicated if the ``a`` matrix is or not
+     idempotent.
+  
+  #. Is said that two matrix *A* and *B* **commute**
+     if the matrix product between *A* and *B*
+     and between *B* and *A* are the same.
+  
+     For example, this both matrix commute:
+  
+     .. math::
+  
+         \begin{bmatrix}
+           1 & 3 \\ 3 & 2 \\
+         \end{bmatrix}
+         \begin{bmatrix}
+           -1 & 3 \\ 3 & 0 \\
+         \end{bmatrix} =
+         \begin{bmatrix}
+           -1 & 3 \\ 3 & 0 \\
+         \end{bmatrix}
+         \begin{bmatrix}
+           1 & 3 \\ 3 & 2 \\
+         \end{bmatrix} =
+         \begin{bmatrix}
+           8 & 3 \\ 3 & 9 \\
+         \end{bmatrix}
+  
+     Write a function called ``commute``
+     which indicates if two matrix commute or not.
+     Test your function with this examples::
+  
+         >>> a = array([[ 1, 3], [3, 2]])
+         >>> b = array([[-1, 3], [3, 0]])
+         >>> commute(a, b)
+         True
+         
+         >>> a = array([[3, 1, 2], [9, 2, 4]])
+         >>> b = array([[1, 7], [2, 9]])
+         >>> commute(a, b)
+         False

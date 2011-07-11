@@ -8,7 +8,7 @@ Remember that a **vector** is a one dimension array synonymous,
 and a **matrix** is a synonymous of a bi-dimensional array.
 
 Inner product (vector-vector)
-=============================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **inner product** between two vectors
 is the product sum between corresponding elements:
@@ -42,7 +42,7 @@ It is also used to calculate weighted averages::
     55.7
 
 Matrix-Vector Product
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 The **matrix-vector product**
 is the vector of the inner products.
@@ -67,7 +67,7 @@ An example using the ``dot`` function::
     array([-11.28,   4.83, -10.82])
 
 Matrix-Matrix Product
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 The **matrix-matrix product**
 is the matrix of inner products
@@ -105,7 +105,7 @@ depends on which parameters are passed::
     dot(matrix, matrix) → matrix
 
 Lineal Systems Resolution
-=========================
+==========================
 
 Let's review the matrix-vector product:
 
@@ -211,474 +211,107 @@ and not exactly the same values::
 Exercises
 =========
 
-.. 
-.. 
-.. Rotar matrices
-.. ==============
-.. 
-.. #. Escriba la función ``rotar90(a)``
-..    que retorne el arreglo ``a``
-..    rotado 90 grados en el sentido contrario
-..    a las agujas del reloj::
-.. 
-..       >>> a = arange(12).reshape((3, 4))
-..       >>> a
-..       array([[ 0,  1,  2,  3],
-..              [ 4,  5,  6,  7],
-..              [ 8,  9, 10, 11]])
-..       >>> rotar90(a)
-..       array([[ 3,  7, 11],
-..              [ 2,  6, 10],
-..              [ 1,  5,  9],
-..              [ 0,  4,  8]])
-.. 
-..    Hay dos maneras de hacerlo:
-..    la larga (usando ciclos anidados)
-..    y la corta (usando operaciones de arreglos).
-..    Trate de hacerlo de las dos maneras.
-.. 
-.. #. Escriba las funciones ``rotar180(a)`` y ``rotar270(a)``::
-.. 
-..       >>> rotar180(a)
-..       array([[11, 10,  9,  8],
-..              [ 7,  6,  5,  4],
-..              [ 3,  2,  1,  0]])
-..       >>> rotar270(a)
-..       array([[ 8,  4,  0],
-..              [ 9,  5,  1],
-..              [10,  6,  2],
-..              [11,  7,  3]])
-.. 
-..    Hay tres maneras de hacerlo:
-..    la larga (usando ciclos anidados),
-..    la corta (usando operaciones de arreglos)
-..    y la astuta.
-..    Trate de hacerlo de las tres maneras.
-.. 
-.. #. Escriba el  módulo ``rotar.py``
-..    que contenga estas tres funciones.
-..    Le será útil más adelante::
-.. 
-..       >>> from rotar import rotar90
-..       >>> a = array([[6, 3, 8],
-..       ...            [9, 2, 0]])
-..       >>> rotar90(a)
-..       array([[8, 0],
-..              [3, 2],
-..              [6, 9]])
-.. 
-.. Sudoku
-.. ======
-.. 
-.. El sudoku es un puzzle que consiste en llenar una grilla de 9 × 9
-.. con los dígitos del 1 al 9, de modo que no haya ningún valor repetido
-.. en cada fila, en cada columna y en cada uno de las regiones de 3 × 3
-.. marcadas por las líneas más gruesas.
-.. 
-.. El sudoku sin resolver tiene algunos de los dígitos puestos de antemano en la grilla.
-.. Cuando el puzzle ha sido resuelto, todas las casillas tienen un dígito,
-.. y entre todos satisfacen las condiciones señaladas.
-.. 
-.. .. image:: ../../diagramas/sudoku.png
-.. 
-.. En un programa,
-.. un sudoku resuelto puede ser guardado en un arreglo de 9 × 9::
-.. 
-..     from numpy import array
-..     sr = array([[4, 2, 6, 5, 7, 1, 3, 9, 8],
-..                 [8, 5, 7, 2, 9, 3, 1, 4, 6],
-..                 [1, 3, 9, 4, 6, 8, 2, 7, 5],
-..                 [9, 7, 1, 3, 8, 5, 6, 2, 4],
-..                 [5, 4, 3, 7, 2, 6, 8, 1, 9],
-..                 [6, 8, 2, 1, 4, 9, 7, 5, 3],
-..                 [7, 9, 4, 6, 3, 2, 5, 8, 1],
-..                 [2, 6, 5, 8, 1, 4, 9, 3, 7],
-..                 [3, 1, 8, 9, 5, 7, 4, 6, 2]])
-.. 
-.. Escriba la función ``solucion_es_correcta(sudoku)``
-.. que reciba como parámetro un arreglo de 9 × 9
-.. representando un sudoku resuelto,
-.. y que indique si la solución es correcta
-.. (es decir, si no hay elementos repetidos
-.. en filas, columnas y regiones)::
-.. 
-..     >>> solucion_es_correcta(s)
-..     True
-..     >>> s[0, 0] = 9
-..     >>> solucion_es_correcta(s)
-..     False
-.. 
-.. .. 2. (¡Difícil!).
-.. ..    Un sudoku sin resolver puede ser representado como un arreglo
-.. ..    donde las casillas vacías se marcan con el número cero::
-.. .. 
-.. ..     s = array([[0, 2, 0, 5, 0, 1, 0, 9, 0],
-.. ..                [8, 0, 0, 2, 0, 3, 0, 0, 6],
-.. ..                [0, 3, 0, 0, 6, 0, 0, 7, 0],
-.. ..                [0, 0, 1, 0, 0, 0, 6, 0, 0],
-.. ..                [5, 4, 0, 0, 0, 0, 0, 1, 9],
-.. ..                [0, 0, 2, 0, 0, 0, 7, 0, 0],
-.. ..                [0, 9, 0, 0, 3, 0, 0, 8, 0],
-.. ..                [2, 0, 0, 8, 0, 4, 0, 0, 7],
-.. ..                [0, 1, 0, 9, 0, 7, 0, 6, 0]])
-.. .. 
-.. ..    Escriba una función ``resolver(sudoku)``
-.. ..    que reciba un sudoku sin resolver
-.. ..    y retorne el sudoku resuelto::
-.. .. 
-.. ..     >>> resolver(s)
-.. ..     array([[4, 2, 6, 5, 7, 1, 3, 9, 8],
-.. ..            [8, 5, 7, 2, 9, 3, 1, 4, 6],
-.. ..            [1, 3, 9, 4, 6, 8, 2, 7, 5],
-.. ..            [9, 7, 1, 3, 8, 5, 6, 2, 4],
-.. ..            [5, 4, 3, 7, 2, 6, 8, 1, 9],
-.. ..            [6, 8, 2, 1, 4, 9, 7, 5, 3],
-.. ..            [7, 9, 4, 6, 3, 2, 5, 8, 1],
-.. ..            [2, 6, 5, 8, 1, 4, 9, 3, 7],
-.. ..            [3, 1, 8, 9, 5, 7, 4, 6, 2]])
-.. .. 
-.. ..    Sugerencia: en vez de intentar resolver el sudoku completo,
-.. ..    intente resolver sólo algunas de las casillas
-.. ..    (las más sencillas).
-.. Matrices especiales
-.. ===================
-.. 
-.. #. Una matriz ``a`` es **simétrica**
-..    si para todo par de índices ``i`` y ``j``
-..    se cumple que ``a[i, j] == a[j, i]``.
-.. 
-..    Escriba la función ``es_simetrica(a)``
-..    que indique si la matriz ``a``
-..    es simétrica o no.
-.. 
-..    Cree algunas matrices simétricas
-..    y otras que no lo sean
-..    para probar su función.
-.. 
-.. #. Una matriz ``a`` es **antisimétrica**
-..    si para todo par de índices ``i`` y ``j``
-..    se cumple que ``a[i, j] == -a[j, i]``
-..    (note el signo menos).
-.. 
-..    Escriba la función ``es_antisimetrica(a)``
-..    que indique si la matriz ``a``
-..    es antisimétrica o no.
-.. 
-..    Cree algunas matrices antisimétricas
-..    y otras que no lo sean
-..    para probar su función.
-.. 
-.. #. Una matriz ``a`` es **diagonal**
-..    si todos sus elementos que no están en la diagonal principal
-..    tienen el valor cero.
-..    Por ejemplo,
-..    la siguiente matriz es diagonal:
-.. 
-..    .. math:: 
-.. 
-..      \begin{bmatrix}
-..        9 & 0 & 0 & 0 \\
-..        0 & 2 & 0 & 0 \\
-..        0 & 0 & 0 & 0 \\
-..        0 & 0 & 0 & -1 \\
-..      \end{bmatrix}
-.. 
-..    Escriba la función ``es_diagonal(a)``
-..    que indique si la matriz ``a``
-..    es diagonal o no.
-.. 
-.. #. Una matriz ``a`` es **triangular superior**
-..    si todos sus elementos que están bajo la diagonal principal
-..    tienen el valor cero.
-..    Por ejemplo,
-..    la siguiente matriz es triangular superior:
-.. 
-..    .. math:: 
-.. 
-..      \begin{bmatrix}
-..        9 & 1 & 0 & 4 \\
-..        0 & 2 & 8 & -3 \\
-..        0 & 0 & 0 & 7 \\
-..        0 & 0 & 0 & -1 \\
-..      \end{bmatrix}
-.. 
-..    Escriba la función ``es_triangular_superior(a)``
-..    que indique si la matriz ``a``
-..    es trangular superior o no.
-.. 
-.. #. No es dificil adivinar
-..    qué es lo que es
-..    una matriz **triangular inferior**.
-..    Escriba la función ``es_triangular_inferior(a)``.
-..    Para ahorrarse trabajo,
-..    llame a ``es_triangular_superior`` desde dentro de la función.
-.. 
-.. #. Una matriz es **idempotente**
-..    si el resultado del producto matricial consigo misma
-..    es la misma matriz.
-..    Por ejemplo:
-.. 
-..    .. math::
-.. 
-..         \begin{bmatrix}
-..            2 & -2 & -4 \\
-..           -1 &  3 &  4 \\
-..            1 & -2 & -3 \\
-..         \end{bmatrix}
-..         \begin{bmatrix}
-..            2 & -2 & -4 \\
-..           -1 &  3 &  4 \\
-..            1 & -2 & -3 \\
-..         \end{bmatrix}
-..         =
-..         \begin{bmatrix}
-..            2 & -2 & -4 \\
-..           -1 &  3 &  4 \\
-..            1 & -2 & -3 \\
-..         \end{bmatrix}
-.. 
-..    Escriba la función ``es_idempotente(a)``
-..    que indique si la matriz ``a``
-..    es idempotente o no.
-.. 
-.. #. Se dice que dos matrices *A* y *B* **conmutan**
-..    si los productos matriciales entre *A* y *B*
-..    y entre *B* y *A* son iguales.
-.. 
-..    Por ejemplo, estas dos matrices sí conmutan:
-.. 
-..    .. math::
-.. 
-..        \begin{bmatrix}
-..          1 & 3 \\ 3 & 2 \\
-..        \end{bmatrix}
-..        \begin{bmatrix}
-..          -1 & 3 \\ 3 & 0 \\
-..        \end{bmatrix} =
-..        \begin{bmatrix}
-..          -1 & 3 \\ 3 & 0 \\
-..        \end{bmatrix}
-..        \begin{bmatrix}
-..          1 & 3 \\ 3 & 2 \\
-..        \end{bmatrix} =
-..        \begin{bmatrix}
-..          8 & 3 \\ 3 & 9 \\
-..        \end{bmatrix}
-.. 
-..    Escriba la función ``conmutan``
-..    que indique si dos matrices conmutan o no.
-..    Pruebe su función con estos ejemplos::
-.. 
-..        >>> a = array([[ 1, 3], [3, 2]])
-..        >>> b = array([[-1, 3], [3, 0]])
-..        >>> conmutan(a, b)
-..        True
-.. 
-..        >>> a = array([[3, 1, 2], [9, 2, 4]])
-..        >>> b = array([[1, 7], [2, 9]])
-..        >>> conmutan(a, b)
-..        False
-.. 
-.. Buscaminas
-.. ==========
-.. 
-.. El juego del buscaminas
-.. se basa en una grilla rectangular
-.. que representa un campo minado.
-.. Algunas de las casillas de la grilla
-.. tienen una mina, y otras no.
-.. El juego consiste en descubrir
-.. todas las casillas que no tienen minas.
-.. 
-.. En un programa,
-.. podemos representar un campo de buscaminas
-.. como un arreglo en el que las casillas minadas
-.. están marcadas con el valor −1,
-.. y las demás casillas con el valor 0::
-.. 
-..     >>> from numpy import *
-..     >>> campo = array([[ 0,  0, -1,  0,  0,  0,  0,  0],
-..                        [-1,  0,  0,  0, -1,  0,  0,  0],
-..                        [ 0,  0,  0,  0, -1,  0,  0, -1],
-..                        [ 0,  0, -1,  0,  0,  0,  0,  0],
-..                        [ 0,  0,  0,  0,  0,  0, -1,  0],
-..                        [ 0, -1,  0,  0, -1,  0,  0,  0],
-..                        [ 0,  0, -1,  0,  0,  0,  0,  0],
-..                        [ 0,  0,  0,  0,  0,  0,  0,  0]])
-.. 
-.. 
-.. 
-.. #. Escriba la función ``crear_campo(forma, n)``,
-..    ``forma`` es una tupla ``(filas, columnas)``,
-..    que retorne un nuevo campo aleatorio con la forma indicada
-..    que tenga ``n`` minas.
-.. 
-..    Hágalo en los siguientes pasos:
-.. 
-..    a. Construya un vector de tamaño ``filas * columnas``
-..       que tenga ``n`` veces el valor −1, y a continuación sólo ceros.
-..    b. Importe la función ``shuffle`` desde el módulo ``numpy.random``.
-..       Esta función desordena (o «baraja») los elementos de un arreglo.
-..    c. Desordene los elementos del vector que creó.
-..    d. Cambie la forma del vector.
-.. 
-..    ::
-.. 
-..       >>> crear_campo((4, 4), 5)
-..       array([[-1,  0,  0,  0],
-..              [ 0,  0,  0,  0],
-..              [ 0, -1, -1,  0],
-..              [ 0, -1, -1,  0]])
-..       >>> crear_campo((4, 4), 5)
-..       array([[ 0,  0, -1,  0],
-..              [ 0,  0,  0, -1],
-..              [-1,  0,  0,  0],
-..              [ 0,  0, -1, -1]])
-..       >>> crear_campo((4, 4), 5)
-..       array([[ 0,  0,  0, -1],
-..              [ 0,  0, -1, -1],
-..              [-1,  0,  0,  0],
-..              [ 0,  0, -1,  0]])
-.. 
-.. #. Al descubrir una casilla no minada,
-..    en ella aparece un número,
-..    que indica la cantidad de minas
-..    que hay en sus ocho casillas vecinas.
-.. 
-..    Escriba la función ``descubrir(campo)``
-..    que modifique el campo
-..    poniendo en cada casilla
-..    la cantidad de minas vecinas::
-.. 
-..        >>> c = crear_campo((4, 4), 5)
-..        >>> c
-..        array([[ 0,  0, -1, -1],
-..               [ 0,  0, -1,  0],
-..               [ 0,  0,  0, -1],
-..               [ 0,  0,  0, -1]])
-..        >>> descubrir(c)
-..        >>> c
-..        array([[ 0,  2, -1, -1],
-..               [ 0,  2, -1,  4],
-..               [ 0,  1,  3, -1],
-..               [ 0,  0,  2, -1]])
-.. 
-.. Barman
-.. ------
-.. .. Propuesto por Mabel Bielenberg
-.. 
-.. Para preparar aperitivos,
-.. un barman almacena en tres baldes
-.. distintas medidas de vino, ginebra y jugo de limón,
-.. según la siguiente tabla:
-.. 
-.. ======= ============= ============= =============
-.. Balde   Vino          Ginebra       Jugo de limón
-.. ======= ============= ============= =============
-.. A                  20            30            50
-.. B                  30            20            60
-.. C                  30            30            32
-.. ======= ============= ============= =============
-.. 
-.. Por otro lado,
-.. se tiene la información de los precios por litro
-.. de cada líquido:
-.. 
-.. ============= ========
-.. Líquido       Precio
-.. ============= ========
-.. Vino                 5
-.. Ginebra             45
-.. Jugo de limón       10
-.. ============= ========
-.. 
-.. #. Escriba un programa que muestre
-..    cuál es el precio de cada uno de los baldes.
-.. 
-.. #. Escriba un programa
-..    que muestre el precio total de
-..    10 baldes A, 4 baldes B y 5 baldes C.
-.. 
-.. Producción de autos
-.. ===================
-.. .. Propuesto por Mabel Bielenberg
-.. 
-.. Una fábrica de autos produce tres modelos:
-.. sedán, camioneta y económico.
-.. Cada auto necesita para su producción
-.. materiales, personal, impuestos y transporte.
-.. Los costos en unidades por cada concepto
-.. son los siguientes:
-.. 
-.. ========== ========== ========== ==========
-.. (Costos)   Sedán      Camioneta  Económico
-.. ========== ========== ========== ==========
-.. Material            7          8          5
-.. Personal           10          9          7
-.. Impuestos           5          3          2
-.. Transporte          2          3          1
-.. ========== ========== ========== ==========
-.. 
-.. Semanalmente, se producen
-.. 60 sedanes, 40 camionetas y 90 económicos.
-.. 
-.. Los costos de una unidad de
-.. material, personal, impuestos y transporte
-.. son respectivamente 5, 15, 7 y 2.
-.. 
-.. Escriba un programa que muestre:
-.. 
-.. * las unidades semanales necesarias de
-..   material, personal, impuestos y transporte,
-.. * el costo total de un auto de cada modelo,
-.. * el costo total de la producción semanal.
-.. 
-.. Informe de producción de gas
-.. ============================
-.. .. Propuesto por Mabel Bielenberg
-.. 
-.. En un informe anual de SansanoGas S.A.,
-.. el presidente informa a sus accionistas
-.. la cantidad anual de producción de barriles
-.. de 50 litros de lubricantes
-.. normal, extra y súper,
-.. en sus dos refinerías:
-.. 
-.. ========= ======== ======== ========
-.. Refinería Normal   Extra    Súper
-.. ========= ======== ======== ========
-.. A             3000     7000     2000
-.. B             4000      500      600
-.. ========= ======== ======== ========
-.. 
-.. Además, informa que en cada barril de 50 litros de lubricante
-.. existe la siguiente composición en litros de
-.. aceites finos, alquitrán y grasas residuales:
-.. 
-.. ================= ======== ======== ========
-.. Componente        Normal   Extra    Súper
-.. ================= ======== ======== ========
-.. Aceites finos           10        5       35
-.. Alquitrán               15        4       31
-.. Grasas residuales       18        2       30
-.. ================= ======== ======== ========
-.. 
-.. #. Escriba la función ``totales_anuales(a, b)``
-..    que reciba como parámetros ambas matrices
-..    y retorne un arreglo con los totales
-..    de aceites finos, alquitrán y grasas residuales
-..    presentes en la producción anual.
-.. 
-.. #. Escriba la función ``maximo_alquitran(a, b)``
-..    que reciba como parámetros ambas matrices
-..    y retorne el máximo de litros de alquitrán
-..    consumidos por ambas refinerías.
-.. 
-.. #. Determine cuál es la matriz
-..    que entrega el consumo de todos los elementos
-..    que forman parte de un lubricante,
-..    en cada refinería.
-.. 
+* *Bartender*
+
+  To prepare an appetizer, a  bartender stores in three pails
+  different wine, gin and lemon juice measures,
+  following the next table:
+  
+  ======= ============= ============= =============
+  Pail    Wine          Gin           Lemon juice
+  ======= ============= ============= =============
+  A                  20            30            50
+  B                  30            20            60
+  C                  30            30            32
+  ======= ============= ============= =============
+  
+  On the other hand,
+  we have the information related to the prices by liter
+  of each liquid:
+  
+  ============= ========
+  Liquid        Price
+  ============= ========
+  Wine                 5
+  Gin                 45
+  Lemon Juice         10
+  ============= ========
+  
+  #. Write a program which show the price of
+     each one of the pails.
+  
+  #. Write a program which show the total price of
+     10 A pails, 4 B pails and 5 C pails.
+
+* *Car production*
+
+  A car factory produce three models:
+  sedan, van and economic.
+  Each car production needs materials, manpower, taxes and transport.
+  The cost in units per each concept are the following:
+  
+  ========== ======= ===== ==========
+  (Cost)     Sedan   Van   Economic
+  ========== ======= ===== ==========
+  Material         7     8          5
+  Manpower        10     9          7
+  Taxes            5     3          2
+  Transport        2     3          1
+  ========== ======= ===== ==========
+  
+  Weekly, the production amount is of
+  60 sedan, 40 van and 90 economic.
+  
+  The cost of a unit of material, manpower, taxes and transport
+  are 5, 15, 7 y 2 respectively.
+  
+  Write a program which show:
+  
+  * the weekly needed units of material, manpower, taxes and transport,
+  * the total cost of a car of each model,
+  * the total cost of the weekly production.
+
+* *Gas production report*
+
+  In the annual report of a gas enterprise,
+  the president reports to their shareholders
+  the annual amount of the barrel production
+  of 50 liter of normal, extra and super lubricant
+  in two refineries:
+  
+  ========= ======== ======== ========
+  Refinery  Normal   Extra    Super
+  ========= ======== ======== ========
+  A             3000     7000     2000
+  B             4000      500      600
+  ========= ======== ======== ========
+  
+  Also, reports that in each 50 liter lubricant barrel
+  exist the following composition in liter of
+  fine oils, tar and residual fat:
+  
+  ============== ======== ======== ========
+  Component      Normal   Extra    Super
+  ============== ======== ======== ========
+  Fine oils            10        5       35
+  Tar                  15        4       31
+  Residual fat         18        2       30
+  ============== ======== ======== ========
+  
+  #. Write a function called ``annual_totals(a, b)``
+     which receive as parameter both matrix
+     and return an array with the totals of
+     fine oils, tar and residual fats present in the annual production.
+  
+  #. Write a function called ``maximum_tar(a, b)``
+     which receive as parameter both matrix
+     and return the maximum of tar liters
+     consumed by both refineries.
+  
+  #. Determine which is the matrix that return
+     the total consumption of the elements that
+     are part of the lubricant, in each refinery.
+
 .. Migración de poblaciones
 .. ========================
 .. 
@@ -745,6 +378,8 @@ Exercises
 .. .. [Lay97] David C. Lay.
 ..            *Linear Algebra and Its Applications*.
 ..            Addison-Wesley, 1997.
+
+
 .. Construcción de una dieta
 .. =========================
 .. 

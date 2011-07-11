@@ -3,7 +3,7 @@ Lecture 25 - NumPy arrays (part I)
  
 Arrays
 ~~~~~~
-(lists, tuples, dictionary, sets)
+lists, tuples, dictionary and sets
 allow to manipulate data in a flexible way.
 Combining and nesting,
 is it possible to organize the information of structured way
@@ -409,158 +409,55 @@ the sum and the product of the elements respectively::
 
 Exercises
 ~~~~~~~~~~
-.. 
-.. 
-.. Transmisión de datos
-.. ====================
-.. 
-.. .. Ejercicio propuesto por Claudio Price
-.. 
-.. En varios sistemas de comunicaciones digitales
-.. los datos viajan de manera serial
-.. (es decir, uno tras otro),
-.. y en bloques de una cantidad fija de bits (valores 0 o 1).
-.. La transmisión física de los datos
-.. no conoce de esta separación por bloques,
-.. y por lo tanto es necesario que haya programas
-.. que separen y organicen los datos recibidos.
-.. 
-.. Los datos transmitidos los representaremos
-.. como arreglos cuyos valores son ceros y unos.
-.. 
-.. #. Una secuencia de bits puede interpretarse
-..    como un número decimal.
-..    Cada bit está asociado a una potencia de dos,
-..    partiendo desde el último bit.
-..    Por ejemplo, la secuencia 01001 representa
-..    al número decimal 9, ya que:
-.. 
-..    .. math::
-.. 
-..      0\cdot2^4 +
-..      1\cdot2^3 +
-..      0\cdot2^2 +
-..      0\cdot2^1 +
-..      1\cdot2^0 = 9
-.. 
-..    Escriba la función ``numero_decimal(datos)``
-..    que entregue la representación decimal
-..    de un arreglo de datos::
-.. 
-..       >>> a = array([0, 1, 0, 0, 1])
-..       >>> numero_decimal(a)
-..       9
-.. 
-.. #. Suponga que el tamaño de los bloques
-..    es de cuatro bits.
-..    Escriba la función ``bloque_valido(datos)``
-..    que verifique que la corriente de datos
-..    tiene una cantidad entera de bloques::
-.. 
-..       >>> bloque_valido(array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0]))
-..       True
-..       >>> bloque_valido(array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1]))
-..       False
-.. 
-.. #. Escriba la función ``decodificar_bloques(datos)``
-..    que entregue un arreglo
-..    con la representación entera de cada bloque.
-..    Si un bloque está incompleto,
-..    esto debe ser indicado con el valor ``-1``::
-.. 
-..       >>> a = array([0, 1, 0, 1])
-..       >>> b = array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0])
-..       >>> c = array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1])
-..       >>> decodificar_bloques(a)
-..       array([5])
-..       >>> decodificar_bloques(b)
-..       array([5, 7, 2])
-..       >>> decodificar_bloques(c)
-..       array([5, 7, 2, -1])
-.. Creación de arreglos bidimensionales
-.. ====================================
-.. 
-.. La función ``arange`` retorna un arreglo
-.. con números en el rango indicado::
-.. 
-..     >>> from numpy import arange
-..     >>> a = arange(12)
-..     >>> a
-..     array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
-.. 
-.. A partir del arreglo ``a`` definido arriba,
-.. indique cómo obtener los siguientes arreglos
-.. de la manera más simple que pueda::
-.. 
-..     >>> # ???
-..     array([[ 0,  1,  2,  3],
-..            [ 4,  5,  6,  7],
-..            [ 8,  9, 10, 11]])
-..     >>> # ???
-..     array([[  0,   1,   4,   9],
-..            [ 16,  25,  36,  49],
-..            [ 64,  81, 100, 121]])
-..     >>> # ???
-..     array([[ 0,  4,  8],
-..            [ 1,  5,  9],
-..            [ 2,  6, 10],
-..            [ 3,  7, 11]])
-..     >>> # ???
-..     array([[ 0,  1,  2],
-..            [ 4,  5,  6],
-..            [ 8,  9, 10]])
-..     >>> # ???
-..     array([[ 11.5,  10.5,   9.5],
-..            [  8.5,   7.5,   6.5],
-..            [  5.5,   4.5,   3.5],
-..            [  2.5,   1.5,   0.5]])
-..     >>> # ???
-..     array([[100, 201, 302, 403],
-..            [104, 205, 306, 407],
-..            [108, 209, 310, 411]])
-..     >>> # ???
-..     array([[100, 101, 102, 103],
-..            [204, 205, 206, 207],
-..            [308, 309, 310, 311]])
-.. Cuadrado mágico
-.. ===============
-.. 
-.. Un `cuadrado mágico`_ es una disposición de números naturales
-.. en una tabla cuadrada, de modo que las sumas de cada columna,
-.. de cada fila y de cada diagonal son iguales.
-.. 
-.. Los cuadrados mágicos más populares
-.. son aquellos que tienen los números consecutivos desde el 1 hasta `n^2`,
-.. donde `n` es el número de filas y de columnas del cuadrado.
-.. 
-.. Por ejemplo, el siguiente es un cuadrado mágico
-.. con `n = 4`. Todas sus filas, columnas y diagonales suman 34:
-.. 
-.. .. image:: ../../diagramas/cuadrado-magico.png
-.. 
-.. #. Escriba una función que reciba un arreglo cuadrado de enteros de `n\times n`,
-..    e indique si está conformado por los números consecutivos
-..    desde 1 hasta `n^2`::
-.. 
-..      >>> from numpy import array
-..      >>> consecutivos(array([[3, 1, 5],
-..      ...                     [4, 7, 2],
-..      ...                     [9, 8, 6]]))
-..      True
-..      >>> consecutivos(array([[3, 1, 4],
-..      ...                     [4, 0, 2],
-..      ...                     [9, 9, 6]]))
-..      False
-.. 
-.. #. Escriba una función que reciba un arreglo
-..    e indique si se trata o no de un cuadrado mágico::
-.. 
-..      >>> es_magico(array([[3, 1, 5],
-..      ...                  [4, 7, 2],
-..      ...                  [9, 8, 6]]))
-..      False
-..      >>> es_magico(array([[2, 7, 6],
-..      ...                  [9, 5, 1],
-..      ...                  [4, 3, 8]]))
-..      True
-.. 
+
+ * *Data transmission*
+
+   In several digital communication systems, the data travel in a **serial** way,
+   (i.e. one by one), and in fixed size bits blocks (values 0 or 1).
+   The physical data transmission does not know of this blocks separation,
+   and furthermore is necessary to use programs to separate and organize the receive data.
+   
+   The transmitted data is represented as arrays,
+   which values are zeros and ones.
+   
+   #. A bits sequence can be interpreted as a decimal number.
+      Each bit is associated to a power of two, starting from the last bit.
+      For example, the 01001 sequence represent the decimal number 9, because:
+   
+      .. math::
+   
+        0\cdot2^4 +
+        1\cdot2^3 +
+        0\cdot2^2 +
+        0\cdot2^1 +
+        1\cdot2^0 = 9
+   
+      Write a function called ``decimal_number(data)`` which returns the
+      decimal representation of a data array::
+   
+         >>> a = array([0, 1, 0, 0, 1])
+         >>> decimal_number(a)
+         9
+   
+   #. Suppose a block size of four bits.
+      Write a function called ``valid_block(data)``
+      which verify the data flow has a whole block size::
+   
+         >>> valid_block(array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0]))
+         True
+         >>> valid_block(array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1]))
+         False
+   
+   #. Write a function called ``block_decode(data)``
+      which return an array with the integer representation of each block.
+      If a block is incomplete, this must be identified with the ``-1`` value::
+   
+         >>> a = array([0, 1, 0, 1])
+         >>> b = array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0])
+         >>> c = array([0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1])
+         >>> block_decode(a)
+         array([5])
+         >>> block_decode(b)
+         array([5, 7, 2])
+         >>> block_decode(c)
+         array([5, 7, 2, -1])
