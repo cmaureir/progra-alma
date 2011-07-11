@@ -410,7 +410,7 @@ the sum and the product of the elements respectively::
 Exercises
 ~~~~~~~~~~
 
- * *Data transmission*
+ * **Data transmission**
 
    In several digital communication systems, the data travel in a **serial** way,
    (i.e. one by one), and in fixed size bits blocks (values 0 or 1).

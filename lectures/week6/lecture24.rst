@@ -141,7 +141,7 @@ Suppose we define the following class:
 ::
 
     class PrinterClass():
-        def printer(self,text)
+        def printer(self,text):
             self.txt = text    # Modify the instance
             print self.txt     # Access the instance
 
@@ -153,7 +153,7 @@ so it is possible to perform the next lines:
     >>> x = PrinterClass() # Make instance
     >>> x.printer('calling from an instance')
     calling from an instance
-    >>> x.message
+    >>> x.txt
     'calling from an instance'
 
 So, as we mentioned before, we have two ways to called a method,
@@ -163,7 +163,7 @@ by an instance or the class itself.
 
     >> PrinterClass.printer(x, 'calling from the class')
     calling from the class
-    >> x.message
+    >> x.txt
     calling from the class
 
 Specializing Inherited Methods

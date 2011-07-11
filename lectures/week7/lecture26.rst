@@ -296,7 +296,7 @@ which has elements of the parameter on the diagonal::
 Exercises
 ~~~~~~~~~~
 
-* *Bi-dimensional arrays creation*
+* **Bi-dimensional arrays creation**
  
   The ``arange`` function, return an array with numbers in the indicated range::
   
@@ -339,7 +339,7 @@ Exercises
              [204, 205, 206, 207],
              [308, 309, 310, 311]])
 
-* *Magic square*
+* **Magic square**
 
   A `magic square`_ is a natural numbers disposal in a square table,
   so that the sums of each column, of each row and of each diagonal are the same.
@@ -378,7 +378,7 @@ Exercises
        ...                  [4, 3, 8]]))
        True
  
-* *Matrix rotation*
+* **Matrix rotation**
  
   #. Write a function called ``rotation90(a)`` which return the ``a`` array
      rotated in 90 degrees, counter-clockwise::
@@ -429,7 +429,7 @@ Exercises
                [3, 2],
                [6, 9]])
  
-* *Sudoku*
+* **Sudoku**
 
   The Sudoku is a puzzle which consist in fill a grid of `9 × 9`
   with the digits from 1 to 9, so that there is no repeat value
@@ -440,7 +440,7 @@ Exercises
   When the puzzle has been solved, all the box has a digit,
   and between all satisfied the listed conditions.
   
-  .. image:: ../../diagrams/sudoku.png
+  .. image:: ../../_static/images/sudoku.png
   
   In a program,
   a solved Sudoku can be saved in a 9 × 9 array::
@@ -501,7 +501,7 @@ Exercises
 ..    (las más sencillas).
 
 
-* *Special matrix*
+* **Special matrix**
 
   #. A matrix called ``a`` is **symmetrical**
      if for all index ``i`` and ``j`` pair is satisfied the condition

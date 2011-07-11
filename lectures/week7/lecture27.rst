@@ -211,7 +211,7 @@ and not exactly the same values::
 Exercises
 =========
 
-* *Bartender*
+* **Bartender**
 
   To prepare an appetizer, a  bartender stores in three pails
   different wine, gin and lemon juice measures,
@@ -243,7 +243,7 @@ Exercises
   #. Write a program which show the total price of
      10 A pails, 4 B pails and 5 C pails.
 
-* *Car production*
+* **Car production**
 
   A car factory produce three models:
   sedan, van and economic.
@@ -271,7 +271,7 @@ Exercises
   * the total cost of a car of each model,
   * the total cost of the weekly production.
 
-* *Gas production report*
+* **Gas production report**
 
   In the annual report of a gas enterprise,
   the president reports to their shareholders

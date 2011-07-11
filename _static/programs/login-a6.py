@@ -7,7 +7,7 @@ transporter_state = {0:'READY',1:'MOVING'}
 
 transporters = []
 antennas = []
-paths = set([i for i in range(0,10)])
+paths = set([i for i in range(0,11)])
 
 class Antenna():
     def __init__(self, id_number, model, state):

@@ -61,7 +61,7 @@ All the operations between  ``float`` values
 are approximations.
 This can produce surprising results::
 
-    >>> 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7 + 1/7
+    >>> 1./7 + 1./7 + 1./7 + 1./7 + 1./7 + 1./7 + 1./7
     0.9999999999999998
 
 Literal real numbers are written by separating the decimal
@@ -144,6 +144,8 @@ For example, look the next situations.
     18
     >>> (2*22)/11
     4
+    >>> 3/2
+    1
     >>> 3.1/2
     1.55
     >>> (((((((1+1)+1)+1)+1)+1)+1)+1)

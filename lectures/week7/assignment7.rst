@@ -1,5 +1,8 @@
-Assignment 7 - Minesweeper
-==========================
+Assignment 7
+============
+
+Minesweeper
+------------
 
   The minesweeper game is based on a rectangular grid which represents a minefield.
   Some elements of the grid has a mine, and other do not.
@@ -73,14 +76,22 @@ Assignment 7 - Minesweeper
                 [ 0,  0,  2, -1]])
 
   #. With this two function, you are now able to play minesweeper,
-     so, write a function called ``play_minesweeper()`` which provide
+     so, write a function called ``play_minesweeper(level)`` which provide
      the possibility of play this game, turn by turn.
  
      To develop this function you must have in mind the following points:
    
+     * The ``level`` parameter is an integer between 1 and 3.
+     * Inside the function, you need to define the ``level`` as a tuple,
+       with information ``(rows, columns, mines number)``.
+
+      * *Level 1:* ``(5,5,6)``
+      * *Level 2:* ``(7,7,12)``
+      * *Level 3:* ``(10,10,30)``
+
      * The game behavior is a loop, which verify each turn if the game
        is over (**win** or **lose**), in both cases, you need to display a message to the user.
-     * You must represent the undiscovered field with `#` symbols, for example
+     * You must represent the undiscovered field with **#** symbols, for example
        a 5 x 5 field.:
 
        ::
