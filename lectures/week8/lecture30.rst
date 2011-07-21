@@ -1,5 +1,5 @@
-Lecture 30
-----------
+Lecture 30 - CCL Introduction
+-----------------------------
 
    * CCL-related topics (to be defined)
 
@@ -13,7 +13,7 @@ http://wikis.alma.cl/bin/view/AIV/CCLCommissioningProcedure
 http://aivwiki.alma.cl/index.php/CCL_Device_Software
 
 CONTROL Subsystem
------------------
+=================
 
 The CONTROL subsystem refers to all the required software
 that is needed to move, operate the front- and backend devices,
@@ -28,7 +28,7 @@ ICD, OFFLINE, CONTROL.
 .. _`Control Subsystem Design`: http://edm.alma.cl/forums/alma/dispatch.cgi/SubsystemDesign/showFile/100015/d20030221230518/Yes/Control+Design.pdf
 
 The Control Command Language (CCL)
-----------------------------------
+==================================
 
 Apart from the Observing Modes there is another way of making use of the underlying hardware devices: using the Control Command Language (CCL). The CCL is Python plus the corresponding device or mode wrappings (usually located in src/CCL/). By using the CCL it is possible to manually invoke and control the different devices and/or observing modes. It is also possible to write custom scripts whenever necessary.
 
@@ -36,7 +36,7 @@ For example, review the CCL wrapper for the DGCK device at CONTROL/Device/Hardwa
 There are also some documents available at EDM:
 
 What is CCL?
-------------
+============
 
 CCL stands for Control Commmand Language,
 which allows you to access the control software using a Python wrapper.
@@ -59,7 +59,7 @@ For general information regarding the usage of CCL you can also review the prese
 of the training session.
 
 Installing CCL
----------------
+==============
 
 What do I need to run CCL on Windows?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,10 +74,10 @@ What do I need to run CCL on LINUX?
 From Linux open a terminal and use the "ssh" command to log into the computer ("osf-gns" at the AIV-Lab). Example: "ssh -Y osf-gns" (here -Y allows you to also start GUIs from that terminal)
 
 Using CCL
-----------
+==========
 
 How do I run CCL on my computer?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In reality, you do not run CCL on "your" computer, but on a remote one which is
 connected to the corresponding control units (ABMs).
@@ -86,7 +86,7 @@ e.g. using a SSH-client (see explanation above). The CCL Python wrapper is then
 started by issuing "startCCL" at the command prompt.
 
 How do I monitor and control a device?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First of all you need to create an "instance" belonging to the physical device you want to monitor or control. For this review the list of device types you obtain when issuing cclhelp(). Once you know the device type you create your instance by indicating its location (e.g. antenna name), its absolut component name, and eventually some additional parameters (e.g. polarization), for example:
 
@@ -100,7 +100,7 @@ Use help(<device type>), e.g. help(LO2) for a detailed description and an exampl
 (2.9744236469268799, 134315513756484480L)
 >>>lpr.SET_OPT_SWITCH_PORT(8)
 
-As you can see, the methods that retrieve the monitor points all start with 'GET_', and the ones for control points with 'SET_'. Use tab-completion and help(<function>) for further details:
+As you can see, the methods that retrieve the monitor points all start with *GET_*, and the ones for control points with *SET_*. Use tab-completion and help(<function>) for further details:
 
 >>>help(lo20.SET_PHASE_VALS)
 Last but not least, you can also display the devices monitor points or the status information using the helper functions "monitor" and "status", for example:
@@ -108,13 +108,13 @@ Last but not least, you can also display the devices monitor points or the statu
 >>>status(lpr)
 
 When should I use the sitckyFlag option?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When the sotfware is not in operational mode, eg when just the containers are up and running you should add the stickyFlag=True option to your device instanciation:
 psa=PSA("DV01",stickyFlag=True)
 
 Troubleshooting
----------------
+===============
 
 I can't instantiate a device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,7 +122,7 @@ I can't instantiate a device
 The software might not be in operational state. Add the stickyFlag=True to your call
 
 I cant get any information from a device after an instantiation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You should turn on the device from the software point of view for that you should use the turn_on() function:
 
