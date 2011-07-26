@@ -11,7 +11,7 @@ Contents:
    lectures/week2/index
    lectures/week3/index
    lectures/week4/index
-   lectures/week5/index
-   lectures/week6/index
-   lectures/week7/index
-   lectures/week8/index
+..   lectures/week5/index
+..   lectures/week6/index
+..   lectures/week7/index
+..   lectures/week8/index

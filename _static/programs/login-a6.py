@@ -7,7 +7,7 @@ transporter_state = {0:'READY',1:'MOVING'}
 
 transporters = []
 antennas = []
-paths = set([i for i in range(0,11)])
+pads = set([i for i in range(0,11)])
 
 class Antenna():
     def __init__(self, id_number, model, state):
@@ -25,7 +25,7 @@ class Antenna():
     def set_position(self,x,y,z):
         print 'not implemented'
 
-    def get_path(self):
+    def get_pad(self):
         print 'not implemented'
 
     def get_state(self):
@@ -37,10 +37,10 @@ class Transporter():
         self.name = name
         self.state = state
 
-    def move(self, antenna, orig_path, dest_path):
+    def move(self, antenna, orig_pad, dest_pad):
         print 'not implemented'
         # change status
-        # display message of moving (from initial path, to final path)
+        # display message of moving (from initial pad, to final pad)
         sleep(0.5) # intentional delay to note the mechanism
 
 # Add functions parameters if is needed
