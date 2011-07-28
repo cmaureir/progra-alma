@@ -1,4 +1,4 @@
-Lecture 29 - IPython (2/2)
+Lecture 30 - IPython (2/2)
 --------------------------
 
 PENDING

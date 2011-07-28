@@ -1,4 +1,4 @@
-Lecture 30 - CCL Introduction
+Lecture 31 - CCL Introduction
 -----------------------------
 
 ALMA Control Subsystem
@@ -124,6 +124,7 @@ Instantiating Objects/Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. Esto no se entiende
+
 Its applies only to classes/device types, be able to work with
 multiple instances, for example, the same device on two different antennas,
 because each device has a different constructor.
@@ -290,7 +291,8 @@ FAQ CCL
 ==========
 
 .. Esto no se entiende
-This is a FAQ obtainer from the ALMA wiki.
+
+This is a FAQ obtained from the ALMA wiki.
 
 How do I run CCL on my computer?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
