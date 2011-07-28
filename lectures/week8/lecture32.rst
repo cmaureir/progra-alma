@@ -1,44 +1,46 @@
 Lecture 32 - An extra bite of Python
 -------------------------------------
 
-optparse
+Optparse
 =========
 
-from optparse import OptionParser
-#Define an instance of the OptionParser Class
-parser = OptionParser()
-parser.add_option("-a", "--antenna", dest="antName",
-metavar='AntennaName',
-help="The name of the antenna")
-# This actually parses the command line arguments
-(options, args) = parser.parse_args()
-# Check to make sure that an antenna name was specified
-if options.antName == None:
-print "You must specify an antenna \"-a\" option"
-import sys # Just need this for the exit command
-sys.exit(-1)
-print “Now going to use Antenna: “ + options.antName
+::
+
+    >>> from optparse import OptionParser     # Define an instance of the OptionParser Class
+    >>> parser = OptionParser()
+    >>> parser.add_option("-a", "--antenna", dest="antName", metavar = 'AntennaName', help = "The name of the antenna")  
+    >>> (options, args) = parser.parse_args() # This actually parses the command line arguments
+    >>> if options.antName == None: # Check to make sure that an antenna name was specified
+    >>>     print "You must specify an antenna \"-a\" option"
+    >>>     import sys # Just need this for the exit command
+    >>>     sys.exit(-1)
+    >>> print “Now going to use Antenna: “ + options.antName
 
 
-pyqt
-====
+PyQt and PySide
+===============
 
-pygtk
-=====
+PENDING
 
-csv
-====
+PyGTK
+======
 
-bluetooth
+PENDING
+
+CSV and XML
+===========
+
+PENDING
+
+PySerial
+=========
+
+PENDING
+
+Data Bases
 ==========
 
-python serial
-=============
-
-python game
-============
-
-
+PENDING
 
 
 http://sourceforge.net/projects/pywin32/

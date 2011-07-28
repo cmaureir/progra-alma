@@ -1,5 +1,5 @@
-Lecture 29 - IPython
----------------------
+Lecture 29 - IPython (1/2)
+--------------------------
 
 Introduction
 ~~~~~~~~~~~~
