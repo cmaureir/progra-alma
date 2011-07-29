@@ -12,11 +12,8 @@ and antennas.
 You can download the `Control Subsystem Design`_ for a
 more thorough reference.
 
-Remember that you can retrieve the source code
-from the official ALMA CVS repository, in package **CONTROL**,
-and if you want to compile and install it on your computer,
-you need to retrieve packages **ICD** and **OFFLINE**,
-then build packages **ICD**, **OFFLINE** and **CONTROL** in that order.
+The Control Subsystem is part of every regular ALMA
+Software installation, on an STE.
 
 .. _Control Subsystem Design: http://edm.alma.cl/forums/alma/dispatch.cgi/SubsystemDesign/showFile/100015/d20030221230518/Yes/Control+Design.pdf
 .. _frontend: http://aivwiki.alma.cl/index.php/FronEnd_Devices
@@ -44,6 +41,19 @@ it is proper to say that:
 * Properties are specific control or monitor points of a component
 * For standard hardware devices the control and monitor points are defined at the ICDs.
 
+You can see this `ACS basic presentation`,
+if you want to clarify some doubts.
+
+.. _ACS basic presentation: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGlzYy51Y24uY2x8YWNzd29ya3Nob3B8Z3g6NjI0YTc5ZDVjYTEwNTljYQ
+
+Is important to clarify, that not all the CCL classes
+are necessarily controling CAN devices,
+because there are some higher level components,
+which are compatibles, like FrontEnd controller,
+Antenna controller or Observing Modes.
+So, not all CAN devices are inside the antennas,
+because there are some in, for example,
+the ``CentralLO`` and ``Correlator``.
 
 .. HW device control components are (mostly) code-generated, based on an XML spreadsheet, based on device ICD
 .. XML spreadsheets are written in a way understandable for SW and HW engineers
@@ -81,10 +91,12 @@ and the relationship between CCL and the control subsystem:
 Most of the information regarding CCL is self-contained in the CCL wrapper,
 based on the Python documentation utility **pydoc**.
 To access the documentation, use the command ``help(<function>)`` where ``<function>``
-can be any of the device types or functions listed at ``cclhelp()``.
+can be any of the device types or functions listed at ``cclhelp()``,
+also you can use the special IPython operator ``?`` to obtain help,
+for example, ``MountVertex.GET_ANTENNA_TEMPS?``.
 
 It is not necessary to be a Python expert in order to use CCL.
-The only two thinks that are very critical to be understood are
+The only two things that are very critical to be understood are
 the **modules** and **object-oriented paradigm** topics,
 which you learnt in previous lectures.
 
@@ -95,14 +107,17 @@ a little example using CCL could be::
     >>> mount = MountVertex('DV01')
     >>> mount.GET_ANTENNA_TEMPS()
 
-To start CCL, you need to write ``startCCL`` on the command line.
+To enter the CCL environment, you can use ``startCCL`` command line.
 This is the initialization script that provides the whole CCL environment.
+Furthermore, you can import CCL classes from any Python script
+that you wrote, or that you need to modify to perform some task.
 
 When you execute ``startCCL``, you are starting an **ipython**
 environment, along with some basic control **imports** and
-some **special functions**, so that is the reason
-to understand the contents from the previous lectures:
-to know how ipython works.
+some **special functions**.
+If you understood the previous lectures content,
+like classes, objects, methods and IPython,
+work with CCL will be an easy task.
 
 .. For example, review the CCL wrapper for the DGCK device at CONTROL/Device/HardwareDevice/DGCK/src/CCL.
 .. Note the that the base-class is code-generated and that the child-class contains the custom functionality.
@@ -132,36 +147,19 @@ Once the object is created,
 you can use it to access all the properties and values of the hardware device.
 
 For example,
-we can obtain an digital clock object
-or a reference to the sampling tool::
+we can obtain an digital clock object::
 
     In [1]: dgck = DGCK(“DV01”)
-    In [2]: st = SampTool()
 
-MonitorTool & monitor
-~~~~~~~~~~~~~~~~~~~~~
+Now with the ``dgck`` object,
+you can call their methods.
 
-The MonitorTool allows the user to display the values of properties,
-in real-time, on the screen. It is based on the ACS Monitor implemenation.
-
-The refresh rate of the property values is defined on the Configuration Data Base (CDB),
-in a variable called ``default_trigger_time``, and can be changed if incorrect.
-
-You can use a wrapper function called ``monitor()`` to simplify the syntax.
-
-SampTool & sample
-~~~~~~~~~~~~~~~~~
-
-The SampTool allows to sample different properties
-at high different frequencies, over 20Hz, and store all the data
-in CSV files.
-
-The SampTool is based on the ACS Sampling System,
-and it is written in Java.
-
-Please note that SampTool does not allow precise TE sampling,
-and you can also use this tool, through a wrapper
-function called ``sample()`` which provides a simplified syntax.
+The methods correspond mostly to monitor and control
+point, normally using only upper case names,
+like ``MountVertex.GET_ANTENNA_TEMPS``,
+if we are using a device controller instance.
+Also, you can use higher-level methods,
+like ``FrontEnd.powerUpBand``.
 
 STATUS() Command
 ~~~~~~~~~~~~~~~~
@@ -334,35 +332,10 @@ As you can see, the methods that retrieve the monitor points all start with
     >>> help(lo20.SET_PHASE_VALS)
 
 Last but not least,
-you can also display the devices monitor points or the status information
-using the helper functions "monitor" and "status", for example::
+you can also display the the status information
+using the helper function ``status``, for example::
 
-    >>> monitor(ifp0)
     >>> status(lpr)
-
-When should I use the sitckyFlag option?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-When the sotfware is not in operational mode, e.g. when just the containers are
-up and running you should add the ``stickyFlag=True`` option to your device
-instantiation::
-
-    >>> psa = PSA("DV01",stickyFlag=True)
-
-Troubleshooting
-===============
-
-I cant get any information from a device after an instantiation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You should turn on the device from the software point of view for that you should use the ``turn_on()`` function::
-
-    >>> psa = PSA("DV01",stickyFlag=True)
-    >>> turn_on(psa)
-    >>> psa.STATUS()
-
-Also read the CCL documentation of your device, some of them have a more complicated way of turning on devices.
-
 
 Exercises
 ~~~~~~~~~~
@@ -376,7 +349,7 @@ The following exercises are extracted from the `CCL Training presentation`_ (by 
     * Start CCL
     * Display the available device types, functions and variables
     * Display the help-text for the classes `OpticalTelescope` and for the *DGCK*.
-    * Display the help-text for the functions ``pingabm()``, ``get_devices()`` and ``turn_on()``.
+    * Display the help-text for the functions ``pingabm()`` and ``get_devices()``.
 
 *  Exercise 2
 
@@ -384,8 +357,6 @@ The following exercises are extracted from the `CCL Training presentation`_ (by 
 
         * *DGCK* on container ``DV01`` (if available)
         * `OpticalTelescope` on container ``DV01`` (if available)
-        * ``SampTool``
-        * ``MonitorTool``
 
 *  Exercise 3
 
@@ -396,20 +367,10 @@ The following exercises are extracted from the `CCL Training presentation`_ (by 
 
 *  Exercise 4
 
-    * Review the help description by issuing ``help(MonitorTool)`` and ``help(monitor)``.
-    * Use the ``monitor()`` function to display the DGCK’s ``PS_VOLTAGE_CLOCK`` property on the screen.
-
-* Exercise 5
-
-    * Review the help description by issuing ``help(SampTool)`` and ``help(sample)``.
-    * Use the ``sample()`` function to register the values of the DGCK’s ``PS_VOLTAGE_CLOCK`` and ``DGCK_STATUS`` properties every 100ms.
-
-*  Exercise 6
-
     * Execute the STATUS method for *DGCK* on container ``DV01``.
     * Execute the STATUS method for *FLOOG* on container ``DA41``.
 
-*  Exercise 7
+*  Exercise 5
 
     * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
     * Execute ``STATUS()`` method for the group.
