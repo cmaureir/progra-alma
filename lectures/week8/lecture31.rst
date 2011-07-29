@@ -4,7 +4,7 @@ Lecture 31 - CCL Introduction
 ALMA Control Subsystem
 =======================
 
-The ALMA Control Sybsystem is all the refering to the
+The ALMA Control Subsystem is all the referring to the
 software used to operate devices,
 like frontend_ devices, backend_ devices,
 and antennas.
@@ -47,7 +47,7 @@ if you want to clarify some doubts.
 .. _ACS basic presentation: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGlzYy51Y24uY2x8YWNzd29ya3Nob3B8Z3g6NjI0YTc5ZDVjYTEwNTljYQ
 
 Is important to clarify, that not all the CCL classes
-are necessarily controling CAN devices,
+are necessarily controlling CAN devices,
 because there are some higher level components,
 which are compatibles, like FrontEnd controller,
 Antenna controller or Observing Modes.
@@ -98,7 +98,7 @@ for example, ``MountVertex.GET_ANTENNA_TEMPS?``.
 It is not necessary to be a Python expert in order to use CCL.
 The only two things that are very critical to be understood are
 the **modules** and **object-oriented paradigm** topics,
-which you learnt in previous lectures.
+which you learn in previous lectures.
 
 For example,
 a little example using CCL could be::
@@ -132,7 +132,7 @@ work with CCL will be an easy task.
 ..     * AZ/EL encoder readouts
 ..     * Subreflector current and commanded positions
 
-Commisioning
+Commissioning
 =============
 
 Instantiating Objects/Devices
@@ -176,7 +176,7 @@ Device Grouping
 ~~~~~~~~~~~~~~~
 
 CCL allows the instantiation of several devices of the same type,
-at the same time, usign as reference a list of the devices.
+at the same time, using as reference a list of the devices.
 
 For example, if you want to obtain a object group of digital clock from
 two different antennas, like **DV01** and **DA41**, the code will be::
@@ -276,12 +276,12 @@ The following links and documents are extracted from ALMA wikis:
 
 * `ALMA Control Command Language Brief Introduction`_
 * `CCL official site`_
-* `CCL Commisioning Procedure`_
+* `CCL Commissioning Procedure`_
 * `CCL Device Software`_
 
 .. _ALMA Control Command Language Brief Introduction: http://almasw.hq.eso.org/almasw/pub/CONTROL/ControlCommandLanguage/ALMAControlCommandLanguage.pdf
 .. _CCL official site: http://ccl.aiv.alma.cl/
-.. _CCL Commisioning Procedure: http://wikis.alma.cl/bin/view/AIV/CCLCommissioningProcedure
+.. _CCL Commissioning Procedure: http://wikis.alma.cl/bin/view/AIV/CCLCommissioningProcedure
 .. _CCL Device Software: http://aivwiki.alma.cl/index.php/CCL_Device_Software
 
 FAQ CCL
@@ -297,7 +297,7 @@ How do I run CCL on my computer?
 
 The idea of CCL, is interact with the devices,
 connected to a corresponding control units (ABM),
-remotly, i.e. using a SSH-client to connect
+remotely, i.e. using a SSH-client to connect
 to the machine.
 
 How do I monitor and control a device?
@@ -307,7 +307,7 @@ First of all you need to create an "instance" belonging to the physical device
 you want to monitor or control.
 For this review the list of device types you obtain when issuing `cclhelp()`.
 Once you know the device type you create your instance by indicating its location
-(e.g. antenna name), its absolut component name,
+(e.g. antenna name), its absolute component name,
 and eventually some additional parameters (e.g. polarization), for example::
 
     >>> lpr = LPR("DA41")
