@@ -123,14 +123,13 @@ Commisioning
 Instantiating Objects/Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Esto no se entiende
+Its applies only to classes/device types,
+and it is possible to work with multiple instances,
+for example, the same device on two different antennas,
+because each device will provide a different class constructor.
 
-Its applies only to classes/device types, be able to work with
-multiple instances, for example, the same device on two different antennas,
-because each device has a different constructor.
-
-Once the object is created, you can use it to access
-all the properties and values from the hardware device.
+Once the object is created,
+you can use it to access all the properties and values of the hardware device.
 
 For example,
 we can obtain an digital clock object
@@ -290,18 +289,18 @@ The following links and documents are extracted from ALMA wikis:
 FAQ CCL
 ==========
 
-.. Esto no se entiende
 
-This is a FAQ obtained from the ALMA wiki.
+This is a FAQ obtained from the `ALMA wiki`_.
+
+.. _`ALMA wiki`: http://aivwiki.alma.cl/index.php/CCL_FAQ
 
 How do I run CCL on my computer?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In reality, you do not run CCL on "your" computer, but on a remote one which is
-connected to the corresponding control units (ABMs).
-This means that from your computer you first have to log into this computer,
-e.g. using a SSH-client (see explanation above). The CCL Python wrapper is then
-started by issuing "startCCL" at the command prompt.
+The idea of CCL, is interact with the devices,
+connected to a corresponding control units (ABM),
+remotly, i.e. using a SSH-client to connect
+to the machine.
 
 How do I monitor and control a device?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -353,11 +352,6 @@ instantiation::
 Troubleshooting
 ===============
 
-I can't instantiate a device
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The software might not be in operational state. Add the ``stickyFlag=True`` to your call
-
 I cant get any information from a device after an instantiation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -381,43 +375,43 @@ The following exercises are extracted from the `CCL Training presentation`_ (by 
 
     * Start CCL
     * Display the available device types, functions and variables
-    * Display the help-text for the classes OpticalTelescope and for the DGCK
-    * Display the help-text for the functions pingabm(), get_devices() and turn_on()
+    * Display the help-text for the classes `OpticalTelescope` and for the *DGCK*.
+    * Display the help-text for the functions ``pingabm()``, ``get_devices()`` and ``turn_on()``.
 
 *  Exercise 2
 
-    * Instantiate the following objects (check the help-text for __init__ to obtain the constructors parameters):
+    * Instantiate the following objects (check the help-text for ``__init__`` to obtain the constructors parameters):
 
-        * DGCK on container DV01 (if available)
-        * OpticalTelescope on container DV01 (if available)
-        * SampTool
-        * MonitorTool
+        * *DGCK* on container ``DV01`` (if available)
+        * `OpticalTelescope` on container ``DV01`` (if available)
+        * ``SampTool``
+        * ``MonitorTool``
 
 *  Exercise 3
 
     * Access the device functionality (use tab-completion to see the available methods):
 
-        * Read the value of PS_VOLTAGE_CLOCK of the DGCK
-        * Check if the OpticalTelescope aperture is open or closed
+        * Read the value of ``PS_VOLTAGE_CLOCK`` of the *DGCK*.
+        * Check if the OpticalTelescope aperture is open or closed.
 
 *  Exercise 4
 
-    * Review the help description by issuing “help(MonitorTool)” and “help(monitor)”
-    * Use the monitor() function to display the DGCK’s PS_VOLTAGE_CLOCK property on the screen
+    * Review the help description by issuing ``help(MonitorTool)`` and ``help(monitor)``.
+    * Use the ``monitor()`` function to display the DGCK’s ``PS_VOLTAGE_CLOCK`` property on the screen.
 
 * Exercise 5
 
-    * Review the help description by issuing “help(SampTool)” and “help(sample)”
-    * Use the sample() function to register the values of the DGCK’s PS_VOLTAGE_CLOCK and DGCK_STATUS properties every 100ms
+    * Review the help description by issuing ``help(SampTool)`` and ``help(sample)``.
+    * Use the ``sample()`` function to register the values of the DGCK’s ``PS_VOLTAGE_CLOCK`` and ``DGCK_STATUS`` properties every 100ms.
 
 *  Exercise 6
 
-    * Execute the STATUS method for DGCK on container DV01.
-    * Execute the STATUS method for FLOOG on container DA41.
+    * Execute the STATUS method for *DGCK* on container ``DV01``.
+    * Execute the STATUS method for *FLOOG* on container ``DA41``.
 
 *  Exercise 7
 
-    * Instantiate a group of DGCKs devices for DV01 and DA41 containers.
-    * Execute STATUS() method for the group.
-    * Use DelayTrackingEnabled() method for the DGCK group.
+    * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
+    * Execute ``STATUS()`` method for the group.
+    * Use ``DelayTrackingEnabled()`` method for the DGCK group.
     * Set DelayTracking to False over the DGCK group.
