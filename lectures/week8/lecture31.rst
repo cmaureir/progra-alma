@@ -1,378 +1,553 @@
-Lecture 31 - CCL Introduction
------------------------------
+Lecture 31 - Graphical Interfaces
+---------------------------------
 
-ALMA Control Subsystem
-=======================
+Every program needs to have some mechanism
+to receive an input and return an output.
+We have already seen two ways of input:
 
-The ALMA Control Subsystem is all the referring to the
-software used to operate devices,
-like frontend_ devices, backend_ devices,
-and antennas.
+* keyboard input (``raw_input``), and
+* input file (``for line in file: ...``);
 
-You can download the `Control Subsystem Design`_ for a
-more thorough reference.
+and two output ways:
 
-The Control Subsystem is part of every regular ALMA
-Software installation, on an STE.
+* console output (``print``), and
+* output file (``file.write (...)``).
 
-.. _Control Subsystem Design: http://edm.alma.cl/forums/alma/dispatch.cgi/SubsystemDesign/showFile/100015/d20030221230518/Yes/Control+Design.pdf
-.. _frontend: http://aivwiki.alma.cl/index.php/FronEnd_Devices
-.. _backend: http://aivwiki.alma.cl/index.php/BackEnd_Devices
+.. index:: graphical interface
 
-The Control subsystem is a part of the ALMA Common Software (ACS),
-that uses a CORBA-based Control framework, so the idea is that
-each hardware device control module has one ACS Component, running
-inside the ABM of each antenna. Also, each ACS Component provides
-an external communication interface.
+Most programs that deal every day do not work in this way,
+but have a **graphical interface**,
+made up of windows, menus, buttons and other elements,
+through which we interact with the program.
 
-The following diagram shows how **Components**,
-**Containers**, **ABM**, and **Antenna** are related:
+Programs with **Graphical User Interface (GUI)**
+are fundamentally different from programs
+with text interfaces.
+The programs we have written so far
+run entirely from beginning to end,
+stopping only when we input data.
 
-.. image:: ../../_static/images/ccl_01.png
-   :alt: CCL Diagram
-   :width: 700px
+Graphical programs, moreover,
+only perform actions when
+certain events are triggered by the user
+(like clicking on a button or writing something in a text box),
+and the rest of the time they wait for something to happen,
+without doing nothing.
+The program has no control over when to do something.
+This requires that programs are structured
+in a special way, which we will learn little by little.
 
-To understand the relationship between the aforementioned elements,
-it is proper to say that:
 
-* Containers contain a set of Components.
-* Components usually wrap physical hardware devices.
-* Components contain a set of Properties.
-* Properties are specific control or monitor points of a component
-* For standard hardware devices the control and monitor points are defined at the ICDs.
+Tkinter
+~~~~~~~
 
-You can see this `ACS basic presentation`,
-if you want to clarify some doubts.
+.. index:: Tkinter
 
-.. _ACS basic presentation: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGlzYy51Y24uY2x8YWNzd29ya3Nob3B8Z3g6NjI0YTc5ZDVjYTEwNTljYQ
+Python includes a module called ``Tkinter``
+which provides all the necessary functions,
+to be imported at the beginning of the program::
 
-Is important to clarify, that not all the CCL classes
-are necessarily controlling CAN devices,
-because there are some higher level components,
-which are compatibles, like FrontEnd controller,
-Antenna controller or Observing Modes.
-So, not all CAN devices are inside the antennas,
-because there are some in, for example,
-the ``CentralLO`` and ``Correlator``.
+    from Tkinter import *
 
-.. HW device control components are (mostly) code-generated, based on an XML spreadsheet, based on device ICD
-.. XML spreadsheets are written in a way understandable for SW and HW engineers
-.. Represents ICD – SW “mapping”
-.. Allows to easily detect ICD v/s SW inconsistencies
+Windows creation
+'''''''''''''''''
 
-The Control Command Language (CCL)
-==================================
+The following program
+is a simple graphical interface which can be created::
 
-CCL is a language for accessing the Control software
-using a very simple Python wrapper, so it is considered a high-level
-scripting language.
+    from Tkinter import *
+    w = Tk()
+    w.mainloop()
 
-Each device control component (written in C++)
-has an associated Python wrapper, being a part of the CCL libraries.  Therefore, CCL commands directly call an certain action of the
-control component communication interface.
+Try it:
+Copy the program in a text editor,
+save it and run it.
+You should see an empty window:
 
-In simple words, a CCL class interact directly with a Component
-of a Container.
+.. image:: ../../_static/images/tkinter_1.png
 
-CCL has two main functions:
+The ``w = Tk()`` statement
+creates the main window,
+and assigns it, to the ``w`` variable.
+All GUI should have a main window
+in which things will be added.
+This line goes at the beginning of the program always.
 
-1. Serve as the language "observing scripts" are written in.
-2. Serve as a suite of interactive commands to be used by hardware engineers,
-   testing or debugging equipment, or staff astronomers, developing new observation
-   procedures.
+The ``w.mainloop()`` statement
+indicates to the interface that should just wait
+for the user to do something.
+This line must always be at the end of the program.
 
-The next diagram explains the architecture
-and the relationship between CCL and the control subsystem:
+.. index:: event loop
 
-.. image:: ../../_static/images/ccl_02.png
-   :alt: CCL Architecture 
-   :width: 500px
+When executed,
+may find out that the program does not end.
+This is because the ``mainloop()`` method call
+is «stuck» waiting for something to happen.
+This is called an **event loop**,
+and is simply an infinite loop which is constantly waiting
+for something to happen.
 
-Most of the information regarding CCL is self-contained in the CCL wrapper,
-based on the Python documentation utility **pydoc**.
-To access the documentation, use the command ``help(<function>)`` where ``<function>``
-can be any of the device types or functions listed at ``cclhelp()``,
-also you can use the special IPython operator ``?`` to obtain help,
-for example, ``MountVertex.GET_ANTENNA_TEMPS?``.
+All GUI programs
+must follow this structure:
+the creation of the window early in the program
+and calling the event loop at the end of the program.
 
-It is not necessary to be a Python expert in order to use CCL.
-The only two things that are very critical to be understood are
-the **modules** and **object-oriented paradigm** topics,
-which you learn in previous lectures.
+Widget creation
+''''''''''''''''
+
+.. index:: widget
+
+A **widget** is anything that you can put in a window.
+For now, we see three types of simple widgets,
+which are sufficient to create a functional GUI:
+
+* **labels** (``Label``)
+  are used to display data,
+* **buttons** (``Button``)
+  are used to make something happen in the program, and
+* **input fields** (``Entry``)
+  are used to enter data into the program.
+
+In a running program,
+these widgets look like this:
+
+.. image:: ../../_static/images/tkinter_2.png
+
+
+The ``Entry`` is analogous to the ``raw_input``
+of the console programs:
+used to receive a program input.
+The ``Label`` is similar to ``print``:
+used to return the output.
+
+A button can be seen as a «function caller»:
+whenever a button is pressed,
+a call to the associated button will be made.
+The buttons does not have an analogous,
+because console programs run from beginning to end immediately,
+and therefore do not need that a function caller
+triggered by the user.
+
+To add a widget to a program,
+you have to use the function with the widget names
+(``Label``, ``Button`` and ``Entry}``).
+These functions receive as first mandatory parameter
+the containing window of the widget.
+They also have optional parameters,
+which needs to be passed using the name parameter
+assignation syntax.
+For example,
+the ``text`` parameter is used to indicate
+the text which appears on a button or a label.
 
 For example,
-a little example using CCL could be::
+the following statement
+creates a button with the text ``Greet``,
+contained in the ``w`` window::
+
+    b = Button(w, text='Greet')
+
+While this creates the button
+and assign it to a ``b`` variable,
+the button is not added into the ``w`` window immediately:
+what we did was just tell the button their container,
+to take it into account when being added.
+For this to happen,
+we needs to call the ``pack`` method,
+which is a way to tell the widget
+«self-pack inside your container»::
+
+    b.pack()
+
+As reference,
+the program which creates the image window
+is the following (try it!)::
+
+    from Tkinter import *
+    
+    w = Tk()
+    
+    l = Label(w, text='Label')
+    l.pack()
+    
+    b = Button(w, text='Button')
+    b.pack()
+    
+    e = Entry(w)
+    e.pack()
+    
+    w.mainloop()
+
+The widgets are being stacked vertically,
+from top to bottom,
+in the same order they are being stacked.
+
+PySide - Qt bindings
+~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: pyside qt
+
+The `PySide project`_ provides Python bindings
+to use the Qt framework.
+
+`Qt`_ is a cross-platform application and user interface framework,
+used widely in several technological projects,
+like `devices`_ such as, tablets, netbooks, projectors, smartphones, etc.
+Also is present in `desktop` application such as,
+`VLC`_, `KDE`_, `Google Earth`_, `Skype`_, `Avogadro`_, etc.
+Finally, Qt is present is a lot of another projects,
+like the `MeeGo OS`_, `Mathematica`_ (Wolfram Research), `Lucas Film Ltd.`_,
+`Walt Disney Animation Studios`_, etc.
+
+.. _Qt: http://qt.nokia.com
+.. _devices: http://qt.nokia.com/qt-in-use/story/device
+.. _desktop: http://qt.nokia.com/qt-in-use/target/desktop
+.. _VLC: http://qt.nokia.com/qt-in-use/story/app/vlc-player/
+.. _KDE: http://www.kde.org/
+.. _Google Earth: http://www.google.com/earth
+.. _Skype: http://www.skype.com/
+.. _Avogadro: http://avogadro.openmolecules.net/wiki/Main_Page
+.. _MeeGo OS: https://meego.com/
+.. _Mathematica: http://qt.nokia.com/qt-in-use/story/customer/mathematica-by-wolfram-research
+.. _Lucas Film Ltd.: http://qt.nokia.com/qt-in-use/story/app/lucasfilm-entertainment-company-ltd
+.. _Walt Disney Animation Studios: http://qt.nokia.com/qt-in-use/story/customer/walt-disney-feature-animation
+.. _PySide project: http://pyside.org
 
-    >>> from CCL.MountVertex import MountVertex
-    >>> mount = MountVertex('DV01')
-    >>> mount.GET_ANTENNA_TEMPS()
+Any application developed using PySide allow free open source
+and proprietary licences.
 
-To enter the CCL environment, you can use ``startCCL`` command line.
-This is the initialization script that provides the whole CCL environment.
-Furthermore, you can import CCL classes from any Python script
-that you wrote, or that you need to modify to perform some task.
+Installation
+'''''''''''''
 
-When you execute ``startCCL``, you are starting an **ipython**
-environment, along with some basic control **imports** and
-some **special functions**.
-If you understood the previous lectures content,
-like classes, objects, methods and IPython,
-work with CCL will be an easy task.
+To install **Qt** and **PySide**,
+you need to check first if your software manager
+(Linux / Mac OS X) provides a version,
+if not,
+you can download and following the installation
+instruction on the `Qt download page`_
+and `PySide download page`_.
 
-.. For example, review the CCL wrapper for the DGCK device at CONTROL/Device/HardwareDevice/DGCK/src/CCL.
-.. Note the that the base-class is code-generated and that the child-class contains the custom functionality.
-.. There are also some documents available at EDM:
+Remember which both,
+are compatible with **Windows**, **Linux** and **Mac OS X**.
 
-.. * Some Mount monitor points are requested every TE by an internal process and stored in a data structure
-..     * statusData = mount.getMountStatusData()
-..     * statusData.azPosition
-.. * These values are used internally by the SW and aren't always available through an exposed monitor point
-..     * AZ/EL current and commanded positions
-..     * (Aux) Pointing model corrections
-..     * AZ/EL encoder readouts
-..     * Subreflector current and commanded positions
+.. _Qt download page: http://qt.nokia.com/downloads
+.. _PySide download page: http://developer.qt.nokia.com/wiki/Category:LanguageBindings::PySide::Downloads
 
-Commissioning
-=============
 
-Instantiating Objects/Devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Examples
+'''''''''
 
-Its applies only to classes/device types,
-and it is possible to work with multiple instances,
-for example, the same device on two different antennas,
-because each device will provide a different class constructor.
+The best way to understand to develop graphical applications,
+is through simple examples.
 
-Once the object is created,
-you can use it to access all the properties and values of the hardware device.
+Hello World
+************
 
-For example,
-we can obtain an digital clock object::
+First of all,
+you need to know what modules to import,
+so, because we are learning,
+we will import all the main classes.
 
-    In [1]: dgck = DGCK(“DV01”)
+To handle the application exit,
+is necessary to import the ``sys`` module::
 
-Now with the ``dgck`` object,
-you can call their methods.
+    import sys
 
-The methods correspond mostly to monitor and control
-point, normally using only upper case names,
-like ``MountVertex.GET_ANTENNA_TEMPS``,
-if we are using a device controller instance.
-Also, you can use higher-level methods,
-like ``FrontEnd.powerUpBand``.
+To work with some Qt basics,
+we will import all the subclasses of ``QtCore`` and ``QtGui``
+modules::
 
-STATUS() Command
-~~~~~~~~~~~~~~~~
+    from PySide.QtCore import *
+    from PySide.QtGui import *
 
-The ``STATUS()`` method provides a summary of the device
-status, showing device information like **type**, **name** and
-the **status** monitor point.
+Now, we need to create a *Qt application*::
 
-You can use this command for each device,
-and you can call it from the Python interface
-as ``<device>.STATUS()``.
+    app = QApplication(sys.argv)
 
-Device Grouping
-~~~~~~~~~~~~~~~
+The window will contain only
+a label which says ``Hello World``,
+so we will create the *label*
+and show it::
 
-CCL allows the instantiation of several devices of the same type,
-at the same time, using as reference a list of the devices.
+    label = QLabel("Hello World")
+    label.show()
 
-For example, if you want to obtain a object group of digital clock from
-two different antennas, like **DV01** and **DA41**, the code will be::
+So, now we need to enter in the Qt application main
+loop, which maintain the application running::
 
-    In [1]: dgGroup = DGCK([“DV01”, “DA41”])
+    app.exec_()
+    sys.exit()
 
-Any single device functionality will be available for a group.
+The entire code,
+will look something like this::
 
-If you want to get the values from a group,
-they are returned as a dictionary
-whose keys are device names::
+    import sys
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+     
+    app = QApplication(sys.argv)
 
-    In [8]: dg.GET_PS_VOLTAGE_CLOCK()
-    Out[8]:
-    {'DA41': (6.4907135963439941, 134258794536106775L),
-    'DV01': (6.0117301940917969, 134258794540835083L)}
+    label = QLabel("Hello World")
+    label.show()
 
-CCL Language Description
-=========================
+    app.exec_()
+    sys.exit()
 
-The following content was extracted from the `CCL User Manual Version C`_.
+And the result will be:
 
-.. _`CCL User Manual Version C`: http://wikis.alma.cl/twiki/pub/AIV/AIV_COMP/COMP-70.35.60.00-001-C-MAN.pdf
+.. image:: ../../_static/images/pyside_1.png
+   :alt: Pyside example 1
 
-Observing Modes
-~~~~~~~~~~~~~~~
+Clickable Button
+******************
 
-The observing modes are the highest level of synchronization in the CCL,
-these modules provide functionality for managing all the equipment in an array.
+Example extracted from the official `clickable button`_ example.
 
-For instance tuning the LO system to a specified frequency or having all antennas in the array point in the same direction.
+.. _clickable button: http://developer.qt.nokia.com/wiki/PySideTutorials_Clickable_button
 
-The observing modes can be coupled to data capture and the production of astronomical data in the ALMA Science Data Model (ASDM) format.
+We will do the same previous import::
 
-For most scientific users,
-there should not be a reason to work below the level of an observing mode.
+    import sys
+    from PySide.QtCore import *
+    from PySide.QtGui import *
 
-The observing modes are tied to specific ALMA use cases,
-for instance Single-Field Interferometry,
-Optical Pointing,
-and Tower Holography all have observing modes tailored to their specific requirements.
+Now, we will create a simple function which print a *Hello World!* message::
 
-The name of these objects as observing modes can cause some confusion.
-An observing mode in the CCL is a class which is designed to simplify and coordinate a type of observing.
+    def sayHello():
+        print "Hello World!"
 
-The standard observing modes which you encounter in the ALMA ObservingTool,
-and later in this document are scripts written in the CCL to implement a particular observing strategy.
+We need to create also a Qt application::
 
-Thus the standard observing mode scripts make use of the observing mode CCL objects to implement a particular observing strategy.
+    app = QApplication(sys.argv)
 
-As an example the standard observing mode script to perform a calibrator survey is very different from the script to do an observation of a single source,
-but both scripts would make use of the functionality provided by the single-field interferometry observing mode class in the CCL.
+Now, we will create a clickable button, which is called ``QPushButton``,
+and inside the class constructor, we will give a Python string to set the button label::
 
-Mode Controllers
-~~~~~~~~~~~~~~~~~
+    button = QPushButton("Click me")
 
-Mode controllers play the same role for an antenna that the observing modes do for an Array.
-These objects still have a concept of scientific intent for instance knowing that setting frequency
-when using the holography receiver and setting frequency when using the front-end are very different actions.
+But, how we can connect an action to the button click event?
+This is one of the most important concepts behind the
+graphical user interface development.
 
-Users should be aware that there is no effort to synchronize changes made at the mode controller level,
-with status at the observing mode level.
-As an example consider the following case,
-the user sets the frequency of an entire array using the ``setFrequency`` command of the observing mode.
+We will connect the click event,
+to the function called ``sayHello()``
 
-Then the user sets the frequency of antenna **DA41** using the mode controller ``setFrequency`` command.
+Each Qt object provides some signals,
+associated to every event,
+in this case the ``QPushButton`` signal is ``clicked``,
+so we will connect the signal to the function::
 
-Only the hardware in the antenna **DA41** will be affected,
-so the array will be in an inconsistent state and,
-depending on the settings of the central photonic reference,
-the LO chain in **DA41** may not even lock.
+    button.clicked.connect(sayHello)
 
-This level of flexibility is required to allow system testing but should only be utilized by users
-who are aware of the full system implications.
 
-Devices
-~~~~~~~~
+Finally, we will just show the button and start the Qt main loop::
 
-Devices form the lowest layer in our hierarchy.
-These classes map one-to-one with the physical hardware and provide both integrated methods
-(i.e. a single method to tune and lock the second local oscillator module)
-and simple peek/poke level access,
-allowing direct manipulation of most monitor and control points.
+    button.show()    
+    app.exec_()
 
-Utility Classes
-~~~~~~~~~~~~~~~~
+Everytime that the user click the button,
+a message in the console will appear,
+saying `Hello World!`.
 
-There are a set of utility classes also contained within the CCL, these classes provide a wide range of services.
-For example the ``SkyDelayServer`` module allows communication and control of the delay server,
-while the classes in the CCL.
-Source package provide flexible ways to specify an astronomical source.
+The entire code looks like this::
 
-Extra lecture material
-======================
+    #!/usr/bin/python
 
-The following links and documents are extracted from ALMA wikis:
+    import sys
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+     
+    def sayHello():
+        print "Hello World!"
+     
+    app = QApplication(sys.argv)
 
-* `ALMA Control Command Language Brief Introduction`_
-* `CCL official site`_
-* `CCL Commissioning Procedure`_
-* `CCL Device Software`_
+    button = QPushButton("Click me")
+    button.clicked.connect(sayHello)
+    button.show()
 
-.. _ALMA Control Command Language Brief Introduction: http://almasw.hq.eso.org/almasw/pub/CONTROL/ControlCommandLanguage/ALMAControlCommandLanguage.pdf
-.. _CCL official site: http://ccl.aiv.alma.cl/
-.. _CCL Commissioning Procedure: http://wikis.alma.cl/bin/view/AIV/CCLCommissioningProcedure
-.. _CCL Device Software: http://aivwiki.alma.cl/index.php/CCL_Device_Software
+    app.exec_()  
 
-FAQ CCL
-==========
 
+.. image:: ../../_static/images/pyside_2.png
+   :alt: Pyside example 2
 
-This is a FAQ obtained from the `ALMA wiki`_.
+Simple Dialog
+**************
 
-.. _`ALMA wiki`: http://aivwiki.alma.cl/index.php/CCL_FAQ
+Example extracted from the official `simple dialog`_ tutorial.
 
-How do I run CCL on my computer?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _simple dialog: http://developer.qt.nokia.com/wiki/PySideTutorials_Simple_Dialog
 
-The idea of CCL, is interact with the devices,
-connected to a corresponding control units (ABM),
-remotely, i.e. using a SSH-client to connect
-to the machine.
+As you can see in the previous examples,
+we write all the code in the body of the script,
+without an order, but, it is possible,
+and is the best way to develop application,
+using **classes**.
 
-How do I monitor and control a device?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+So, we will start the development of this example
+with a base code::
 
-First of all you need to create an "instance" belonging to the physical device
-you want to monitor or control.
-For this review the list of device types you obtain when issuing `cclhelp()`.
-Once you know the device type you create your instance by indicating its location
-(e.g. antenna name), its absolute component name,
-and eventually some additional parameters (e.g. polarization), for example::
+    #!/usr/bin/python
+     
+    import sys
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+     
+    class Form(QDialog):
+         
+        def __init__(self, parent=None):
+            super(Form, self).__init__(parent)
+            self.setWindowTitle("My Form")
+     
+     
+    if __name__ == '__main__':
+        # Create the Qt Application
+        app = QApplication(sys.argv)
+        # Create and show the form
+        form = Form()
+        form.show()
+        # Run the main Qt loop
+        sys.exit(app.exec_())
 
-    >>> lpr = LPR("DA41")
-    >>> ifp0 = IFProc("DA41", 0)
-    >>> lo20 = LO2(componentName="CONTROL/DA41/LO2BBpr0")
+The only code line that maybe
+you do not understand,
+is::
 
-Use ``help(<device type>)``, e.g. ``help(LO2)``, for a detailed description and an
-example of usage if you encounter problems.
-Note that "lorr", "ifp0" and "lo20" are variables that you can define as you want,
-for example, you could have used "x", "y" and "z" instead.
-However, a good convention is to use the device's name in lowercase.
-You can now use your variable to access both monitor- and control points, for example::
+    super(Form, self).__init__(parent)
 
-    >>> lpr.GET_TEMP0_TEMP()
-    (2.9744236469268799, 134315513756484480L)
-    >>> lpr.SET_OPT_SWITCH_PORT(8)
+The reason of this line,
+is because we are using *inheritance*
+from a `QDialog` widget, so in this way,
+we are calling the *QDialog constructor*.
 
-As you can see, the methods that retrieve the monitor points all start with
-``GET_``, and the ones for control points with ``SET_``. Use tab-completion and
-``help(<function>)`` for further details::
+The last code line::
 
-    >>> help(lo20.SET_PHASE_VALS)
+    sys.exit(app.exec_())
 
-Last but not least,
-you can also display the the status information
-using the helper function ``status``, for example::
+means, that when the application loop ``app.exec_()``
+ends, the script will be terminated ``sys.exit()``.
 
-    >>> status(lpr)
 
-Exercises
-~~~~~~~~~~
+First,
+we will create the necessary widgets,
+a ``QLineEdit`` to enter our name,
+and a ``QPushButton`` to print
+a message with the value of the ``QLineEdit``.
+All this will be inside the class constructor (``__init__()``)::
 
-The following exercises are extracted from the `CCL Training presentation`_ (by Bernhard Lopez and Ruben Soto).
+    self.edit = QLineEdit("Write my name here..")
+    self.button = QPushButton("Show Greetings")
 
-.. _`CCL Training presentation`: http://aivwiki.alma.cl/~acaceres/CCLTraining_v2.pdf
+Is not necessary to call the ``show()`` method for each
+object, because when we show the class,
+all the element will display on the main window.
 
-* Exercise 1
 
-    * Start CCL
-    * Display the available device types, functions and variables
-    * Display the help-text for the classes `OpticalTelescope` and for the *DGCK*.
-    * Display the help-text for the functions ``pingabm()`` and ``get_devices()``.
+So now, we have two elements inside our windows,
+but in which order and position?
+Simple!, lets create a layout to add
+all the inner elements of the interface.
+We will create a simple vertical box layout
+called ``QVBoxLayout`` which will distribute
+the inside widgets vertically, just adding
+this lines in the class constructor (``__init__()``)::
 
-*  Exercise 2
+    layout = QVBoxLayout() # creating layout
+    layout.addWidget(self.edit) # adding the line edit
+    layout.addWidget(self.button) # adding the button
+    self.setLayout(layout) # setting the layout to our main window
 
-    * Instantiate the following objects (check the help-text for ``__init__`` to obtain the constructors parameters):
+As the previous example,
+we will create a function to greet and connect the button event.
+This will be a class method::
 
-        * *DGCK* on container ``DV01`` (if available)
-        * `OpticalTelescope` on container ``DV01`` (if available)
+    def greetings(self):
+        print 'Hello', self.edit.text()
 
-*  Exercise 3
+We have access to the text by means of the ``QLineEdit.text()`` method.
 
-    * Access the device functionality (use tab-completion to see the available methods):
+Finally,
+we just need to connect the button
+to the ``greetings()`` method,
+in the class constructor (``__init__()``)::
 
-        * Read the value of ``PS_VOLTAGE_CLOCK`` of the *DGCK*.
-        * Check if the OpticalTelescope aperture is open or closed.
+    self.button.clicked.connect(self.greetings)
 
-*  Exercise 4
 
-    * Execute the STATUS method for *DGCK* on container ``DV01``.
-    * Execute the STATUS method for *FLOOG* on container ``DA41``.
 
-*  Exercise 5
+The entire example
+looks like::
 
-    * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
-    * Execute ``STATUS()`` method for the group.
-    * Use ``DelayTrackingEnabled()`` method for the DGCK group.
-    * Set DelayTracking to False over the DGCK group.
+    import sys
+    from PySide.QtCore import *
+    from PySide.QtGui import *
+     
+    class Form(QDialog):
+         
+        def __init__(self, parent=None):
+            super(Form, self).__init__(parent)
+
+            self.edit = QLineEdit("Write my name here")
+            self.button = QPushButton("Show Greetings")        
+
+            layout = QVBoxLayout()
+            layout.addWidget(self.edit)
+            layout.addWidget(self.button)
+
+            self.setLayout(layout)
+
+            self.button.clicked.connect(self.greetings)
+             
+        def greetings(self):
+            print ("Hello %s" % self.edit.text())        
+     
+     
+    if __name__ == '__main__':
+
+        app = QApplication(sys.argv)
+
+        form = Form()
+        form.show()
+
+        sys.exit(app.exec_())
+
+Once executed,
+you can insert your name in the ``QLineEdit`` and watch the console for greetings.
+
+.. image:: ../../_static/images/pyside_3.png
+   :alt: Pyside example 3
+
+You can found all the documentation in their `official wiki`_,
+and a lot of examples in their `Git repository`.
+
+.. _official wiki: http://developer.qt.nokia.com/wiki/PySideDocumentation/
+.. _Git repository: http://qt.gitorious.org/pyside/pyside-examples
+
+PyQt - Qt bindings
+~~~~~~~~~~~~~~~~~~~
+
+`PyQt`_ is a set of Python bindings for Nokia's Qt application framework,
+and runs on all platforms supported by Qt including Windows, MacOS/X and Linux.
+
+Unlike Qt, PyQt v4 is not available under free open source licence,
+so it is necessary to purchase the commercial version of PyQt.
+
+Because PyQt was the first Qt bindings for Python,
+you will find a lot of examples which use PyQt
+instead PySide, but do not worry, there are compatible
+using a little *alias* at the time to write
+the imports.
+
+You need to change something like this::
+
+    import PyQt
+
+to this::
+
+    import PySide as PyQt
+
+and the program will work properly.
+
+.. _PyQt: http://www.riverbankcomputing.co.uk/software/pyqt/intro

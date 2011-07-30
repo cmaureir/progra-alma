@@ -140,9 +140,12 @@ to understand the behavior.
 CSV
 ====
 
+PENDING
 
 Writer
 ~~~~~~
+
+PENDING
 
 ::
 
@@ -158,6 +161,8 @@ Writer
 Reader
 ~~~~~~
 
+PENDING
+
 ::
 
     import csv
@@ -170,6 +175,8 @@ Reader
 
 XML
 ====
+
+PENDING
 
 NOTE: MiniDOM is a slow and very memory hungry DOM implementation. If you are looking for a fast, memory efficient and simple to use tool for working with XML, try ElementTree instead (in the xml.etree package), or use the external lxml implementation.
 
@@ -249,125 +256,23 @@ You can use DOM 2 "importNode" to take part of one XML document, and put it into
 
 
     
-PySide
-=======
-
-The PySide project provides LGPL-licensed Python bindings for the Qt cross-platform application and UI framework. PySide Qt bindings allow both free open source and proprietary software development and ultimately aim to support all of the platforms as Qt itself.
-
-* http://www.pyside.org/
-
-Installation
-~~~~~~~~~~~~
-
-* Qt
-
- * http://qt.nokia.com/downloads
-
-* PySide
-
- * http://developer.qt.nokia.com/wiki/Category:LanguageBindings::PySide::Downloads
-
-Hello World
-
-::
- 
-    # Import PySide classes
-    import sys
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-     
-     
-    # Create a Qt application 
-    app = QApplication(sys.argv)
-    # Create a Label and show it
-    label = QLabel("Hello World")
-    label.show()
-    # Enter Qt application main loop
-    app.exec_()
-    sys.exit()
-
-Clickeable Button
-
-http://developer.qt.nokia.com/wiki/PySideTutorials_Clickable_button
-
-::
-
-    #!/usr/bin/python
-    # -*- coding: utf-8 -*-
-     
-    import sys
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-     
-    def sayHello():
-        print "Hello World!"
-     
-    # Create the Qt Application
-    app = QApplication(sys.argv)
-    # Create a button, connect it and show it
-    button = QPushButton("Click me")
-    button.clicked.connect(sayHello)
-    button.show()
-    # Run the main Qt loop
-    app.exec_()  
-
-
-Simple Dialog
-
-http://developer.qt.nokia.com/wiki/PySideTutorials_Simple_Dialog
-
-::
-
-    #!/usr/bin/python
-    # -*- coding: utf-8 -*-
-     
-    import sys
-    from PySide.QtCore import *
-    from PySide.QtGui import *
-     
-    class Form(QDialog):
-         
-        def __init__(self, parent=None):
-            super(Form, self).__init__(parent)
-            # Create widgets
-            self.edit = QLineEdit("Write my name here")
-            self.button = QPushButton("Show Greetings")        
-            # Create layout and add widgets
-            layout = QVBoxLayout()
-            layout.addWidget(self.edit)
-            layout.addWidget(self.button)
-            # Set dialog layout
-            self.setLayout(layout)
-            # Add button signal to greetings slot
-            self.button.clicked.connect(self.greetings)
-             
-        # Greets the user
-        def greetings(self):
-            print ("Hello %s" % self.edit.text())        
-     
-     
-    if __name__ == '__main__':
-        # Create the Qt Application
-        app = QApplication(sys.argv)
-        # Create and show the form
-        form = Form()
-        form.show()
-        # Run the main Qt loop
-        sys.exit(app.exec_())
-    
 PySerial 
 =========
+
+PENDING
 
 * http://pyserial.sourceforge.net/
 
 PySqlite
 ==========
 
+PENDING
+
 * http://code.google.com/p/pysqlite/
 
-PyGame
-=======
+PIL
+====
 
-* http://www.pygame.org/news.html
+PENDING
 
-
+* http://www.pythonware.com/library/pil/handbook/introduction.htm
