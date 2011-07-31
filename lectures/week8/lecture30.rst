@@ -337,42 +337,42 @@ using the helper function ``status``, for example::
 
     >>> status(lpr)
 
-Exercises
-~~~~~~~~~~
-
-The following exercises are extracted from the `CCL Training presentation`_ (by Bernhard Lopez and Ruben Soto).
-
-.. _`CCL Training presentation`: http://aivwiki.alma.cl/~acaceres/CCLTraining_v2.pdf
-
-* Exercise 1
-
-    * Start CCL
-    * Display the available device types, functions and variables
-    * Display the help-text for the classes `OpticalTelescope` and for the *DGCK*.
-    * Display the help-text for the functions ``pingabm()`` and ``get_devices()``.
-
-*  Exercise 2
-
-    * Instantiate the following objects (check the help-text for ``__init__`` to obtain the constructors parameters):
-
-        * *DGCK* on container ``DV01`` (if available)
-        * `OpticalTelescope` on container ``DV01`` (if available)
-
-*  Exercise 3
-
-    * Access the device functionality (use tab-completion to see the available methods):
-
-        * Read the value of ``PS_VOLTAGE_CLOCK`` of the *DGCK*.
-        * Check if the OpticalTelescope aperture is open or closed.
-
-*  Exercise 4
-
-    * Execute the STATUS method for *DGCK* on container ``DV01``.
-    * Execute the STATUS method for *FLOOG* on container ``DA41``.
-
-*  Exercise 5
-
-    * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
-    * Execute ``STATUS()`` method for the group.
-    * Use ``DelayTrackingEnabled()`` method for the DGCK group.
-    * Set DelayTracking to False over the DGCK group.
+.. Exercises
+.. ~~~~~~~~~~
+.. 
+.. The following exercises are extracted from the `CCL Training presentation`_ (by Bernhard Lopez and Ruben Soto).
+.. 
+.. .. _`CCL Training presentation`: http://aivwiki.alma.cl/~acaceres/CCLTraining_v2.pdf
+.. 
+.. * Exercise 1
+.. 
+..     * Start CCL
+..     * Display the available device types, functions and variables
+..     * Display the help-text for the classes `OpticalTelescope` and for the *DGCK*.
+..     * Display the help-text for the functions ``pingabm()`` and ``get_devices()``.
+.. 
+.. *  Exercise 2
+.. 
+..     * Instantiate the following objects (check the help-text for ``__init__`` to obtain the constructors parameters):
+.. 
+..         * *DGCK* on container ``DV01`` (if available)
+..         * `OpticalTelescope` on container ``DV01`` (if available)
+.. 
+.. *  Exercise 3
+.. 
+..     * Access the device functionality (use tab-completion to see the available methods):
+.. 
+..         * Read the value of ``PS_VOLTAGE_CLOCK`` of the *DGCK*.
+..         * Check if the OpticalTelescope aperture is open or closed.
+.. 
+.. *  Exercise 4
+.. 
+..     * Execute the STATUS method for *DGCK* on container ``DV01``.
+..     * Execute the STATUS method for *FLOOG* on container ``DA41``.
+.. 
+.. *  Exercise 5
+.. 
+..     * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
+..     * Execute ``STATUS()`` method for the group.
+..     * Use ``DelayTrackingEnabled()`` method for the DGCK group.
+..     * Set DelayTracking to False over the DGCK group.
