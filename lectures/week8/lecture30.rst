@@ -46,12 +46,14 @@ if you want to clarify some doubts.
 
 .. _ACS basic presentation: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGlzYy51Y24uY2x8YWNzd29ya3Nob3B8Z3g6NjI0YTc5ZDVjYTEwNTljYQ
 
-Is important to clarify, that not all the CCL classes
-are necessarily controlling CAN devices,
+Please note that not all the CCL classes,
+are necessarily controlling devices through CAN communication,
 because there are some higher level components,
-which are compatibles, like FrontEnd controller,
-Antenna controller or Observing Modes.
-So, not all CAN devices are inside the antennas,
+which are compatibles, like ``FrontEnd`` controller,
+``Antenna`` controller or ``Observing Modes``.
+
+Following the previous idea,
+please note that not all CAN devices are inside the antennas,
 because there are some in, for example,
 the ``CentralLO`` and ``Correlator``.
 
@@ -336,6 +338,10 @@ you can also display the the status information
 using the helper function ``status``, for example::
 
     >>> status(lpr)
+
+
+**Note:** If you want to try some CCL command in real machines,
+please make contact with people working in STE at OSF.
 
 .. Exercises
 .. ~~~~~~~~~~
