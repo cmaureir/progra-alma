@@ -15,6 +15,11 @@ Their controller is the ``calculate`` function,
 which you must implement,
 to add the properly functionality.
 
+Please note, that
+there are some important issues,
+that you can handle,
+like the *zero division*.
+
 **Optional items**
 
 This items are not mandatory,
