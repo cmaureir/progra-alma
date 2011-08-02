@@ -50,14 +50,14 @@ if you want to clarify some doubts.
 Please note that not all the CCL classes,
 are necessarily controlling devices through `Controller Area Network (CAN)`_ communication,
 because there are some higher level components,
-which are compatibles, like ``FrontEnd`` controller,
+which are compatible, like ``FrontEnd`` controller,
 ``Antenna`` controller or ``Observing Modes``.
 
 .. _Controller Area Network (CAN): http://en.wikipedia.org/wiki/Controller_area_network
 
 Following the previous idea,
-please note that not all CAN devices are inside the antennas,
-because there are some in, for example,
+please note that not all CAN devices are inside the antennas.
+For example, some of them are in
 the ``CentralLO`` and ``Correlator``.
 
 .. HW device control components are (mostly) code-generated, based on an XML spreadsheet, based on device ICD
@@ -73,10 +73,11 @@ using a very simple Python wrapper, so it is considered a high-level
 scripting language.
 
 Each device control component (written in C++)
-has an associated Python wrapper, being a part of the CCL libraries.  Therefore, CCL commands directly call an certain action of the
+has an associated Python wrapper, being a part of the CCL libraries.
+Therefore, CCL commands directly execute one precise action of the
 control component communication interface.
 
-In simple words, a CCL class interact directly with a Component
+In simple words, a CCL class interacts directly with a Component
 of a Container.
 
 CCL has two main functions:
@@ -90,20 +91,20 @@ The next diagram explains the architecture
 and the relationship between CCL and the control subsystem:
 
 .. image:: ../../_static/images/ccl_02.png
-   :alt: CCL Architecture 
+   :alt: CCL Architecture
    :width: 500px
 
 Most of the information regarding CCL is self-contained in the CCL wrapper,
 based on the Python documentation utility **pydoc**.
 To access the documentation, use the command ``help(<function>)`` where ``<function>``
-can be any of the device types or functions listed at ``cclhelp()``,
-also you can use the special IPython operator ``?`` to obtain help,
-for example, ``MountVertex.GET_ANTENNA_TEMPS?``.
+can be any of the device types or functions listed at ``cclhelp()``.
+You can also use the special IPython operator ``?`` to obtain help,
+for example, by typing ``MountVertex.GET_ANTENNA_TEMPS?``.
 
 It is not necessary to be a Python expert in order to use CCL.
 The only two things that are very critical to be understood are
 the **modules** and **object-oriented paradigm** topics,
-which you learn in previous lectures.
+which you learnt in previous lectures.
 
 For example,
 a little example using CCL could be::
@@ -115,30 +116,29 @@ a little example using CCL could be::
 To enter the CCL environment, you can use ``startCCL`` command line.
 This is the initialization script that provides the whole CCL environment.
 Furthermore, you can import CCL classes from any Python script
-that you wrote, or that you need to modify to perform some task.
+that you write, or that you need to modify to perform some task.
 
 When you execute ``startCCL``, you are starting an **ipython**
 environment, along with some basic control **imports** and
 some **special functions**.
 If you understood the previous lectures content,
 like classes, objects, methods and IPython,
-work with CCL will be an easy task.
+working with CCL will be an easy task.
 
-
-Please note, that each time when you obtain a device reference,
+Please note that each time you obtain a device reference,
 you are interacting with a real device,
-so we generate CAN traffic.
+so you generate CAN traffic.
 
 The theoretical limit per channel per *Test Environment (TE)* is 90 messages,
-where the first half of messages is used to send command,
-and the second half, to send monitor request.
-(*Control Subsystem convention*)
+where the first half of messages is used to send commands,
+and the second half, to send monitor requests
+(*Control Subsystem convention*).
 In the worst case, the 90 messages can be reduced because some
 non-responding device, because the CAN message timeout is about
 2 ms.
 
-Please be aware, of avoid to use CAN commands inside
-loops that takes several iterations.
+Please be aware in order to avoid using CAN commands inside
+loops that take many iterations.
 
 .. For example, review the CCL wrapper for the DGCK device at CONTROL/Device/HardwareDevice/DGCK/src/CCL.
 .. Note the that the base-class is code-generated and that the child-class contains the custom functionality.
@@ -173,10 +173,10 @@ we can obtain an digital clock object::
     In [1]: dgck = DGCK(“DV01”)
 
 Now with the ``dgck`` object,
-you can call their methods.
+you can call its methods.
 
 The methods correspond mostly to monitor and control
-point, normally using only upper case names,
+point, normally using only uppercase attributes,
 like ``MountVertex.GET_ANTENNA_TEMPS``,
 if we are using a device controller instance.
 Also, you can use higher-level methods,
@@ -225,23 +225,24 @@ The following content was extracted from the `CCL User Manual Version C`_.
 Observing Modes
 ~~~~~~~~~~~~~~~
 
-The observing modes are the highest level of synchronization in the CCL,
-these modules provide functionality for managing all the equipment in an array.
+The observing modes are the highest level of synchronization in the CCL.
+These modules provide functionality for managing all the equipment in an array.
 
-For instance tuning the LO system to a specified frequency or having all antennas in the array point in the same direction.
+For instance, tuning the LO system to a specified frequency or having all antennas in the array point in the same direction.
 
-The observing modes can be coupled to data capture and the production of astronomical data in the ALMA Science Data Model (ASDM) format.
+The observing modes can be coupled to data capture
+and the production of astronomical data in the ALMA Science Data Model (ASDM) format.
 
 For most scientific users,
-there should not be a reason to work below the level of an observing mode.
+there should be no reason to work below the level of an observing mode.
 
-The observing modes are tied to specific ALMA use cases,
-for instance Single-Field Interferometry,
+The observing modes are tied to specific ALMA use cases.
+For instance, Single-Field Interferometry,
 Optical Pointing,
 and Tower Holography all have observing modes tailored to their specific requirements.
 
 The name of these objects as observing modes can cause some confusion.
-An observing mode in the CCL is a class which is designed to simplify and coordinate a type of observing.
+An observing mode in the CCL is a class that has been designed to simplify and coordinate a type of observing.
 
 The standard observing modes which you encounter in the ALMA ObservingTool,
 and later in this document are scripts written in the CCL to implement a particular observing strategy.
@@ -260,7 +261,7 @@ when using the holography receiver and setting frequency when using the front-en
 
 Users should be aware that there is no effort to synchronize changes made at the mode controller level,
 with status at the observing mode level.
-As an example consider the following case,
+As an example consider the following case:
 the user sets the frequency of an entire array using the ``setFrequency`` command of the observing mode.
 
 Then the user sets the frequency of antenna **DA41** using the mode controller ``setFrequency`` command.
@@ -277,14 +278,14 @@ Devices
 ~~~~~~~~
 
 Devices form the lowest layer in our hierarchy.
-These classes map one-to-one with the physical hardware and provide both integrated methods
+These classes are mapped one-to-one to the physical hardware,
+and provide both integrated methods
 (i.e. a single method to tune and lock the second local oscillator module)
 and simple peek/poke level access,
 allowing direct manipulation of most monitor and control points.
 
 Utility Classes
 ~~~~~~~~~~~~~~~~
-
 There are a set of utility classes also contained within the CCL, these classes provide a wide range of services.
 For example the ``SkyDelayServer`` module allows communication and control of the delay server,
 while the classes in the CCL.
