@@ -4,41 +4,34 @@ Lecture 32 - An extra bite of Python
 As the final lecture,
 I would like to give you a big picture
 of other Python modules, which can simplify
-a lot of your everyday task.
+a lot of your everyday work.
 
-Remember that this modules,
-are only a few.
+Remember that these modules are only a few.
 You can search for another ones,
-and you will find for almost
-all the system and task types,
-for example, there are Python modules,
-from develop low level device drivers,
-to develop Facebook applications.
+and you will certainly find some for almost
+all kinds of systems and tasks.
+For example, there are Python modules
+for developing low-level device drivers
+and for developing Facebook applications.
 
 Argument Parser (``argparse``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a Python module which was developed under
-the idea to make it easy to write command line tools.
+the goal to make it easy to write command line tools.
 
-An example could be, if we like to execute our Python script
-in the following way:
-
-::
+As an example, if we like to execute our Python script
+in the following way::
 
     $ python script.py -f my_file
 
-One option is to use the the ``sys.argv`` variable:
-
-::
+One option is to use the ``sys.argv`` variable::
 
     import sys
 
     print sys.argv
 
-Executing the script:
-
-::
+Executing the script::
 
     $ python script.py
     ['script.py']
@@ -47,91 +40,74 @@ Executing the script:
     $ python script.py -f my_file
     ['script.py', '-f', 'my_file']
 
-So, with a list, could be very useful,
-but, we will need to write some ``if`` statement
-to handle when the user write wrongfully an option,
-or check the ``len(argv)``, etc.
+So, with a list, it could be very useful.
+But we will need to write some ``if`` statement
+to handle when the user types an option incorrectly,
+or to check the ``len(argv)``, etc.
 
-The cleaver idea, is use the ``argparse`` module.
+A better idea is to use the ``argparse`` module.
 
 So, we will create an example to use one simple option,
 
-* `-f`, some input file.
+* ``-f``, some input file.
 
 First,
-we need to import the module:
-
-::
+we need to import the module::
 
     import argparse
 
 Second,
 we need to create a parser object,
-using the class ``ArgumentParser``:
-
-::
+using the class ``ArgumentParser``::
 
     parser = optparse.ArgumentParser()
 
 Third,
 we need to add some option to our parser,
-using the method ``add_option()``:
-
-::
+using the ``add_option()`` method::
 
     parser.add_argument('-f', '--file', help='input filename', dest='file_value')
 
 As you can see,
-we can give as parameter a simple and a longest option,
-a help value, to obtain a guide when the user write 
-the used ``--help`` or ``-h`` option:
-
-::
+we can give as a parameter both a short and a long option,
+a help string, to obtain a guide when the user
+uses the ``--help`` or ``-h`` options::
 
     $ python script.py -h
     $ python script.py --help
 
 and a ``dest`` argument,
-to save the value in a variable with the written name,
+where the value of an option will be saved,
 in this case *file_value*.
 
 Fourth,
 we obtain the values of the command line
-in a ``args`` variable.
-
-::
+into an ``args`` variable::
 
     args = parser.parse_args()
-
 
 Finally,
 we will add a ``print`` to show the values
 of the options, adding to the ``args``
-the *dest* value.
-
-::
+the *dest* value::
 
     print args.file_value
 
-Ok, so our script is:
-
-::
+Ok, so our script is::
 
     import argparse
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-f', '--file', help='input filename', dest='file_value')
-    
+
     args = parser.parse_args()
-    
+
     print args.file_value
 
-No we will execute it,
-to understand the behavior.
+Now we will execute it,
+to understand the behavior::
 
-::
-
-    $ python script.py 
+    $ python script.py
     None
     $ python script.py  test
     usage: script.py [-h] [-f FILE_VALUE]
@@ -145,13 +121,13 @@ to understand the behavior.
     script.py: error: unrecognized arguments: -a test
     $ python script.py  -h
     usage: script.py [-h] [-f FILE_VALUE]
-    
+
     optional arguments:
       -h, --help            show this help message and exit
       -f FILE_VALUE, --file FILE_VALUE
                             input filename
 
-Comma-Separated Value (CSV)
+Comma-Separated Values (CSV)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The CSV file formats is used
