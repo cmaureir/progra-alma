@@ -8,14 +8,14 @@ We have already seen two ways of input:
 * keyboard input (``raw_input``), and
 * input file (``for line in file: ...``);
 
-and two output ways:
+and two ways to display output:
 
 * console output (``print``), and
 * output file (``file.write (...)``).
 
 .. index:: graphical interface
 
-Most programs that deal every day do not work in this way,
+Most programs do not work in this way,
 but have a **graphical interface**,
 made up of windows, menus, buttons and other elements,
 through which we interact with the program.
@@ -27,12 +27,11 @@ The programs we have written so far
 run entirely from beginning to end,
 stopping only when we input data.
 
-Graphical programs, moreover,
+Graphical programs, on the other hand,
 only perform actions when
 certain events are triggered by the user
-(like clicking on a button or writing something in a text box),
-and the rest of the time they wait for something to happen,
-without doing nothing.
+(by clicking on a button or typing something in a text box, for example),
+and the rest of the time they are idle, just wait for something to happen.
 The program has no control over when to do something.
 This requires that programs are structured
 in a special way, which we will learn little by little.
@@ -60,7 +59,7 @@ is a simple graphical interface which can be created::
     w.mainloop()
 
 Try it:
-Copy the program in a text editor,
+Copy the program into a text editor,
 save it and run it.
 You should see an empty window:
 
@@ -68,20 +67,20 @@ You should see an empty window:
 
 The ``w = Tk()`` statement
 creates the main window,
-and assigns it, to the ``w`` variable.
-All GUI should have a main window
+and assigns it to the ``w`` variable.
+All GUIs need to have a main window
 in which things will be added.
-This line goes at the beginning of the program always.
+This line must be always near the beginning of the program.
 
 The ``w.mainloop()`` statement
-indicates to the interface that should just wait
+tells the interface to wait
 for the user to do something.
-This line must always be at the end of the program.
+This line must be always at the end of the program.
 
 .. index:: event loop
 
 When executed,
-may find out that the program does not end.
+you may find out that the program does not finish.
 This is because the ``mainloop()`` method call
 is «stuck» waiting for something to happen.
 This is called an **event loop**,
@@ -117,66 +116,66 @@ these widgets look like this:
 
 The ``Entry`` is analogous to the ``raw_input``
 of the console programs:
-used to receive a program input.
+it is used to receive the program input.
 The ``Label`` is similar to ``print``:
-used to return the output.
+it is used to display the output.
 
 A button can be seen as a «function caller»:
 whenever a button is pressed,
 a call to the associated button will be made.
-The buttons does not have an analogous,
+Buttons do not have an analogue,
 because console programs run from beginning to end immediately,
-and therefore do not need that a function caller
-triggered by the user.
+and therefore do not need a function caller
+to be triggered by the user.
 
 To add a widget to a program,
 you have to use the function with the widget names
-(``Label``, ``Button`` and ``Entry}``).
-These functions receive as first mandatory parameter
-the containing window of the widget.
+(``Label``, ``Button`` and ``Entry``).
+These functions receive as a first mandatory parameter
+the window that will contain the widget.
 They also have optional parameters,
-which needs to be passed using the name parameter
-assignation syntax.
+which needs to be passed using the named parameter
+assignment syntax.
 For example,
 the ``text`` parameter is used to indicate
-the text which appears on a button or a label.
+the text that will appear on a button or a label.
 
 For example,
 the following statement
 creates a button with the text ``Greet``,
-contained in the ``w`` window::
+contained into the ``w`` window::
 
     b = Button(w, text='Greet')
 
 While this creates the button
-and assign it to a ``b`` variable,
+and assigns it to the ``b`` variable,
 the button is not added into the ``w`` window immediately:
-what we did was just tell the button their container,
-to take it into account when being added.
+what we did was just tell the button what it container was,
+to take it into account when it is added.
 For this to happen,
-we needs to call the ``pack`` method,
+we need to call the ``pack`` method,
 which is a way to tell the widget
-«self-pack inside your container»::
+«pack yourself into your container»::
 
     b.pack()
 
-As reference,
-the program which creates the image window
+For reference,
+the program that creates the window shown on the image above
 is the following (try it!)::
 
     from Tkinter import *
-    
+
     w = Tk()
-    
+
     l = Label(w, text='Label')
     l.pack()
-    
+
     b = Button(w, text='Button')
     b.pack()
-    
+
     e = Entry(w)
     e.pack()
-    
+
     w.mainloop()
 
 The widgets are being stacked vertically,
@@ -191,13 +190,13 @@ PySide - Qt bindings
 The `PySide project`_ provides Python bindings
 to use the Qt framework.
 
-`Qt`_ is a cross-platform application and user interface framework,
+Qt_ is a cross-platform application and user interface framework,
 used widely in several technological projects,
-like `devices`_ such as, tablets, netbooks, projectors, smartphones, etc.
-Also is present in `desktop` application such as,
-`VLC`_, `KDE`_, `Google Earth`_, `Skype`_, `Avogadro`_, etc.
+like devices_ such as, tablets, netbooks, projectors, smartphones, etc.
+Also is present in desktop application such as
+VLC_, KDE_, `Google Earth`_, Skype_, Avogadro_, etc.
 Finally, Qt is present is a lot of another projects,
-like the `MeeGo OS`_, `Mathematica`_ (Wolfram Research), `Lucas Film Ltd.`_,
+like the `MeeGo OS`_, Mathematica_ (Wolfram Research), `Lucas Film Ltd.`_,
 `Walt Disney Animation Studios`_, etc.
 
 .. _Qt: http://qt.nokia.com
@@ -222,14 +221,13 @@ Installation
 
 To install **Qt** and **PySide**,
 you need to check first if your software manager
-(Linux / Mac OS X) provides a version,
-if not,
+(Linux / Mac OS X) provides a version.
+If not,
 you can download and following the installation
 instruction on the `Qt download page`_
 and `PySide download page`_.
 
-Remember which both,
-are compatible with **Windows**, **Linux** and **Mac OS X**.
+Both are compatible with **Windows**, **Linux** and **Mac OS X**.
 
 .. _Qt download page: http://qt.nokia.com/downloads
 .. _PySide download page: http://developer.qt.nokia.com/wiki/Category:LanguageBindings::PySide::Downloads
@@ -238,7 +236,7 @@ are compatible with **Windows**, **Linux** and **Mac OS X**.
 Examples
 '''''''''
 
-The best way to understand to develop graphical applications,
+The best way to understand how to develop graphical applications
 is through simple examples.
 
 Hello World
@@ -250,7 +248,7 @@ so, because we are learning,
 we will import all the main classes.
 
 To handle the application exit,
-is necessary to import the ``sys`` module::
+it is necessary to import the ``sys`` module::
 
     import sys
 
@@ -266,7 +264,7 @@ Now, we need to create a *Qt application*::
     app = QApplication(sys.argv)
 
 The window will contain only
-a label which says ``Hello World``,
+a label with the text ``Hello World``,
 so we will create the *label*
 and show it::
 
@@ -274,18 +272,18 @@ and show it::
     label.show()
 
 So, now we need to enter in the Qt application main
-loop, which maintain the application running::
+loop, that keeps the application running::
 
     app.exec_()
     sys.exit()
 
-The entire code,
+The entire code
 will look something like this::
 
     import sys
     from PySide.QtCore import *
     from PySide.QtGui import *
-     
+
     app = QApplication(sys.argv)
 
     label = QLabel("Hello World")
@@ -312,7 +310,7 @@ We will do the same previous import::
     from PySide.QtCore import *
     from PySide.QtGui import *
 
-Now, we will create a simple function which print a *Hello World!* message::
+Now, we will create a simple function that prints a *Hello World!* message::
 
     def sayHello():
         print "Hello World!"
@@ -322,20 +320,19 @@ We need to create also a Qt application::
     app = QApplication(sys.argv)
 
 Now, we will create a clickable button, which is called ``QPushButton``,
-and inside the class constructor, we will give a Python string to set the button label::
+and as a parameter to the class constructor, we will pass a Python string to set the button label::
 
     button = QPushButton("Click me")
 
-But, how we can connect an action to the button click event?
+But, how can we connect an action to the button click event?
 This is one of the most important concepts behind the
 graphical user interface development.
 
-We will connect the click event,
+We will bind the click event,
 to the function called ``sayHello()``
 
-Each Qt object provides some signals,
-associated to every event,
-in this case the ``QPushButton`` signal is ``clicked``,
+Each Qt object provides some signals associated to every event.
+In this case, the ``QPushButton`` signal is ``clicked``,
 so we will connect the signal to the function::
 
     button.clicked.connect(sayHello)
@@ -343,12 +340,12 @@ so we will connect the signal to the function::
 
 Finally, we will just show the button and start the Qt main loop::
 
-    button.show()    
+    button.show()
     app.exec_()
 
-Everytime that the user click the button,
-a message in the console will appear,
-saying `Hello World!`.
+Every time the user clicks the button,
+a message will appear in the console,
+with the text ``Hello World!``.
 
 The entire code looks like this::
 
@@ -357,17 +354,17 @@ The entire code looks like this::
     import sys
     from PySide.QtCore import *
     from PySide.QtGui import *
-     
+
     def sayHello():
         print "Hello World!"
-     
+
     app = QApplication(sys.argv)
 
     button = QPushButton("Click me")
     button.clicked.connect(sayHello)
     button.show()
 
-    app.exec_()  
+    app.exec_()
 
 
 .. image:: ../../_static/images/pyside_2.png
@@ -382,26 +379,26 @@ Example extracted from the official `simple dialog`_ tutorial.
 
 As you can see in the previous examples,
 we write all the code in the body of the script,
-without an order, but, it is possible,
-and is the best way to develop application,
-using **classes**.
+without any order, but it is possible,
+and it is the best way to develop applications,
+to use **classes**.
 
 So, we will start the development of this example
 with a base code::
 
     #!/usr/bin/python
-     
+
     import sys
     from PySide.QtCore import *
     from PySide.QtGui import *
-     
+
     class Form(QDialog):
-         
+
         def __init__(self, parent=None):
             super(Form, self).__init__(parent)
             self.setWindowTitle("My Form")
-     
-     
+
+
     if __name__ == '__main__':
         # Create the Qt Application
         app = QApplication(sys.argv)
@@ -412,46 +409,45 @@ with a base code::
         sys.exit(app.exec_())
 
 The only code line that maybe
-you do not understand,
-is::
+you do not understand is::
 
     super(Form, self).__init__(parent)
 
-The reason of this line,
+The reason for this line
 is because we are using *inheritance*
-from a `QDialog` widget, so in this way,
-we are calling the *QDialog constructor*.
+to extend a `QDialog` widget,
+and we need to ensure that the constructor of that class
+is called.
 
-The last code line::
+The last line of code::
 
     sys.exit(app.exec_())
 
-means, that when the application loop ``app.exec_()``
-ends, the script will be terminated ``sys.exit()``.
-
+means that when the application loop ``app.exec_()`` ends,
+the script will be terminated
+by calling ``sys.exit()``.
 
 First,
-we will create the necessary widgets,
+we will create the necessary widgets:
 a ``QLineEdit`` to enter our name,
 and a ``QPushButton`` to print
 a message with the value of the ``QLineEdit``.
-All this will be inside the class constructor (``__init__()``)::
+All this will be done inside the class constructor (``__init__()``)::
 
     self.edit = QLineEdit("Write my name here..")
     self.button = QPushButton("Show Greetings")
 
-Is not necessary to call the ``show()`` method for each
-object, because when we show the class,
-all the element will display on the main window.
-
+Is not necessary to call the ``show()`` method for each object,
+because when we show the class,
+all the elements will be displayed on the main window.
 
 So now, we have two elements inside our windows,
 but in which order and position?
-Simple!, lets create a layout to add
+Simple!, let's create a layout to add
 all the inner elements of the interface.
 We will create a simple vertical box layout
 called ``QVBoxLayout`` which will distribute
-the inside widgets vertically, just adding
+the inside widgets vertically, just by adding
 this lines in the class constructor (``__init__()``)::
 
     layout = QVBoxLayout() # creating layout
@@ -477,20 +473,19 @@ in the class constructor (``__init__()``)::
 
 
 
-The entire example
-looks like::
+The entire example looks like this::
 
     import sys
     from PySide.QtCore import *
     from PySide.QtGui import *
-     
+
     class Form(QDialog):
-         
+
         def __init__(self, parent=None):
             super(Form, self).__init__(parent)
 
             self.edit = QLineEdit("Write my name here")
-            self.button = QPushButton("Show Greetings")        
+            self.button = QPushButton("Show Greetings")
 
             layout = QVBoxLayout()
             layout.addWidget(self.edit)
@@ -499,11 +494,11 @@ looks like::
             self.setLayout(layout)
 
             self.button.clicked.connect(self.greetings)
-             
+
         def greetings(self):
-            print ("Hello %s" % self.edit.text())        
-     
-     
+            print ("Hello %s" % self.edit.text())
+
+
     if __name__ == '__main__':
 
         app = QApplication(sys.argv)
