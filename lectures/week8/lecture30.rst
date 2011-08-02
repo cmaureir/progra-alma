@@ -39,7 +39,8 @@ it is proper to say that:
 * Components usually wrap physical hardware devices.
 * Components contain a set of Properties.
 * Properties are specific control or monitor points of a component
-* For standard hardware devices the control and monitor points are defined at the ICDs.
+* For standard hardware devices the control and monitor points are defined
+  at the *Interface Control Documents (ICDs)*.
 
 You can see this `ACS basic presentation`,
 if you want to clarify some doubts.
@@ -47,10 +48,12 @@ if you want to clarify some doubts.
 .. _ACS basic presentation: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGlzYy51Y24uY2x8YWNzd29ya3Nob3B8Z3g6NjI0YTc5ZDVjYTEwNTljYQ
 
 Please note that not all the CCL classes,
-are necessarily controlling devices through CAN communication,
+are necessarily controlling devices through `Controller Area Network (CAN)`_ communication,
 because there are some higher level components,
 which are compatibles, like ``FrontEnd`` controller,
 ``Antenna`` controller or ``Observing Modes``.
+
+.. _Controller Area Network (CAN): http://en.wikipedia.org/wiki/Controller_area_network
 
 Following the previous idea,
 please note that not all CAN devices are inside the antennas,
@@ -121,6 +124,22 @@ If you understood the previous lectures content,
 like classes, objects, methods and IPython,
 work with CCL will be an easy task.
 
+
+Please note, that each time when you obtain a device reference,
+you are interacting with a real device,
+so we generate CAN traffic.
+
+The theoretical limit per channel per *Test Environment (TE)* is 90 messages,
+where the first half of messages is used to send command,
+and the second half, to send monitor request.
+(*Control Subsystem convention*)
+In the worst case, the 90 messages can be reduced because some
+non-responding device, because the CAN message timeout is about
+2 ms.
+
+Please be aware, of avoid to use CAN commands inside
+loops that takes several iterations.
+
 .. For example, review the CCL wrapper for the DGCK device at CONTROL/Device/HardwareDevice/DGCK/src/CCL.
 .. Note the that the base-class is code-generated and that the child-class contains the custom functionality.
 .. There are also some documents available at EDM:
@@ -174,27 +193,27 @@ You can use this command for each device,
 and you can call it from the Python interface
 as ``<device>.STATUS()``.
 
-Device Grouping
-~~~~~~~~~~~~~~~
-
-CCL allows the instantiation of several devices of the same type,
-at the same time, using as reference a list of the devices.
-
-For example, if you want to obtain a object group of digital clock from
-two different antennas, like **DV01** and **DA41**, the code will be::
-
-    In [1]: dgGroup = DGCK([“DV01”, “DA41”])
-
-Any single device functionality will be available for a group.
-
-If you want to get the values from a group,
-they are returned as a dictionary
-whose keys are device names::
-
-    In [8]: dg.GET_PS_VOLTAGE_CLOCK()
-    Out[8]:
-    {'DA41': (6.4907135963439941, 134258794536106775L),
-    'DV01': (6.0117301940917969, 134258794540835083L)}
+.. Device Grouping
+.. ~~~~~~~~~~~~~~~
+.. 
+.. CCL allows the instantiation of several devices of the same type,
+.. at the same time, using as reference a list of the devices.
+.. 
+.. For example, if you want to obtain a object group of digital clock from
+.. two different antennas, like **DV01** and **DA41**, the code will be::
+.. 
+..     In [1]: dgGroup = DGCK([“DV01”, “DA41”])
+.. 
+.. Any single device functionality will be available for a group.
+.. 
+.. If you want to get the values from a group,
+.. they are returned as a dictionary
+.. whose keys are device names::
+.. 
+..     In [8]: dg.GET_PS_VOLTAGE_CLOCK()
+..     Out[8]:
+..     {'DA41': (6.4907135963439941, 134258794536106775L),
+..     'DV01': (6.0117301940917969, 134258794540835083L)}
 
 CCL Language Description
 =========================

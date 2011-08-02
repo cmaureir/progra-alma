@@ -6,7 +6,7 @@ buttons_frame = Frame(w)
 # Use three models:
 # one to save the operation (+, -, * or /),
 # another to save the previous value, and
-# another to save the actual value
+# another to save the current value
 v_operation = StringVar()
 v_operation.set('+')
 v_previous = StringVar()
