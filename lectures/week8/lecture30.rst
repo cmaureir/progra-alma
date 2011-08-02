@@ -42,7 +42,7 @@ it is proper to say that:
 * For standard hardware devices the control and monitor points are defined
   at the *Interface Control Documents (ICDs)*.
 
-You can see this `ACS basic presentation`,
+You can see this `ACS basic presentation`_,
 if you want to clarify some doubts.
 
 .. _ACS basic presentation: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGlzYy51Y24uY2x8YWNzd29ya3Nob3B8Z3g6NjI0YTc5ZDVjYTEwNTljYQ
