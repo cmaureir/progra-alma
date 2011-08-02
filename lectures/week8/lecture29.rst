@@ -46,7 +46,7 @@ so, here is some alternatives:
 
   .. _IPython tarball file: https://github.com/ipython/ipython/tarball/rel-0.10.1tar
 
-  or, you can run the binary file inside called ``ipython.py``::
+  or you can directly run the included main script, called ``ipython.py``::
 
       $ python ipython.py
 
@@ -83,7 +83,7 @@ IPython features
   There is a special IPython operator, which is ``?``,
   so typing ``object_name?`` you will obtain all the object details,
   including *docstrings*, *function definition lines*, *constructor details*, etc.
-  
+
   If you want to get some specific information of an object,
   you can use some **magic commands**, like:
 
@@ -91,7 +91,7 @@ IPython features
   * ``%pdef <object>``, print the *definition header* for any callable object. 
   * ``%psource <object>``, print the *source code* for an object.
   * ``%pfile <object>``, shor the entire source file where an object was defined.
- 
+
 * **Magic functions**
 
   IPython has a set of predefined **magic functions** that you can call with
@@ -100,7 +100,7 @@ IPython features
   * Functions that work with code: ``%run``, ``%edit``, ``%save``, ``%macro``, ``%recall``, etc.
 
     * Lets consider the following example::
-       
+
           localhost~»≻ cat test.py
           print 'hello world!'  
 
@@ -130,14 +130,15 @@ IPython features
 
 * **History**
 
-  IPython stores both the commands you enter, and the results they produce,
-  it means, ``In [x]`` and ``Out [x]`` lines.
-  
+  IPython stores both the commands you enter, and the results they produce.
+  Commands are prefixed with ``In [x]`` in the console,
+  and results with ``Out [x]``.
+
   You can easily go through previous commands with the
   :kbd:`Up` arrow (↑) and :kbd:`Down` arrow (↓) keys.
 
-  The `Input` and `Output` history are kept in variables called ``In`` and ``Out``,
-  which can both be indexed by the prompt number on which they occurred,
+  The `Input` and `Output` histories are kept in variables called ``In`` and ``Out``,
+  that can be indexed with the prompt number on which they occurred,
   e.g. ``In[4]``. The last three objects in output history are also kept
   in variables named ``_``, ``__`` and ``___``::
 
@@ -145,16 +146,16 @@ IPython features
 
       In [28]: x + 2
       Out[28]: 23
-      
+
       In [29]: 5**5
       Out[29]: 3125
-      
+
       In [30]: __
       Out[30]: 23
-      
+
       In [31]: _
       Out[31]: 23
-      
+
       In [32]: ___
       Out[32]: 3125
 
@@ -170,7 +171,7 @@ IPython features
       32: ___
       33: _ip.magic("history ")
 
-  Input history from previous sessions is saved in a database,
+  Input history from previous sessions is saved on a database,
   and IPython can be configured to save output history.
 
   Several other magic functions can use your input history,
@@ -179,7 +180,7 @@ IPython features
 * **System shell commands**
 
   To run any command at the system shell, simply prefix it with ``!``, e.g.::
-      
+
       In [15]: !ping www.alma.cl
       PING wwwpub01.sco.alma.cl (200.2.1.10) 56(84) bytes of data.
       64 bytes from offlinetools.osf.alma.cl (200.2.1.10): icmp_req=1 ttl=54 time=13.8 ms
@@ -195,13 +196,13 @@ IPython features
       0: a_folder
       1: another_file
       2: my_file
-      
+
       In [3]: files[0]
       Out[3]: 'a_folder'
-      
+
       In [4]: files[2]
       Out[4]: 'my_file'
-      
+
       In [5]: ls
       a_folder/  another_file  my_file
 
@@ -229,7 +230,7 @@ presented in various conferences.
 .. _slides: http://ipython.org/presentation.html
 
 Finnally,
-if you are interested in the **Parallel Computing**,
+if you are interested in **Parallel Computing**,
 IPython provides a lot of functionallities, which
 you can see in the `parallel computing documentation`_.
 
