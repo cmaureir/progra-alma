@@ -128,7 +128,7 @@ to understand the behavior::
                             input filename
 
 Comma-Separated Values (CSV)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The CSV file formats is used
 to store data in plain-text
