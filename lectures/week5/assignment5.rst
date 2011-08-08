@@ -57,7 +57,7 @@ so the maximum previous value will be 14).
    **Hint:** Returning more than one value.
 
 #. The boy has a sticker register of all their albums,
-   but in this time, he is only looking for finish the
+   but in this time, he is only looking to finish the
    **Python album**.
 
    The register is a simple list, called ``album_stickers``.
@@ -68,7 +68,7 @@ so the maximum previous value will be 14).
    Write a function called ``add_stickers()``,
    which receive a parameter of the number of stickers,
    which can be *one* or *n* stickers,
-   because in some days, the boy buy a lot of packets
+   because in some days, the boy buys a lot of packets
    and he want to add them all::
 
     >>> album_stickers = []

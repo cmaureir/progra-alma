@@ -42,7 +42,7 @@ but the most important thing is that
 you can return more than one object.
 
 For example,
-we can have a function to obtain the first
+we can have a function that obtains the first
 and last name for a determined person,
 so we will usually program that as follows:
 
@@ -95,7 +95,7 @@ This return statements are not the same in all the cases:
    <type 'int'>
 
 
-Means that if we assign a multiple return
+It means that if we assign a multiple return
 function, the variable will be a tuple (immutable object),
 including different types of objects:
 
@@ -109,9 +109,7 @@ including different types of objects:
    ([1, 2], (3, 4), 5)
 
 
-If you want to receive only one value in some cases,
-you can use the ``_`` statement if you do not care about
-the other values, for example:
+If you want to receive only one value, and you don`t care about the others, you can use the ``_`` statement. For example:
 
 ::
 
