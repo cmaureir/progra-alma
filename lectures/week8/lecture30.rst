@@ -363,42 +363,47 @@ using the helper function ``status``, for example::
 **Note:** If you want to try some CCL command in real machines,
 please make contact with people working in STE at OSF.
 
-.. Exercises
-.. ~~~~~~~~~~
-.. 
-.. The following exercises are extracted from the `CCL Training presentation`_ (by Bernhard Lopez and Ruben Soto).
-.. 
-.. .. _`CCL Training presentation`: http://aivwiki.alma.cl/~acaceres/CCLTraining_v2.pdf
-.. 
-.. * Exercise 1
-.. 
-..     * Start CCL
-..     * Display the available device types, functions and variables
-..     * Display the help-text for the classes `OpticalTelescope` and for the *DGCK*.
-..     * Display the help-text for the functions ``pingabm()`` and ``get_devices()``.
-.. 
-.. *  Exercise 2
-.. 
-..     * Instantiate the following objects (check the help-text for ``__init__`` to obtain the constructors parameters):
-.. 
-..         * *DGCK* on container ``DV01`` (if available)
-..         * `OpticalTelescope` on container ``DV01`` (if available)
-.. 
-.. *  Exercise 3
-.. 
-..     * Access the device functionality (use tab-completion to see the available methods):
-.. 
-..         * Read the value of ``PS_VOLTAGE_CLOCK`` of the *DGCK*.
-..         * Check if the OpticalTelescope aperture is open or closed.
-.. 
-.. *  Exercise 4
-.. 
-..     * Execute the STATUS method for *DGCK* on container ``DV01``.
-..     * Execute the STATUS method for *FLOOG* on container ``DA41``.
-.. 
-.. *  Exercise 5
-.. 
-..     * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
-..     * Execute ``STATUS()`` method for the group.
-..     * Use ``DelayTrackingEnabled()`` method for the DGCK group.
-..     * Set DelayTracking to False over the DGCK group.
+Exercises
+~~~~~~~~~~
+
+Some of the following exercises are extracted from the `CCL Training presentation`_ (by Bernhard Lopez and Ruben Soto).
+
+.. _`CCL Training presentation`: http://aivwiki.alma.cl/~acaceres/CCLTraining_v2.pdf
+
+Remember that you can access to the documentation of each `Observing Mode`, `Mode Controllers`, `Devices`, etc
+in the `official documentation page`_.
+
+.. _`official documentation page`: http://ccl.aiv.alma.cl/CCLReferenceManual.711/
+
+* Exercise 1
+
+    * Start CCL
+    * Display the available device types, functions and variables
+    * Display the help-text for the classes *WVR* and for the *DGCK*.
+    * Display the help-text for the functions ``pingabm()`` and ``get_devices()``.
+
+*  Exercise 2
+
+    * Instantiate the following objects (check the help-text for ``__init__`` to obtain the constructors parameters):
+
+        * *DGCK* on container ``DV01`` (if available)
+        * *WVR* on container ``DV01`` (if available)
+
+*  Exercise 3
+
+    * Access the device functionality (use tab-completion to see the available methods):
+
+        * Read the value of ``PS_VOLTAGE_CLOCK`` of the *DGCK*.
+        * Get the alarms associated to the *WVR* instance. (use the *GET_WVR_ALARMS()* method).
+
+*  Exercise 4
+
+    * Execute the STATUS method for *DGCK* on container ``DV01``.
+    * Execute the STATUS method for *FLOOG* on container ``DA41``.
+
+*  Exercise 5
+
+    * Instantiate a group of DGCKs devices for *DV01* and *DA41* containers.
+    * Execute ``STATUS()`` method for the group.
+    * Use ``DelayTrackingEnabled()`` method for the DGCK group.
+    * Set DelayTracking to False over the DGCK group.
