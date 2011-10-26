@@ -73,7 +73,7 @@ IPython features
   which you are dealing with.
 
   You simple need to type the ``object_name.``
-  and then press the :kbd:`Tab` key (↹) to view the object's attributes
+  and then press the :kbd:`Tab` key to view the object's attributes
   and methods.
 
   Besides Python objects, you can use tab completion with file and directory names.
@@ -101,7 +101,7 @@ IPython features
 
     * Lets consider the following example::
 
-          localhost~»≻ cat test.py
+          localhost > cat test.py
           print 'hello world!'  
 
     * ``%run <script>``::
@@ -135,7 +135,7 @@ IPython features
   and results with ``Out [x]``.
 
   You can easily go through previous commands with the
-  :kbd:`Up` arrow (↑) and :kbd:`Down` arrow (↓) keys.
+  :kbd:`Up` arrow (:math:`\uparrow`) and :kbd:`Down` arrow (:math:`\downarrow`) keys.
 
   The `Input` and `Output` histories are kept in variables called ``In`` and ``Out``,
   that can be indexed with the prompt number on which they occurred,

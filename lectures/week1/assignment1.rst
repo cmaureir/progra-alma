@@ -7,7 +7,7 @@ Assignment 1
 How to cook the perfect egg.
 ----------------------------
 
-As an egg cooks, the proteins ﬁrst denature and then coagulate.
+As an egg cooks, the proteins first denature and then coagulate.
 When the temperature exceeds a critical point, reactions begin and
 proceed faster as the temperature increases.
 
@@ -35,7 +35,7 @@ Here, `M` , `\rho`, `c`, and `K` are properties of the egg:
 
 * `M` is the mass,
 * `\rho` is the density,
-* `c` is the speciﬁc heat capacity,
+* `c` is the specific heat capacity,
 * and `K` is thermal conductivity.
 
  Relevant values are:

@@ -125,7 +125,7 @@ when ``A`` and ``b`` are given:
 .. image:: ../../diagrams/diet-2.png
    :align: center
 
-The matrix equation `Ax = b` is a shorthand way
+The matrix equation :math:`Ax = b` is a shorthand way
 of expressing a `system of linear equations`_.
 For example,
 the equation of the diagram

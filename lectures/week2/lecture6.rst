@@ -178,8 +178,8 @@ can be given by the next table:
 **salary**             **tax rate**
 ---------------------- --------------------
 less than 1000                           0%
-1000 ≤ salary < 2000                     5%
-2000 ≤ salary < 4000                    10%
+1000 <= salary < 2000                     5%
+2000 <= salary < 4000                    10%
 4000 or higher                          12%
 ====================== ====================
 
@@ -438,13 +438,13 @@ Exercises
 7. The risk for a person to suffer coronary diseases
    depends on his age and his body mass index (BMI):
    
-     +----------------+---------------+---------------+
-     |                | age < 45      | age ≥ 45      |
-     +================+===============+===============+
-     | **BMI < 22.0** | lower         | middle        |
-     +----------------+---------------+---------------+
-     | **BMI ≥ 22.0** | middle        | high          |
-     +----------------+---------------+---------------+
+     +-----------------+---------------+---------------+
+     |                 | age < 45      | age >= 45     |
+     +=================+===============+===============+
+     | **BMI < 22.0**  | lower         | middle        |
+     +-----------------+---------------+---------------+
+     | **BMI >= 22.0** | middle        | high          |
+     +-----------------+---------------+---------------+
    
    The BMI is the quotient between the weight (kg) and the
    square of his height (m).
@@ -457,4 +457,4 @@ Exercises
                *Practical Programming:
                An Introduction to Computer Science Using Python*.
                Pragmatic Bookshelf, 2009.
-
+/

@@ -30,7 +30,7 @@ Minesweeper
      Perform the following steps:
   
      a. Build a vector of ``rows * columns`` size
-        which has ``n`` times the −1 value, and the rest of them, only zeros.
+        which has ``n`` times the -1 value, and the rest of them, only zeros.
      b. Import the ``shuffle`` function from the ``numpy.random`` module.
         This function disorder (or «shuffle») the array elements.
      c. Shuffle the vector elements that you created.

@@ -435,8 +435,8 @@ Exercises
 
    * `m_i`: mass of the i-body
    * `m_j`: mass of the j-body
-   * `r_{ij} = (xj−xi)`, vector between the `i` and `j` bodies.
-   * `G`: gravitational constant (`6.67428*10−11 m^{3}\cdot kg^{−1}\cdot s^{−2}`)
+   * `r_{ij} = (xj-xi)`, vector between the `i` and `j` bodies.
+   * `G`: gravitational constant (`6.67428*10-11 m^{3}\cdot kg^{-1}\cdot s^{-2}`)
 
    Write a program that receives the previous values (`x_i`, `v_i`, `m_i`) of two bodies,
    consider only a 1-dimension space and only two bodies.

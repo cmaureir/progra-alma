@@ -198,7 +198,7 @@ Documentation
 
 The docstring can be used by classes and by the class components,
 being strings literals to describe the mechanism and details of some
-Python statement, using the `__doc__` reserved function.
+Python statement, using the :math:`\_\_doc\_\_` reserved function.
 (this can be used by modules, functions, classes and methods).
 
 The following example summarizes the places where doctstrings can show up

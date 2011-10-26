@@ -238,14 +238,14 @@ Exercises
 
 #. In the card games, a card has two attributes:
    a value (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q o K) and
-   a suit (♥, ♠, ♦ o ♣).     
+   a suit (:math:`\heartsuit`, :math:`\spadesuit`, :math:`\diamondsuit` or :math:`\clubsuit`).     
      
    In a program, a card can be represented as a tuple
    of two elements: the value and the suit.
    The value is a number from 1 to 13, and the suit is a string ('H', 'C', 'S' or 'D').
      
    A hand can be represented as a set of cards.
-   For example, we can represented the hand 5♣ 2♥ 1♠ Q♥ K♣ as the next way:
+   For example, we can represented the hand 5:math:`\clubsuit` 2:math:`\heartsuit` 1:math:`\spadesuit` Q:math:`\heartsuit` K:math:`\clubsuit` as the next way:
      
    ::   
      
@@ -257,11 +257,11 @@ Exercises
 
    For example:     
      
-   * 3♥ 6♥ 5♥ 4♥ is a straight, because all the card have the suit ♥ and their consecutive values
+   * :math:`3\heartsuit 6\heartsuit 5\heartsuit 4\heartsuit` is a straight, because all the card have the suit :math:`\heartsuit` and their consecutive values
      are from 3 to 6.
-   * 3♣ 6♦ 5♦ 4♥ is not a straight, because the cards have different suits.  
-   * 3♣ A♣ J♣ 5♣ is not a straight, because the values are not consecutive.
-   * 3♠ 4♠ 5♠ is not a straight, because the hand does not have four cards.
+   * :math:`3\clubsuit 6\diamondsuit 5\diamondsuit 4\heartsuit` is not a straight, because the cards have different suits.  
+   * :math:`3\clubsuit A\clubsuit J\clubsuit 5\clubsuit` is not a straight, because the values are not consecutive.
+   * :math:`3\spadesuit 4\spadesuit 5\spadesuit` is not a straight, because the hand does not have four cards.
      
      
    Write a function called *is_straight(hand)* which indicates if the hand is or not a straight.
@@ -279,14 +279,14 @@ Exercises
 
 #. In the card games, a card have two attributes:
    a value (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K)     
-   and a suit (♥, ♦, ♣, ♠).     
+   and a suit (:math:`\heartsuit, \diamondsuit, \clubsuit, \spadesuit`).     
    
    In a program, the value can be represented by a number between 1 and 13,
    and the suit like a string:    
-   ♥ → ``'H'``,
-   ♦ → ``'D'``,
-   ♣ → ``'C'`` and     
-   ♠ → ``'S'``.
+   :math:`\heartsuit \rightarrow` ``'H'``,
+   :math:`\diamondsuit \rightarrow` ``'D'``,
+   :math:`\clubsuit \rightarrow` ``'C'`` and     
+   :math:`\spadesuit \rightarrow` ``'S'``.
    
    A card can be represented as a tuple of two elements, the value and the suit::
  

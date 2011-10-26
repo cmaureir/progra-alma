@@ -40,7 +40,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ALMA Programming Course'
-copyright = u'2011, CSRG'
+copyright = u'2011, Computer Systems Research Group (CSRG), UTFSM'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -185,7 +185,7 @@ latex_paper_size = 'letter'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'ALMAProgrammingCourse.tex', u'ALMA Programming Course Documentation',
-   u'TBD', 'manual'),
+   u'Roberto Bonvallet and Cristian Maureira', 'manual'),
 ]
 
 latex_elements = {
@@ -212,7 +212,7 @@ latex_use_modindex = False
 #latex_show_urls = False
 
 # Additional stuff for the LaTeX preamble.
-#latex_preamble = ''
+latex_preamble = '\setcounter{tocdepth}{2}'
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
@@ -227,5 +227,5 @@ latex_use_modindex = False
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'almaprogrammingcourse', u'ALMA Programming Course Documentation',
-     [u'TBD'], 1)
+     [u'Roberto Bonvallet and Cristian Maureira'], 1)
 ]

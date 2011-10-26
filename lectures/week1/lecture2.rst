@@ -35,9 +35,11 @@ and is represented as::
 The name used in an expression is called
 **variable** or **ID**.
 
-The assignment in the previous example, will be::
+The assignment in the previous example, will be:
 
-    Δ = b² − 4 * a * c
+.. math::
+
+    \bigtriangleup = b^{2} - 4 * a * c
 
 An assignment must be interpreted as follows:
 
@@ -66,7 +68,7 @@ Sometimes an algorithm must do different steps
 under different conditions.
 This is what we do in the third step of the example:
 we say that the equation does not have solutions
-only when the `Δ < 0` condition is satisfied.
+only when the :math:`\bigtriangleup < 0` condition is satisfied.
 This is called **conditional**.
 
 The condition that determines what to execute

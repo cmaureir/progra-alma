@@ -701,7 +701,7 @@ Exercises
    Each line has the student name and their six grades, divided by a ``:`` symbol.
    
    Write a program which makes a new file called ``report.txt``,
-   in which each line shows if the student passed (average ≥ 4,0) or failed (average < 4,0)::
+   in which each line shows if the student passed (average >= 4,0) or failed (average < 4,0)::
    
        Pepito approved
        Yayita approved

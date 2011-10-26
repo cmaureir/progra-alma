@@ -3,7 +3,6 @@ ALMA Programming Course
 
 Contents:
 
-
 .. toctree::
    :maxdepth: 2
 

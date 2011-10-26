@@ -340,7 +340,7 @@ Exercises
    
    The program must finish when the decimal fraction be lower or equal to 0.000001.
 
-#. The Euler number, *e* ≈ 2,71828,
+#. The Euler number, :math:`e \approx 2,71828`,
    can be represented as the following infinite sum:
    
    .. math::
